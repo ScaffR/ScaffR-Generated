@@ -14,3 +14,6 @@ _ReSharper.*
 *.t4properties
 */bin/*
 DemoApplication/DemoApplication.v11.suo
+*/obj/*
+*.suo
+*.cache
