@@ -6,7 +6,7 @@ namespace DemoApplication.Core.Configuration
     {
         public static CoreSection GetConfig()
         {
-            return (CoreSection)ConfigurationManager.GetSection("TaskForceManager/TaskForceManager.Core");
+            return (CoreSection)ConfigurationManager.GetSection("DemoApplication/DemoApplication.Core");
         }       
     }
 }

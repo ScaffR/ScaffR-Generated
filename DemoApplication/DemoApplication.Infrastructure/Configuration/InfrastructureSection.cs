@@ -6,7 +6,7 @@ namespace DemoApplication.Infrastructure.Configuration
     {
         public static InfrastructureSection GetConfig()
         {
-            return (InfrastructureSection)ConfigurationManager.GetSection("TaskForceManager/TaskForceManager.Infrastructure");
+            return (InfrastructureSection)ConfigurationManager.GetSection("DemoApplication/DemoApplication.Infrastructure");
         }
     }
 }

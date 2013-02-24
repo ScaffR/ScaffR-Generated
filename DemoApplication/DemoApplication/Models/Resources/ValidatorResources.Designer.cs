@@ -36,7 +36,7 @@ namespace DemoApplication.Models.Resources {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("TaskForceManager.Models.Resources.ValidatorResources", typeof(ValidatorResources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DemoApplication.Models.Resources.ValidatorResources", typeof(ValidatorResources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
