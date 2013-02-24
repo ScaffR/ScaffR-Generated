@@ -1,0 +1,11 @@
+<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+namespace <#= Model.Namespace #>.Infrastructure.Pipeline
+{
+    using System.Configuration.Provider;
+
+    public abstract class Filter<T> : ProviderBase
+    {
+        public abstract bool Process(ref T data);
+    }
+}

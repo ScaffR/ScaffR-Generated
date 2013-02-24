@@ -1,0 +1,22 @@
+﻿<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+/*
+ * Copyright (c) Dominick Baier.  All rights reserved.
+ * see license.txt
+ */
+
+namespace <#= Model.Namespace #>.IdentityModel.Tokens
+{
+    using System.IdentityModel.Tokens;
+
+    public class WebTokenSecurityKeyClause : SecurityKeyIdentifierClause
+    {
+        public string Issuer { get; set; }
+
+        public WebTokenSecurityKeyClause(string issuer)
+            : base("WebToken")
+        {
+            Issuer = issuer;
+        }
+    }
+}

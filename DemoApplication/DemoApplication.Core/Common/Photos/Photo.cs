@@ -1,0 +1,24 @@
+namespace DemoApplication.Core.Common.Photos
+{
+    /// <summary>
+    /// The photo.
+    /// </summary>
+    public partial class Photo
+    {
+        /// <summary>
+        /// Gets or sets the id.
+        /// </summary>       
+        /// todo: "Id" should only be reserved for fields with a database id.  Use 'PhotoCode' instead.
+        public string Id { get; set; }
+
+        /// <summary>
+        /// Gets or sets the url.
+        /// </summary>
+        public string Url { get; set; }
+
+        /// <summary>
+        /// Gets or sets the resize name.
+        /// </summary>
+        public string ResizeName { get; set; }
+    }
+}

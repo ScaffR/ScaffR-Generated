@@ -1,0 +1,9 @@
+﻿<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+namespace <#= Model.Namespace #>.Infrastructure.Interfaces.Eventing
+{
+    public interface IHandles<T>
+    {
+        void OnEvent(T e);
+    }
+}

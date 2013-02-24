@@ -1,0 +1,48 @@
+namespace DemoApplication.IdentityModel.Authorization.MVC
+{
+    using System.Web.Mvc;
+
+    public class ClaimsAuthorizeAttribute : AuthorizeAttribute
+    {
+        public string _action;
+        public string[] _resources;
+
+        private const string _label = "Thinktecture.IdentityModel.Authorization.Mvc.ClaimsAuthorizeAttribute";
+
+        public ClaimsAuthorizeAttribute()
+        { }
+
+        public ClaimsAuthorizeAttribute(string action, params string[] resources)
+        {
+            _action = action;
+            _resources = resources;
+        }
+
+        public override void OnAuthorization(AuthorizationContext filterContext)
+        {
+            filterContext.HttpContext.Items[_label] = filterContext;
+            base.OnAuthorization(filterContext); 
+        }
+
+        protected override bool AuthorizeCore(System.Web.HttpContextBase httpContext)
+        {
+            if (!string.IsNullOrWhiteSpace(_action))
+            {
+                return ClaimsAuthorization.CheckAccess(_action, _resources);
+            }
+            else
+            {
+                var filterContext = httpContext.Items[_label] as AuthorizationContext;
+                return CheckAccess(filterContext);
+            }
+        }
+
+        protected virtual bool CheckAccess(AuthorizationContext filterContext)
+        {
+            var action = filterContext.RouteData.Values["action"] as string;
+            var controller = filterContext.RouteData.Values["controller"] as string;
+
+            return ClaimsAuthorization.CheckAccess(action, controller);
+        }
+    }
+}

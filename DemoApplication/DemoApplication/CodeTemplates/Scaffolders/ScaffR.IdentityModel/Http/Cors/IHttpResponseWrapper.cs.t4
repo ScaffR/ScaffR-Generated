@@ -1,0 +1,14 @@
+﻿<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+/*
+ * Copyright (c) Dominick Baier & Brock Allen.  All rights reserved.
+ * see license.txt
+ */
+
+namespace <#= Model.Namespace #>.IdentityModel.Http.Cors
+{
+    public interface IHttpResponseWrapper
+    {
+        void AddHeader(string name, string value);
+    }
+}

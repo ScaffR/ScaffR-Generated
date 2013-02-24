@@ -1,0 +1,19 @@
+﻿<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+namespace <#= Model.Namespace #>.Service
+{ 
+    using Core.Interfaces.Data;
+	using Core.Interfaces.Service;
+    using Core.Model;
+
+    public partial class <#= Model.ClassName #>Service : BaseService<<#= Model.ClassName #>>, I<#= Model.ClassName #>Service
+    {
+		protected new I<#= Model.ClassName #>Repository Repository;				
+		
+		public <#= Model.ClassName #>Service(IUnitOfWork unitOfWork, I<#= Model.ClassName #>Repository <#= Model.ClassName.ToLower() #>Repository)
+			:base(unitOfWork)
+		{
+		    base.Repository = Repository = <#= Model.ClassName.ToLower() #>Repository;
+		}		
+	}
+}

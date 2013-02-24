@@ -1,0 +1,16 @@
+<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+namespace <#= Model.Namespace #>.Core.Interfaces.Service
+{
+    using <#= Model.Namespace #>.Core.Common.Membership;
+    using <#= Model.Namespace #>.Core.Model;
+
+    public partial interface IUserService
+    {
+        AuthenticationStatus Authenticate(string username, string password, out User user);
+        ChangePasswordStatus ChangePassword(User user, string currentPassword, string newPassword);
+        CreateUserStatus CreateUser(User user);
+        ChangePasswordStatus ResetPassword(User user);
+        bool UserExistsAlready(string userName);
+    }
+}

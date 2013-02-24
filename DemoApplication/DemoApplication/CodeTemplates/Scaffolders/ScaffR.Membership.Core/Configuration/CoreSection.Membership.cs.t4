@@ -1,0 +1,19 @@
+<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+namespace <#= Model.Namespace #>.Core.Configuration
+{
+    using Membership;
+    using System.Configuration;
+
+    public partial class CoreSection
+    {
+        [ConfigurationProperty("membership", IsRequired = true)]
+        public MembershipElement Membership
+        {
+            get
+            {
+                return (MembershipElement)base["membership"];
+            }
+        }
+    }
+}

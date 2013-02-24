@@ -1,0 +1,30 @@
+﻿<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+/*
+ * Copyright (c) Dominick Baier.  All rights reserved.
+ * see license.txt
+ */
+
+namespace <#= Model.Namespace #>.IdentityModel.Extensions.XmlExtensions
+{
+    using System.Diagnostics.Contracts;
+    using System.Xml;
+    using System.Xml.Linq;
+
+    public static partial class XmlExtensions
+    {
+        /// <summary>
+        /// Converts a XmlElement to a XElement.
+        /// </summary>
+        /// <param name="element">The XmlElement.</param>
+        /// <returns>A XElement</returns>
+        public static XElement ToXElement(this XmlElement element)
+        {
+            Contract.Requires(element != null);
+            Contract.Ensures(Contract.Result<XElement>() != null);
+
+
+            return new XmlConverter(element).CreateXElement();
+        }        
+    }
+}

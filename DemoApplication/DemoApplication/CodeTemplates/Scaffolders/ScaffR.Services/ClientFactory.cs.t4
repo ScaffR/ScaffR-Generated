@@ -1,0 +1,181 @@
+﻿<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+using System;
+using System.ServiceModel;
+
+namespace <#= Model.Namespace #>.Services
+{
+    /// <summary>
+    /// Wrapper class ensures proper life-cycle handling for IClientChannel
+    /// objects by implementing proper Open, Close and Dispose techniques
+    /// based on recommended practices.
+    /// </summary>
+    /// <remarks>
+    /// The idea for BeginInvoke and EndInvoke methods was derived from
+    /// this <see cref="http://msdn.microsoft.com/en-us/magazine/ee309512.aspx">MSDN article</see>
+    /// </remarks>
+    /// <typeparam name="TService">An interface which defines an async ServiceContract</typeparam>
+    public class ClientFactory<TService> : IDisposable, IClientFactory<TService> where TService : class
+    {
+        private readonly ChannelFactory<TService> mFactory;
+        private readonly Object mSyncRoot = new Object();
+        private TService mService;
+
+        public ClientFactory(String endpointName)
+        {
+            mFactory = new ChannelFactory<TService>(endpointName);
+        }
+
+        public ClientFactory()
+        {
+            var typename = typeof(TService).ToString();
+            var endpointConfigName = typename.Substring(typename.LastIndexOf(".", StringComparison.Ordinal) + 1);
+            mFactory = new ChannelFactory<TService>(endpointConfigName);
+        }
+
+        public ClientFactory(TService service)
+        {
+            mService = service;
+        }
+
+        #region IClientFactory<TService> Members
+
+        public TService Client
+        {
+            get
+            {
+                if (mService != null)
+                    return mService;
+
+                lock (mSyncRoot)
+                {
+                    if (mService == null)
+                    {
+                        if (mFactory.Endpoint.Binding.Name == "BasicHttpBinding")
+                        {
+                            //var creds = new NetworkCredential("Oncall1", "OnCall4321", "OnCall");
+                            //_mFactory.Credentials.Windows.ClientCredential = creds;
+                            if (mFactory.Credentials != null)
+                            {
+                                mFactory.Credentials.Windows.ClientCredential.UserName = "OnCall\\Oncall1";
+                                mFactory.Credentials.Windows.ClientCredential.Password = "OnCall4321";
+                            }
+                        }
+                        mService = mFactory.CreateChannel();
+                        ((IClientChannel)mService).Faulted += ClientChannelFaulted;
+                    }
+                }
+
+                return mService;
+            }
+        }
+
+        public IAsyncResult BeginInvoke(Func<TService, IAsyncResult> function)
+        {
+            try
+            {
+                return function.Invoke(Client);
+            }
+            catch (Exception)
+            {
+                CloseChannel();
+                throw;
+            }
+        }
+
+        public TResult EndInvoke<TResult>(Func<TService, TResult> function)
+        {
+            try
+            {
+                return function.Invoke(Client);
+            }
+            catch (Exception)
+            {
+                CloseChannel();
+                throw;
+            }
+        }
+
+        public void EndInvoke(Action<TService> action)
+        {
+            try
+            {
+                action.Invoke(Client);
+            }
+            catch (Exception)
+            {
+                CloseChannel();
+                throw;
+            }
+        }
+
+        #endregion IClientFactory<TService> Members
+
+        #region IDisposable Members
+
+        ~ClientFactory()
+        {
+            Dispose(false);
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                CloseChannel();
+            }
+        }
+
+        #endregion IDisposable Members
+
+        protected void CloseChannel()
+        {
+            if (mService != null)
+            {
+                lock (mSyncRoot)
+                {
+                    var channel = mService as IClientChannel;
+                    if (channel != null)
+                    {
+                        try
+                        {
+                            channel.Faulted -= ClientChannelFaulted;
+                            if (channel.State == CommunicationState.Faulted)
+                                channel.Abort();
+                            else
+                                channel.Close();
+                        }
+                        catch (CommunicationException)
+                        {
+                            channel.Abort();
+                        }
+                        catch (TimeoutException)
+                        {
+                            channel.Abort();
+                        }
+                        catch (Exception)
+                        {
+                            channel.Abort();
+                            throw;
+                        }
+                        finally
+                        {
+                            mService = null;
+                        }
+                    }
+                }
+            }
+        }
+
+        private void ClientChannelFaulted(Object sender, EventArgs e)
+        {
+            CloseChannel();
+        }
+    }
+}

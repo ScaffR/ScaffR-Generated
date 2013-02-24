@@ -1,0 +1,16 @@
+﻿<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+/*
+ * Copyright (c) Dominick Baier.  All rights reserved.
+ * see license.txt
+ */
+
+namespace <#= Model.Namespace #>.IdentityModel.Authorization.Todo
+{
+    using System.Web.Http.Controllers;
+
+    public interface IAuthorizationManager
+    {
+        bool CheckAccess(HttpActionContext context);
+    }
+}

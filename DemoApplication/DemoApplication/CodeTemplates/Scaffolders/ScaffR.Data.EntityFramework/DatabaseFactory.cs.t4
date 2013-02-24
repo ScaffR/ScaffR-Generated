@@ -1,0 +1,21 @@
+﻿<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+namespace <#= Model.Namespace #>.Data
+{
+    using <#= Model.Namespace #>.Core.Interfaces.Data;
+
+    public partial class DatabaseFactory : IDatabaseFactory
+    {
+        private IDataContext _datacontext;
+
+        public IDataContext Get()
+        {
+            return this._datacontext ?? (_datacontext = new DataContext());
+        }
+
+        public void Dispose()
+        {
+            // TODO: Check what ninject does, because if we dispose this it will crash!
+        }
+    }
+}

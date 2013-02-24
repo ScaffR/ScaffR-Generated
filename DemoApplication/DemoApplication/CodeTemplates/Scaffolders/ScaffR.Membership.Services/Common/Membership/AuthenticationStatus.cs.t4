@@ -1,0 +1,14 @@
+<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+namespace <#= Model.Namespace #>.Core.Common.Membership
+{
+    public enum AuthenticationStatus
+    {
+        Authenticated,
+        InvalidUsername,
+        InvalidPassword,
+        ResetPassword,
+        UserLockedOut,
+        AccountNotActive
+    }
+}

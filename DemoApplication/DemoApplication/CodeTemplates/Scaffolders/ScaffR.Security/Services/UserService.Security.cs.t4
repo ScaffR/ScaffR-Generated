@@ -1,0 +1,16 @@
+<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+using System.Linq;
+using <#= Model.Namespace #>.Core.Model;
+using System;
+
+namespace <#= Model.Namespace #>.Service
+{
+    public partial class UserService
+    {
+        public User GetByUsername(string userName)
+        {
+            return Find(u => u.Username.Equals(userName, StringComparison.InvariantCultureIgnoreCase)).FirstOrDefault();
+        }
+    }
+}

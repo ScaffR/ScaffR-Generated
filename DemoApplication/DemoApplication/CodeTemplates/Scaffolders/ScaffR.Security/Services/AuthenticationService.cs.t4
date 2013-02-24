@@ -1,0 +1,68 @@
+<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+namespace <#= Model.Namespace #>.Service
+{
+    using System;
+    using System.Linq;
+    using System.Web;
+    using System.Web.Security;
+    using System.IdentityModel.Services;
+
+    using Core.Interfaces.Service;
+
+    public class AuthenticationService : IAuthenticationService
+    {
+        private readonly string _loginUrl = FormsAuthentication.LoginUrl;
+
+        private readonly string _authCookieName = FormsAuthentication.FormsCookieName;
+
+        public bool IsAuthenticated()
+        {
+            return HttpContext.Current.Request.Cookies.AllKeys.Contains(this._authCookieName);
+        }
+
+        public void ClearImpersonationCookie()
+        {
+            HttpCookie cookie = HttpContext.Current.Response.Cookies["impersonate"];
+
+            if (cookie != null) cookie.Expires = DateTime.Now.AddDays(-1);
+        }
+
+        public void SetAuthCookie(string username, bool persisted)
+        {
+            FormsAuthentication.SetAuthCookie(username, persisted);
+        }
+
+        public void SetImpersonationAuthCookie(int impersonatorId)
+        {
+            var cookie = new HttpCookie("impersonate")
+                {
+                    Value = string.Format("{0}{1}", Guid.NewGuid(), impersonatorId),
+                    Expires = DateTime.Now.AddDays(1)
+                };
+
+            HttpContext.Current.Response.Cookies.Add(cookie);
+        }
+
+        public void SignOut()
+        {
+            FormsAuthentication.SignOut();
+            FederatedAuthentication.SessionAuthenticationModule.SignOut();
+        }
+
+        public void RedirectToLoginPage()
+        {
+            if (HttpContext.Current.Request.Path == this._loginUrl)
+            {
+                return;
+            }
+
+            HttpContext.Current.Response.Redirect(this._loginUrl);
+        }
+
+        public string GetRedirectUrl(string username, bool createPersistentCookie)
+        {
+            return FormsAuthentication.GetRedirectUrl(username, createPersistentCookie);
+        }
+    }
+}

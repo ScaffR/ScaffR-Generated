@@ -1,0 +1,3 @@
+﻿<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="asax" #>
+<%@ Application Inherits="<#= Model.Namespace #>.Application.MvcApplication" Language="C#" %>

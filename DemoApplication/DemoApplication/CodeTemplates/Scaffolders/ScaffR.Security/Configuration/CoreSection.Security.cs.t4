@@ -1,0 +1,19 @@
+<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+namespace <#= Model.Namespace #>.Core.Configuration
+{
+    using System.Configuration;
+    using Security;
+
+    public partial class CoreSection
+    {
+        [ConfigurationProperty("security", IsRequired = true)]
+        public SecurityElement Security
+        {
+            get
+            {
+                return (SecurityElement)base["security"];
+            }
+        }
+    }
+}

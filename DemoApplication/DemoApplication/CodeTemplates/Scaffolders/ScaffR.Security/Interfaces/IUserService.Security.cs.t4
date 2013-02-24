@@ -1,0 +1,11 @@
+<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+using <#= Model.Namespace #>.Core.Model;
+
+namespace <#= Model.Namespace #>.Core.Interfaces.Service
+{
+    public partial interface IUserService
+    {
+        User GetByUsername(string userName);
+    }
+}

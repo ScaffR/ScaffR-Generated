@@ -7,7 +7,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{0D33C6FA-FE5B-4D5F-9F16-BF29D866FDAB}</ProjectGuid>
+    <ProjectGuid>{71FA4BC7-E0E4-45E3-ACB5-9725E8043A94}</ProjectGuid>
     <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -39,10 +39,55 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxMin">
+      <HintPath>..\packages\AjaxMin.4.60.4609.17023\lib\net20\AjaxMin.dll</HintPath>
+    </Reference>
+    <Reference Include="Cassette">
+      <HintPath>..\packages\Cassette.2.0.0\lib\net40-client\Cassette.dll</HintPath>
+    </Reference>
+    <Reference Include="Cassette.Aspnet">
+      <HintPath>..\packages\Cassette.Aspnet.2.0.0\lib\net40\Cassette.Aspnet.dll</HintPath>
+    </Reference>
+    <Reference Include="Cassette.Less">
+      <HintPath>..\packages\Cassette.Less.2.0.0\lib\net40-client\Cassette.Less.dll</HintPath>
+    </Reference>
+    <Reference Include="Cassette.Views">
+      <HintPath>..\packages\Cassette.Views.2.0.0\lib\net40\Cassette.Views.dll</HintPath>
+    </Reference>
+    <Reference Include="dotless.ClientOnly">
+      <HintPath>..\packages\DotlessClientOnly.1.3.1.0\lib\dotless.ClientOnly.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Mvc.Mailer">
+      <HintPath>..\packages\ScaffR.MvcMailer.1.1.4\lib\40\Mvc.Mailer.dll</HintPath>
+    </Reference>
+    <Reference Include="MvcSiteMapProvider">
+      <HintPath>..\packages\ScaffR.Sitemap.1.1.4\lib\MvcSiteMapProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject">
+      <HintPath>..\packages\ScaffR.Ninject.1.1.4\lib\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Common">
+      <HintPath>..\packages\ScaffR.Ninject.1.1.4\lib\Ninject.Web.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Mvc">
+      <HintPath>..\packages\ScaffR.Ninject.1.1.4\lib\Ninject.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Omu.ValueInjecter">
+      <HintPath>..\packages\valueinjecter.2.3.3\lib\net35\Omu.ValueInjecter.dll</HintPath>
+    </Reference>
+    <Reference Include="ScaffR.Extensions">
+      <HintPath>..\packages\ScaffR.Extensions.1.1.4\lib\ScaffR.Extensions.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.IdentityModel.Services" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -102,19 +147,174 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="WebActivator">
+      <HintPath>..\packages\WebActivator.1.5.2\lib\net40\WebActivator.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
+    <Compile Include="Application\MvcApplication.ApplicationStart.cs" />
+    <Compile Include="Application\MvcApplication.SessionStart.cs" />
+    <Compile Include="Areas\Api\ApiAreaRegistration.cs" />
+    <Compile Include="Areas\Api\Controllers\ApiController.cs" />
+    <Compile Include="Areas\Api\Controllers\TaskController.cs" />
+    <Compile Include="Bootstrappers\Bootstrapper.ActionFilters.cs" />
+    <Compile Include="Bootstrappers\Bootstrapper.Cassette.cs" />
+    <Compile Include="Bootstrappers\Bootstrapper.EventHandlers.cs" />
+    <Compile Include="Bootstrappers\Bootstrapper.Ninject.cs" />
+    <Compile Include="Bootstrappers\Bootstrapper.Routes.cs" />
+    <Compile Include="Bootstrappers\Bootstrapper.Validators.cs" />
+    <Compile Include="Bootstrappers\Bootstrapper.WebApi.cs" />
+    <Compile Include="Controllers\Account\AccountController.ChangePassword.cs" />
+    <Compile Include="Controllers\Account\AccountController.cs" />
+    <Compile Include="Controllers\Account\AccountController.ForgotPassword.cs" />
+    <Compile Include="Controllers\Account\AccountController.Logon.cs" />
+    <Compile Include="Controllers\Account\AccountController.Photo.cs" />
+    <Compile Include="Controllers\Account\AccountController.Profile.cs" />
+    <Compile Include="Controllers\Account\AccountController.Register.cs" />
+    <Compile Include="Controllers\Account\AccountController.Settings.cs" />
+    <Compile Include="Controllers\DashboardController.cs" />
+    <Compile Include="Controllers\DropdownController.cs" />
+    <Compile Include="Controllers\Home\HomeController.cs" />
+    <Compile Include="Controllers\Task\TaskController.cs" />
+    <Compile Include="Controllers\Users\UsersController.Details.cs" />
+    <Compile Include="Controllers\Users\UsersController.Manager.cs" />
+    <Compile Include="Controllers\Users\UsersController.cs" />
+    <Compile Include="Dropdowns\Dropdowns.Countries.cs" />
+    <Compile Include="Dropdowns\Dropdowns.CreditCardExpirationYears.cs" />
+    <Compile Include="Dropdowns\Dropdowns.CreditCardTypes.cs" />
+    <Compile Include="Dropdowns\Dropdowns.Enum.cs" />
+    <Compile Include="Dropdowns\Dropdowns.Months.cs" />
+    <Compile Include="Dropdowns\Dropdowns.States.cs" />
+    <Compile Include="Extensions\ActionDescriptorExtensions.cs" />
+    <Compile Include="Extensions\ControllerExtensions.cs" />
+    <Compile Include="Extensions\Html\HtmlExtensions.Site.cs" />
+    <Compile Include="Extensions\SelectListExtensions.cs" />
+    <Compile Include="Extensions\Sitemap\BootstrapHelpers.cs" />
+    <Compile Include="Extensions\Sitemap\BreadcrumbExtensions.cs" />
+    <Compile Include="Extensions\Sitemap\NavExtensions.cs" />
+    <Compile Include="Extensions\Sitemap\PillsExtensions.cs" />
+    <Compile Include="Extensions\Sitemap\TabsExtensions.cs" />
+    <Compile Include="Extensions\UrlExtensions.cs" />
+    <Compile Include="Extensions\UrlExtensions.Photos.cs" />
+    <Compile Include="Extensions\UrlExtensions.ProfilePicture.cs" />
+    <Compile Include="Filters\FillDropDowns.cs" />
+    <Compile Include="Filters\OnlyAnonymous.cs" />
+    <Compile Include="Filters\ShowAlerts.cs" />
+    <Compile Include="Filters\ShowBreadcrumb.cs" />
+    <Compile Include="Filters\UserContextFilter.cs" />
+    <Compile Include="Filters\UserContextFilters\ChangePasswordRequired.cs" />
+    <Compile Include="Filters\UserContextFilters\SetProfileValues.cs" />
+    <Compile Include="Mailers\Mailer.cs" />
+    <Compile Include="Mailers\Mailer.ForgotPassword.cs" />
+    <Compile Include="Models\Adapters\CreditCardAttributeAdapter.cs" />
+    <Compile Include="Models\Adapters\CuitAttributeAdapter.cs" />
+    <Compile Include="Models\Adapters\DateAttributeAdapter.cs" />
+    <Compile Include="Models\Adapters\DigitsAttributeAdapter.cs" />
+    <Compile Include="Models\Adapters\EmailAttributeAdapter.cs" />
+    <Compile Include="Models\Adapters\EqualToAttributeAdapter.cs" />
+    <Compile Include="Models\Adapters\FileExtensionsAttributeAdapter.cs" />
+    <Compile Include="Models\Adapters\MaxAttributeAdapter.cs" />
+    <Compile Include="Models\Adapters\MinAttributeAdapter.cs" />
+    <Compile Include="Models\Adapters\NumericAttributeAdapter.cs" />
+    <Compile Include="Models\Adapters\UrlAttributeAdapter.cs" />
+    <Compile Include="Models\Adapters\YearAttributeAdapter.cs" />
+    <Compile Include="Models\Attributes\CascadingDropDownAttribute.cs" />
+    <Compile Include="Models\Attributes\CreditCardAttribute.cs" />
+    <Compile Include="Models\Attributes\CuitAttribute.cs" />
+    <Compile Include="Models\Attributes\DateAttribute.cs" />
+    <Compile Include="Models\Attributes\DigitsAttribute.cs" />
+    <Compile Include="Models\Attributes\DropDownAttribute.cs" />
+    <Compile Include="Models\Attributes\EmailAttribute.cs" />
+    <Compile Include="Models\Attributes\EnumDropDownAttribute.cs" />
+    <Compile Include="Models\Attributes\EqualToAttribute.cs" />
+    <Compile Include="Models\Attributes\Expressions.cs" />
+    <Compile Include="Models\Attributes\FileExtensionsAttribute.cs" />
+    <Compile Include="Models\Attributes\IDropDownAttribute.cs" />
+    <Compile Include="Models\Attributes\IntegerAttribute.cs" />
+    <Compile Include="Models\Attributes\MaxAttribute.cs" />
+    <Compile Include="Models\Attributes\MinAttribute.cs" />
+    <Compile Include="Models\Attributes\NumericAttribute.cs" />
+    <Compile Include="Models\Attributes\PasswordAttribute.cs" />
+    <Compile Include="Models\Attributes\PhotoAttribute.cs" />
+    <Compile Include="Models\Attributes\TextboxAttribute.cs" />
+    <Compile Include="Models\Attributes\TextboxSize.cs" />
+    <Compile Include="Models\Attributes\UrlAttribute.cs" />
+    <Compile Include="Models\Attributes\UrlOptions.cs" />
+    <Compile Include="Models\Attributes\YearAttribute.cs" />
+    <Compile Include="Models\ChangePasswordModel.cs" />
+    <Compile Include="Models\ForgotPasswordModel.cs" />
+    <Compile Include="Models\ForgotPasswordResetModel.cs" />
+    <Compile Include="Models\LogOnModel.cs" />
+    <Compile Include="Models\ProfileModel.cs" />
+    <Compile Include="Models\RegisterModel.cs" />
+    <Compile Include="Models\Resources\ClientValidationResources.Designer.cs" />
+    <Compile Include="Models\Resources\ValidatorResources.Designer.cs" />
+    <Compile Include="Models\Rules\ModelClientValidationCreditCardRule.cs" />
+    <Compile Include="Models\Rules\ModelClientValidationCuitRule.cs" />
+    <Compile Include="Models\Rules\ModelClientValidationDateRule.cs" />
+    <Compile Include="Models\Rules\ModelClientValidationDigitsRule.cs" />
+    <Compile Include="Models\Rules\ModelClientValidationEmailRule.cs" />
+    <Compile Include="Models\Rules\ModelClientValidationFileExtensionsRule.cs" />
+    <Compile Include="Models\Rules\ModelClientValidationIntegerRule.cs" />
+    <Compile Include="Models\Rules\ModelClientValidationMaxRule.cs" />
+    <Compile Include="Models\Rules\ModelClientValidationMinRule.cs" />
+    <Compile Include="Models\Rules\ModelClientValidationNumericRule.cs" />
+    <Compile Include="Models\SettingsModel.cs" />
+    <Compile Include="Models\Sitemap\BreadcrumbHelperModel.cs" />
+    <Compile Include="Models\Sitemap\NavHelperModel.cs" />
+    <Compile Include="Models\Sitemap\PillsHelperModel.cs" />
+    <Compile Include="Models\Sitemap\TabsHelperModel.cs" />
+    <Compile Include="Models\Users\UserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Security\WIFVisibilityModule.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Core\license.txt" />
+    <Content Include="Content\font\fontawesome-webfont.svg" />
+    <Content Include="Content\images\bg-noise-s.jpg" />
+    <Content Include="Content\images\Large\male.jpg" />
+    <Content Include="Content\images\Medium\male.jpg" />
+    <Content Include="Content\images\Small\male.jpg" />
+    <Content Include="Content\images\Tiny\male.jpg" />
+    <Content Include="Content\Less\bootstrap\bundle.txt" />
+    <Content Include="Content\Less\components\jsNotyfier\jsnotyfier.less" />
+    <None Include="Content\Less\components\jsNotyfier\jquery.noty.less" />
+    <None Include="Content\Less\components\jsNotyfier\noty_theme_default.less" />
     <Content Include="Global.asax" />
-    <Content Include="Web.config" />
+    <Content Include="Scripts\custom\Task\bundle.txt" />
+    <Content Include="Scripts\custom\Task\task.js" />
+    <Content Include="Scripts\global.bootstrap.js" />
+    <Content Include="Scripts\global.cascadingDropdown.js" />
+    <Content Include="Scripts\global.input.js" />
+    <Content Include="Scripts\global.js" />
+    <Content Include="Scripts\global.modal.js" />
+    <Content Include="Scripts\global.validation.js" />
+    <Content Include="Scripts\lib\angular\angular-cookies.js" />
+    <Content Include="Scripts\lib\angular\angular-loader.js" />
+    <Content Include="Scripts\lib\angular\angular-resource.js" />
+    <Content Include="Scripts\lib\angular\angular-sanitize.js" />
+    <Content Include="Scripts\lib\angular\angular-ui.js" />
+    <Content Include="Scripts\lib\angular\angular.js" />
+    <Content Include="Scripts\lib\angular\bundle.txt" />
+    <Content Include="Scripts\lib\angular\version.txt" />
+    <Content Include="Scripts\lib\bootstrap\bootstrap.js" />
+    <Content Include="Scripts\lib\bootstrap\bundle.txt" />
+    <Content Include="Scripts\lib\bundle.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>bundle.tt</DependentUpon>
+    </Content>
+    <Content Include="Scripts\lib\jquery\bundle.txt" />
+    <Content Include="Scripts\lib\jquery\jquery-1.8.2.js" />
+    <Content Include="Scripts\lib\jquery\jquery.validate.js" />
+    <Content Include="Scripts\lib\jquery\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\lib\jquery\json2.js" />
+    <Content Include="Scripts\lib\jqureyNotyfier\bundle.txt" />
+    <Content Include="Scripts\lib\jqureyNotyfier\jquery.noty.js" />
+    <Content Include="Scripts\lib\knockout\knockout-2.1.0.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -125,11 +325,868 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
-    <Folder Include="Models\" />
+    <Folder Include="Content\images\Thumbnail\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\EditorTemplates\Year.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\EditorTemplates\Week.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\EditorTemplates\Url.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\EditorTemplates\Time.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\EditorTemplates\String.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\EditorTemplates\Search.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\EditorTemplates\PhoneNumber.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\EditorTemplates\Password.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\EditorTemplates\Number.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\EditorTemplates\Month.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\EditorTemplates\EnumDropDown.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\EditorTemplates\EmailAddress.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\EditorTemplates\DropDown.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\EditorTemplates\Digits.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\EditorTemplates\DateTime-Local.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\EditorTemplates\Date.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\EditorTemplates\CreditCard.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\EditorTemplates\Color.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\EditorTemplates\Boolean.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Models\Resources\ClientValidationResources.resx" />
+    <EmbeddedResource Include="Models\Resources\ValidatorResources.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.MVC.Normalize\ScaffR.MVC.Normalize.ps1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.MVC.Normalize\Global.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Less\variables.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Less\site.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Less\global\global.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\lib\bundle.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>bundle.txt</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\Cassette.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\_ViewStart.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Sitemaps\Public.sitemap" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Less\bootstrap\wells.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Less\bootstrap\variables.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Less\bootstrap\utilities.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Less\bootstrap\type.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Less\bootstrap\tooltip.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Less\bootstrap\thumbnails.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Less\bootstrap\tables.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Less\bootstrap\sprites.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Less\bootstrap\scaffolding.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Less\bootstrap\responsive-utilities.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Less\bootstrap\responsive-navbar.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Less\bootstrap\responsive-768px-979px.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Less\bootstrap\responsive-767px-max.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Less\bootstrap\responsive-1200px-min.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Less\bootstrap\responsive.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Less\bootstrap\reset.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Less\bootstrap\progress-bars.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Less\bootstrap\popovers.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Less\bootstrap\pagination.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Less\bootstrap\pager.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Less\bootstrap\navs.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Less\bootstrap\navbar.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Less\bootstrap\modals.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Less\bootstrap\mixins.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Less\bootstrap\layouts.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Less\bootstrap\labels-badges.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Less\bootstrap\hero-unit.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Less\bootstrap\grid.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Less\bootstrap\forms.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Less\bootstrap\font-awesome-ie7.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Less\bootstrap\font-awesome.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Less\bootstrap\dropdowns.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Less\bootstrap\component-animations.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Less\bootstrap\code.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Less\bootstrap\close.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Less\bootstrap\carousel.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Less\bootstrap\buttons.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Less\bootstrap\button-groups.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Less\bootstrap\breadcrumbs.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Less\bootstrap\bootstrap.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Less\bootstrap\alerts.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Less\bootstrap\accordion.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\font\fontawesome-webfont.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\font\fontawesome-webfont.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\font\fontawesome-webfont.eot" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\DisplayTemplates\Sitemap\Tabs.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\DisplayTemplates\Sitemap\Pills.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\DisplayTemplates\Sitemap\Nav.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\DisplayTemplates\Sitemap\Breadcrumb.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\EditorTemplates\Bootstrap\Bootstrap.Form.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\DisplayTemplates\Bootstrap\Bootstrap.Table.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\DisplayTemplates\Alert.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Bootstrap\ScaffR.Bootstrap.ps1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Core\ValidationEngine.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Core\ValidationContainer.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Core\ScaffR.Core.ps1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Core\IValidationContainer.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Core\DomainObject.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Core\CoreSection.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DemoApplication.Core\DemoApplication.Core.csproj">
+      <Project>{969AEF37-4ABC-47C9-82E6-DABAD3F60BB6}</Project>
+      <Name>DemoApplication.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DemoApplication.Data\DemoApplication.Data.csproj">
+      <Project>{33E6D7E3-0302-4354-B5C1-0EDC248BA1C1}</Project>
+      <Name>DemoApplication.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DemoApplication.IdentityModel\DemoApplication.IdentityModel.csproj">
+      <Project>{D9AAC092-8290-4409-9804-C9AA304CEC8C}</Project>
+      <Name>DemoApplication.IdentityModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DemoApplication.Infrastructure\DemoApplication.Infrastructure.csproj">
+      <Project>{D3CDA29A-AA7D-469F-AF4C-D03E4416F5F6}</Project>
+      <Name>DemoApplication.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DemoApplication.Service\DemoApplication.Service.csproj">
+      <Project>{6C386F27-D8C0-42A8-B28D-4DE14092C88A}</Project>
+      <Name>DemoApplication.Service</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Data.Common\ScaffR.Data.Common.ps1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Data.Common\Page.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Data.Common\IUnitOfWork.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Data.Common\IRepository.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Data.Common\IPage.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Services\ScaffR.Services.ps1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Services\IService.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Services\IClientFactory.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Services\ClientFactory.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Services\BaseService.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Service.For\Service.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Service.For\ScaffR.Service.For.ps1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Service.For\IService.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Backend.ps1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Backend.For.ps1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Site\scaffR.Site.ps1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Site\CoreSection.Site.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Site\Configuration\SiteElement.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Site\Common\Site.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.MVC.WebApi\ScaffR.MVC.WebApi.ps1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.MVC.WebApi\ScaffR.MVC.WebApi.For.ps1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.MVC.WebApi\ConcreteApiController.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Repository.For\ScaffR.Repository.For.ps1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Repository.For\Repository.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Repository.For\IRepository.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Data.EntityFramework\UnitOfWork.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Data.EntityFramework\ScaffR.Data.EntityFramework.ps1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Data.EntityFramework\IDataContext.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Data.EntityFramework\IDatabaseFactory.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Data.EntityFramework\DataContext.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Data.EntityFramework\DatabaseFactory.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Data.EntityFramework\BaseRepository.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Infrastructure.Common\ScaffR.Infrastructure.Common.ps1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Infrastructure.Common\InfrastructureSection.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Ninject\ScaffR.Ninject.ps1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Ninject\ScaffR.Ninject.For.ps1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Ninject\Resolvers\NinjectScope.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Ninject\Resolvers\NinjectResolver.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Controller.For\ScaffR.Controller.For.ps1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Controller.For\Controller.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Users.Core\User.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Users.Core\ScaffR.Users.Core.ps1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Users.Core\Person.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Users.Core\Gender.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Users.Service\ScaffR.Users.Service.ps1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="identityServices.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="identity.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Security\Services\UserService.Security.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Security\Services\AuthenticationService.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Security\ScaffR.Security.ps1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Security\Interfaces\IUserService.Security.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Security\Interfaces\IAuthenticationService.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Security\Configuration\SecurityElement.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Security\Configuration\CoreSection.Security.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Security\Common\SecurityLevel.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Security\Common\Security.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Security\Common\ResourceAction.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Security\Common\PolicyReader.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Security\Common\ClaimsTransformer.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Security\Common\ClaimsTransformationHttpModule.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Security\Common\AuthorizationManager.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Security\Common\ApplicationIdentity.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Security\Common\ApplicationClaims.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Infrastructure.Pipeline\ScaffR.Infrastructure.Pipeline.ps1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Infrastructure.Pipeline\Interfaces\ICoreProcessor.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Infrastructure.Pipeline\Infrastructure\PipelineManager.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Infrastructure.Pipeline\Infrastructure\PipelineFactory.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Infrastructure.Pipeline\Infrastructure\FilterChain.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Infrastructure.Pipeline\Infrastructure\FilterActivator.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Infrastructure.Pipeline\Infrastructure\Filter.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Infrastructure.Pipeline\Configuration\PipelineConfigurationElement.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Mailer\_Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Mailer\ForgotPassword.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Infrastructure.Eventing\ScaffR.Infrastructure.Eventing.ps1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Infrastructure.Eventing\MessageBus.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Infrastructure.Eventing\IMessageBus.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Infrastructure.Eventing\IHandles.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Membership.Core\UserRole.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Membership.Core\UserEmail.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Membership.Core\User.Membership.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Membership.Core\ScaffR.Membership.Core.ps1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Membership.Core\Role.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Membership.Core\Events\UserLoggedOut.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Membership.Core\Events\UserLoggedIn.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Membership.Core\Events\UserLockedOut.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Membership.Core\Events\UserCreated.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Membership.Core\Events\UserActivity.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Membership.Core\Configuration\Membership\MembershipElement.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Membership.Core\Configuration\CoreSection.Membership.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Membership.Core\Common\MembershipManager.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Membership.Services\Service\UserService.Membership.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Membership.Services\ScaffR.Membership.Services.ps1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Membership.Services\MembershipDataSeeder.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Membership.Services\Interfaces\IUserService.Membership.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Membership.Services\Common\Membership\CreateUserStatus.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Membership.Services\Common\Membership\ChangePasswordStatus.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Membership.Services\Common\Membership\AuthenticationStatus.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Account\Settings.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Account\Register.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Account\Profile.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Account\Notifications.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Account\Logon.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Account\Emails.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Account\ChangePassword.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Membership.Common\ScaffR.Membership.Common.ps1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Membership.Common\ScaffR.Membership.ChangePassword.ps1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Photos\ScaffR.Photos.ps1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Photos\Configuration\PhotoResizeElement.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Photos\Configuration\PhotoResizeCollection.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Photos\Configuration\PhotoProviderCollection.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Photos\Configuration\PhotoConfigurationElement.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Photos\Configuration\CoreSection.Photos.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Photos\Common\PhotoThumbnail.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Photos\Common\PhotoResize.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Photos\Common\PhotoRequest.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Photos\Common\PhotoProvider.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Photos\Common\PhotoManager.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Photos\Common\PhotoList.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Photos\Common\Photo.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Photos\Common\ImageHelper.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Photos.FileSystem\ScaffR.Photos.FileSystem.ps1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Photos.FileSystem\FileSystemProvider.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\DisplayTemplates\Photo.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Account\Photo.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_Folder.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Dashboard\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\Bootstrap\Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_LogOnPartial.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Membership\ViewStart.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Membership\ScaffR.Membership.ps1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Sitemaps\Modules.sitemap" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Sitemaps\System.sitemap">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Lists\ScaffR.Lists.ps1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Lists\Lists.UnitedStates.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Lists\Lists.Salutations.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Lists\Lists.Months.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Lists\Lists.CreditCards.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Lists\Lists.Countries.cs.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.Lists.Dropdowns\ScaffR.Lists.Dropdowns.ps1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Sitemaps\Account.sitemap" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\X509Certificates\X509CertificatesName.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\X509Certificates\X509CertificatesLocation.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\X509Certificates\X509CertificatesFinder.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\X509Certificates\X509.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\WSTrust\WSTrustClient.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\WSTrust\WSTrustBindingBase.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\WSTrust\WindowsWSTrustBinding.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\WSTrust\UserNameWSTrustBinding.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\WSTrust\KeyGenerator.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\WSTrust\KerberosWSTrustBinding.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\WSTrust\IssuedTokenWSTrustBinding.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\WSTrust\CertificateWSTrustBindings.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Web\ServiceAwareWSFederationAuthenticationModule.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Web\ProtectionMode.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Web\ProtectedCookie.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Web\ClaimsAuthenticationHttpModule.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Tokens\WebTokenSecurityKeyClause.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Tokens\WebTokenIssuerTokenResolver.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Tokens\WebTokenIssuerNameRegistry.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Tokens\TestIssuerNameRegistry.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Tokens\SimpleWebTokenHandler.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Tokens\SimpleWebToken.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Tokens\SimpleSecurityTokenHandler.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Tokens\SimpleSecurityToken.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Tokens\MetadataBasedIssuerNameRegistry.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Tokens\JwtHeader.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Tokens\JsonWebTokenHandler.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Tokens\JsonWebToken.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Tokens\Http\SessionTokenConfiguration.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Tokens\Http\HttpsSecurityTokenHandler.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Tokens\Http\HttpsIssuerNameRegistry.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Tokens\Http\HttpSamlSecurityTokenHandler.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Tokens\Http\HttpSaml2SecurityTokenHandler.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Tokens\Http\HttpAuthentication.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Tokens\Http\ClientCertificateMode.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Tokens\Http\ClientCertificateIssuerNameRegistry.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Tokens\Http\ClientCertificateHandler.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Tokens\Http\ClaimsTransformationHandler.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Tokens\Http\BasicAuthenticationSecurityTokenHandler.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Tokens\Http\BasicAuthenticationHeaderValue.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Tokens\Http\AuthenticationOptions.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Tokens\Http\AuthenticationOptionMapping.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Tokens\Http\AuthenticationHandler.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Tokens\Http\AuthenticationConfiguration.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Tokens\HmacSigningCredentials.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Tokens\GenericUserNameSecurityTokenHandler.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\ScaffR.IdentityModel.ps1" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Principal.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\ObfuscatingComparer.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Http\RequireHttpsHandler.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Http\Cors\WebApi\WebApiHttpResponse.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Http\Cors\WebApi\WebApiHttpRequest.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Http\Cors\WebApi\WebApiCorsConfiguration.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Http\Cors\WebApi\CorsMessageHandler.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Http\Cors\Mvc\MvcRequest.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Http\Cors\Mvc\MvcCorsHttpModule.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Http\Cors\Mvc\MvcCorsConfiguration.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Http\Cors\IIS\UrlBasedCorsConfiguration.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Http\Cors\IIS\HttpContextResponse.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Http\Cors\IIS\HttpContextRequest.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Http\Cors\IIS\CorsHttpModule.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Http\Cors\IHttpResponseWrapper.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Http\Cors\IHttpRequestWrapper.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Http\Cors\CorsResourceSettings.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Http\Cors\CorsFluentSettings.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Http\Cors\CorsExtensions.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Http\Cors\CorsEngine.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Http\Cors\CorsConstants.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Http\Cors\CorsConfigurationExtensions.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Http\Cors\CorsConfigurationEntry.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Http\Cors\CorsConfigurationAllowProperties.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Http\Cors\CorsConfiguration.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Http\Cors\CorsAccessResponse.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Http\Cors\CorsAccessRequest.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Extensions\XmlExtensions\XmlReaderExtensions.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Extensions\XmlExtensions\XmlElementExtensions.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Extensions\XmlExtensions\XmlDocumentExtensions.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Extensions\XmlExtensions\XmlConverter.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Extensions\XmlExtensions\XElementExtensions.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Extensions\XmlExtensions\XDocumentExtensions.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Extensions\X509CertificateEndpointIdentity.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Extensions\SecurityTokens.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Extensions\RSACryptoServiceProvider.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Extensions\RequestSecurityTokenResponseExtensions.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Extensions\HttpRequestMessageExtensions.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Extensions\DateTimeExtensions.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Extensions\ConsoleExtensions.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Diagnostics\Tracing.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Diagnostics\Area.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\CryptoRandom.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Constants\WSTrust13Constants.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Constants\WSSecurity10Constants.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Constants\TokenTypes.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Constants\SwtConstants.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Constants\OAuth2Constants.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Constants\JwtConstants.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Constants\Internal.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Constants\DateTimeFormats.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Constants\Algorithms.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Clients\WrapClient.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Clients\OAuth2Client.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Clients\AccessTokenResponse.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Clients\AccessControlService\JsonNotifyRequestSecurityTokenResponse.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Clients\AccessControlService\IdentityProviderInformation.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Clients\AccessControlService\IdentityProviderDiscoveryClient.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Base64Url.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Authorization\WebApi\ClaimsAuthorizeAttribute.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Authorization\Todo\PerControllerAuthorization.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Authorization\Todo\IAuthorizationManager.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Authorization\Todo\HttpConfigurationExtensions.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Authorization\Todo\HttpClaimsAuthorizationManager.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Authorization\Todo\HttpAuthorizationContext.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Authorization\Todo\GlobalAuthorization.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Authorization\Todo\ApiAuthorizeAttribute.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Authorization\MVC\ClaimsAuthorizeAttribute.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Authorization\DefaultPolicy.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Authorization\ClaimsAuthorization.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Authorization\ClaimPermissionAttribute.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Authorization\ClaimPermission.cs.t4" />
+    <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\AuthenticationInstantClaim.cs.t4" />
+    <Content Include="Content\Less\elements\elements.less" />
+    <Compile Include="Extensions\Html\HtmlExtensions.Strings.cs" />
+    <Content Include="Content\Less\components\components.less" />
+    <None Include="Properties\PublishProfiles\staging.pubxml" />
+    <Content Include="Views\Users\Manager.cshtml" />
+    <Content Include="Views\Users\Details.cshtml" />
+    <Content Include="Views\Users\_AdminUserLayout.cshtml" />
+    <Content Include="Views\Users\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Photo.cshtml" />
+    <Content Include="Views\Shared\_Alert.cshtml" />
+    <Content Include="Views\Task\Manager.cshtml" />
+    <Content Include="Views\Shared\_Modal.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -147,9 +1204,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerPort>42951</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:54593/</IISUrl>
+          <IISUrl>http://localhost:62627/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
