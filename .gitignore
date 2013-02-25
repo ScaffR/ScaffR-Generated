@@ -17,3 +17,5 @@ DemoApplication/DemoApplication.v11.suo
 */obj/*
 *.suo
 *.cache
+*.mdf
+*.ldf
