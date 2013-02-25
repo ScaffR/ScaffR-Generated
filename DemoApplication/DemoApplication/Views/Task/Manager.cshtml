@@ -1,0 +1,44 @@
+﻿@using DemoApplication.Extensions.Sitemap
+@{
+    ViewBag.Title = "Manage Tasks";
+    Bundles.Reference("scripts/custom/task");
+}
+
+@if (ViewBag.ShowBreadcrumb == true)
+{
+    @Html.MvcSiteMap("System").Breadcrumb()
+}
+
+<div id="viewArea">
+    <div class="page-header">
+        <h2><i class="icon-tasks"></i>&nbsp;Tasks <a href="#" class="btn btn-inverse" data-bind="click: $root.addTask"><i class="icon-plus"></i>&nbsp;Add</a></h2>
+    </div>
+    <ul data-bind="template: {name: templateToUse, foreach: tasks}"></ul>
+</div>
+
+<script id="itemTmpl" type="text/html">
+    <li>
+        <div class="editable">
+            <span style="display: inline" data-bind="text: Name, click: $root.editTask"></span>
+        </div>
+    </li>
+
+</script>
+
+<script id="editTmpl" type="text/html">
+    <li style="list-style: none;">
+        <div class="row-fluid well" style="margin-bottom: 20px;">
+            <div class="span12">
+                <p>
+                    <input type="text" data-bind="value: Name" class="span12" placeholder="Enter Task Name" />
+                </p>
+            </div>
+            <div>
+                <a class="btn btn-success" data-bind="click: $root.saveTask" href="#" title="save"><i class="icon-ok"></i>&nbsp;Save</a>
+                or 
+            <a data-bind="click: $root.cancel" href="#" title="cancel">Cancel</a>
+                <a class="btn btn-medium btn-warning pull-right" data-bind="click: $root.confirmDeleteTask, visible: $root.selectedItem().Id() > 0" href="#" title="remove"><i class="icon-trash"></i>&nbsp;Delete Task</a>
+            </div>
+        </div>
+    </li>
+</script>

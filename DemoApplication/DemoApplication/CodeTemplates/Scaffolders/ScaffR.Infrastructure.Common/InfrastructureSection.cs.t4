@@ -1,0 +1,14 @@
+﻿<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+namespace <#= Model.Namespace #>.Infrastructure.Configuration
+{
+    using System.Configuration;
+
+    public partial class InfrastructureSection : ConfigurationSection
+    {
+        public static InfrastructureSection GetConfig()
+        {
+            return (InfrastructureSection)ConfigurationManager.GetSection("<#= Model.Namespace #>/<#= Model.Namespace #>.Infrastructure");
+        }
+    }
+}

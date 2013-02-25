@@ -1,0 +1,11 @@
+﻿<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+namespace <#= Model.Namespace #>.Core.Interfaces.Service
+{ 	
+	using <#= Model.Namespace #>.Core.Model;
+
+    public partial interface I<#= Model.ClassName #>Service : IService<<#= Model.ClassName #>>
+    {
+		// Add extra serviceinterface methods in a partial interface
+	}
+}

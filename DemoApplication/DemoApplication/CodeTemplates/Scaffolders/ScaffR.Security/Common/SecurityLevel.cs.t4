@@ -1,0 +1,10 @@
+<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+namespace <#= Model.Namespace #>.Core.Common.Security
+{
+    public enum SecurityLevel
+    {
+        None,
+        Explicit
+    }
+}

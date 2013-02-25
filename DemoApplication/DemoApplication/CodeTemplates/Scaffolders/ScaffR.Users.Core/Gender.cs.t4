@@ -1,0 +1,11 @@
+<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+namespace <#= Model.Namespace #>.Core.Model
+{
+    public enum Gender
+    {
+        None = 0,
+        Male = 1,
+        Female = 2
+    }
+}

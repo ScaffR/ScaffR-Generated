@@ -1,0 +1,19 @@
+@using DemoApplication.Extensions.Html
+@using DemoApplication.Extensions.Html
+@{
+    bool multiline = false;
+
+    if (ViewData.ModelMetadata.AdditionalValues.ContainsKey("multiline"))
+    {
+        Boolean.TryParse(ViewData.ModelMetadata.AdditionalValues["multiline"].ToString(), out multiline);
+    }
+}
+
+@if(multiline)
+{
+    @Html.TextArea("", (string) ViewData.TemplateInfo.FormattedModelValue, Html.GetTextboxAttributes())
+}
+else
+{
+    @Html.TextBox("", ViewData.TemplateInfo.FormattedModelValue, Html.GetTextboxAttributes())
+}

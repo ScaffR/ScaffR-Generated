@@ -1,0 +1,15 @@
+﻿<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+namespace <#= Model.Namespace #>.Data
+{ 
+	using Core.Interfaces.Data;
+	using Core.Model;
+
+	public partial class <#= Model.ClassName #>Repository : BaseRepository<<#= Model.ClassName #>>, I<#= Model.ClassName #>Repository
+    {
+		public <#= Model.ClassName #>Repository(IDatabaseFactory databaseFactory)
+	        : base(databaseFactory)
+	    {
+	    }
+	}
+}

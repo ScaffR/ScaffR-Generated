@@ -1,0 +1,11 @@
+﻿<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+namespace <#= Model.Namespace #>.Core.Interfaces.Data
+{ 
+	using <#= Model.Namespace #>.Core.Model;
+
+    public partial interface I<#= Model.ClassName #>Repository : IRepository<<#= Model.ClassName #>>
+    {		
+		// Add extra datainterface methods in a partial interface
+	}
+}

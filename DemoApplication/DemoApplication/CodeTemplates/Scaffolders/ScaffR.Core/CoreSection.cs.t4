@@ -1,0 +1,14 @@
+<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+namespace <#= Model.Namespace #>.Core.Configuration
+{
+    using System.Configuration;
+
+    public partial class CoreSection : ConfigurationSection
+    {
+        public static CoreSection GetConfig()
+        {
+            return (CoreSection)ConfigurationManager.GetSection("<#= Model.Namespace #>/<#= Model.Namespace #>.Core");
+        }       
+    }
+}

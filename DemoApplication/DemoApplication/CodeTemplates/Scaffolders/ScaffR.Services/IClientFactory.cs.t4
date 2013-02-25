@@ -1,0 +1,19 @@
+﻿<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+namespace <#= Model.Namespace #>.Services
+{
+    using System;
+
+    public interface IClientFactory<TService> where TService : class
+    {
+        TService Client { get; }
+
+        IAsyncResult BeginInvoke(Func<TService, IAsyncResult> function);
+
+        void Dispose();
+
+        void EndInvoke(Action<TService> action);
+
+        TResult EndInvoke<TResult>(Func<TService, TResult> function);
+    }
+}

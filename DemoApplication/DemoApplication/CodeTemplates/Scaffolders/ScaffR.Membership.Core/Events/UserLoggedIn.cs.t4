@@ -1,0 +1,14 @@
+<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+namespace <#= Model.Namespace #>.Core.Common.Membership.Events
+{
+    using Model;
+
+    public class UserLoggedIn : UserActivity
+    {
+        public UserLoggedIn(User user) : base(user, "User Logged In")
+        {           
+        }
+    }
+}
+

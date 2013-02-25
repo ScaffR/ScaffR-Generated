@@ -1,0 +1,17 @@
+﻿<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+namespace <#= Model.Namespace #>.Areas.Api.Controllers
+{
+    using Core.Interfaces.Service;
+    using Core.Model;
+
+    public partial class <#= Model.PluralizedClassName #>Controller : ApiController<<#= Model.ClassName #>>
+    {
+	   protected I<#= Model.ClassName #>Service <#= Model.ClassName #>Service;
+
+       public <#= Model.PluralizedClassName #>Controller(I<#= Model.ClassName #>Service service)
+       {	       
+           Service = <#= Model.ClassName #>Service = service;
+       }
+    }
+}

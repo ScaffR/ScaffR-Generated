@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<mvcSiteMap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-3.0"
+            xsi:schemaLocation="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-3.0 MvcSiteMapSchema.xsd"
+            enableLocalization="true">
+
+  <mvcSiteMapNode title="Home" controller="Home" action="Index" imageUrl="icon-home" key="root" visibility="breadcrumb">
+
+    <mvcSiteMapNode title="Dashboard" controller="Dashboard" action="Index" imageUrl="icon-th-large" />
+
+    <mvcSiteMapNode title="Admin" controller="Home" action="Manage" imageUrl="icon-lock" key="Manage" visibility="breadcrumb">
+      <mvcSiteMapNode title="Manage Tasks" controller="Task" action="Manager" imageUrl="icon-sitemap" key="Task" />
+      <mvcSiteMapNode title="Manage Users" controller="Users" action="Manager" imageUrl="icon-group" key="Users">
+        <mvcSiteMapNode title="Details" controller="Users" action="Details" imageUrl="icon-user" />
+      </mvcSiteMapNode>
+    </mvcSiteMapNode>
+
+  </mvcSiteMapNode>
+</mvcSiteMap>

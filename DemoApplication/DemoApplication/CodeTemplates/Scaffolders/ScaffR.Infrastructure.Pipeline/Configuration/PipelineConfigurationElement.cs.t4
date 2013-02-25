@@ -1,0 +1,21 @@
+﻿<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+using System.Configuration;
+
+namespace <#= Model.Namespace #>.Infrastructure.Configuration.Pipeline
+{
+    public class PipelineConfigurationElement : ConfigurationElement
+    {
+        [ConfigurationProperty("processor", IsRequired = false)]
+        public string ProcessorType
+        {
+            get { return (string)base["processor"]; }
+        }
+
+        [ConfigurationProperty("filters", IsDefaultCollection = false)]       
+        public ProviderSettingsCollection Filters
+        {
+            get { return (ProviderSettingsCollection)this["filters"]; }
+        }
+    }
+}

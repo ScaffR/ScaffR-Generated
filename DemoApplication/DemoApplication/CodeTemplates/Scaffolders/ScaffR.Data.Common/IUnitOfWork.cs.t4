@@ -1,0 +1,9 @@
+﻿<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+namespace <#= Model.Namespace #>.Core.Interfaces.Data
+{
+    public interface IUnitOfWork
+    {
+        int Commit();
+    }
+}

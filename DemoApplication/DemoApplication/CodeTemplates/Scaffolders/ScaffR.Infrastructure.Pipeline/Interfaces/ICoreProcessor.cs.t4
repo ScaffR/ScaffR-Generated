@@ -1,0 +1,9 @@
+<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+namespace <#= Model.Namespace #>.Infrastructure.Interfaces.Pipeline
+{
+    public interface ICoreProcessor<in T>
+    {
+        void Execute(T data);
+    }
+}
