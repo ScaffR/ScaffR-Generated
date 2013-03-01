@@ -22,7 +22,7 @@
     {
         @Html.ValidationSummary(true, "Password change was unsuccessful. Please correct the errors and try again.", new { @class = "alert alert-block alert-error" })
             
-        @Html.EditorForModel("Bootstrap/Bootstrap.Form")
+        @Html.EditorForModel()
         
         <div class="form-actions">
             <input type="submit" value="Change Password" class="btn btn-primary" />

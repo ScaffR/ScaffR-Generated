@@ -579,7 +579,7 @@
     <Content Include="Views\Shared\DisplayTemplates\Sitemap\Breadcrumb.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\EditorTemplates\Bootstrap\Bootstrap.Form.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Object.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\DisplayTemplates\Bootstrap\Bootstrap.Table.cshtml" />
