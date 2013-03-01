@@ -188,6 +188,7 @@
     <Compile Include="Extensions\ActionDescriptorExtensions.cs" />
     <Compile Include="Extensions\ControllerExtensions.cs" />
     <Compile Include="Extensions\Html\HtmlExtensions.Site.cs" />
+    <Compile Include="Extensions\ModelStateExtensions.cs" />
     <Compile Include="Extensions\SelectListExtensions.cs" />
     <Compile Include="Extensions\Sitemap\BootstrapHelpers.cs" />
     <Compile Include="Extensions\Sitemap\BreadcrumbExtensions.cs" />
@@ -578,7 +579,7 @@
     <Content Include="Views\Shared\DisplayTemplates\Sitemap\Breadcrumb.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\EditorTemplates\Bootstrap\Bootstrap.Form.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Object.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\DisplayTemplates\Bootstrap\Bootstrap.Table.cshtml" />
