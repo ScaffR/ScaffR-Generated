@@ -1,6 +1,7 @@
 ﻿namespace DemoApplication.Controllers.Users
 {
     using System.Web.Mvc;
+    using Extensions;
     using IdentityModel.Authorization.MVC;
     using Models.Users;
     using Omu.ValueInjecter;
@@ -31,22 +32,11 @@
                 model.Username = user.Username;
                 user.InjectFrom<UnflatLoopValueInjection>(model);
                 
-                var result = UserService.SaveOrUpdate(user);
-                
-                foreach(var r in result.ValidationErrors)
-                {
-                    foreach (var e in r.Value)
-                    {
-                        ModelState.AddModelError(r.Key, e);
-                    }
-                }
-
-                if (ModelState.IsValid)
+                if (ModelState.Process(UserService.SaveOrUpdate(user)))
                 {
                     TempData["Success"] = "User was successfully updated";
-
                     return RedirectToAction("Manager", "Users");
-                }
+                }                
             }
             return View(model);
         }
