@@ -1,6 +1,0 @@
-﻿angular.js
-*
-angular-ui.js
-
-[references]
-~/scripts/lib/jquery

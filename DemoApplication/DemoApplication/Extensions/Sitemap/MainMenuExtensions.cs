@@ -12,21 +12,21 @@ namespace DemoApplication.Extensions.Sitemap
     /// <summary>
     /// MvcSiteMapHtmlHelper extension methods
     /// </summary>
-    public static class TabsExtensions
+    public static class MainMenuExtensions
     {
         /// <summary>
         /// Source metadata
         /// </summary>
-        private static readonly Dictionary<string, object> TabsSourceMetadata = new Dictionary<string, object> { { "HtmlHelper", typeof(TabsExtensions).FullName } };
+        private static readonly Dictionary<string, object> TabsSourceMetadata = new Dictionary<string, object> { { "HtmlHelper", typeof(MainMenuExtensions).FullName } };
 
         /// <summary>
         /// Build a menu, based on the MvcSiteMap
         /// </summary>
         /// <param name="helper">The helper.</param>
         /// <returns>Html markup</returns>
-        public static MvcHtmlString Tabs(this MvcSiteMapHtmlHelper helper)
+        public static MvcHtmlString MainMenu(this MvcSiteMapHtmlHelper helper)
         {
-            return Tabs(helper, helper.Provider.RootNode, true, true, Int32.MaxValue, false);
+            return MainMenu(helper, helper.Provider.RootNode, true, true, Int32.MaxValue, false);
         }
 
         /// <summary>
@@ -35,9 +35,9 @@ namespace DemoApplication.Extensions.Sitemap
         /// <param name="helper">The helper.</param>
         /// <param name="showStartingNode">Show starting node if set to <c>true</c>.</param>
         /// <returns>Html markup</returns>
-        public static MvcHtmlString Tabs(this MvcSiteMapHtmlHelper helper, bool showStartingNode)
+        public static MvcHtmlString MainMenu(this MvcSiteMapHtmlHelper helper, bool showStartingNode)
         {
-            return Tabs(helper, helper.Provider.RootNode, true, showStartingNode, Int32.MaxValue, false);
+            return MainMenu(helper, helper.Provider.RootNode, true, showStartingNode, Int32.MaxValue, false);
         }
 
         /// <summary>
@@ -48,9 +48,9 @@ namespace DemoApplication.Extensions.Sitemap
         /// <param name="startingNodeInChildLevel">Show starting node in child level if set to <c>true</c>.</param>
         /// <param name="showStartingNode">Show starting node if set to <c>true</c>.</param>
         /// <returns>Html markup</returns>
-        public static MvcHtmlString Tabs(this MvcSiteMapHtmlHelper helper, SiteMapNode startingNode, bool startingNodeInChildLevel, bool showStartingNode)
+        public static MvcHtmlString MainMenu(this MvcSiteMapHtmlHelper helper, SiteMapNode startingNode, bool startingNodeInChildLevel, bool showStartingNode)
         {
-            return Tabs(helper, startingNode, startingNodeInChildLevel, showStartingNode, Int32.MaxValue, false);
+            return MainMenu(helper, startingNode, startingNodeInChildLevel, showStartingNode, Int32.MaxValue, false);
         }
 
         /// <summary>
@@ -61,10 +61,10 @@ namespace DemoApplication.Extensions.Sitemap
         /// <param name="startingNodeInChildLevel">Show starting node in child level if set to <c>true</c>.</param>
         /// <param name="showStartingNode">Show starting node if set to <c>true</c>.</param>
         /// <returns>Html markup</returns>
-        public static MvcHtmlString Tabs(this MvcSiteMapHtmlHelper helper, bool startFromCurrentNode, bool startingNodeInChildLevel, bool showStartingNode)
+        public static MvcHtmlString MainMenu(this MvcSiteMapHtmlHelper helper, bool startFromCurrentNode, bool startingNodeInChildLevel, bool showStartingNode)
         {
             SiteMapNode startingNode = startFromCurrentNode ? GetCurrentNode(helper.Provider) : helper.Provider.RootNode;
-            return Tabs(helper, startingNode, startingNodeInChildLevel, showStartingNode, Int32.MaxValue, false);
+            return MainMenu(helper, startingNode, startingNodeInChildLevel, showStartingNode, Int32.MaxValue, false);
         }
 
         /// <summary>
@@ -76,14 +76,14 @@ namespace DemoApplication.Extensions.Sitemap
         /// <param name="allowForwardSearch">if set to <c>true</c> allow forward search. Forward search will search all parent nodes and child nodes, where in other circumstances only parent nodes are searched.</param>
         /// <param name="drillDownToContent">if set to <c>true</c> [drill down to content].</param>
         /// <returns>Html markup</returns>
-        public static MvcHtmlString Tabs(this MvcSiteMapHtmlHelper helper, int startingNodeLevel, int maxDepth, bool allowForwardSearch, bool drillDownToContent)
+        public static MvcHtmlString MainMenu(this MvcSiteMapHtmlHelper helper, int startingNodeLevel, int maxDepth, bool allowForwardSearch, bool drillDownToContent)
         {
             SiteMapNode startingNode = GetStartingNode(GetCurrentNode(helper.Provider), startingNodeLevel, allowForwardSearch);
             if (startingNode == null)
             {
                 return MvcHtmlString.Empty;
             }
-            return Tabs(helper, startingNode, true, false, maxDepth + 1, drillDownToContent);
+            return MainMenu(helper, startingNode, true, false, maxDepth + 1, drillDownToContent);
         }
 
         /// <summary>
@@ -93,9 +93,9 @@ namespace DemoApplication.Extensions.Sitemap
         /// <param name="startingNodeLevel">The starting node level.</param>
         /// <param name="maxDepth">The max depth.</param>
         /// <returns>Html markup</returns>
-        public static MvcHtmlString Tabs(this MvcSiteMapHtmlHelper helper, int startingNodeLevel, int maxDepth)
+        public static MvcHtmlString MainMenu(this MvcSiteMapHtmlHelper helper, int startingNodeLevel, int maxDepth)
         {
-            return Tabs(helper, startingNodeLevel, maxDepth, false, false);
+            return MainMenu(helper, startingNodeLevel, maxDepth, false, false);
         }
 
         /// <summary>
@@ -106,9 +106,9 @@ namespace DemoApplication.Extensions.Sitemap
         /// <param name="maxDepth">The max depth.</param>
         /// <param name="allowForwardSearch">if set to <c>true</c> allow forward search. Forward search will search all parent nodes and child nodes, where in other circumstances only parent nodes are searched.</param>
         /// <returns>Html markup</returns>
-        public static MvcHtmlString Tabs(this MvcSiteMapHtmlHelper helper, int startingNodeLevel, int maxDepth, bool allowForwardSearch)
+        public static MvcHtmlString MainMenu(this MvcSiteMapHtmlHelper helper, int startingNodeLevel, int maxDepth, bool allowForwardSearch)
         {
-            return Tabs(helper, startingNodeLevel, maxDepth, allowForwardSearch, false);
+            return MainMenu(helper, startingNodeLevel, maxDepth, allowForwardSearch, false);
         }
 
         /// <summary>
@@ -122,14 +122,14 @@ namespace DemoApplication.Extensions.Sitemap
         /// <param name="allowForwardSearch">if set to <c>true</c> allow forward search. Forward search will search all parent nodes and child nodes, where in other circumstances only parent nodes are searched.</param>
         /// <param name="drillDownToContent">if set to <c>true</c> [drill down to content].</param>
         /// <returns>Html markup</returns>
-        public static MvcHtmlString Tabs(this MvcSiteMapHtmlHelper helper, int startingNodeLevel, bool startingNodeInChildLevel, bool showStartingNode, int maxDepth, bool allowForwardSearch, bool drillDownToContent)
+        public static MvcHtmlString MainMenu(this MvcSiteMapHtmlHelper helper, int startingNodeLevel, bool startingNodeInChildLevel, bool showStartingNode, int maxDepth, bool allowForwardSearch, bool drillDownToContent)
         {
             SiteMapNode startingNode = GetStartingNode(GetCurrentNode(helper.Provider), startingNodeLevel, allowForwardSearch);
             if (startingNode == null)
             {
                 return MvcHtmlString.Empty;
             }
-            return Tabs(helper, startingNode, startingNodeInChildLevel, showStartingNode, maxDepth + 1, drillDownToContent);
+            return MainMenu(helper, startingNode, startingNodeInChildLevel, showStartingNode, maxDepth + 1, drillDownToContent);
         }
 
         /// <summary>
@@ -141,9 +141,9 @@ namespace DemoApplication.Extensions.Sitemap
         /// <param name="showStartingNode">Show starting node if set to <c>true</c>.</param>
         /// <param name="maxDepth">The max depth.</param>
         /// <returns>Html markup</returns>
-        public static MvcHtmlString Tabs(this MvcSiteMapHtmlHelper helper, int startingNodeLevel, bool startingNodeInChildLevel, bool showStartingNode, int maxDepth)
+        public static MvcHtmlString MainMenu(this MvcSiteMapHtmlHelper helper, int startingNodeLevel, bool startingNodeInChildLevel, bool showStartingNode, int maxDepth)
         {
-            return Tabs(helper, startingNodeLevel, startingNodeInChildLevel, showStartingNode, maxDepth, false, false);
+            return MainMenu(helper, startingNodeLevel, startingNodeInChildLevel, showStartingNode, maxDepth, false, false);
         }
 
         /// <summary>
@@ -156,9 +156,9 @@ namespace DemoApplication.Extensions.Sitemap
         /// <param name="maxDepth">The max depth.</param>
         /// <param name="drillDownToContent">if set to <c>true</c> [drill down to content].</param>
         /// <returns>Html markup</returns>
-        public static MvcHtmlString Tabs(this MvcSiteMapHtmlHelper helper, SiteMapNode startingNode, bool startingNodeInChildLevel, bool showStartingNode, int maxDepth, bool drillDownToContent)
+        public static MvcHtmlString MainMenu(this MvcSiteMapHtmlHelper helper, SiteMapNode startingNode, bool startingNodeInChildLevel, bool showStartingNode, int maxDepth, bool drillDownToContent)
         {
-            return Tabs(helper, null, startingNode, startingNodeInChildLevel, showStartingNode, maxDepth, drillDownToContent);
+            return MainMenu(helper, null, startingNode, startingNodeInChildLevel, showStartingNode, maxDepth, drillDownToContent);
         }
 
         /// <summary>
@@ -170,9 +170,9 @@ namespace DemoApplication.Extensions.Sitemap
         /// <param name="showStartingNode">Show starting node if set to <c>true</c>.</param>
         /// <param name="maxDepth">The max depth.</param>
         /// <returns>Html markup</returns>
-        public static MvcHtmlString Tabs(this MvcSiteMapHtmlHelper helper, SiteMapNode startingNode, bool startingNodeInChildLevel, bool showStartingNode, int maxDepth)
+        public static MvcHtmlString MainMenu(this MvcSiteMapHtmlHelper helper, SiteMapNode startingNode, bool startingNodeInChildLevel, bool showStartingNode, int maxDepth)
         {
-            return Tabs(helper, startingNode, startingNodeInChildLevel, showStartingNode, maxDepth, false);
+            return MainMenu(helper, startingNode, startingNodeInChildLevel, showStartingNode, maxDepth, false);
         }
 
         /// <summary>
@@ -181,9 +181,9 @@ namespace DemoApplication.Extensions.Sitemap
         /// <param name="helper">The helper.</param>
         /// <param name="templateName">Name of the template.</param>
         /// <returns>Html markup</returns>
-        public static MvcHtmlString Tabs(this MvcSiteMapHtmlHelper helper, string templateName)
+        public static MvcHtmlString MainMenu(this MvcSiteMapHtmlHelper helper, string templateName)
         {
-            return Tabs(helper, templateName, helper.Provider.RootNode, true, true, Int32.MaxValue, false);
+            return MainMenu(helper, templateName, helper.Provider.RootNode, true, true, Int32.MaxValue, false);
         }
 
         /// <summary>
@@ -193,9 +193,9 @@ namespace DemoApplication.Extensions.Sitemap
         /// <param name="templateName">Name of the template.</param>
         /// <param name="showStartingNode">Show starting node if set to <c>true</c>.</param>
         /// <returns>Html markup</returns>
-        public static MvcHtmlString Tabs(this MvcSiteMapHtmlHelper helper, string templateName, bool showStartingNode)
+        public static MvcHtmlString MainMenu(this MvcSiteMapHtmlHelper helper, string templateName, bool showStartingNode)
         {
-            return Tabs(helper, templateName, helper.Provider.RootNode, true, showStartingNode, Int32.MaxValue, false);
+            return MainMenu(helper, templateName, helper.Provider.RootNode, true, showStartingNode, Int32.MaxValue, false);
         }
 
         /// <summary>
@@ -207,9 +207,9 @@ namespace DemoApplication.Extensions.Sitemap
         /// <param name="startingNodeInChildLevel">Show starting node in child level if set to <c>true</c>.</param>
         /// <param name="showStartingNode">Show starting node if set to <c>true</c>.</param>
         /// <returns>Html markup</returns>
-        public static MvcHtmlString Tabs(this MvcSiteMapHtmlHelper helper, string templateName, SiteMapNode startingNode, bool startingNodeInChildLevel, bool showStartingNode)
+        public static MvcHtmlString MainMenu(this MvcSiteMapHtmlHelper helper, string templateName, SiteMapNode startingNode, bool startingNodeInChildLevel, bool showStartingNode)
         {
-            return Tabs(helper, templateName, startingNode, startingNodeInChildLevel, showStartingNode, Int32.MaxValue, false);
+            return MainMenu(helper, templateName, startingNode, startingNodeInChildLevel, showStartingNode, Int32.MaxValue, false);
         }
 
         /// <summary>
@@ -221,10 +221,10 @@ namespace DemoApplication.Extensions.Sitemap
         /// <param name="startingNodeInChildLevel">Show starting node in child level if set to <c>true</c>.</param>
         /// <param name="showStartingNode">Show starting node if set to <c>true</c>.</param>
         /// <returns>Html markup</returns>
-        public static MvcHtmlString Tabs(this MvcSiteMapHtmlHelper helper, string templateName, bool startFromCurrentNode, bool startingNodeInChildLevel, bool showStartingNode)
+        public static MvcHtmlString MainMenu(this MvcSiteMapHtmlHelper helper, string templateName, bool startFromCurrentNode, bool startingNodeInChildLevel, bool showStartingNode)
         {
             SiteMapNode startingNode = startFromCurrentNode ? GetCurrentNode(helper.Provider) : helper.Provider.RootNode;
-            return Tabs(helper, templateName, startingNode, startingNodeInChildLevel, showStartingNode, Int32.MaxValue, false);
+            return MainMenu(helper, templateName, startingNode, startingNodeInChildLevel, showStartingNode, Int32.MaxValue, false);
         }
 
         /// <summary>
@@ -237,14 +237,14 @@ namespace DemoApplication.Extensions.Sitemap
         /// <param name="allowForwardSearch">if set to <c>true</c> allow forward search. Forward search will search all parent nodes and child nodes, where in other circumstances only parent nodes are searched.</param>
         /// <param name="drillDownToCurrent">Should the model exceed the maxDepth to reach the current node</param>
         /// <returns>Html markup</returns>
-        public static MvcHtmlString Tabs(this MvcSiteMapHtmlHelper helper, string templateName, int startingNodeLevel, int maxDepth, bool allowForwardSearch, bool drillDownToCurrent)
+        public static MvcHtmlString MainMenu(this MvcSiteMapHtmlHelper helper, string templateName, int startingNodeLevel, int maxDepth, bool allowForwardSearch, bool drillDownToCurrent)
         {
             SiteMapNode startingNode = GetStartingNode(GetCurrentNode(helper.Provider), startingNodeLevel, false);
             if (startingNode == null)
             {
                 return MvcHtmlString.Empty;
             }
-            return Tabs(helper, templateName, startingNode, true, true, maxDepth + 1, drillDownToCurrent);
+            return MainMenu(helper, templateName, startingNode, true, true, maxDepth + 1, drillDownToCurrent);
         }
 
         /// <summary>
@@ -255,9 +255,9 @@ namespace DemoApplication.Extensions.Sitemap
         /// <param name="startingNodeLevel">The starting node level.</param>
         /// <param name="maxDepth">The max depth.</param>
         /// <returns>Html markup</returns>
-        public static MvcHtmlString Tabs(this MvcSiteMapHtmlHelper helper, string templateName, int startingNodeLevel, int maxDepth)
+        public static MvcHtmlString MainMenu(this MvcSiteMapHtmlHelper helper, string templateName, int startingNodeLevel, int maxDepth)
         {
-            return Tabs(helper, templateName, startingNodeLevel, maxDepth, false, false);
+            return MainMenu(helper, templateName, startingNodeLevel, maxDepth, false, false);
         }
 
         /// <summary>
@@ -272,14 +272,14 @@ namespace DemoApplication.Extensions.Sitemap
         /// <param name="allowForwardSearch">if set to <c>true</c> allow forward search. Forward search will search all parent nodes and child nodes, where in other circumstances only parent nodes are searched.</param>
         /// <param name="drillDownToCurrent">Should the model exceed the maxDepth to reach the current node</param>
         /// <returns>Html markup</returns>
-        public static MvcHtmlString Tabs(this MvcSiteMapHtmlHelper helper, string templateName, int startingNodeLevel, bool startingNodeInChildLevel, bool showStartingNode, int maxDepth, bool allowForwardSearch, bool drillDownToCurrent)
+        public static MvcHtmlString MainMenu(this MvcSiteMapHtmlHelper helper, string templateName, int startingNodeLevel, bool startingNodeInChildLevel, bool showStartingNode, int maxDepth, bool allowForwardSearch, bool drillDownToCurrent)
         {
             SiteMapNode startingNode = GetStartingNode(GetCurrentNode(helper.Provider), startingNodeLevel, allowForwardSearch);
             if (startingNode == null)
             {
                 return MvcHtmlString.Empty;
             }
-            return Tabs(helper, templateName, startingNode, startingNodeInChildLevel, showStartingNode, maxDepth + 1, drillDownToCurrent);
+            return MainMenu(helper, templateName, startingNode, startingNodeInChildLevel, showStartingNode, maxDepth + 1, drillDownToCurrent);
         }
 
         /// <summary>
@@ -292,9 +292,9 @@ namespace DemoApplication.Extensions.Sitemap
         /// <param name="showStartingNode">Show starting node if set to <c>true</c>.</param>
         /// <param name="maxDepth">The max depth.</param>
         /// <returns>Html markup</returns>
-        public static MvcHtmlString Tabs(this MvcSiteMapHtmlHelper helper, string templateName, int startingNodeLevel, bool startingNodeInChildLevel, bool showStartingNode, int maxDepth)
+        public static MvcHtmlString MainMenu(this MvcSiteMapHtmlHelper helper, string templateName, int startingNodeLevel, bool startingNodeInChildLevel, bool showStartingNode, int maxDepth)
         {
-            return Tabs(helper, templateName, startingNodeLevel, startingNodeInChildLevel, showStartingNode, maxDepth, false, false);
+            return MainMenu(helper, templateName, startingNodeLevel, startingNodeInChildLevel, showStartingNode, maxDepth, false, false);
         }
 
         /// <summary>
@@ -308,12 +308,12 @@ namespace DemoApplication.Extensions.Sitemap
         /// <param name="maxDepth">The max depth.</param>
         /// <param name="drillDownToCurrent">Should the model exceed the maxDepth to reach the current node</param>
         /// <returns>Html markup</returns>
-        public static MvcHtmlString Tabs(this MvcSiteMapHtmlHelper helper, string templateName, SiteMapNode startingNode, bool startingNodeInChildLevel, bool showStartingNode, int maxDepth, bool drillDownToCurrent)
+        public static MvcHtmlString MainMenu(this MvcSiteMapHtmlHelper helper, string templateName, SiteMapNode startingNode, bool startingNodeInChildLevel, bool showStartingNode, int maxDepth, bool drillDownToCurrent)
         {
             var model = BuildModel(helper, startingNode, startingNodeInChildLevel, showStartingNode, maxDepth, drillDownToCurrent);
             return helper
                 .CreateHtmlHelperForModel(model)
-                .DisplayFor(m => model, "Sitemap/Tabs");
+                .DisplayFor(m => model, "Sitemap/MainMenu");
         }
 
         /// <summary>
@@ -326,9 +326,9 @@ namespace DemoApplication.Extensions.Sitemap
         /// <param name="showStartingNode">Show starting node if set to <c>true</c>.</param>
         /// <param name="maxDepth">The max depth.</param>
         /// <returns>Html markup</returns>
-        public static MvcHtmlString Tabs(this MvcSiteMapHtmlHelper helper, string templateName, SiteMapNode startingNode, bool startingNodeInChildLevel, bool showStartingNode, int maxDepth)
+        public static MvcHtmlString MainMenu(this MvcSiteMapHtmlHelper helper, string templateName, SiteMapNode startingNode, bool startingNodeInChildLevel, bool showStartingNode, int maxDepth)
         {
-            return Tabs(helper, templateName, startingNode, startingNodeInChildLevel, showStartingNode, maxDepth, false);
+            return MainMenu(helper, templateName, startingNode, startingNodeInChildLevel, showStartingNode, maxDepth, false);
         }
 
         /// <summary>
@@ -341,10 +341,10 @@ namespace DemoApplication.Extensions.Sitemap
         /// <param name="maxDepth">The max depth.</param>
         /// <param name="drillDownToCurrent">Should the model exceed the maxDepth to reach the current node</param>
         /// <returns>The model.</returns>
-        private static SitemapHelperModel BuildModel(MvcSiteMapHtmlHelper helper, SiteMapNode startingNode, bool startingNodeInChildLevel, bool showStartingNode, int maxDepth, bool drillDownToCurrent)
+        private static MainMenuSitemapHelperModel BuildModel(MvcSiteMapHtmlHelper helper, SiteMapNode startingNode, bool startingNodeInChildLevel, bool showStartingNode, int maxDepth, bool drillDownToCurrent)
         {
             // Build model
-            var model = new SitemapHelperModel();
+            var model = new MainMenuSitemapHelperModel();
             var node = startingNode;
 
             // Check if a starting node has been given
@@ -362,19 +362,25 @@ namespace DemoApplication.Extensions.Sitemap
                 return model;
             }
 
+            
+
+
             // Check visibility
             bool nodeVisible = true;
             if (mvcNode != null)
             {
                 nodeVisible = mvcNode.VisibilityProvider.IsVisible(
-                    node, HttpContext.Current, TabsSourceMetadata);
+                    node, HttpContext.Current, TabsSourceMetadata);   
+            
+
             }
 
             // Check ACL
             if (node.IsAccessibleToUser(HttpContext.Current))
             {
                 // Add node?
-                var nodeToAdd = SiteMapNodeModelMapper.MapToSiteMapNodeModel(node, mvcNode, TabsSourceMetadata);
+                var nodeToAdd = MapToSiteMapNodeModel(node, mvcNode, TabsSourceMetadata);
+
                 if (nodeVisible)
                 {
                     if (showStartingNode || !startingNodeInChildLevel)
@@ -416,7 +422,7 @@ namespace DemoApplication.Extensions.Sitemap
         /// <param name="showStartingNode">Show starting node if set to <c>true</c>.</param>
         /// <param name="maxDepth">The max depth.</param>
         /// <returns>The model.</returns>
-        private static SitemapHelperModel BuildModel(MvcSiteMapHtmlHelper helper, SiteMapNode startingNode, bool startingNodeInChildLevel, bool showStartingNode, int maxDepth)
+        private static MainMenuSitemapHelperModel BuildModel(MvcSiteMapHtmlHelper helper, SiteMapNode startingNode, bool startingNodeInChildLevel, bool showStartingNode, int maxDepth)
         {
             return BuildModel(helper, startingNode, startingNodeInChildLevel, showStartingNode, maxDepth, false);
         }
@@ -559,6 +565,31 @@ namespace DemoApplication.Extensions.Sitemap
                     return true;
             }
             return false;
+        }
+
+        public static CustomNodeModel MapToSiteMapNodeModel(SiteMapNode node, MvcSiteMapNode mvcNode, IDictionary<string, object> sourceMetadata)
+        {
+            var model = new CustomNodeModel()
+            {
+                Area = mvcNode != null ? mvcNode.Area : "",
+                Controller = mvcNode != null ? mvcNode.Controller : "",
+                Action = mvcNode != null ? mvcNode.Action : "",
+                Title = node.Title,
+                Description = node.Description,
+                TargetFrame = mvcNode == null ? "" : mvcNode.TargetFrame,
+                ImageUrl = mvcNode == null ? "" : mvcNode.ImageUrl,
+                Url = node.Url,
+                IsCurrentNode = node == node.Provider.CurrentNode,
+                IsInCurrentPath = SiteMapNodeExtensions.IsInCurrentPath(node),
+                IsRootNode = node == node.Provider.RootNode,
+                IsClickable = mvcNode == null || mvcNode.Clickable,
+                RouteValues = mvcNode != null ? mvcNode.RouteValues : (IDictionary<string, object>)new Dictionary<string, object>(),
+                MetaAttributes = mvcNode != null ? mvcNode.MetaAttributes : (IDictionary<string, string>)new Dictionary<string, string>(),
+                SourceMetadata = sourceMetadata                
+            };
+           
+
+            return model;
         }
     }
 }

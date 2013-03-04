@@ -1,8 +1,6 @@
  
 
 [references]
-~/scripts/lib/angular
 ~/scripts/lib/bootstrap
 ~/scripts/lib/jquery
-~/scripts/lib/jqureyNotyfier
 ~/scripts/lib/knockout

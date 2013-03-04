@@ -1,6 +1,7 @@
-@model DemoApplication.Models.Sitemap.BreadcrumbHelperModel
+@model DemoApplication.Models.Sitemap.SitemapHelperModel
 
-<div class="breadcrumb">
+
+<div class="breadcrumb container-fluid">
     @foreach (var node in Model) { 
     @Html.DisplayFor(m => node);
     

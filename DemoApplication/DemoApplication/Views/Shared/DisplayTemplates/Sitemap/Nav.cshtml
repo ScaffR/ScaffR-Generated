@@ -1,5 +1,8 @@
-@using DemoApplication.Extensions.Sitemap
-@model DemoApplication.Models.Sitemap.NavHelperModel
+@model DemoApplication.Models.Sitemap.SitemapHelperModel
+
+@{
+    var ctx = ViewContext.RouteData;
+}
 
 <ul class="nav">
     @foreach (var node in Model.Nodes)
@@ -14,7 +17,7 @@
             <ul class="dropdown-menu">
                 @foreach (var child in node.Children)
                 {
-                    <li><a href="@child.Url"><i class="@child.ImageUrl">
+                    <li><a href="@Url.Action(child.Action, child.Controller)"><i class="@child.ImageUrl">
                     </i>@child.Title</a> </li>
                 }
             </ul>
@@ -22,8 +25,9 @@
         }
         else
         {
-        <li class="@Html.AddClass("active", (node.IsCurrentNode || node.IsInCurrentPath || (ViewContext.Controller.ValueProvider.GetValue("action").RawValue.ToString().Equals(node.Action, StringComparison.CurrentCultureIgnoreCase ) && ViewContext.Controller.ValueProvider.GetValue("controller").RawValue.ToString().Equals(node.Controller, StringComparison.InvariantCultureIgnoreCase))) && !node.IsRootNode)"><a href="@node.Url">
+        <li class="@Html.AddClass("active", (node.IsCurrentNode || node.IsInCurrentPath || (ViewContext.Controller.ValueProvider.GetValue("action").RawValue.ToString().Equals(node.Action, StringComparison.CurrentCultureIgnoreCase ) && ViewContext.Controller.ValueProvider.GetValue("controller").RawValue.ToString().Equals(node.Controller, StringComparison.InvariantCultureIgnoreCase))) && !node.IsRootNode)"><a href="@Url.Action(node.Action, node.Controller)">
             <i class="@node.ImageUrl icon-white"></i>@node.Title</a></li>    
         }
+
     }
 </ul>

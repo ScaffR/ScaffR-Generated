@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<mvcSiteMap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-3.0" xsi:schemaLocation="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-3.0 MvcSiteMapSchema.xsd" enableLocalization="true">
-  <mvcSiteMapNode title="Profile" controller="Account" action="Profile" imageUrl="icon-user" key="Profile" >
-    <mvcSiteMapNode title="Security" controller="Account" action="Settings" imageUrl="icon-lock"/>
-    <mvcSiteMapNode title="Photo" controller="Account" action="Photo" imageUrl="icon-camera"/>
-  </mvcSiteMapNode>
-</mvcSiteMap>

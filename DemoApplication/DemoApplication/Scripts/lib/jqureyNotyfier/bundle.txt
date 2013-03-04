@@ -1,3 +1,0 @@
-﻿*
-[references]
-~/scripts/lib/jquery

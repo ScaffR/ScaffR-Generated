@@ -48,10 +48,10 @@ namespace DemoApplication.Extensions.Sitemap
         /// <param name="helper">The helper.</param>
         /// <param name="startingNode">The starting node.</param>
         /// <returns>The model.</returns>
-        private static BreadcrumbHelperModel BuildModel(MvcSiteMapHtmlHelper helper, SiteMapNode startingNode)
+        private static SitemapHelperModel BuildModel(MvcSiteMapHtmlHelper helper, SiteMapNode startingNode)
         {
             // Build model
-            var model = new BreadcrumbHelperModel();
+            var model = new SitemapHelperModel();
             var node = startingNode;
             while (node != null)
             {

@@ -199,8 +199,10 @@
     <Compile Include="Extensions\SelectListExtensions.cs" />
     <Compile Include="Extensions\Sitemap\BootstrapHelpers.cs" />
     <Compile Include="Extensions\Sitemap\BreadcrumbExtensions.cs" />
+    <Compile Include="Extensions\Sitemap\MainMenuExtensions.cs" />
     <Compile Include="Extensions\Sitemap\NavExtensions.cs" />
     <Compile Include="Extensions\Sitemap\PillsExtensions.cs" />
+    <Compile Include="Extensions\Sitemap\SubMenuExtensions.cs" />
     <Compile Include="Extensions\Sitemap\TabsExtensions.cs" />
     <Compile Include="Extensions\UrlExtensions.cs" />
     <Compile Include="Extensions\UrlExtensions.Photos.cs" />
@@ -268,10 +270,8 @@
     <Compile Include="Models\Rules\ModelClientValidationMinRule.cs" />
     <Compile Include="Models\Rules\ModelClientValidationNumericRule.cs" />
     <Compile Include="Models\SettingsModel.cs" />
-    <Compile Include="Models\Sitemap\BreadcrumbHelperModel.cs" />
-    <Compile Include="Models\Sitemap\NavHelperModel.cs" />
-    <Compile Include="Models\Sitemap\PillsHelperModel.cs" />
-    <Compile Include="Models\Sitemap\TabsHelperModel.cs" />
+    <Compile Include="Models\Sitemap\CustomNodeModel.cs" />
+    <Compile Include="Models\Sitemap\SitemapHelperModel.cs" />
     <Compile Include="Models\Users\UserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\MachineKeyCookieTransform.cs" />
@@ -342,14 +342,6 @@
     <Content Include="Scripts\global.js" />
     <Content Include="Scripts\global.modal.js" />
     <Content Include="Scripts\global.validation.js" />
-    <Content Include="Scripts\lib\angular\angular-cookies.js" />
-    <Content Include="Scripts\lib\angular\angular-loader.js" />
-    <Content Include="Scripts\lib\angular\angular-resource.js" />
-    <Content Include="Scripts\lib\angular\angular-sanitize.js" />
-    <Content Include="Scripts\lib\angular\angular-ui.js" />
-    <Content Include="Scripts\lib\angular\angular.js" />
-    <Content Include="Scripts\lib\angular\bundle.txt" />
-    <Content Include="Scripts\lib\angular\version.txt" />
     <Content Include="Scripts\lib\bootstrap\bootstrap.js" />
     <Content Include="Scripts\lib\bootstrap\bundle.txt" />
     <Content Include="Scripts\lib\bundle.txt">
@@ -358,12 +350,10 @@
       <DependentUpon>bundle.tt</DependentUpon>
     </Content>
     <Content Include="Scripts\lib\jquery\bundle.txt" />
-    <Content Include="Scripts\lib\jquery\jquery-1.8.2.js" />
+    <Content Include="Scripts\lib\jquery\jquery-1.9.1.js" />
     <Content Include="Scripts\lib\jquery\jquery.validate.js" />
     <Content Include="Scripts\lib\jquery\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\lib\jquery\json2.js" />
-    <Content Include="Scripts\lib\jqureyNotyfier\bundle.txt" />
-    <Content Include="Scripts\lib\jqureyNotyfier\jquery.noty.js" />
     <Content Include="Scripts\lib\knockout\knockout-2.1.0.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -506,9 +496,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\EditorTemplates\Object.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Shared\DisplayTemplates\Bootstrap\Bootstrap.Table.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\DisplayTemplates\Alert.cshtml" />
@@ -928,13 +915,10 @@
     <Content Include="Views\Account\Photo.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\_Folder.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Dashboard\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\Bootstrap\Layout.cshtml" />
+    <Content Include="Views\Shared\Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\_LogOnPartial.cshtml" />
@@ -944,9 +928,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CodeTemplates\Scaffolders\ScaffR.Membership\ScaffR.Membership.ps1" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Sitemaps\Modules.sitemap" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Sitemaps\System.sitemap">
@@ -973,9 +954,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CodeTemplates\Scaffolders\ScaffR.Lists.Dropdowns\ScaffR.Lists.Dropdowns.ps1" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Sitemaps\Account.sitemap" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\X509Certificates\X509CertificatesName.cs.t4" />
@@ -1128,6 +1106,9 @@
     <Content Include="Views\Shared\_Alert.cshtml" />
     <Content Include="Views\Task\Manager.cshtml" />
     <Content Include="Views\Shared\_Modal.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Sitemap\MainMenu.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Sitemap\SubMenu.cshtml" />
+    <Content Include="Scripts\lib\jquery\jquery-migrate-1.1.0.js" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
