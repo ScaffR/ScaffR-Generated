@@ -1,4 +1,4 @@
 ScaffR-Generated
 ================
 
-Repository that contains the generated files from ScaffR
+Repository that contains the generated files from ScaffR 
