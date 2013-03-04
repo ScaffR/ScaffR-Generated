@@ -285,7 +285,6 @@
     <Content Include="Content\images\Small\male.jpg" />
     <Content Include="Content\images\Tiny\male.jpg" />
     <Content Include="Content\Less\bootstrap\bundle.txt" />
-    <Content Include="Content\Less\components\jsNotyfier\jsnotyfier.less" />
     <Content Include="Content\Less\bootstrap\accordion.less" />
     <Content Include="Content\Less\bootstrap\alerts.less" />
     <Content Include="Content\Less\bootstrap\bootstrap.less" />
@@ -332,8 +331,6 @@
     <Content Include="Content\font\museo_slab_500-webfont.ttf" />
     <Content Include="Content\font\proximanova-sbold-webfont.ttf" />
     <Content Include="Content\font\proximanova-webfont.ttf" />
-    <Compile Include="Content\Less\components\jsNotyfier\jquery.noty.less" />
-    <Content Include="Content\Less\components\jsNotyfier\noty_theme_default.less" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\custom\Task\bundle.txt" />
     <Content Include="Scripts\custom\Task\task.js" />
@@ -1101,7 +1098,6 @@
     <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\AuthenticationInstantClaim.cs.t4" />
     <Content Include="Content\Less\elements\elements.less" />
     <Compile Include="Extensions\Html\HtmlExtensions.Strings.cs" />
-    <Content Include="Content\Less\components\components.less" />
     <Content Include="Content\Less\global\common\common.less" />
     <Content Include="Content\Less\global\common\fonts.less" />
     <Content Include="Content\Less\global\common\layout.less" />
