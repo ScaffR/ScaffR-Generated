@@ -179,6 +179,7 @@
     <Compile Include="Controllers\Account\AccountController.Profile.cs" />
     <Compile Include="Controllers\Account\AccountController.Register.cs" />
     <Compile Include="Controllers\Account\AccountController.Settings.cs" />
+    <Compile Include="Controllers\Components\ComponentsController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\DropdownController.cs" />
     <Compile Include="Controllers\Home\HomeController.cs" />
@@ -193,8 +194,11 @@
     <Compile Include="Dropdowns\Dropdowns.Months.cs" />
     <Compile Include="Dropdowns\Dropdowns.States.cs" />
     <Compile Include="Extensions\ActionDescriptorExtensions.cs" />
+    <Compile Include="Extensions\BootstrapInputOptions.cs" />
     <Compile Include="Extensions\ControllerExtensions.cs" />
     <Compile Include="Extensions\Html\HtmlExtensions.Site.cs" />
+    <Compile Include="Extensions\InputExtensions.cs" />
+    <Compile Include="Extensions\ModelMetadataExtensions.cs" />
     <Compile Include="Extensions\ModelStateExtensions.cs" />
     <Compile Include="Extensions\SelectListExtensions.cs" />
     <Compile Include="Extensions\Sitemap\BootstrapHelpers.cs" />
@@ -207,6 +211,7 @@
     <Compile Include="Extensions\UrlExtensions.cs" />
     <Compile Include="Extensions\UrlExtensions.Photos.cs" />
     <Compile Include="Extensions\UrlExtensions.ProfilePicture.cs" />
+    <Compile Include="Extensions\ViewDataExtensions.cs" />
     <Compile Include="Filters\FillDropDowns.cs" />
     <Compile Include="Filters\OnlyAnonymous.cs" />
     <Compile Include="Filters\ShowAlerts.cs" />
@@ -239,6 +244,7 @@
     <Compile Include="Models\Attributes\EqualToAttribute.cs" />
     <Compile Include="Models\Attributes\Expressions.cs" />
     <Compile Include="Models\Attributes\FileExtensionsAttribute.cs" />
+    <Compile Include="Models\Attributes\HideSurroundingChromeAttribute.cs" />
     <Compile Include="Models\Attributes\IDropDownAttribute.cs" />
     <Compile Include="Models\Attributes\IntegerAttribute.cs" />
     <Compile Include="Models\Attributes\MaxAttribute.cs" />
@@ -250,8 +256,11 @@
     <Compile Include="Models\Attributes\TextboxSize.cs" />
     <Compile Include="Models\Attributes\UrlAttribute.cs" />
     <Compile Include="Models\Attributes\UrlOptions.cs" />
+    <Compile Include="Models\Attributes\WizardAttribute.cs" />
+    <Compile Include="Models\Attributes\WizardStepAttribute.cs" />
     <Compile Include="Models\Attributes\YearAttribute.cs" />
     <Compile Include="Models\ChangePasswordModel.cs" />
+    <Compile Include="Models\Components\SampleWizardModel.cs" />
     <Compile Include="Models\ForgotPasswordModel.cs" />
     <Compile Include="Models\ForgotPasswordResetModel.cs" />
     <Compile Include="Models\LogOnModel.cs" />
@@ -1109,6 +1118,9 @@
     <Content Include="Views\Shared\DisplayTemplates\Sitemap\MainMenu.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Sitemap\SubMenu.cshtml" />
     <Content Include="Scripts\lib\jquery\jquery-migrate-1.1.0.js" />
+    <Content Include="Views\Components\Index.cshtml" />
+    <Content Include="Views\Components\Wizard.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Wizard.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

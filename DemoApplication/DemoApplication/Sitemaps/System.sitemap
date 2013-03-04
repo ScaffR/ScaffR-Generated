@@ -8,14 +8,18 @@
 
     <mvcSiteMapNode title="Dashboard" controller="Dashboard" action="Index" imageUrl="icon-th-large" />
 
-    <mvcSiteMapNode title="Profile" controller="Account" action="Profile" imageUrl="icon-user" key="Profile" >
+    <mvcSiteMapNode title="Profile" controller="Account" action="Profile" imageUrl="icon-user" >
       <mvcSiteMapNode title="Security" controller="Account" action="Settings" imageUrl="icon-lock"/>
       <mvcSiteMapNode title="Photo" controller="Account" action="Photo" imageUrl="icon-camera"/>
     </mvcSiteMapNode>
 
+    <mvcSiteMapNode title="Components" controller="Components" action="Index" imageUrl="icon-user" >
+      <mvcSiteMapNode title="Wizard" controller="Components" action="Wizard"/>
+    </mvcSiteMapNode>
+    
     <mvcSiteMapNode title="Admin" controller="Home" action="Manage" imageUrl="icon-lock" key="Manage" visibility="breadcrumb">
-      <mvcSiteMapNode title="Manage Tasks" controller="Task" action="Manager" imageUrl="icon-sitemap" key="Task" />
-      <mvcSiteMapNode title="Manage Users" controller="Users" action="Manager" imageUrl="icon-group" key="Users">
+      <mvcSiteMapNode title="Manage Tasks" controller="Task" action="Manager" imageUrl="icon-sitemap" />
+      <mvcSiteMapNode title="Manage Users" controller="Users" action="Manager" imageUrl="icon-group">
         <mvcSiteMapNode title="Details" controller="Users" action="Details" imageUrl="icon-user" />
       </mvcSiteMapNode>
     </mvcSiteMapNode>

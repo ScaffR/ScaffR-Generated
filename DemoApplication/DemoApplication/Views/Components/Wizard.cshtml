@@ -1,0 +1,11 @@
+﻿@{
+    ViewBag.Title = "Wizard";
+}
+@model DemoApplication.Models.Components.SampleWizardModel
+
+<h2>Wizard</h2>
+
+@using (Html.BeginForm("Wizard", "Components", FormMethod.Post, new{@class="form-horizontal"}))
+{
+     @Html.EditorForModel()
+}
