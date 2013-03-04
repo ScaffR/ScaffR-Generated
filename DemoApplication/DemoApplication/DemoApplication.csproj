@@ -221,6 +221,7 @@
     <Compile Include="Filters\UserContextFilters\SetProfileValues.cs" />
     <Compile Include="Mailers\Mailer.cs" />
     <Compile Include="Mailers\Mailer.ForgotPassword.cs" />
+    <Compile Include="ModelBinders\DbGeographyModelBinder.cs" />
     <Compile Include="Models\Adapters\CreditCardAttributeAdapter.cs" />
     <Compile Include="Models\Adapters\CuitAttributeAdapter.cs" />
     <Compile Include="Models\Adapters\DateAttributeAdapter.cs" />
@@ -260,6 +261,7 @@
     <Compile Include="Models\Attributes\WizardStepAttribute.cs" />
     <Compile Include="Models\Attributes\YearAttribute.cs" />
     <Compile Include="Models\ChangePasswordModel.cs" />
+    <Compile Include="Models\Components\SampleAddressModel.cs" />
     <Compile Include="Models\Components\SampleWizardModel.cs" />
     <Compile Include="Models\ForgotPasswordModel.cs" />
     <Compile Include="Models\ForgotPasswordResetModel.cs" />
@@ -345,6 +347,7 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\custom\Task\bundle.txt" />
     <Content Include="Scripts\custom\Task\task.js" />
+    <Content Include="Scripts\EFSpatialGoogleMaps.js" />
     <Content Include="Scripts\global.bootstrap.js" />
     <Content Include="Scripts\global.cascadingDropdown.js" />
     <Content Include="Scripts\global.input.js" />
@@ -1121,6 +1124,8 @@
     <Content Include="Views\Components\Index.cshtml" />
     <Content Include="Views\Components\Wizard.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Wizard.cshtml" />
+    <Content Include="Views\Components\GoogleMaps.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\DbGeography.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

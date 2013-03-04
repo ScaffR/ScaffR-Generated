@@ -13,12 +13,13 @@ namespace DemoApplication.Bootstrappers
 			{
 				SearchOption = SearchOption.TopDirectoryOnly
 			});
-
-			//configurable.AddPerSubDirectory<StylesheetBundle>("content/less");
+		
 			configurable.Add<StylesheetBundle>("content/less/site.less");
 			configurable.AddPerSubDirectory<ScriptBundle>("Scripts/custom");
 
 			configurable.AddPerSubDirectory<ScriptBundle>("Scripts/lib");
+
+            configurable.AddUrlWithAlias<ScriptBundle>("http://maps.google.com/maps/api/js?sensor=false", "googleMaps");
 		}
 	}
 }

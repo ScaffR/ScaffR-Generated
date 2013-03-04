@@ -1,8 +1,8 @@
 ﻿(function ($) {
 
-    $('[data-parent]').each(function(idx, value) {
+    $('[data-cascading-parent]').each(function(idx, value) {
 
-        var parentId = $(this).data('parent');
+        var parentId = $(this).data('cascading-parent');
         var $parent = $('#' + parentId);
 
         var method = $(this).data('method');

@@ -8,24 +8,42 @@
     {
         public SampleWizardModel()
         {
-            Step1 = new SampleWizardStep();
-            Step2 = new SampleWizardStep();
-            Step3 = new SampleWizardStep();
+            Step1 = new UserModel();
+            Step2 = new TelevisionPreferencesModel();
+            Step3 = new FoodPreferencesModel();
         }
 
-        [WizardStep("Some Information")]
-        public SampleWizardStep Step1 { get; set; }
+        [WizardStep("User Information")]
+        public UserModel Step1 { get; set; }
 
-        [WizardStep("More Information")]
-        public SampleWizardStep Step2 { get; set; }
+        [WizardStep("Television Preferences")]
+        public TelevisionPreferencesModel Step2 { get; set; }
 
-        [WizardStep("Even More Information")]
-        public SampleWizardStep Step3 { get; set; }
+        [WizardStep("Food Preferences")]
+        public FoodPreferencesModel Step3 { get; set; }
     }
 
-    public class SampleWizardStep
+    public class UserModel
     {
-        [Display(Name = "Sample Value")]
-        public string SampleValue { get; set; }
+        [Display(Name = "First Name")]
+        public string FirstName { get; set; }
+
+        [Display(Name = "Last Name")]
+        public string LastName{ get; set; }
+    }
+
+    public class TelevisionPreferencesModel
+    {
+        [Display(Name = "Favorite TVShow")]
+        public string FavoriteTvShow { get; set; }
+
+        [Display(Name = "Owns TV?")]
+        public bool HasTv { get; set; }
+    }
+
+    public class FoodPreferencesModel
+    {
+        [Display(Name = "Allergies")]
+        public string Allergies { get; set; }
     }
 }

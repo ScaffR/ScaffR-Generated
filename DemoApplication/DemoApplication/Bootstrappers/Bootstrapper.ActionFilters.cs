@@ -14,7 +14,7 @@ namespace DemoApplication.Bootstrappers
             GlobalFilters.Filters.Add(new HandleErrorAttribute());
             GlobalFilters.Filters.Add(new AuthorizeAttribute());
             GlobalFilters.Filters.Add(new UserContextFilter());
-            GlobalFilters.Filters.Add(new FillDropDowns());
+            //GlobalFilters.Filters.Add(new FillDropDowns());
             GlobalFilters.Filters.Add(new ShowBreadcrumb(false));
             GlobalFilters.Filters.Add(new ShowAlerts(true));
         }

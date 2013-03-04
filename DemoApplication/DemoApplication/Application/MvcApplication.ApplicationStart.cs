@@ -2,6 +2,7 @@ namespace DemoApplication.Application
 {
     using System.Web.Mvc;
     using Bootstrappers;
+    using ModelBinders;
 
     public partial class MvcApplication
 	{
@@ -9,6 +10,9 @@ namespace DemoApplication.Application
         {
             AreaRegistration.RegisterAllAreas();
             Bootstrapper.Routes();
+
+            //Add my MVC Provider
+            ModelBinderProviders.BinderProviders.Add(new EFModelBinderProviderMvc());
         }
 	}
 }

@@ -30,5 +30,16 @@ namespace DemoApplication.Controllers.Components
             return View(model);
         }
 
+        public ActionResult GoogleMaps()
+        {
+            return View(new SampleAddressModel());            
+        }
+
+        [HttpPost]
+        public ActionResult GoogleMaps(SampleAddressModel model)
+        {
+            return View(model);
+        }
+
     }
 }
