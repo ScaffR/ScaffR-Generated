@@ -94,6 +94,8 @@
     <Compile Include="Common\Security\ApplicationClaims.cs" />
     <Compile Include="Common\Security\ApplicationIdentity.cs" />
     <Compile Include="Common\Security\AuthorizationManager.cs" />
+    <Compile Include="Common\Security\ClaimsAuthorization.cs" />
+    <Compile Include="Common\Security\ClaimsAuthorizeAttribute.cs" />
     <Compile Include="Common\Security\ClaimsTransformationHttpModule.cs" />
     <Compile Include="Common\Security\ClaimsTransformer.cs" />
     <Compile Include="Common\Security\PolicyReader.cs" />

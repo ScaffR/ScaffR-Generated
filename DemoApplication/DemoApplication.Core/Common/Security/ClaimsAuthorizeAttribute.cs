@@ -1,4 +1,4 @@
-namespace DemoApplication.IdentityModel.Authorization.MVC
+namespace DemoApplication.Core.Common.Security
 {
     using System.Web.Mvc;
 

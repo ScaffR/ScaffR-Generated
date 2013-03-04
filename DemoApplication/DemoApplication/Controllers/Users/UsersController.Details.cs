@@ -1,8 +1,8 @@
 ﻿namespace DemoApplication.Controllers.Users
 {
     using System.Web.Mvc;
+    using Core.Common.Security;
     using Extensions;
-    using IdentityModel.Authorization.MVC;
     using Models.Users;
     using Omu.ValueInjecter;
 
