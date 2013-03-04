@@ -1,0 +1,255 @@
+﻿@import "../../variables.less";
+
+.form-inline {
+    .control-group {
+        margin-bottom: 0;
+    }
+    .help-block {
+        margin-bottom: 0;
+    }
+}
+
+@import "validation.less";
+@import "buttons.less";
+@import "fields.less";
+
+
+
+[data-task] {
+
+    &:hover {
+        background-color: #efefef;
+        cursor: pointer;
+
+        .btn-danger {
+            display: block;
+        }
+    }
+}
+
+.customer-info .fields {
+    clear: none;
+    float: left;
+    margin: 5px 10px 0 0;
+}
+
+.editor-label {
+    margin: 1em 0 0 0;
+    color: #333B4E;
+    font-weight: bold !important;
+}
+
+.editor-field.address input#Address {
+    height: 23px;
+    margin: 0 0 10px;
+    width: 350px;
+}
+
+label {
+    font-weight: bold !important;
+}
+
+.SecondField {
+    float: right;
+    width: 41.5%;
+    position: relative;
+}
+
+    .SecondField input[type="checkbox"] {
+        width: 12px;
+        float: left;
+        margin-right: 3px;
+        margin-top: -5px;
+    }
+
+    .SecondField input[type="text"] {
+        width: 130px;
+        float: left;
+    }
+
+select {
+    width: auto !important;
+}
+
+.date-picker-selector input {
+    width: 80px !important;
+    float: left;
+}
+
+#AppointmentHourMinute {
+    margin-top: -31px;
+    margin-left: 25px;
+}
+
+.comment {
+    margin: -10px 0px 0px 0px;
+}
+
+.rButton input[type='radio'] {
+    margin: -4px 4px 0px 4px;
+}
+
+.rButton, .right-part table td input[name='SubCategoryId'], input[name='TaskId'] {
+    vertical-align: baseline !important;
+    margin: 6px 7.5px !important;
+    font-weight: normal !important;
+}
+
+#CopyPasteContainer .topRight, #CopyPasteContainer .right-part {
+    float: left !important;
+    margin: 0px !important;
+}
+/*Task info*/
+.technician-profile {
+    border: 2px solid gray;
+    border-radius: 12px;
+    padding: 0px 5px 5px 5px;
+    width: 220px;
+    background-color: white;
+}
+
+    .technician-profile table {
+        border: 1px solid #000;
+        width: 100%;
+        background-color: white;
+    }
+
+    .technician-profile tr td {
+        color: #354C9C;
+        line-height: 1.5;
+        padding: 5px;
+        height: 30px;
+        border-collapse: collapse;
+        vertical-align: middle;
+    }
+
+        .technician-profile tr td span {
+            font-weight: normal;
+        }
+
+    .technician-profile h2 {
+        font-size: 14px;
+        font-weight: bold;
+        color: #295875;
+        margin: 0px;
+        padding: 0px;
+    }
+
+        .technician-profile h2 span {
+            color: #1C9CD3;
+        }
+
+/* Enter Call */
+
+.enterCallAppointmentTime {
+    width: 100% !important;
+}
+
+.entercall-category-tabs {
+    margin-bottom: 25px;
+}
+
+.entercall-up-categorytabs {
+    margin-top: -55px;
+}
+
+.title-newcall{
+    float: left;
+    margin: 0 auto;
+    margin-right: 15px;
+}
+
+
+/* Assing Call */
+
+// Active nav items
+.assigncall-disabled a, .assigncall-disabled a:hover{
+    color: @black !important;
+    background-color: #E7DFE1 !important;
+    text-decoration: none;
+    webkit-box-shadow: 1px 1px 5px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow:    1px 1px 5px rgba(50, 50, 50, 0.75);
+    box-shadow:         1px 1px 5px rgba(50, 50, 50, 0.75);
+    margin-left: 8px;
+    cursor: default;
+}
+
+.active-disabled a, .active-disabled a:hover {
+    color: @black !important;
+    background-color: #B4C8FF !important;
+    text-decoration: none;
+    webkit-box-shadow: 1px 1px 5px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow:    1px 1px 5px rgba(50, 50, 50, 0.75);
+    box-shadow:         1px 1px 5px rgba(50, 50, 50, 0.75);
+}
+
+.name-assignto {
+    color: @linkColor;
+    font-weight: bold;
+    text-align: center;
+}
+
+.details-assignto-out {
+    padding: 30px 5px 12px 5px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    border: 1px solid black;
+    background-color: white;
+    margin-bottom: 20px;
+}
+
+.details-assignto-in {
+    border: 1px solid black;
+    background-color: white;
+    padding: 10px 10px 40px 10px;
+}
+
+    .details-assignto-in p {
+        font-weight: bold;
+    }
+
+    .details-assignto-in span {
+        display: block;
+    }
+
+.btn-edit-assignto-content {
+    float: left;
+    text-align: center;
+    width: 100%;
+    height: 1px;
+}
+
+.btn-edit-assignto {
+    margin-top: -6px;
+}
+
+.title-assigntaks {
+    color: @linkColor;
+    margin-top: 0px;
+    margin-left: 160px;
+    margin-bottom: 35px;
+}
+
+.up-assigntask-content {
+    margin-top: -71px;
+}
+
+.map-canvas-assigntask {
+    width: 570px !important;
+    height: 360px;
+    position: relative;
+}
+
+.available-persons {
+    margin-top: 5px;
+    height: 95px;
+    position: relative;
+}
+
+.available-persons label{
+    float: left;
+}
+
+
+

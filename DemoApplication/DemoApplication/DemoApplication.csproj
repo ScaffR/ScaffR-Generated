@@ -281,6 +281,52 @@
     <Content Include="Content\images\Tiny\male.jpg" />
     <Content Include="Content\Less\bootstrap\bundle.txt" />
     <Content Include="Content\Less\components\jsNotyfier\jsnotyfier.less" />
+    <Content Include="Content\Less\bootstrap\accordion.less" />
+    <Content Include="Content\Less\bootstrap\alerts.less" />
+    <Content Include="Content\Less\bootstrap\bootstrap.less" />
+    <Content Include="Content\Less\bootstrap\breadcrumbs.less" />
+    <Content Include="Content\Less\bootstrap\button-groups.less" />
+    <Content Include="Content\Less\bootstrap\buttons.less" />
+    <Content Include="Content\Less\bootstrap\carousel.less" />
+    <Content Include="Content\Less\bootstrap\close.less" />
+    <Content Include="Content\Less\bootstrap\code.less" />
+    <Content Include="Content\Less\bootstrap\component-animations.less" />
+    <Content Include="Content\Less\bootstrap\dropdowns.less" />
+    <Content Include="Content\Less\bootstrap\font-awesome-ie7.less" />
+    <Content Include="Content\Less\bootstrap\font-awesome.less" />
+    <Content Include="Content\Less\bootstrap\forms.less" />
+    <Content Include="Content\Less\bootstrap\grid.less" />
+    <Content Include="Content\Less\bootstrap\hero-unit.less" />
+    <Content Include="Content\Less\bootstrap\labels-badges.less" />
+    <Content Include="Content\Less\bootstrap\layouts.less" />
+    <Content Include="Content\Less\bootstrap\media.less" />
+    <Content Include="Content\Less\bootstrap\mixins.less" />
+    <Content Include="Content\Less\bootstrap\modals.less" />
+    <Content Include="Content\Less\bootstrap\navbar.less" />
+    <Content Include="Content\Less\bootstrap\navs.less" />
+    <Content Include="Content\Less\bootstrap\pager.less" />
+    <Content Include="Content\Less\bootstrap\pagination.less" />
+    <Content Include="Content\Less\bootstrap\popovers.less" />
+    <Content Include="Content\Less\bootstrap\progress-bars.less" />
+    <Content Include="Content\Less\bootstrap\reset.less" />
+    <Content Include="Content\Less\bootstrap\responsive-1200px-min.less" />
+    <Content Include="Content\Less\bootstrap\responsive-767px-max.less" />
+    <Content Include="Content\Less\bootstrap\responsive-768px-979px.less" />
+    <Content Include="Content\Less\bootstrap\responsive-navbar.less" />
+    <Content Include="Content\Less\bootstrap\responsive-utilities.less" />
+    <Content Include="Content\Less\bootstrap\responsive.less" />
+    <Content Include="Content\Less\bootstrap\scaffolding.less" />
+    <Content Include="Content\Less\bootstrap\sprites.less" />
+    <Content Include="Content\Less\bootstrap\tables.less" />
+    <Content Include="Content\Less\bootstrap\thumbnails.less" />
+    <Content Include="Content\Less\bootstrap\tooltip.less" />
+    <Content Include="Content\Less\bootstrap\type.less" />
+    <Content Include="Content\Less\bootstrap\utilities.less" />
+    <Content Include="Content\Less\bootstrap\wells.less" />
+    <Content Include="Content\font\FontAwesome.otf" />
+    <Content Include="Content\font\museo_slab_500-webfont.ttf" />
+    <Content Include="Content\font\proximanova-sbold-webfont.ttf" />
+    <Content Include="Content\font\proximanova-webfont.ttf" />
     <None Include="Content\Less\components\jsNotyfier\jquery.noty.less" />
     <None Include="Content\Less\components\jsNotyfier\noty_theme_default.less" />
     <Content Include="Global.asax" />
@@ -432,132 +478,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Sitemaps\Public.sitemap" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\Less\bootstrap\wells.less" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\Less\bootstrap\variables.less" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\Less\bootstrap\utilities.less" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\Less\bootstrap\type.less" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\Less\bootstrap\tooltip.less" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\Less\bootstrap\thumbnails.less" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\Less\bootstrap\tables.less" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\Less\bootstrap\sprites.less" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\Less\bootstrap\scaffolding.less" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\Less\bootstrap\responsive-utilities.less" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\Less\bootstrap\responsive-navbar.less" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\Less\bootstrap\responsive-768px-979px.less" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\Less\bootstrap\responsive-767px-max.less" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\Less\bootstrap\responsive-1200px-min.less" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\Less\bootstrap\responsive.less" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\Less\bootstrap\reset.less" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\Less\bootstrap\progress-bars.less" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\Less\bootstrap\popovers.less" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\Less\bootstrap\pagination.less" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\Less\bootstrap\pager.less" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\Less\bootstrap\navs.less" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\Less\bootstrap\navbar.less" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\Less\bootstrap\modals.less" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\Less\bootstrap\mixins.less" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\Less\bootstrap\layouts.less" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\Less\bootstrap\labels-badges.less" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\Less\bootstrap\hero-unit.less" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\Less\bootstrap\grid.less" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\Less\bootstrap\forms.less" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\Less\bootstrap\font-awesome-ie7.less" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\Less\bootstrap\font-awesome.less" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\Less\bootstrap\dropdowns.less" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\Less\bootstrap\component-animations.less" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\Less\bootstrap\code.less" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\Less\bootstrap\close.less" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\Less\bootstrap\carousel.less" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\Less\bootstrap\buttons.less" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\Less\bootstrap\button-groups.less" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\Less\bootstrap\breadcrumbs.less" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\Less\bootstrap\bootstrap.less" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\Less\bootstrap\alerts.less" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\Less\bootstrap\accordion.less" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\font\fontawesome-webfont.woff" />
@@ -1177,6 +1097,25 @@
     <Content Include="Content\Less\elements\elements.less" />
     <Compile Include="Extensions\Html\HtmlExtensions.Strings.cs" />
     <Content Include="Content\Less\components\components.less" />
+    <Content Include="Content\Less\global\common\common.less" />
+    <Content Include="Content\Less\global\common\fonts.less" />
+    <Content Include="Content\Less\global\common\layout.less" />
+    <Content Include="Content\Less\global\common\tables.less" />
+    <Content Include="Content\Less\global\components\components.less" />
+    <Content Include="Content\Less\global\components\googlemap.less" />
+    <Content Include="Content\Less\global\components\wizard.less" />
+    <Content Include="Content\Less\global\containers\containers.less" />
+    <Content Include="Content\Less\global\containers\herounit.less" />
+    <Content Include="Content\Less\global\containers\wells.less" />
+    <Content Include="Content\Less\global\forms\buttons.less" />
+    <Content Include="Content\Less\global\forms\fields.less" />
+    <Content Include="Content\Less\global\forms\forms.less" />
+    <Content Include="Content\Less\global\forms\validation.less" />
+    <Content Include="Content\Less\global\navigation\breadcrumb.less" />
+    <Content Include="Content\Less\global\navigation\categorymenu.less" />
+    <Content Include="Content\Less\global\navigation\navigation.less" />
+    <Content Include="Content\Less\global\navigation\primarynav.less" />
+    <Content Include="Content\Less\global\navigation\topnav.less" />
     <None Include="Properties\PublishProfiles\staging.pubxml" />
     <Content Include="Views\Users\Manager.cshtml" />
     <Content Include="Views\Users\Details.cshtml" />
