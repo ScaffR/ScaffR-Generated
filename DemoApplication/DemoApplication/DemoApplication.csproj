@@ -332,8 +332,8 @@
     <Content Include="Content\font\museo_slab_500-webfont.ttf" />
     <Content Include="Content\font\proximanova-sbold-webfont.ttf" />
     <Content Include="Content\font\proximanova-webfont.ttf" />
-    <None Include="Content\Less\components\jsNotyfier\jquery.noty.less" />
-    <None Include="Content\Less\components\jsNotyfier\noty_theme_default.less" />
+    <Compile Include="Content\Less\components\jsNotyfier\jquery.noty.less" />
+    <Content Include="Content\Less\components\jsNotyfier\noty_theme_default.less" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\custom\Task\bundle.txt" />
     <Content Include="Scripts\custom\Task\task.js" />
