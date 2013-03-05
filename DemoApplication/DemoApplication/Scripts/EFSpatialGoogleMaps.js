@@ -1,6 +1,8 @@
 ﻿(function () {
+    var geocoder;
     // Method signature matching $.fn.each()'s, for easy use in the .each loop later.
     var initialize = function (i, el) {
+        geocoder = new google.maps.Geocoder();
         // el is the input element that we need to initialize a map for, jQuery-ize it,
         //  and cache that since we'll be using it a few times.
         var $input = $(el);
@@ -12,8 +14,44 @@
                 height: '400px'
             }
         }).insertAfter($input);
+        
+        var isLatLong = function (value) {
+            if (!value) { return false; }
 
-        // Attempt to parse the lat/long coordinates out of this input element.
+            var values = value.match(/-?\d+\.\d+/g);
+
+            if (values != null) {
+                return latLong.length > 1;
+            } else {
+                return false;
+            }
+        };
+        
+        var parseLatLong = function (value) {
+            if (!value) { return undefined; }
+
+            if (isLatLong(value)) {
+                var values = value.match(/-?\d+\.\d+/g);
+
+                return {
+                    latitude: values[0],
+                    longitude: values[1]
+                };
+            } else {
+                var result = undefined;
+                geocoder.geocode({ 'address': value }, function (results, status) {
+                    if (status == google.maps.GeocoderStatus.OK) {
+                        result = {
+                            latitude: results[0].geometry.location.lat(),
+                            longitude: results[0].geometry.location.lng()
+                        };
+                        setLocation(result);
+                    }
+                });
+            }
+        };
+
+        // Attempt to parse the address or lat/long coordinates out of this input element.
         var latLong = parseLatLong(this.value);
 
         // If there was a problem attaining a lat/long from the input element's value,
@@ -52,6 +90,12 @@
             // Black magic, courtesy of Hanselman's original version.
             $input.val(marker.getPosition().toUrlValue(13));
         };
+        
+        var setLocation = function (value) {
+            var value = new google.maps.LatLng(value.latitude, value.longitude);
+
+            updateMarker({ latLng: value });
+        };
 
         // If the input came from an EditorFor, initialize editing-related events.
         if ($input.hasClass('editor-for-dbgeography')) {
@@ -61,22 +105,11 @@
             $input.on('change', function () {
                 var latLong = parseLatLong(this.value);
 
-                latLong = new google.maps.LatLng(latLong.latitude, latLong.longitude);
-
-                updateMarker({ latLng: latLong });
+                if (latLong) {
+                    setLocation(latLong);
+                }
             });
         }
-    };
-
-    var parseLatLong = function (value) {
-        if (!value) { return undefined; }
-
-        var latLong = value.match(/-?\d+\.\d+/g);
-
-        return {
-            latitude: latLong[0],
-            longitude: latLong[1]
-        };
     };
 
     // Find all DBGeography inputs and initialize maps for them.
