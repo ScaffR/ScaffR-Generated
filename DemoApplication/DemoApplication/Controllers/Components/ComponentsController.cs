@@ -1,11 +1,47 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
 
 namespace DemoApplication.Controllers.Components
 {
-    public partial class ComponentsController : Controller
-    {
+    using Models.Components;
 
+    public class ComponentsController : Controller
+    {
         public ActionResult Index()
+        {
+            return View();
+        }
+
+        public ActionResult Wizard()
+        {
+            return View(new SampleWizardModel());
+        }
+
+        [HttpPost]
+        public ActionResult Wizard(SampleWizardModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                TempData["Success"] = "Model was saved successfully";
+            }
+            return View(model);
+        }
+
+        public ActionResult GoogleMaps()
+        {
+            return View(new SampleAddressModel());            
+        }
+
+        [HttpPost]
+        public ActionResult GoogleMaps(SampleAddressModel model)
+        {
+            return View(model);
+        }
+
+        public ActionResult FileUpload()
         {
             return View();
         }
