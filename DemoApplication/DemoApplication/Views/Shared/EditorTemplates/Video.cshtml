@@ -1,0 +1,70 @@
+@model DemoApplication.Models.Components.VideoModel
+@{
+    var values = ViewData.ModelMetadata.AdditionalValues;
+
+    var elementId = ViewData.TemplateInfo.GetFullHtmlFieldId(string.Empty);
+
+    var w = values.ContainsKey("width") ? values["width"].ToString() : String.Empty;
+    var h = values.ContainsKey("height") ? values["height"].ToString() : String.Empty;
+
+    var title = values.ContainsKey("title") ? values["title"] : String.Empty;
+    var embedding = values.ContainsKey("embedding") ? values["embedding"].ToString() : String.Empty;
+    var type = values.ContainsKey("videoType") ? values["videoType"].ToString().ToLower() : String.Empty;
+    var autoplay = values.ContainsKey("autoplay") ? Convert.ToInt16(values["autoplay"]) : 0;
+    var poster = values.ContainsKey("poster") ? values["poster"] : String.Empty;
+
+
+}
+
+@if (Model==null) 
+    {return;}
+@{var source = Model.Source;}
+@if (embedding.Equals("Html5"))
+{
+    switch (type)
+    {
+        case "youtube":
+             <text><iframe id="@elementId" width="@w" height="@h" src="@source?autoplay=@autoplay" title="@title" frameborder="0" allowfullscreen></iframe></text>
+            break;
+            
+        case "vimeo":
+             <text><iframe id="@elementId" width="@w" height="@h" src="@source&html5=True"></iframe></text>
+            break;
+        
+        default:
+            <text>
+            <video type="video/@type" src="@source" autoplay="@autoplay" poster="@poster"  width="@w" height="@h" controls style="border:0px">                
+                    This is fallback content to display if the browser
+                    does not support the video element.
+            </video>
+            </text>
+            break;
+
+    }
+}
+else if (embedding.Equals("Flash"))
+{
+        switch (type)
+    {
+        case "youtube":
+            <text>
+                <object id="@elementId" width="@w" height="@h">
+                    <param name="movie" value="@source?autoplay=@autoplay">
+                    <param name="allowFullScreen" value="true">
+                    <param name="wmode" value="transparent" />
+                    <embed src="@source?autoplay=@autoplay" type="application/x-shockwave-flash"  width="@w" height="@h" allowfullscreen="true">
+                </object>
+            </text>
+            break;
+            
+        case "vimeo":
+             <text><iframe id="@elementId" width="@w" height="@h" src="@source?html5=True"></iframe></text>
+            break;
+            
+    }
+    
+}
+
+
+
+

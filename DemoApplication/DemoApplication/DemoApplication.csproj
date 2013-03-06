@@ -180,6 +180,9 @@
     <Compile Include="Controllers\Account\AccountController.Register.cs" />
     <Compile Include="Controllers\Account\AccountController.Settings.cs" />
     <Compile Include="Controllers\Components\ComponentsController.cs" />
+    <Compile Include="Controllers\Components\ComponentsController.Wizard.cs" />
+    <Compile Include="Controllers\Components\ComponentsController.GoogleMaps.cs" />
+    <Compile Include="Controllers\Components\ComponentsController.Video.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\DropdownController.cs" />
     <Compile Include="Controllers\Home\HomeController.cs" />
@@ -233,6 +236,7 @@
     <Compile Include="Models\Adapters\MinAttributeAdapter.cs" />
     <Compile Include="Models\Adapters\NumericAttributeAdapter.cs" />
     <Compile Include="Models\Adapters\UrlAttributeAdapter.cs" />
+    <Compile Include="Models\Adapters\VideoAttributeAdapter.cs" />
     <Compile Include="Models\Adapters\YearAttributeAdapter.cs" />
     <Compile Include="Models\Attributes\CascadingDropDownAttribute.cs" />
     <Compile Include="Models\Attributes\CreditCardAttribute.cs" />
@@ -257,10 +261,13 @@
     <Compile Include="Models\Attributes\TextboxSize.cs" />
     <Compile Include="Models\Attributes\UrlAttribute.cs" />
     <Compile Include="Models\Attributes\UrlOptions.cs" />
+    <Compile Include="Models\Attributes\VideoAttribute.cs" />
+    <Compile Include="Models\Attributes\VideoEnums.cs" />
     <Compile Include="Models\Attributes\WizardAttribute.cs" />
     <Compile Include="Models\Attributes\WizardStepAttribute.cs" />
     <Compile Include="Models\Attributes\YearAttribute.cs" />
     <Compile Include="Models\ChangePasswordModel.cs" />
+    <Compile Include="Models\Components\SampleVideoModel.cs" />
     <Compile Include="Models\Components\SampleAddressModel.cs" />
     <Compile Include="Models\Components\SampleWizardModel.cs" />
     <Compile Include="Models\ForgotPasswordModel.cs" />
@@ -280,6 +287,7 @@
     <Compile Include="Models\Rules\ModelClientValidationMaxRule.cs" />
     <Compile Include="Models\Rules\ModelClientValidationMinRule.cs" />
     <Compile Include="Models\Rules\ModelClientValidationNumericRule.cs" />
+    <Compile Include="Models\Rules\ModelClientValidationVideoRule.cs" />
     <Compile Include="Models\SettingsModel.cs" />
     <Compile Include="Models\Sitemap\CustomNodeModel.cs" />
     <Compile Include="Models\Sitemap\SitemapHelperModel.cs" />
@@ -1126,6 +1134,9 @@
     <Content Include="Views\Shared\EditorTemplates\Wizard.cshtml" />
     <Content Include="Views\Components\GoogleMaps.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\DbGeography.cshtml" />
+    <Content Include="Views\Components\Video.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Video.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Video.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
