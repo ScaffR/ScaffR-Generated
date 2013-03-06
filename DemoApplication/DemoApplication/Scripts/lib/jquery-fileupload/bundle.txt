@@ -1,0 +1,14 @@
+﻿canvas-to-blob.js
+load-image.js
+jquery.iframe-transport.js
+jquery.fileupload.js
+jquery.fileupload-ip.js
+jquery.fileupload-ui.js
+
+locale.js
+main.js
+
+[references]
+~/scripts/lib/jquery
+~/scripts/lib/jquery-ui
+~/scripts/lib/jquery-tmpl

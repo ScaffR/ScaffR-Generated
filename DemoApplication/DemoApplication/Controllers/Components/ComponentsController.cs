@@ -41,5 +41,10 @@ namespace DemoApplication.Controllers.Components
             return View(model);
         }
 
+        public ActionResult FileUpload()
+        {
+            return View();
+        }
+
     }
 }

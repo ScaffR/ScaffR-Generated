@@ -3,4 +3,7 @@
 [references]
 ~/scripts/lib/bootstrap
 ~/scripts/lib/jquery
+~/scripts/lib/jquery-fileupload
+~/scripts/lib/jquery-tmpl
+~/scripts/lib/jquery-ui
 ~/scripts/lib/knockout
