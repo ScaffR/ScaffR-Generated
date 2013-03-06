@@ -1,0 +1,7 @@
+﻿ckeditor.js
+config.js
+styles.js
+lang/pt-br.js
+
+[references]
+~/Scripts/lib/jquery

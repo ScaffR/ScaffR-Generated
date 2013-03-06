@@ -2,5 +2,6 @@
 
 [references]
 ~/scripts/lib/bootstrap
+~/scripts/lib/ckeditor
 ~/scripts/lib/jquery
 ~/scripts/lib/knockout
