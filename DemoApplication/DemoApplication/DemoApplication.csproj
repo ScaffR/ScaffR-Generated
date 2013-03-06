@@ -271,7 +271,6 @@
     <Compile Include="Models\ChangePasswordModel.cs" />
     <Compile Include="Models\Common\AddressModel.cs" />
     <Compile Include="Models\Components\CKEditorModel.cs" />
-    <Compile Include="Models\Components\SampleAddressModel.cs" />
     <Compile Include="Models\Components\SampleWizardModel.cs" />
     <Compile Include="Models\ForgotPasswordModel.cs" />
     <Compile Include="Models\ForgotPasswordResetModel.cs" />
