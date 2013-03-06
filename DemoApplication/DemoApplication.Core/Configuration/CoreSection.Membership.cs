@@ -5,7 +5,7 @@ namespace DemoApplication.Core.Configuration
 
     public partial class CoreSection
     {
-        [ConfigurationProperty("membership", IsRequired = true)]
+        [ConfigurationProperty("membership", IsRequired = false)]
         public MembershipElement Membership
         {
             get

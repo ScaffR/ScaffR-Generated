@@ -1,11 +1,9 @@
-﻿using DemoApplication.Models.Attributes;
-
-namespace DemoApplication.Models.Components
+﻿namespace DemoApplication.Models.Common
 {
-    using System.ComponentModel.DataAnnotations;
+    using Attributes;
     using System.Data.Spatial;
 
-    public class SampleAddressModel
+    public class AddressModel
     {
         [HideSurroundingChrome, Textbox(TextboxSize = TextboxSize.XLarge)]
         public string Address { get; set; }

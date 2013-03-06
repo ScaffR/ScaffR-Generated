@@ -261,7 +261,7 @@
     <Compile Include="Models\Attributes\WizardStepAttribute.cs" />
     <Compile Include="Models\Attributes\YearAttribute.cs" />
     <Compile Include="Models\ChangePasswordModel.cs" />
-    <Compile Include="Models\Components\SampleAddressModel.cs" />
+    <Compile Include="Models\Common\AddressModel.cs" />
     <Compile Include="Models\Components\SampleWizardModel.cs" />
     <Compile Include="Models\ForgotPasswordModel.cs" />
     <Compile Include="Models\ForgotPasswordResetModel.cs" />
@@ -1126,7 +1126,7 @@
     <Content Include="Views\Shared\EditorTemplates\Wizard.cshtml" />
     <Content Include="Views\Components\GoogleMaps.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\DbGeography.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\SampleAddressModel.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\AddressModel.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,24 +1,11 @@
 ﻿@model System.Data.Spatial.DbGeography
 @using System.Globalization
-@if (ViewData.ContainsKey("hasAddress") && (bool)ViewData["hasAddress"])
+
+@if (Model != null)
 {
-    if (Model != null)
-    {
-        @Html.Hidden("", Model.Latitude.Value.ToString("G", CultureInfo.InvariantCulture) + "," + Model.Longitude.Value.ToString("G", CultureInfo.InvariantCulture), new {@class = "hidden-for-dbgeography", disabled = true})
-    }
-    else
-    {
-        @Html.Hidden("", "", new {@class = "hidden-for-dbgeography"})
-    }
+    @Html.Hidden("", Model.Latitude.Value.ToString("G", CultureInfo.InvariantCulture) + "," + Model.Longitude.Value.ToString("G", CultureInfo.InvariantCulture), new { @class = "hidden-for-dbgeography" })
 }
 else
 {
-    if (Model != null)
-    {
-        @Html.TextBox("", Model.Latitude.Value.ToString("G", CultureInfo.InvariantCulture) + "," + Model.Longitude.Value.ToString("G", CultureInfo.InvariantCulture), new {@class = "editor-for-dbgeography", disabled = true})
-    }
-    else
-    {
-        @Html.TextBox("", "", new {@class = "editor-for-dbgeography"})
-    }
+    @Html.Hidden("", "", new { @class = "hidden-for-dbgeography" })
 }
