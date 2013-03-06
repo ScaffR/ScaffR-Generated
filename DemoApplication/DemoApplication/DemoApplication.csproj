@@ -183,6 +183,7 @@
     <Compile Include="Controllers\Components\ComponentsController.GoogleMaps.cs" />
     <Compile Include="Controllers\Components\ComponentsController.Wizard.cs" />
     <Compile Include="Controllers\Components\ComponentsController.CKEditor.cs" />
+    <Compile Include="Controllers\Components\ComponentsController.FileUpload.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\DropdownController.cs" />
     <Compile Include="Controllers\Home\HomeController.cs" />
@@ -297,13 +298,20 @@
     <Compile Include="Security\MachineKeyCookieTransform.cs" />
     <Compile Include="Security\MachineKeySessionSecurityTokenHandler.cs" />
     <Compile Include="Security\WIFVisibilityModule.cs" />
+    <Compile Include="Upload\FilesStatus.cs" />
+    <Compile Include="Upload\UploadHandler.ashx.cs">
+      <DependentUpon>UploadHandler.ashx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="CodeTemplates\Scaffolders\ScaffR.Core\license.txt" />
     <Content Include="Content\font\fontawesome-webfont.svg" />
     <Content Include="Content\images\bg-noise-s.jpg" />
+    <Content Include="Content\images\generalFile.png" />
     <Content Include="Content\images\Large\male.jpg" />
+    <Content Include="Content\images\loading.gif" />
     <Content Include="Content\images\Medium\male.jpg" />
+    <Content Include="Content\images\progressbar.gif" />
     <Content Include="Content\images\Small\male.jpg" />
     <Content Include="Content\images\Tiny\male.jpg" />
     <Content Include="Content\Less\bootstrap\bundle.txt" />
@@ -552,6 +560,20 @@
     <Content Include="Scripts\lib\ckeditor\skins\moono\images\close.png" />
     <Content Include="Scripts\lib\ckeditor\skins\moono\images\mini.png" />
     <Content Include="Scripts\lib\ckeditor\styles.js" />
+    <Content Include="Scripts\lib\jquery-fileupload\bundle.txt" />
+    <Content Include="Scripts\lib\jquery-fileupload\canvas-to-blob.js" />
+    <Content Include="Scripts\lib\jquery-fileupload\jquery.fileupload-ip.js" />
+    <Content Include="Scripts\lib\jquery-fileupload\jquery.fileupload-ui.js" />
+    <Content Include="Scripts\lib\jquery-fileupload\jquery.fileupload.js" />
+    <Content Include="Scripts\lib\jquery-fileupload\jquery.iframe-transport.js" />
+    <Content Include="Scripts\lib\jquery-fileupload\load-image.js" />
+    <Content Include="Scripts\lib\jquery-fileupload\locale.js" />
+    <Content Include="Scripts\lib\jquery-fileupload\main.js" />
+    <Content Include="Scripts\lib\jquery-tmpl\bundle.txt" />
+    <Content Include="Scripts\lib\jquery-tmpl\tmpl.js" />
+    <Content Include="Scripts\lib\jquery-ui\bundle.txt" />
+    <Content Include="Scripts\lib\jquery-ui\jquery-ui-1.8.24.js" />
+    <Content Include="Scripts\lib\jquery-ui\jquery.ui.timepicker.js" />
     <Content Include="Scripts\lib\jquery\bundle.txt" />
     <Content Include="Scripts\lib\jquery\jquery-1.9.1.js" />
     <Content Include="Scripts\lib\jquery\jquery.validate.js" />
@@ -1300,6 +1322,7 @@
     <Content Include="Content\Less\global\navigation\navigation.less" />
     <Content Include="Content\Less\global\navigation\primarynav.less" />
     <Content Include="Content\Less\global\navigation\topnav.less" />
+    <Content Include="Content\Less\global\components\fileupload.less" />
     <None Include="Properties\PublishProfiles\staging.pubxml" />
     <Content Include="Views\Users\Manager.cshtml" />
     <Content Include="Views\Users\Details.cshtml" />
@@ -1325,6 +1348,8 @@
     <Content Include="Scripts\lib\ckeditor\skins\moono\readme.md" />
     <Content Include="Views\Components\CKEditor.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\CKEditor.cshtml" />
+    <Content Include="Views\Components\FileUpload.cshtml" />
+    <Content Include="Upload\UploadHandler.ashx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
