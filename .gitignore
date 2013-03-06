@@ -19,3 +19,4 @@ _ReSharper.*
 *.cache
 *.mdf
 *.ldf
+DemoApplication/DemoApplication/Files/*.*
