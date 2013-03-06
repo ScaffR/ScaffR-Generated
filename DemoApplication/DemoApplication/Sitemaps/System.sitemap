@@ -16,6 +16,7 @@
     <mvcSiteMapNode title="Components" controller="Components" action="Index" imageUrl="icon-user" >
       <mvcSiteMapNode title="Wizard" controller="Components" action="Wizard"/>
       <mvcSiteMapNode title="Google Maps" controller="Components" action="GoogleMaps"/>
+      <mvcSiteMapNode title="CKEditor" controller="Components" action="CKEditor"/>
     </mvcSiteMapNode>
     
     <mvcSiteMapNode title="Admin" controller="Home" action="Manage" imageUrl="icon-lock" key="Manage" visibility="breadcrumb">
