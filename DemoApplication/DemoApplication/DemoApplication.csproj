@@ -307,8 +307,11 @@
     <Content Include="CodeTemplates\Scaffolders\ScaffR.Core\license.txt" />
     <Content Include="Content\font\fontawesome-webfont.svg" />
     <Content Include="Content\images\bg-noise-s.jpg" />
+    <Content Include="Content\images\generalFile.png" />
     <Content Include="Content\images\Large\male.jpg" />
+    <Content Include="Content\images\loading.gif" />
     <Content Include="Content\images\Medium\male.jpg" />
+    <Content Include="Content\images\progressbar.gif" />
     <Content Include="Content\images\Small\male.jpg" />
     <Content Include="Content\images\Tiny\male.jpg" />
     <Content Include="Content\Less\bootstrap\bundle.txt" />
@@ -1319,6 +1322,7 @@
     <Content Include="Content\Less\global\navigation\navigation.less" />
     <Content Include="Content\Less\global\navigation\primarynav.less" />
     <Content Include="Content\Less\global\navigation\topnav.less" />
+    <Content Include="Content\Less\global\components\fileupload.less" />
     <None Include="Properties\PublishProfiles\staging.pubxml" />
     <Content Include="Views\Users\Manager.cshtml" />
     <Content Include="Views\Users\Details.cshtml" />
