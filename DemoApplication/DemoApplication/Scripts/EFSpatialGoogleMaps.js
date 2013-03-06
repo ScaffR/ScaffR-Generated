@@ -1,8 +1,14 @@
 ﻿(function () {
     var geocoder;
+    var autocomplete;
+    var $inputLatLong;
+    var $btnLocate;
     // Method signature matching $.fn.each()'s, for easy use in the .each loop later.
     var initialize = function (i, el) {
         geocoder = new google.maps.Geocoder();
+
+        $inputLatLong = $($(this).parent().parent().parent().find('.hidden-for-dbgeography')[0]);
+        $btnLocate = $($(this).parent().find('.locate')[0]);
         // el is the input element that we need to initialize a map for, jQuery-ize it,
         //  and cache that since we'll be using it a few times.
         var $input = $(el);
@@ -13,7 +19,7 @@
                 width: '400px',
                 height: '400px'
             }
-        }).insertAfter($input);
+        }).appendTo($input.parent());
         
         var isLatLong = function (value) {
             if (!value) { return false; }
@@ -88,27 +94,63 @@
             map.panTo(updateEvent.latLng);
 
             // Black magic, courtesy of Hanselman's original version.
-            $input.val(marker.getPosition().toUrlValue(13));
+            if ($inputLatLong) {
+                $inputLatLong.val(marker.getPosition().toUrlValue(13));
+            } else {
+                $input.val(marker.getPosition().toUrlValue(13));
+            }
         };
         
         var setLocation = function (value) {
             var value = new google.maps.LatLng(value.latitude, value.longitude);
-
+            
             updateMarker({ latLng: value });
         };
-
-        // If the input came from an EditorFor, initialize editing-related events.
-        if ($input.hasClass('editor-for-dbgeography')) {
+        
+        if ($btnLocate) {
             google.maps.event.addListener(map, 'click', updateMarker);
 
-            // Attempt to react to user edits in the input field.
-            $input.on('change', function () {
-                var latLong = parseLatLong(this.value);
+            // Attempt to react to user click in the localte button.
+            $btnLocate.on('click', function () {
+                var latLong = parseLatLong($input.val());
 
                 if (latLong) {
                     setLocation(latLong);
                 }
             });
+            
+            autocomplete = new google.maps.places.Autocomplete($input[0]);
+            
+            autocomplete.bindTo('bounds', map);
+            
+            google.maps.event.addListener(autocomplete, 'place_changed', function () {
+                var place = autocomplete.getPlace();
+                if (place.geometry.viewport) {
+                    map.fitBounds(place.geometry.viewport);
+                } else {
+                    map.setCenter(place.geometry.location);
+                    map.setZoom(17);  // Why 17? Because it looks good.
+                }
+                
+                marker.setPosition(place.geometry.location);
+                
+                $inputLatLong.val(marker.getPosition().toUrlValue(13));
+            });
+
+        } else {
+            // If the input came from an EditorFor, initialize editing-related events.
+            if ($input.hasClass('editor-for-dbgeography')) {
+                google.maps.event.addListener(map, 'click', updateMarker);
+
+                // Attempt to react to user edits in the input field.
+                $input.on('change', function() {
+                    var latLong = parseLatLong(this.value);
+
+                    if (latLong) {
+                        setLocation(latLong);
+                    }
+                });
+            }
         }
     };
 

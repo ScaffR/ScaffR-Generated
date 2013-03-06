@@ -1,0 +1,9 @@
+﻿@model DemoApplication.Models.Components.SampleAddressModel
+
+<div class="control-group">
+    <div class="input-append">
+        @Html.TextBoxFor(x => x.Address, new{@class="input-xlarge editor-for-dbgeography"})
+        <button type="button" class="btn locate">Locate</button>
+    </div>
+</div>
+@Html.EditorFor(x => x.Location, new { hasAddress = true})
