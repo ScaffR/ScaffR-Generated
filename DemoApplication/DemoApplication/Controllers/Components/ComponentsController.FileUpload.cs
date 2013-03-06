@@ -2,11 +2,15 @@
 
 namespace DemoApplication.Controllers.Components
 {
-    public partial class ComponentsController : Controller
+    using Models.Components;
+
+    public partial class ComponentsController
     {
-        public ActionResult Index()
+
+        public ActionResult FileUpload()
         {
             return View();
         }
+
     }
 }

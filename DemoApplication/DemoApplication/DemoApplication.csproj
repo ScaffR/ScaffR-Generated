@@ -183,6 +183,7 @@
     <Compile Include="Controllers\Components\ComponentsController.GoogleMaps.cs" />
     <Compile Include="Controllers\Components\ComponentsController.Wizard.cs" />
     <Compile Include="Controllers\Components\ComponentsController.CKEditor.cs" />
+    <Compile Include="Controllers\Components\ComponentsController.FileUpload.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\DropdownController.cs" />
     <Compile Include="Controllers\Home\HomeController.cs" />
