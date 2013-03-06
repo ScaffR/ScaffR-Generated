@@ -90,6 +90,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\Geography\GeographyHelpers.cs" />
     <Compile Include="Common\Lists\Lists.Countries.cs" />
     <Compile Include="Common\Lists\Lists.CreditCards.cs" />
     <Compile Include="Common\Lists\Lists.Months.cs" />

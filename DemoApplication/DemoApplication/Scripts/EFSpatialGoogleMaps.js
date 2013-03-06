@@ -1,54 +1,32 @@
 ﻿(function () {
-    var geocoder;
+    var geocoder, autocomplete;
     // Method signature matching $.fn.each()'s, for easy use in the .each loop later.
     var initialize = function (i, el) {
         geocoder = new google.maps.Geocoder();
+                
         // el is the input element that we need to initialize a map for, jQuery-ize it,
         //  and cache that since we'll be using it a few times.
-        var $input = $(el);
 
+        var $address = $(this).closest('.control-group').find('[data-address]');
+        var $input = $(el);
+        
         // Create the map div and insert it into the page.
         var $map = $('<div>', {
             css: {
-                width: '400px',
+                width: '100%',
                 height: '400px'
             }
         }).insertAfter($input);
-        
-        var isLatLong = function (value) {
-            if (!value) { return false; }
 
-            var values = value.match(/-?\d+\.\d+/g);
-
-            if (values != null) {
-                return latLong.length > 1;
-            } else {
-                return false;
-            }
-        };
-        
         var parseLatLong = function (value) {
             if (!value) { return undefined; }
 
-            if (isLatLong(value)) {
-                var values = value.match(/-?\d+\.\d+/g);
+            var values = value.match(/-?\d+\.\d+/g);
 
-                return {
-                    latitude: values[0],
-                    longitude: values[1]
-                };
-            } else {
-                var result = undefined;
-                geocoder.geocode({ 'address': value }, function (results, status) {
-                    if (status == google.maps.GeocoderStatus.OK) {
-                        result = {
-                            latitude: results[0].geometry.location.lat(),
-                            longitude: results[0].geometry.location.lng()
-                        };
-                        setLocation(result);
-                    }
-                });
-            }
+            return {
+                latitude: values[0],
+                longitude: values[1]
+            };
         };
 
         // Attempt to parse the address or lat/long coordinates out of this input element.
@@ -90,7 +68,7 @@
             // Black magic, courtesy of Hanselman's original version.
             $input.val(marker.getPosition().toUrlValue(13));
         };
-        
+
         var setLocation = function (value) {
             var value = new google.maps.LatLng(value.latitude, value.longitude);
 
@@ -98,20 +76,42 @@
         };
 
         // If the input came from an EditorFor, initialize editing-related events.
-        if ($input.hasClass('editor-for-dbgeography')) {
-            google.maps.event.addListener(map, 'click', updateMarker);
+        //if ($input.hasClass('hidden-for-dbgeography')) {
+        //    google.maps.event.addListener(map, 'click', updateMarker);
 
-            // Attempt to react to user edits in the input field.
-            $input.on('change', function () {
-                var latLong = parseLatLong(this.value);
+        //    // Attempt to react to user edits in the input field.
+        //    $input.on('change', function () {
+        //        var latLong = parseLatLong(this.value);
 
-                if (latLong) {
-                    setLocation(latLong);
+        //        if (latLong) {
+        //            setLocation(latLong);
+        //        }
+        //    });
+        //}
+        
+        // wire up autocomplete
+        if ($address.length) {
+
+            autocomplete = new google.maps.places.Autocomplete($address[0]);
+            autocomplete.bindTo('bounds', map);
+
+            google.maps.event.addListener(autocomplete, 'place_changed', function () {
+                var place = autocomplete.getPlace();
+                if (place.geometry.viewport) {
+                    map.fitBounds(place.geometry.viewport);
+                } else {
+                    map.setCenter(place.geometry.location);
+                    map.setZoom(17);  // Why 17? Because it looks good.
                 }
+
+                marker.setPosition(place.geometry.location);
+
+                $input.val(marker.getPosition().toUrlValue(13));
             });
         }
+
     };
 
     // Find all DBGeography inputs and initialize maps for them.
-    $('.editor-for-dbgeography, .display-for-dbgeography').each(initialize);
+    $('.hidden-for-dbgeography').each(initialize);
 })();

@@ -8,5 +8,6 @@ namespace DemoApplication.Controllers.Components
         {
             return View();
         }
+
     }
 }

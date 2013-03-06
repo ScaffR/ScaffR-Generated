@@ -1,4 +1,4 @@
-﻿@model DemoApplication.Models.Components.SampleAddressModel
+﻿@model DemoApplication.Models.Common.AddressModel
 
 @{
     ViewBag.Title = "GoogleMaps";
@@ -7,7 +7,11 @@
 
 <h2>Google Maps</h2>
 
-@using (Html.BeginForm("GoogleMaps", "Components", FormMethod.Post, new {@class = "form-horizontal"}))
+@using (Html.BeginForm("GoogleMaps", "Components", FormMethod.Post))
 {
     @Html.EditorForModel()
+
+    <div class="form-actions">
+        <button type="submit" class="btn btn-large btn-inverse">Submit</button>
+    </div>
 }
