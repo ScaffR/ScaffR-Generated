@@ -2,19 +2,30 @@
 
 namespace DemoApplication.Controllers.Components
 {
-    using Models.Components;
+    using Core.Common.Geography;
+    using Models.Common;
 
-    public partial class ComponentsController : Controller
+    public partial class ComponentsController
     {
 
         public ActionResult GoogleMaps()
         {
-            return View(new SampleAddressModel());            
+            var model = new AddressModel
+            {
+                Address = "301 15th Street, Hood River",
+                Location = GeographyHelpers.CreatePoint(45.7120903, -121.5272902)
+            };
+
+            return View(model);
         }
 
         [HttpPost]
-        public ActionResult GoogleMaps(SampleAddressModel model)
+        public ActionResult GoogleMaps(AddressModel model)
         {
+            if (ModelState.IsValid)
+            {
+                TempData["Success"] = "Location was successfuly submitted";
+            }
             return View(model);
         }
 
