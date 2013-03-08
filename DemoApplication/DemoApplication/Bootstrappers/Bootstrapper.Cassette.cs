@@ -19,7 +19,7 @@ namespace DemoApplication.Bootstrappers
 
 			configurable.AddPerSubDirectory<ScriptBundle>("Scripts/lib");
 
-            configurable.AddUrlWithAlias<ScriptBundle>("http://maps.google.com/maps/api/js?sensor=false", "googleMaps");
+            configurable.AddUrlWithAlias<ScriptBundle>("http://maps.google.com/maps/api/js?sensor=false&libraries=places", "googleMaps");
 		}
 	}
 }

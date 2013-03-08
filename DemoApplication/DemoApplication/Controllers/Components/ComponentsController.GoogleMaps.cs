@@ -4,6 +4,7 @@ namespace DemoApplication.Controllers.Components
 {
     using Core.Common.Geography;
     using Models.Common;
+    using Models.Components;
 
     public partial class ComponentsController
     {
