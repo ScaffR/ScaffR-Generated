@@ -6,19 +6,39 @@
     ViewBag.SitemapProvider = "Account";
 }
 
-<div class="page-header">
-    <h1>
-        Your Profile Photo</h1>
-</div>
-@using (Html.BeginForm("Photo", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
-{
-    <div class="row-fluid">
-        <div class="span4">
-            <img src="@Url.Content(Model.Url)" alt="" class="img-polaroid"/>
-            <input type="file" id="File" name="File" />
+<div class="row-fluid">
+    <div class="span12">
+        <div class="page-header">
+            <h3>Your Photo</h3>
         </div>
-        <div class="span8">         
-            <input type="submit" class="btn" value="Upload Photo" />
+        <div class="row-fluid">
+
+            <div class="span12">
+
+                @using (Html.BeginForm("Photo", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <div class="row-fluid">
+
+                        <img src="@Url.Content(Model.Url)" alt="" class="img-polaroid"/>
+                        
+                    </div>
+                    <div class="form-actions">
+                        
+                        <span class="btn btn-inverse btn-large fileinput-button">
+                            <i class="icon-plus icon-white"></i>
+                            <span>Choose File</span>
+                            <input type="file" name="File">
+                        </span>
+
+                        <button type="submit" class="btn btn-inverse btn-large">
+                            Upload
+                        </button>
+                    </div>
+                }
+            </div>
+
         </div>
+
     </div>
-}
+</div>
+

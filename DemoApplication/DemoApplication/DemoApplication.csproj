@@ -1356,6 +1356,7 @@
     <Content Include="Content\less\global\components\fileupload.less" />
     <Content Include="Content\less\global\components\dropdown.less" />
     <Content Include="Content\font\museo_slab_300-webfont.ttf" />
+    <Content Include="Content\less\global\components\login.less" />
     <None Include="Properties\PublishProfiles\staging.pubxml" />
     <Content Include="Views\Users\Manager.cshtml" />
     <Content Include="Views\Users\Details.cshtml" />
@@ -1388,9 +1389,10 @@
     <Content Include="Views\Components\FileUpload.cshtml" />
     <Content Include="Upload\UploadHandler.ashx" />
     <Content Include="Views\Components\DropDown.cshtml" />
-    <Content Include="Views\Home\Manage.cshtml" />
     <Content Include="Views\Users\Security.cshtml" />
     <Content Include="Views\Users\History.cshtml" />
+    <Content Include="Views\Home\Manage.cshtml" />
+    <Content Include="Views\Shared\Header.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

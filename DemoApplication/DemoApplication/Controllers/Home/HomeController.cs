@@ -9,13 +9,17 @@ namespace DemoApplication.Controllers.Home
        [AllowAnonymous, ShowMainMenu(false)] 
        public ActionResult Index()
        {
+           if (Request.IsAuthenticated)
+           {
+               return RedirectToAction("Index", "Dashboard");
+           }
            return View();
        }
 
         [ClaimsAuthorize("View", "ManageUsers")]
         public ActionResult Manage()
         {
-            return Content("No Content");
+            return View();
         }
     }
 }

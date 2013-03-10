@@ -3,9 +3,27 @@
     ViewBag.Title = "CKEditor";
 }
 
-<h2>CKEditor</h2>
+<div class="row-fluid">
+    <div class="span12">
+        <div class="page-header">
+            <h3>CKEditor</h3>
+        </div>
+        <div class="row-fluid">
 
-@using (Html.BeginForm("CKEditor", "Components", FormMethod.Post, new { @class = "form-horizontal" }))
-{
-    @Html.EditorForModel()
-}
+            <div class="span12">
+                
+                
+
+                @using (Html.BeginForm("CKEditor", "Components", FormMethod.Post, new { @class = "form-horizontal" }))
+                {
+                    @Html.EditorForModel()
+                }
+
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+

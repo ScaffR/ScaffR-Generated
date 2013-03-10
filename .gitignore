@@ -20,3 +20,4 @@ _ReSharper.*
 *.mdf
 *.ldf
 DemoApplication/DemoApplication/Files/*.*
+*/images/*_*_*.png
