@@ -2,26 +2,22 @@
 
 namespace DemoApplication.Controllers.Account
 {
-    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Web.Mvc;
+    using Core.Common.Profiles;
     using Core.Model;
-    using Extensions;
-    using Models;
-    using Models.Account;
-    using Omu.ValueInjecter;
 
     public partial class AccountController
     {
         [HttpGet]
         public ActionResult Emails()
         {
-            var user = this.GetCurrentUser();
+            var user = UserProfile.Current;
 
             List<UserEmail> model = _userEmailService.Find(x => x.UserId == user.Id).ToList();
 
-            ViewBag.DefaultEmail = this.GetCurrentUser().Email;
+            ViewBag.DefaultEmail = user.Email;
 
             return View(model);
         }
@@ -29,7 +25,7 @@ namespace DemoApplication.Controllers.Account
         [HttpPost]
         public ActionResult Emails(UserEmail model)
         {
-            model.UserId = this.GetCurrentUser().Id;
+            model.UserId = UserProfile.Current.Id;
             if (ModelState.IsValid)
             {
                 _userEmailService.SaveOrUpdate(model);
