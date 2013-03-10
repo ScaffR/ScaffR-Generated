@@ -25,7 +25,10 @@
     <mvcSiteMapNode title="Admin" controller="Home" action="Manage" imageUrl="icon-lock" key="Manage" visibility="breadcrumb">
       <mvcSiteMapNode title="Manage Tasks" controller="Task" action="Manager" imageUrl="icon-sitemap" />
       <mvcSiteMapNode title="Manage Users" controller="Users" action="Manager" imageUrl="icon-group">
-        <mvcSiteMapNode title="Details" controller="Users" action="Details" imageUrl="icon-user" />
+        <mvcSiteMapNode title="Details" controller="Users" action="Details" key="UserDetails">
+          <mvcSiteMapNode title="Security" controller="Users" action="Security" />
+          <mvcSiteMapNode title="History" controller="Users" action="History" />
+        </mvcSiteMapNode>
       </mvcSiteMapNode>
     </mvcSiteMapNode>
 

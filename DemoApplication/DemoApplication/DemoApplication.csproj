@@ -1388,6 +1388,9 @@
     <Content Include="Views\Components\FileUpload.cshtml" />
     <Content Include="Upload\UploadHandler.ashx" />
     <Content Include="Views\Components\DropDown.cshtml" />
+    <Content Include="Views\Home\Manage.cshtml" />
+    <Content Include="Views\Users\Security.cshtml" />
+    <Content Include="Views\Users\History.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

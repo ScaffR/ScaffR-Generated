@@ -9,6 +9,18 @@
     public partial class UsersController
     {
         [HttpGet]
+        public ActionResult History(int id)
+        {
+            return View(new UserViewModel());
+        }
+
+        [HttpGet]
+        public ActionResult Security(int id)
+        {
+            return View(new UserViewModel());
+        }
+
+        [HttpGet]
         [ClaimsAuthorize("View", "ManageUsers")]
         public ActionResult Details(int id)
         {

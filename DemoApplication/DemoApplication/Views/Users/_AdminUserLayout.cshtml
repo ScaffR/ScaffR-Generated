@@ -1,23 +1,16 @@
-@{
-    Layout = "~/Views/Shared/Layout.cshtml";
-}
-@using DemoApplication.Extensions
 @using DemoApplication.Extensions.Sitemap
 @using DemoApplication.Extensions
 @model DemoApplication.Models.Users.UserViewModel
 
-@if (ViewBag.ShowBreadcrumb == true)
-        {
-            @Html.MvcSiteMap("System").Breadcrumb()
-        } 
+@{
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
 
-<div class="clearfix">
+<div class="page-header">
     
     <h2 class="pull-left">@Model.FullName</h2>
-    @if (!string.IsNullOrWhiteSpace(Model.PhotoId))
-    {
-        <img src="@Url.GetPhotoUrl(Model.PhotoId, "small", "")" alt="" class="img-polaroid pull-right"/>
-    }
+
+    @Html.MvcSiteMap().Pills(SiteMap.Provider.FindSiteMapNodeFromKey("UserDetails"), true, true)
 </div>
 
 <div class="btn-group pull-right">
@@ -35,6 +28,5 @@
         }
     </ul>
 </div>
-@Html.MvcSiteMap("System").Tabs(3, true, false, 1)
 
 @RenderBody()

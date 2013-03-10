@@ -1,14 +1,8 @@
 @model DemoApplication.Models.Sitemap.SitemapHelperModel
-<div class="well" style="padding: 8px 0">
-     <ul class="nav nav-list">
 
-        @foreach (var node in Model.Nodes)
-        {            
-            <li class="@Html.AddClass("active", node.IsCurrentNode || node.IsInCurrentPath && !node.IsRootNode)"><a href="@Url.Action(node.Action, node.Controller)">
-                                                                                                 <i class="@node.ImageUrl @Html.AddClass("icon-white", node.IsCurrentNode || node.IsInCurrentPath && !node.IsRootNode)"></i>
-                                                                                                 @node.Title
-                                                                                             </a></li>            
-        }
-    </ul>
-
-    </div>
+<ul class="nav nav-pills">
+    @foreach (var node in Model.Nodes)
+    {            
+        <li class="@Html.AddClass("active", node.IsCurrentNode || node.IsInCurrentPath && !node.IsRootNode)"><a href="@node.Url">@node.Title</a></li>            
+    }
+</ul>
