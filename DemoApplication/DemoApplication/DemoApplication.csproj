@@ -696,7 +696,7 @@
     <Content Include="CodeTemplates\Scaffolders\ScaffR.MVC.Normalize\Global.cs.t4" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\Less\variables.less" />
+    <Content Include="Content\Less\variables1.less" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Less\site.less" />
