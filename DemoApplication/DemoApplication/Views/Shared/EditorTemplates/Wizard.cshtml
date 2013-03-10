@@ -1,5 +1,5 @@
 ﻿@using DemoApplication.Extensions
-@using DemoApplication.Models.Attributes
+@using DemoApplication.Metadata.Attributes
 @{
     var steps = ViewData.ModelMetadata.Properties.Where(metadata => metadata.IsPropertyVisible(ViewData.TemplateInfo) && metadata.IsPropertyWizardStep()).ToList();
 }

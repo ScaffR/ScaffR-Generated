@@ -3,7 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Web.Mvc;
-    using Models.Attributes;
+    using Metadata.Attributes;
 
     public static partial class HtmlExtensions
 	{

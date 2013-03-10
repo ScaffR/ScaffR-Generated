@@ -2,6 +2,7 @@ namespace DemoApplication.Mailers
 {
     using System.Net.Mail;
     using Models;
+    using Models.Account;
 
     public partial class Mailer
     {

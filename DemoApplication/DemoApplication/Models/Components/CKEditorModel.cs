@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using DemoApplication.Models.Attributes;
 
 namespace DemoApplication.Models.Components
 {
+    using Metadata.Attributes;
 
     public partial class CKEditorModel
     {

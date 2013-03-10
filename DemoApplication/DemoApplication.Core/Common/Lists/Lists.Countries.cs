@@ -6,7 +6,6 @@ namespace DemoApplication.Core.Common.Lists
     {
         public static readonly IDictionary<string, string> CountryDictionary = new Dictionary<string, string> 
         {
-            {"", ""},
             {"United States", "US"},
             {"Canada", "CA"}
         };

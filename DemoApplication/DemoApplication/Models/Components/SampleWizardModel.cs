@@ -1,7 +1,7 @@
 ﻿namespace DemoApplication.Models.Components
 {
     using System.ComponentModel.DataAnnotations;
-    using Attributes;
+    using Metadata.Attributes;
 
     [Wizard]
     public class SampleWizardModel

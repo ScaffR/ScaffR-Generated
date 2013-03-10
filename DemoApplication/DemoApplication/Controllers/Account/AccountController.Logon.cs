@@ -8,6 +8,7 @@ namespace DemoApplication.Controllers.Account
     using Filters;
     using Infrastructure.Eventing;
     using Models;
+    using Models.Account;
 
     public partial class AccountController
     {

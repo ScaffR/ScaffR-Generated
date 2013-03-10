@@ -1,6 +1,6 @@
 ﻿namespace DemoApplication.Extensions
 {
-    using DemoApplication.Models.Attributes;
+    using Metadata.Attributes;
 
     public class BootstrapInputOptions
     {

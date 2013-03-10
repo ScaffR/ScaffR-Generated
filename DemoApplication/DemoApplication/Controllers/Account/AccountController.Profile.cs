@@ -7,6 +7,7 @@ namespace DemoApplication.Controllers.Account
     using Core.Model;
     using Extensions;
     using Models;
+    using Models.Account;
     using Omu.ValueInjecter;
 
     public partial class AccountController

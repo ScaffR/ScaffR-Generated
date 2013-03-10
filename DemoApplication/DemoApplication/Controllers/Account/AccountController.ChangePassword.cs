@@ -5,6 +5,7 @@ namespace DemoApplication.Controllers.Account
     using Core.Common.Membership;
     using Extensions;
     using Models;
+    using Models.Account;
 
     public partial class AccountController
     {

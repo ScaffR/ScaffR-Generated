@@ -1,7 +1,7 @@
 ﻿namespace DemoApplication.Models.Common
 {
-    using Attributes;
     using System.Data.Spatial;
+    using Metadata.Attributes;
 
     public class AddressModel
     {

@@ -6,6 +6,7 @@ namespace DemoApplication.Controllers.Account
     using Extensions;
     using Mailers;
     using Models;
+    using Models.Account;
     using Mvc.Mailer;
 
     public partial class AccountController

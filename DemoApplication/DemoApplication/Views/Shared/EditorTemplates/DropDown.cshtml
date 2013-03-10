@@ -1,5 +1,14 @@
-@using DemoApplication.Extensions
-@using DemoApplication.Extensions
+@using DemoApplication.Dropdowns.Controls
+@using DemoApplication.Dropdowns.Extensions
+
 @model object
 
-@Html.DropDownListFor(m => m, Html.GetAutomatedList(m => m).SetSelected(Model))
+@{
+    IDictionary<string, object> Attr = new Dictionary<string, object>();
+
+    var x = ViewData.ModelMetadata
+                    .BuildDropdownListenerAttributes(ViewData.TemplateInfo, ref Attr)
+                    .BuildDropdownListenerWithSpecificValue(ViewData.TemplateInfo, ref Attr);          
+}
+
+@Html.DropDownFor(m => m, Model, Attr)

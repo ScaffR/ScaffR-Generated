@@ -1,6 +1,6 @@
 ﻿namespace DemoApplication.Models.Components
 {
-    using Attributes;
+    using Metadata.Attributes;
 
     public class SampleVideoModel
     {
