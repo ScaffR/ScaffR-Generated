@@ -498,7 +498,6 @@
         this.options = $.extend({}, $.fn.collapse.defaults, options)
 
         if (this.options.parent) {
-            debugger;
             this.$parent = $(this.options.parent)
         }
 

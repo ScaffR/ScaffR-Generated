@@ -1,7 +1,7 @@
 namespace DemoApplication.Filters.UserContextFilters
 {
     using System.Web.Mvc;
-    using Extensions;
+    using Core.Common.Profiles;
     using Infrastructure.Pipeline;
 
     public class SetProfileValues : Filter<ActionExecutingContext>
@@ -9,8 +9,8 @@ namespace DemoApplication.Filters.UserContextFilters
 	    public override bool Process(ref ActionExecutingContext data)
 	    {
 	        if (data.HttpContext.Request.IsAuthenticated)
-            {
-                var user = data.Controller.GetCurrentUser();
+	        {
+	            var user = UserProfile.Current;
 
                 if (user == null)
                 {

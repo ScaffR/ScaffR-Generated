@@ -3,23 +3,22 @@ namespace DemoApplication.Controllers.Account
     using System.Web.Mvc;
     using Core.Common.Membership;
     using Core.Common.Membership.Events;
+    using Core.Common.Profiles;
     using Core.Model;
-    using Extensions;
     using Filters;
     using Infrastructure.Eventing;
-    using Models;
     using Models.Account;
 
     public partial class AccountController
     {
-        [AllowAnonymous, OnlyAnonymous]
+        [AllowAnonymous, OnlyAnonymous, ShowMainMenu(false)]
         public ActionResult Logon()
         {
             return View(new LogOnModel());
         }
 
         [HttpPost]
-        [AllowAnonymous, OnlyAnonymous]
+        [AllowAnonymous, OnlyAnonymous, ShowMainMenu(false)]
         public ActionResult Logon(LogOnModel model, string returnUrl)
         {
             if (ModelState.IsValid)
@@ -69,7 +68,7 @@ namespace DemoApplication.Controllers.Account
 
         public ActionResult LogOff()
         {
-            MessageBus.Instance.Publish(new UserLoggedOut(this.GetCurrentUser()));
+            MessageBus.Instance.Publish(new UserLoggedOut(UserProfile.Current));
 
             _authenticationService.SignOut();            
             return RedirectToAction("Index", "Home");

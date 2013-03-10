@@ -110,12 +110,14 @@
     <Compile Include="Interfaces\Eventing\IHandles.cs" />
     <Compile Include="Interfaces\Eventing\IMessageBus.cs" />
     <Compile Include="Interfaces\Pipeline\ICoreProcessor.cs" />
+    <Compile Include="Interfaces\Storage\IStorageProvider.cs" />
     <Compile Include="Pipeline\Filter.cs" />
     <Compile Include="Pipeline\FilterActivator.cs" />
     <Compile Include="Pipeline\FilterChain.cs" />
     <Compile Include="Pipeline\PipelineFactory.cs" />
     <Compile Include="Pipeline\PipelineManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Storage\Providers\SessionStorageProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

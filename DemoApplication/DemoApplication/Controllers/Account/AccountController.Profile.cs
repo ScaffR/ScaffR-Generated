@@ -4,6 +4,7 @@ namespace DemoApplication.Controllers.Account
     using System.Collections.Generic;
     using System.Linq;
     using System.Web.Mvc;
+    using Core.Common.Profiles;
     using Core.Model;
     using Extensions;
     using Models;
@@ -17,7 +18,7 @@ namespace DemoApplication.Controllers.Account
         {
             var model = new ProfileModel();
 
-            model.InjectFrom<UnflatLoopValueInjection>(this.GetCurrentUser());
+            model.InjectFrom<UnflatLoopValueInjection>(UserProfile.Current);
 
             return View(model);
         }
@@ -27,22 +28,17 @@ namespace DemoApplication.Controllers.Account
         {
             if (ModelState.IsValid)
             {
-                if (string.Compare(this.GetCurrentUser().Email, model.Email, StringComparison.InvariantCultureIgnoreCase) != 0)
-                {
-                    var inUse = _userService.Find(u => u.Email == model.Email).Any();
-                    if (inUse)
-                    {
-                        ModelState.AddModelError("EmailInUse", "Email already in use");
-                    }
-                }
-
-                this.GetCurrentUser().InjectFrom<UnflatLoopValueInjection>(model);
+                UserProfile.Current.InjectFrom<UnflatLoopValueInjection>(model);
 
                 try
                 {
-					_userService.SaveOrUpdate(this.GetCurrentUser());
-                    TempData["Success"] = "User was successfully updated.";
-                    return RedirectToAction("Profile");
+                    var result = UserProfile.Current.Save();
+
+                    if (ModelState.Process(result))
+                    {
+                        TempData["Success"] = "User was successfully updated.";
+                        return RedirectToAction("Profile");
+                    }                    
                 }
                 catch (Exception)
                 {
@@ -56,11 +52,11 @@ namespace DemoApplication.Controllers.Account
         [HttpGet]
         public ActionResult Emails()
         {
-            var user = this.GetCurrentUser();
+            var user = UserProfile.Current;
 
             List<UserEmail> model = _userEmailService.Find(x => x.UserId == user.Id).ToList();
 
-            ViewBag.DefaultEmail = this.GetCurrentUser().Email;
+            ViewBag.DefaultEmail = UserProfile.Current.Email;
 
             return View(model);
         }
@@ -68,11 +64,16 @@ namespace DemoApplication.Controllers.Account
         [HttpPost]
         public ActionResult Emails(UserEmail model)
         {
-            model.UserId = this.GetCurrentUser().Id;
+            model.UserId = UserProfile.Current.Id;
             if (ModelState.IsValid)
             {
-                _userEmailService.SaveOrUpdate(model);
-                TempData["Success"] = "Email was successfully added";
+                var result = _userEmailService.SaveOrUpdate(model);
+                if (ModelState.Process(result))
+                {
+                    TempData["Success"] = "Email was successfully added";
+                    return RedirectToAction("Emails");
+                }
+                
             }
 
             return RedirectToAction("Emails");

@@ -13,6 +13,8 @@ namespace DemoApplication.Application.Bootstrappers
     using DemoApplication.Data;
     using DemoApplication.Infrastructure.DependencyInjection;
     using Dropdowns;
+    using Infrastructure.Interfaces.Storage;
+    using Infrastructure.Storage.Providers;
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
     using Ninject;
     using Ninject.Web.Common;
@@ -76,6 +78,7 @@ namespace DemoApplication.Application.Bootstrappers
             kernel.Bind<IDropdownProvider>().To<Dropdowns>().InRequestScope();
             kernel.Bind<ITaskService>().To<TaskService>().InRequestScope();
             kernel.Bind<ITaskRepository>().To<TaskRepository>().InRequestScope();
+            kernel.Bind<IStorageProvider>().To<SessionStorageProvider>();
         }
     }
 }

@@ -2,6 +2,7 @@ namespace DemoApplication.Controllers.Account
 {
     using System.Web.Mvc;
     using Core.Common.Membership;
+    using Core.Common.Profiles;
     using Extensions;
     using Models;
     using Models.Account;
@@ -19,7 +20,7 @@ namespace DemoApplication.Controllers.Account
         {
             if (ModelState.IsValid)
             {
-                var status = _userService.ChangePassword(this.GetCurrentUser(), model.OldPassword, model.NewPassword);
+                var status = _userService.ChangePassword(UserProfile.Current, model.OldPassword, model.NewPassword);
 
                 switch (status)
                 {

@@ -21,9 +21,9 @@
     </div>
 </div>
 
-@if (Request.IsAuthenticated)
+@if (ViewBag.ShowMainMenu == true)
 {
-    @Html.MvcSiteMap("System").MainMenu(false)  
+    @Html.MvcSiteMap("System").MainMenu(false)
 }
 
 @if (ViewBag.ShowBreadcrumb == true)

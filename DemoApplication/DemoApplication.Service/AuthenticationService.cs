@@ -43,6 +43,7 @@ namespace DemoApplication.Service
 
         public void SignOut()
         {
+            HttpContext.Current.Session.Abandon();
             FormsAuthentication.SignOut();
             FederatedAuthentication.SessionAuthenticationModule.SignOut();
         }

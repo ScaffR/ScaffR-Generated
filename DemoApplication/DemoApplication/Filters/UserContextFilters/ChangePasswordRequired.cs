@@ -1,6 +1,7 @@
 namespace DemoApplication.Filters.UserContextFilters
 {
     using System.Web.Mvc;
+    using Core.Common.Profiles;
     using Extensions;
     using Infrastructure.Pipeline;
 
@@ -10,7 +11,7 @@ namespace DemoApplication.Filters.UserContextFilters
 	    {
 	        if (data.HttpContext.Request.IsAuthenticated)
 	        {
-                var user = data.Controller.GetCurrentUser();
+	            var user = UserProfile.Current;
 
                 // if password reset is required, redirect to change password page
                 if (user.ResetPassword)

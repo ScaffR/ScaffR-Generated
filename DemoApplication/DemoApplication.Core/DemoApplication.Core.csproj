@@ -119,6 +119,7 @@
     <Compile Include="Common\Photos\PhotoResize.cs" />
     <Compile Include="Common\Photos\PhotoThumbnail.cs" />
     <Compile Include="Common\Photos\Providers\FileSystemProvider.cs" />
+    <Compile Include="Common\Profiles\UserProfile.cs" />
     <Compile Include="Common\Security\ApplicationClaims.cs" />
     <Compile Include="Common\Security\ApplicationIdentity.cs" />
     <Compile Include="Common\Security\AuthorizationManager.cs" />
@@ -186,6 +187,9 @@
       <Project>{D3CDA29A-AA7D-469F-AF4C-D03E4416F5F6}</Project>
       <Name>DemoApplication.Infrastructure</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Common\Storage\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" />

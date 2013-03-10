@@ -1,16 +1,10 @@
 ﻿namespace DemoApplication.Models.Components
 {
-    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using Dropdowns.Attributes;
 
     public class SampleDropdownModel
     {
-        public SampleDropdownModel()
-        {
-
-        }
-
         [DropDown("Countries")]
         [Display(Name = "Country")]
         public string CountryId { get; set; }
