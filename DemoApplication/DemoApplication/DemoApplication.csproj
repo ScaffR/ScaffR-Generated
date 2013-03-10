@@ -177,6 +177,7 @@
     <Compile Include="Application\Bootstrappers\Bootstrapper.WebApi.cs" />
     <Compile Include="Controllers\Account\AccountController.ChangePassword.cs" />
     <Compile Include="Controllers\Account\AccountController.cs" />
+    <Compile Include="Controllers\Account\AccountController.Emails.cs" />
     <Compile Include="Controllers\Account\AccountController.ForgotPassword.cs" />
     <Compile Include="Controllers\Account\AccountController.Logon.cs" />
     <Compile Include="Controllers\Account\AccountController.Photo.cs" />

@@ -53,29 +53,6 @@ namespace DemoApplication.Controllers.Account
             return View(model);
         }
 
-        [HttpGet]
-        public ActionResult Emails()
-        {
-            var user = this.GetCurrentUser();
-
-            List<UserEmail> model = _userEmailService.Find(x => x.UserId == user.Id).ToList();
-
-            ViewBag.DefaultEmail = this.GetCurrentUser().Email;
-
-            return View(model);
-        }
-
-        [HttpPost]
-        public ActionResult Emails(UserEmail model)
-        {
-            model.UserId = this.GetCurrentUser().Id;
-            if (ModelState.IsValid)
-            {
-                _userEmailService.SaveOrUpdate(model);
-                TempData["Success"] = "Email was successfully added";
-            }
-
-            return RedirectToAction("Emails");
-        }       
+   
     }
 }
