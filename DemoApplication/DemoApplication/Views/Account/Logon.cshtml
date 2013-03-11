@@ -1,10 +1,8 @@
 @model DemoApplication.Models.Account.LogOnModel
 @{
     Layout = "~/Views/Shared/Cassette.cshtml";
-    ViewBag.Title = "Log On";
+    ViewBag.Title = "Login";
 }
-
-
 
 <div id="login">
     <h3>Login</h3>
@@ -15,11 +13,13 @@
         @Html.EditorForModel()           
                                              
         <a href="forgot_password.html">Forgot Password ?</a>
-				<div class="pull-right">
-					<button type="submit" class="btn btn-inverse btn-large">
-						Login
-					</button>
-				</div>
+
+        <div class="pull-right">
+            <button type="submit" class="btn btn-inverse btn-large">
+                Login
+				
+            </button>
+        </div>
             
     }
     ScaffR &copy; 2012

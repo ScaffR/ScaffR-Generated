@@ -1,35 +1,16 @@
 @model DemoApplication.Models.Account.ProfileModel
 @{
-    ViewBag.Title = "Profile";
-    Layout = "~/Views/Shared/Layout.cshtml";
-    ViewBag.SitemapProvider = "Account";
-
-    //Bundles.Reference("content/custom/hide-breadcrumb.less", "custom");
+    ViewBag.Title = "Edit Profile";
 }
 
-<div class="row-fluid">
-    <div class="span12">
-        <div class="page-header">
-            <h3>Your Profile</h3>
-        </div>
-        <div class="row-fluid">
 
-            <div class="span12">
-                
-                
-    @using (Html.BeginForm("Profile", "Account", FormMethod.Post, new { @class = "form-horizontal" }))
-    {
-        @Html.ValidationSummary(true, "Unable to update profile. Please correct the errors and try again.", new { @class = "alert alert-block alert-error" })
+@using (Html.BeginForm("Profile", "Account", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    @Html.ValidationSummary(true, "Unable to update profile. Please correct the errors and try again.", new { @class = "alert alert-block alert-error" })
         
-        @Html.EditorForModel()
+    @Html.EditorForModel()
         
-        <div class="form-actions">
-            <input type="submit" value="Update" class="btn btn-inverse btn-large" />
-        </div>        
-    }
-                            </div>
-
-        </div>
-
-    </div>
-</div>
+    <div class="form-actions">
+        <input type="submit" value="Update" class="btn btn-inverse btn-large" />
+    </div>        
+}                           

@@ -26,14 +26,14 @@ namespace DemoApplication.Data.Seeders
                             Id = 1,
                             Email = "webmaster@scaffr.com",
                             Username = "admin",
-                            FirstName = "Maor",
-                            LastName = "Vasserman",
+                            FirstName = "Rod",
+                            LastName = "Johnson",
                             LastLoginDate = DateTime.Now,
                             Password = "admin",
                             IsApproved = true,							
                             Gender = Gender.Male,
                             Address = "Admin address",
-                            PhoneNumber = "555-555-555"
+                            PhoneNumber = "555-555-5555"
                         }
                 }.ForEach(u => context.Users.AddOrUpdate(u));
 

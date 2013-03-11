@@ -1,21 +1,16 @@
 @model DemoApplication.Models.Account.RegisterModel
 @{
-    ViewBag.Title = "Register";
+    ViewBag.Title = "Create a new account";
 }
-    <div class="page-header">
-        <h1>Create A New Account
-        </h1>
-    </div>
-    <div class="row">
-        @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal" }))
-        {                                 
-            @Html.ValidationSummary(true, "Account creation was unsuccessful. Please correct the errors and try again.", new { @class = "alert alert-block alert-error" })
+
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal" }))
+{                                 
+    @Html.ValidationSummary(true, "Account creation was unsuccessful. Please correct the errors and try again.", new { @class = "alert alert-block alert-error" })
                                    
-            @Html.EditorForModel()         
+    @Html.EditorForModel()         
             
-            <div class="form-actions">
-                <input type="submit" value="Create Account" class="btn btn-inverse btn-large" />
-                <input type="reset" value="Clear Form" class="btn" title="Remove all the data from the form." />
-            </div>                          
-        }
-    </div>
+    <div class="form-actions">
+        <input type="submit" value="Create Account" class="btn btn-inverse btn-large" />
+        <input type="reset" value="Clear Form" class="btn btn-large" title="Remove all the data from the form." />
+    </div>                          
+}

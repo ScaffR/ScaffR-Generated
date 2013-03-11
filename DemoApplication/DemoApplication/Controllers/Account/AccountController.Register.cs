@@ -13,13 +13,13 @@ namespace DemoApplication.Controllers.Account
 
     public partial class AccountController
     {
-        [AllowAnonymous, OnlyAnonymous]
+        [AllowAnonymous, OnlyAnonymous, ShowMainMenu(false)]
         public ActionResult Register()
         {
             return View(new RegisterModel());
         }
 
-        [HttpPost, AllowAnonymous, OnlyAnonymous]
+        [HttpPost, AllowAnonymous, OnlyAnonymous, ShowMainMenu(false)]
         public ActionResult Register(RegisterModel model)
         {
             if (ModelState.IsValid)

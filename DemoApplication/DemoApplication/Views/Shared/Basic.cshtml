@@ -1,0 +1,58 @@
+﻿@{
+    Layout = "~/Views/Shared/Cassette.cshtml";
+}
+
+@Html.Partial("Header")
+
+@if (ViewBag.ShowMainMenu == true)
+{
+    @Html.MvcSiteMap("System").MainMenu(false)
+}
+
+@if (ViewBag.ShowBreadcrumb == true)
+{
+    @Html.MvcSiteMap("System").Breadcrumb()
+}
+
+@if (ViewBag.ShowAlerts == true)
+{
+    @Html.Partial("_Alert")
+}
+
+<div class="container-fluid">
+
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="page-header clearfix">
+                <h3 class="pull-left">@Html.GetPageHeadingText()</h3>
+                
+                @if (IsSectionDefined("AltNav"))
+                {
+                    @RenderSection("AltNav", true)
+                }
+
+            </div>
+            <div class="row-fluid">
+
+                @if (IsSectionDefined("LeftColumn"))
+                {
+                    @:<div class="span3">
+
+                        @RenderSection("LeftColumn", true)
+                    
+                    @:</div>
+                    @:<div class="span9">
+                        }
+
+                @RenderBody()
+
+                @if (IsSectionDefined("LeftColumn"))
+                {
+                    @:</div>
+                        }
+
+            </div>
+        </div>
+    </div>
+</div>
+

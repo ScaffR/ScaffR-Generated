@@ -213,7 +213,6 @@
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\DropdownController.cs" />
     <Compile Include="Controllers\Home\HomeController.cs" />
-    <Compile Include="Controllers\Task\TaskController.cs" />
     <Compile Include="Controllers\Users\UsersController.Details.cs" />
     <Compile Include="Controllers\Users\UsersController.Manager.cs" />
     <Compile Include="Controllers\Users\UsersController.cs" />
@@ -750,9 +749,6 @@
     <Content Include="Views\Shared\EditorTemplates\Object.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\DisplayTemplates\Alert.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="CodeTemplates\Scaffolders\ScaffR.Bootstrap\ScaffR.Bootstrap.ps1" />
   </ItemGroup>
   <ItemGroup>
@@ -1096,16 +1092,10 @@
     <Content Include="Views\Account\Profile.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Account\Notifications.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Account\Logon.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Account\ForgotPassword.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Account\Emails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Account\ChangePassword.cshtml" />
@@ -1364,7 +1354,6 @@
     <Content Include="Views\Users\_ViewStart.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Photo.cshtml" />
     <Content Include="Views\Shared\_Alert.cshtml" />
-    <Content Include="Views\Task\Manager.cshtml" />
     <Content Include="Views\Shared\_Modal.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Sitemap\MainMenu.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Sitemap\SubMenu.cshtml" />
@@ -1393,6 +1382,11 @@
     <Content Include="Views\Users\History.cshtml" />
     <Content Include="Views\Home\Manage.cshtml" />
     <Content Include="Views\Shared\Header.cshtml" />
+    <Content Include="Views\Shared\Basic.cshtml" />
+    <Content Include="Views\Components\_ViewStart.cshtml" />
+    <Content Include="Views\Account\_ViewStart.cshtml" />
+    <Content Include="Views\Dashboard\_ViewStart.cshtml" />
+    <Content Include="Views\Home\_ViewStart.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

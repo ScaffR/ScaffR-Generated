@@ -3,23 +3,14 @@
 }
 @model DemoApplication.Models.Components.SampleWizardModel
 
-<div class="row-fluid">
-    <div class="span12">
-        <div class="page-header">
-            <h3>Wizard</h3>
-        </div>
-        <div class="row-fluid">
-
-            <div class="span12">
-                
-                @using (Html.BeginForm("Wizard", "Components", FormMethod.Post, new{@class="form-horizontal"}))
+@section LeftColumn
 {
-     @Html.EditorForModel()
-}
-                            </div>
-
-        </div>
-
+    <div>
+        <h2>This is left</h2>
     </div>
-</div>
+}
 
+@using (Html.BeginForm("Wizard", "Components", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    @Html.EditorForModel()
+}

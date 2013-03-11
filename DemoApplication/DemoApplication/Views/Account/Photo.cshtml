@@ -1,44 +1,27 @@
 @model DemoApplication.Core.Common.Photos.Photo
 
 @{
-    ViewBag.Title = "Photo";
-    Layout = "~/Views/Shared/Layout.cshtml";
-    ViewBag.SitemapProvider = "Account";
+    ViewBag.Title = "Update Profile Photo";
 }
 
-<div class="row-fluid">
-    <div class="span12">
-        <div class="page-header">
-            <h3>Your Photo</h3>
-        </div>
-        <div class="row-fluid">
+@using (Html.BeginForm("Photo", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="row-fluid">
 
-            <div class="span12">
-
-                @using (Html.BeginForm("Photo", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
-                {
-                    <div class="row-fluid">
-
-                        <img src="@Url.Content(Model.Url)" alt="" class="img-polaroid"/>
-                        
-                    </div>
-                    <div class="form-actions">
-                        
-                        <span class="btn btn-inverse btn-large fileinput-button">
-                            <i class="icon-plus icon-white"></i>
-                            <span>Choose File</span>
-                            <input type="file" name="File">
-                        </span>
-
-                        <button type="submit" class="btn btn-inverse btn-large">
-                            Upload
-                        </button>
-                    </div>
-                }
-            </div>
-
-        </div>
+        <img src="@Url.Content(Model.Url)" alt="" class="img-polaroid"/>
 
     </div>
-</div>
+    <div class="form-actions">
+
+        <span class="btn btn-inverse btn-large fileinput-button">
+            <i class="icon-plus icon-white"></i>
+            <span>Choose File</span>
+            <input type="file" name="File">
+        </span>
+
+        <button type="submit" class="btn btn-inverse btn-large">
+            Upload
+        </button>
+    </div>
+}
 
