@@ -4,9 +4,9 @@ namespace DemoApplication.Controllers.Account
     using Core.Common.Membership;
     using Core.Common.Membership.Events;
     using Core.Common.Profiles;
-    using Core.Model;
-    using Filters;
     using Infrastructure.Eventing;
+    using Infrastructure.Extensions;
+    using Filters;
     using Models.Account;
 
     public partial class AccountController
@@ -23,46 +23,22 @@ namespace DemoApplication.Controllers.Account
         {
             if (ModelState.IsValid)
             {
-                User user;
-                var status = _userService.Authenticate(model.UserName, model.Password, out user);
-
-                switch (status)
+                AuthenticationStatus status;
+                var authResult = _userService.Authenticate(model.UserName, model.Password, out status);
+                if (authResult)
                 {
-                    case AuthenticationStatus.Authenticated:
-
-                        _authenticationService.SetAuthCookie(model.UserName, model.RememberMe);
-
-                        MessageBus.Instance.Publish(new UserLoggedIn(user));
-
-                        string redirectUrl = _authenticationService.GetRedirectUrl(model.UserName, false);
-                        
-                        return Redirect(redirectUrl);
-
-                    case AuthenticationStatus.UserLockedOut:
-
-                        ModelState.AddModelError(string.Empty, "The account is currently locked");
-                        break;
-
-                    case AuthenticationStatus.AccountNotActive:
-
-                        ModelState.AddModelError(string.Empty, "The account is no longer active");
-                        break;
-
-                    case AuthenticationStatus.ResetPassword:
-
-                        _authenticationService.SetAuthCookie(model.UserName, model.RememberMe);
-
-                        TempData["Error"] = "Password Change Required";
-                        
-                        return RedirectToAction("ChangePassword", "Account", new { username = model.UserName });
-
-                    default:
-
-                        ModelState.AddModelError(string.Empty, "The username or password provided is incorrect");
-                        break;
+                    _authenticationService.SignIn(model.UserName);
+                    //if (Url.IsLocalUrl(returnUrl))
+                    //{
+                    //    return RedirectToAction("Index", "Dashboard");
+                    //}
+                    return RedirectToAction("Index", "Dashboard");
+                }
+                else
+                {
+                    ModelState.AddModelError("", status.GetDescription());
                 }
             }
-
             return View(model);
         }
 

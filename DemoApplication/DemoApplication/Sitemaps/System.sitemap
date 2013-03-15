@@ -11,6 +11,7 @@
     <mvcSiteMapNode title="Profile" controller="Account" action="Profile" imageUrl="icon-user" >
       <mvcSiteMapNode title="Security" controller="Account" action="Settings" imageUrl="icon-lock"/>
       <mvcSiteMapNode title="Photo" controller="Account" action="Photo" imageUrl="icon-camera"/>
+      <mvcSiteMapNode title="Claims" controller="Account" action="Claims" imageUrl="icon-camera"/>
     </mvcSiteMapNode>
 
     <mvcSiteMapNode title="Components" controller="Components" action="Index" imageUrl="icon-user" >

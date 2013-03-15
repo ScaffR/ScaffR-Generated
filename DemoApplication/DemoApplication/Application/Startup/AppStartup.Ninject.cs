@@ -1,28 +1,29 @@
-using DemoApplication.Application.Bootstrappers;
+using DemoApplication.Application.Startup;
 
-[assembly: WebActivator.PreApplicationStartMethod(typeof(Bootstrapper), "Start")]
-[assembly: WebActivator.ApplicationShutdownMethodAttribute(typeof(Bootstrapper), "Stop")]
+[assembly: WebActivator.PreApplicationStartMethod(typeof(AppStartup), "Start")]
+[assembly: WebActivator.ApplicationShutdownMethodAttribute(typeof(AppStartup), "Stop")]
 
-namespace DemoApplication.Application.Bootstrappers
+namespace DemoApplication.Application.Startup
 {
     using System;
     using System.Web;
     using System.Web.Http;
-    using DemoApplication.Core.Interfaces.Data;
-    using DemoApplication.Core.Interfaces.Service;
-    using DemoApplication.Data;
-    using DemoApplication.Infrastructure.DependencyInjection;
+    using Core.Interfaces.Data;
+    using Core.Interfaces.Service;
+    using Data;
+    using DependencyResolution;
     using Dropdowns;
     using Infrastructure.Interfaces.Storage;
     using Infrastructure.Storage.Providers;
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
     using Ninject;
     using Ninject.Web.Common;
-    using DemoApplication.Service;
+    using Security;
+    using Service;
 
-    public partial class Bootstrapper
+    public partial class AppStartup
     {
-        private static readonly Ninject.Web.Common.Bootstrapper bootstrapper = new Ninject.Web.Common.Bootstrapper();
+        private static readonly Bootstrapper bootstrapper = new Bootstrapper();
 
         /// <summary>
         /// Starts the application
@@ -49,7 +50,7 @@ namespace DemoApplication.Application.Bootstrappers
         private static IKernel CreateKernel()
         {
             var kernel = new StandardKernel();
-            kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Ninject.Web.Common.Bootstrapper().Kernel);
+            kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
             kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
             GlobalConfiguration.Configuration.DependencyResolver = new NinjectResolver(kernel);
             RegisterServices(kernel);
@@ -74,7 +75,7 @@ namespace DemoApplication.Application.Bootstrappers
             kernel.Bind<IUserRoleRepository>().To<UserRoleRepository>().InRequestScope();
             kernel.Bind<IUserEmailService>().To<UserEmailService>().InRequestScope();
             kernel.Bind<IUserEmailRepository>().To<UserEmailRepository>().InRequestScope();
-            kernel.Bind<IAuthenticationService>().To<AuthenticationService>().InRequestScope();
+            kernel.Bind<IAuthenticationService>().To<ClaimsBasedAuthenticationService>().InRequestScope();
             kernel.Bind<IDropdownProvider>().To<Dropdowns>().InRequestScope();
             kernel.Bind<ITaskService>().To<TaskService>().InRequestScope();
             kernel.Bind<ITaskRepository>().To<TaskRepository>().InRequestScope();

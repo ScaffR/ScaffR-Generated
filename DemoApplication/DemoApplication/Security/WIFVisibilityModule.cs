@@ -6,7 +6,6 @@ namespace DemoApplication.Security
     using System.Reflection;
     using System.Web;
     using System.Web.Mvc;
-    using Core.Common.Security;
     using MvcSiteMapProvider;
     using MvcSiteMapProvider.Extensibility;
 

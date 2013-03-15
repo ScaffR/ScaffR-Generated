@@ -1,8 +1,8 @@
 namespace DemoApplication.Controllers.Home
 {
     using System.Web.Mvc;
-    using Core.Common.Security;
     using Filters;
+    using Security;
 
     public partial class HomeController : Controller
     {

@@ -3,7 +3,7 @@
  * see license.txt
  */
 
-namespace DemoApplication.Core.Common.Security
+namespace DemoApplication.Security
 {
     using System;
     using System.Collections.ObjectModel;

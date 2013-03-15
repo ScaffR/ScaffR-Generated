@@ -1,17 +1,10 @@
-namespace DemoApplication.Core.Common.Security
+namespace DemoApplication.Security
 {
     using Configuration;
-    using Configuration.Security;
+    using DemoApplication.Core.Configuration;
 
     public partial class Security
     {
-        public static Security Instance
-        {
-            get
-            {
-                return new Security(CoreSection.GetConfig().Security);
-            }
-        }
 
         private readonly SecurityElement _config;
 

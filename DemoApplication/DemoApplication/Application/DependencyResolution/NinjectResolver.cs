@@ -1,4 +1,4 @@
-namespace DemoApplication.Infrastructure.DependencyInjection
+namespace DemoApplication.Application.DependencyResolution
 {
     using System.Web.Http.Dependencies;
     using Ninject;

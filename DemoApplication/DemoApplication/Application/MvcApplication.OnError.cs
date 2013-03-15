@@ -9,11 +9,7 @@ namespace DemoApplication.Application
         /// </summary>
         protected void Application_Error()
         {
-            Exception ex = Server.GetLastError();
 
-            // process exception
-
-            Server.ClearError();
         }
 	}
 }

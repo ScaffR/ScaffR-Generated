@@ -1,11 +1,11 @@
-namespace DemoApplication.Application.Bootstrappers
+namespace DemoApplication.Application.Startup
 {
     using System.IO;
     using Cassette;
     using Cassette.Scripts;
     using Cassette.Stylesheets;
 
-    public partial class Bootstrapper : IConfiguration<BundleCollection>
+    public partial class AppStartup : IConfiguration<BundleCollection>
 	{
 		public void Configure(BundleCollection configurable)
 		{

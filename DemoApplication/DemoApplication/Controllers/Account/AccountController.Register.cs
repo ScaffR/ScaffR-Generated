@@ -33,7 +33,7 @@ namespace DemoApplication.Controllers.Account
 
                 if (createStatus == CreateUserStatus.Success)
                 {
-                    _authenticationService.SetAuthCookie(model.Username, true);
+                    _authenticationService.SignIn(model.Username);
 
                     MessageBus.Instance.Publish(new UserCreated(user, Url.AbsoluteAction("Logon", "Account")));
 

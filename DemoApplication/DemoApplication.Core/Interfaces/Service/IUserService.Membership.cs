@@ -5,7 +5,7 @@ namespace DemoApplication.Core.Interfaces.Service
 
     public partial interface IUserService
     {
-        AuthenticationStatus Authenticate(string username, string password, out User user);
+        bool Authenticate(string username, string password, out AuthenticationStatus status);
         ChangePasswordStatus ChangePassword(User user, string currentPassword, string newPassword);
         CreateUserStatus CreateUser(User user);
         ChangePasswordStatus ResetPassword(User user);

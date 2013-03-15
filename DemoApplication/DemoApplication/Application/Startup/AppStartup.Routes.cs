@@ -1,9 +1,9 @@
-namespace DemoApplication.Application.Bootstrappers
+namespace DemoApplication.Application.Startup
 {
     using System.Web.Mvc;
     using System.Web.Routing;
 
-    public partial class Bootstrapper
+    public partial class AppStartup
     {
         public static void Routes()
         {

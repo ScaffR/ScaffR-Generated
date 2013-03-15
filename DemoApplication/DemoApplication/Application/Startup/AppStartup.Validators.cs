@@ -1,13 +1,13 @@
-using DemoApplication.Application.Bootstrappers;
+using DemoApplication.Application.Startup;
 
-[assembly: WebActivator.PreApplicationStartMethod(typeof(Bootstrapper), "RegisterValidationExtensions")]
-namespace DemoApplication.Application.Bootstrappers
+[assembly: WebActivator.PreApplicationStartMethod(typeof(AppStartup), "RegisterValidationExtensions")]
+namespace DemoApplication.Application.Startup
 {
     using System.Web.Mvc;
     using DemoApplication.Metadata.Adapters;
     using DemoApplication.Metadata.Attributes;
 
-    public partial class Bootstrapper
+    public partial class AppStartup
     {
         public static void RegisterValidationExtensions()
         {

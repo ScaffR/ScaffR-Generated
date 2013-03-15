@@ -2,48 +2,56 @@ namespace DemoApplication.Service
 {
     using System;
     using System.Linq;
-    using DemoApplication.Core.Common.Membership;
-    using DemoApplication.Core.Model;
+    using Core.Common.Membership;
+    using Core.Model;
 
     public partial class UserService
     {
-        public AuthenticationStatus Authenticate(string username, string password, out User user)
+        public bool Authenticate(string username, string password, out AuthenticationStatus status)
         {
-            user = Find(u => u.Username == username).FirstOrDefault();
+            var user = Find(u => u.Username == username).FirstOrDefault();
 
             if (user == null)
             {
-                return AuthenticationStatus.InvalidUsername;
+                status = AuthenticationStatus.InvalidUsername;
+                return false;
             }
                         
             if (user.Password == password)
             {
                 if (user.IsLockedOut)
                 {
-                    return AuthenticationStatus.UserLockedOut;
+                    status = AuthenticationStatus.UserLockedOut;
+                    return false;
                 }
 
                 if (!user.IsApproved)
                 {
-                    return AuthenticationStatus.AccountNotActive;
+                    status = AuthenticationStatus.UserLockedOut;
+                    return false;
                 }
 
                 user.LastLoginDate = DateTime.UtcNow;
-                SaveOrUpdate(user);
-                return AuthenticationStatus.Authenticated;
-            }
-            
-            if (user.TemporaryPassword == password)
-            {
-                user.ResetPassword = true;
-                user.Password = user.TemporaryPassword;
-                SaveOrUpdate(user);
-                return AuthenticationStatus.ResetPassword;
+                var result = SaveOrUpdate(user);
+
+                status = AuthenticationStatus.Authenticated;
+                return true;
             }
 
-            user.LastPasswordFailureDate = DateTime.UtcNow;
-            SaveOrUpdate(user);
-            return AuthenticationStatus.InvalidPassword;
+            status = AuthenticationStatus.InvalidPassword;
+            return false;
+
+            //if (user.TemporaryPassword == password)
+            //{
+            //    user.ResetPassword = true;
+            //    user.Password = user.TemporaryPassword;
+            //    SaveOrUpdate(user);
+            //    return AuthenticationStatus.ResetPassword;
+            //}
+
+            //user.LastPasswordFailureDate = DateTime.UtcNow;
+            //SaveOrUpdate(user);
+            //return AuthenticationStatus.InvalidPassword;
         }
 
         public ChangePasswordStatus ChangePassword(User user, string currentPassword, string newPassword)

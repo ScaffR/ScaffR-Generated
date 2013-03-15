@@ -1,14 +1,14 @@
-using DemoApplication.Application.Bootstrappers;
+using DemoApplication.Application.Startup;
 
-[assembly: WebActivator.PreApplicationStartMethod(typeof(Bootstrapper), "ActionFilters")]
+[assembly: WebActivator.PreApplicationStartMethod(typeof(AppStartup), "ActionFilters")]
 
-namespace DemoApplication.Application.Bootstrappers
+namespace DemoApplication.Application.Startup
 {
     using System.Web.Mvc;
     using Filters;
     using Dropdowns.Filters;
 
-    public partial class Bootstrapper
+    public partial class AppStartup
     {
         public static void ActionFilters()
         {

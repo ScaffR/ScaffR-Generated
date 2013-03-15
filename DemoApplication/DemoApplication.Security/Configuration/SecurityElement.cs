@@ -1,7 +1,6 @@
-namespace DemoApplication.Core.Configuration.Security
+namespace DemoApplication.Security.Configuration
 {
     using System.Configuration;
-    using Common.Security;
 
     public partial class SecurityElement : ConfigurationElement
     {

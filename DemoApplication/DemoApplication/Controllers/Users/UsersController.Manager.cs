@@ -1,7 +1,7 @@
 ﻿namespace DemoApplication.Controllers.Users
 {
     using System.Web.Mvc;
-    using Core.Common.Security;
+    using Security;
 
     public partial class UsersController
     {

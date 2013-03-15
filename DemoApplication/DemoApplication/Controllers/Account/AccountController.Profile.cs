@@ -45,6 +45,10 @@ namespace DemoApplication.Controllers.Account
             return View(model);
         }
 
-   
+        public ActionResult Claims()
+        {
+            return View();
+        }
+
     }
 }

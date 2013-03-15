@@ -1,14 +1,14 @@
-using DemoApplication.Application.Bootstrappers;
+using DemoApplication.Application.Startup;
 
-[assembly: WebActivator.PreApplicationStartMethod(typeof(Bootstrapper), "WebApi")]
+[assembly: WebActivator.PreApplicationStartMethod(typeof(AppStartup), "WebApi")]
 
-namespace DemoApplication.Application.Bootstrappers
+namespace DemoApplication.Application.Startup
 {
     using System.Net.Http;
     using System.Web.Http;
     using System.Web.Http.Routing;
 
-    public partial  class Bootstrapper
+    public partial  class AppStartup
 	{
         public static void WebApi()
         {
