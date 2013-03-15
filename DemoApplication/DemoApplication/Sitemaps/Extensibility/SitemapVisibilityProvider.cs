@@ -1,4 +1,4 @@
-namespace DemoApplication.Security
+namespace DemoApplication.Sitemaps.Extensibility
 {
     using System;
     using System.Collections.Generic;
@@ -8,8 +8,9 @@ namespace DemoApplication.Security
     using System.Web.Mvc;
     using MvcSiteMapProvider;
     using MvcSiteMapProvider.Extensibility;
+    using Security;
 
-    public class WIFVisibilityModule : ISiteMapNodeVisibilityProvider
+    public class SitemapVisiblityProvider : ISiteMapNodeVisibilityProvider
     {
         private MethodInfo GetRequestedAction(MvcSiteMapNode mvcNode)
         {

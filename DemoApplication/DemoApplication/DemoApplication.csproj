@@ -318,7 +318,8 @@
     <Compile Include="Models\Sitemap\SitemapHelperModel.cs" />
     <Compile Include="Models\Users\UserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Security\WIFVisibilityModule.cs" />
+    <Compile Include="Sitemaps\Extensibility\SitemapUrlResolver.cs" />
+    <Compile Include="Sitemaps\Extensibility\SitemapVisibilityProvider.cs" />
     <Compile Include="Upload\FilesStatus.cs" />
     <Compile Include="Upload\UploadHandler.ashx.cs">
       <DependentUpon>UploadHandler.ashx</DependentUpon>
@@ -716,9 +717,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\_ViewStart.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Sitemaps\Public.sitemap" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\font\fontawesome-webfont.woff" />
