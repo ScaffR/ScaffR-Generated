@@ -208,7 +208,6 @@
     <Compile Include="Controllers\Components\ComponentsController.Video.cs" />
     <Compile Include="Filters\ShowMainMenu.cs" />
     <Compile Include="Models\Components\SampleDropdownModel.cs" />
-    <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\DropdownController.cs" />
     <Compile Include="Controllers\Home\HomeController.cs" />
     <Compile Include="Controllers\Users\UsersController.Details.cs" />
@@ -1153,7 +1152,7 @@
     <Content Include="Views\Account\Photo.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Dashboard\Index.cshtml" />
+    <Content Include="Views\Home\Dashboard.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\Layout.cshtml" />
@@ -1377,7 +1376,6 @@
     <Content Include="Views\Shared\Basic.cshtml" />
     <Content Include="Views\Components\_ViewStart.cshtml" />
     <Content Include="Views\Account\_ViewStart.cshtml" />
-    <Content Include="Views\Dashboard\_ViewStart.cshtml" />
     <Content Include="Views\Home\_ViewStart.cshtml" />
     <Content Include="Views\Account\Claims.cshtml" />
   </ItemGroup>

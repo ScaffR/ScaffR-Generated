@@ -11,7 +11,7 @@ namespace DemoApplication.Controllers.Home
        {
            if (Request.IsAuthenticated)
            {
-               return RedirectToAction("Index", "Dashboard");
+               return View("Dashboard");
            }
            return View();
        }

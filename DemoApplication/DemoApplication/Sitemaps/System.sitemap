@@ -4,9 +4,7 @@
             xsi:schemaLocation="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-3.0 MvcSiteMapSchema.xsd"
             enableLocalization="true">
 
-  <mvcSiteMapNode title="Home" controller="Home" action="Index" imageUrl="icon-home" key="root" visibility="breadcrumb">
-
-    <mvcSiteMapNode title="Dashboard" controller="Dashboard" action="Index" imageUrl="icon-th-large" />
+  <mvcSiteMapNode title="Dashboard" controller="Home" action="Index" imageUrl="icon-home" key="root" visibility="breadcrumb">
 
     <mvcSiteMapNode title="Profile" controller="Account" action="Profile" imageUrl="icon-user" >
       <mvcSiteMapNode title="Security" controller="Account" action="Settings" imageUrl="icon-lock"/>
