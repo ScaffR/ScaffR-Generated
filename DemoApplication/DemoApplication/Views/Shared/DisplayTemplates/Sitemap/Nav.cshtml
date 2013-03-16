@@ -9,7 +9,7 @@
     {
         if (node.Children.Count > 0)
         {
-        <li class="@(node.IsCurrentNode || node.IsInCurrentPath ? "active" : "") dropdown">
+        <li class="@(node.IsActiveNode(ViewContext) ? "active" : "") dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#menu1"><i class="@node.ImageUrl icon-white">
             </i>
                 @node.Title
@@ -25,7 +25,7 @@
         }
         else
         {
-        <li class="@(node.IsCurrentNode || node.IsInCurrentPath ? "active" : "")) && !node.IsRootNode)"><a href="@node.Url">
+        <li class="@(node.IsActiveNode(ViewContext) ? "active" : "")) && !node.IsRootNode)"><a href="@node.Url">
             <i class="@node.ImageUrl icon-white"></i>@node.Title</a></li>    
         }
 

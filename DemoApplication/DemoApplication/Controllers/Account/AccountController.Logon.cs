@@ -28,16 +28,13 @@ namespace DemoApplication.Controllers.Account
                 if (authResult)
                 {
                     _authenticationService.SignIn(model.UserName);
-                    //if (Url.IsLocalUrl(returnUrl))
-                    //{
-                    //    return RedirectToAction("Index", "Dashboard");
-                    //}
-                    return RedirectToAction("Index", "Dashboard");
+                    if (Url.IsLocalUrl(returnUrl))
+                    {
+                        return Redirect(returnUrl);
+                    }
+                    return RedirectToAction("Index", "Home");
                 }
-                else
-                {
-                    ModelState.AddModelError("", status.GetDescription());
-                }
+                ModelState.AddModelError("", status.GetDescription());
             }
             return View(model);
         }

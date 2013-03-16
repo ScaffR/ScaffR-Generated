@@ -3,6 +3,6 @@
 <ul class="nav nav-pills">
     @foreach (var node in Model.Nodes)
     {            
-        <li class="@(node.IsCurrentNode ? "active" : "")"><a href="@node.Url">@node.Title</a></li>            
+        <li class="@(node.IsActiveNode(ViewContext) ? "active" : "")"><a href="@node.Url">@node.Title</a></li>            
     }
 </ul>

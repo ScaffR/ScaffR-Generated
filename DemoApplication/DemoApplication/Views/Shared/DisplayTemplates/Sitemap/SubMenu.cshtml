@@ -2,19 +2,7 @@
 
 @{
     var topLevel = Model.Nodes;
-    SiteMapNodeModel activeNode;
-
-    Func<SiteMapNodeModel, bool> isActive = (node) =>
-                                                {
-                                                    var active = (node.IsCurrentNode
-                                                        || node.IsInCurrentPath
-                                                        || (ViewContext.Controller.ValueProvider.GetValue("action").RawValue.ToString().Equals(node.Action, StringComparison.CurrentCultureIgnoreCase)
-                                                            && ViewContext.Controller.ValueProvider.GetValue("controller").RawValue.ToString().Equals(node.Controller, StringComparison.InvariantCultureIgnoreCase)
-                                                            && !node.IsRootNode));
-                                                    return active;
-                                                };
-
-    activeNode = topLevel.Where(x => isActive(x)).FirstOrDefault();                                                
+    var activeNode = topLevel.FirstOrDefault(x => x.IsActiveNode(ViewContext));                                                
 }
 <!--  Need to create a sub menu view to generate menu  -->
 
@@ -27,7 +15,7 @@
 
             @foreach (var child in activeNode.Children)
             {
-                if (child.IsCurrentNode || child.IsInCurrentPath)
+                if (child.IsActiveNode(ViewContext))
                 {
                     foreach (var secondchild in child.Children)
                     {

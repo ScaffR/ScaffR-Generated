@@ -37,7 +37,7 @@ namespace DemoApplication.Controllers.Account
 
                     MessageBus.Instance.Publish(new UserCreated(user, Url.AbsoluteAction("Logon", "Account")));
 
-                    return RedirectToAction("Index", "Dashboard");
+                    return RedirectToAction("Index", "Home");
                 }
 
                 ModelState.AddModelError(string.Empty, ErrorCodeToString(createStatus));

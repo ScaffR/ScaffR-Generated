@@ -8,6 +8,7 @@ namespace DemoApplication.Extensions.Sitemap
     using Models.Sitemap;
     using MvcSiteMapProvider;
     using MvcSiteMapProvider.Web.Html;
+    using MvcSiteMapProvider.Web.Html.Models;
 
     /// <summary>
     /// MvcSiteMapHtmlHelper extension methods
@@ -567,9 +568,9 @@ namespace DemoApplication.Extensions.Sitemap
             return false;
         }
 
-        public static CustomNodeModel MapToSiteMapNodeModel(SiteMapNode node, MvcSiteMapNode mvcNode, IDictionary<string, object> sourceMetadata)
+        public static SiteMapNodeModel MapToSiteMapNodeModel(SiteMapNode node, MvcSiteMapNode mvcNode, IDictionary<string, object> sourceMetadata)
         {
-            var model = new CustomNodeModel()
+            var model = new SiteMapNodeModel()
             {
                 Area = mvcNode != null ? mvcNode.Area : "",
                 Controller = mvcNode != null ? mvcNode.Controller : "",

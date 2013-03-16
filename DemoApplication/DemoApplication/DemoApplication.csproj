@@ -206,6 +206,7 @@
     <Compile Include="Controllers\Components\ComponentsController.CKEditor.cs" />
     <Compile Include="Controllers\Components\ComponentsController.FileUpload.cs" />
     <Compile Include="Controllers\Components\ComponentsController.Video.cs" />
+    <Compile Include="Extensions\Sitemap\SiteMapNodeModelExtensions.cs" />
     <Compile Include="Filters\ShowMainMenu.cs" />
     <Compile Include="Models\Components\SampleDropdownModel.cs" />
     <Compile Include="Controllers\DropdownController.cs" />
@@ -313,7 +314,6 @@
     <Compile Include="Metadata\Rules\ModelClientValidationNumericRule.cs" />
     <Compile Include="Metadata\Rules\ModelClientValidationVideoRule.cs" />
     <Compile Include="Models\Account\SettingsModel.cs" />
-    <Compile Include="Models\Sitemap\CustomNodeModel.cs" />
     <Compile Include="Models\Sitemap\SitemapHelperModel.cs" />
     <Compile Include="Models\Users\UserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
