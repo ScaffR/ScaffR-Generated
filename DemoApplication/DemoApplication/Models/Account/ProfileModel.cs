@@ -15,7 +15,7 @@ namespace DemoApplication.Models.Account
         public string LastName { get; set; }
 
         [Required]
-        [DataType(DataType.EmailAddress)]
+        [EmailTextbox]
         public virtual String Email { get; set; }
 
         [Required]

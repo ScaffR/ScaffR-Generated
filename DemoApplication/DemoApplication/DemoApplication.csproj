@@ -207,7 +207,10 @@
     <Compile Include="Controllers\Components\ComponentsController.FileUpload.cs" />
     <Compile Include="Controllers\Components\ComponentsController.Video.cs" />
     <Compile Include="Controllers\Components\ComponentsController.EditorTemplates.cs" />
+    <Compile Include="Extensions\AlertLocation.cs" />
+    <Compile Include="Extensions\AlertType.cs" />
     <Compile Include="Extensions\Sitemap\SiteMapNodeModelExtensions.cs" />
+    <Compile Include="Extensions\TempDataExtensions.cs" />
     <Compile Include="Filters\ShowMainMenu.cs" />
     <Compile Include="Metadata\Attributes\PhoneNumberTextboxAttribute.cs" />
     <Compile Include="Metadata\Resources\ClientValidationResources.Designer.cs" />
