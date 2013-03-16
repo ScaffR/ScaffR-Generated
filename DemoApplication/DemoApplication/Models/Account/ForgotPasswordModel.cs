@@ -5,7 +5,7 @@ namespace DemoApplication.Models.Account
 
     public partial class ForgotPasswordModel
     {
-        [Display(Name = "Email Address"), Required, Email]
+        [Display(Name = "Email Address"), Required, EmailTextbox]
         public string EmailAddress { get; set; }
     }
 }

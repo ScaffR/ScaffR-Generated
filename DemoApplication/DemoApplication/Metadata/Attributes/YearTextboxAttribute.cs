@@ -5,7 +5,7 @@ namespace DemoApplication.Metadata.Attributes
     using Resources;
 
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
-    public class YearAttribute : TextboxAttribute
+    public class YearTextboxAttribute : TextboxAttribute
     {
         private static Regex _regex = new Regex(@"^[0-9]{4}$");
 
@@ -17,9 +17,10 @@ namespace DemoApplication.Metadata.Attributes
             }
         }
 
-        public YearAttribute()
+        public YearTextboxAttribute()
             : base("year")
         {
+            this.DefaultTextboxSize = TextboxSize.Small;
         }
 
         public override string FormatErrorMessage(string name)

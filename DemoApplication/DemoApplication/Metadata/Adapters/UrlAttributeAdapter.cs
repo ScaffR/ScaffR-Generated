@@ -4,10 +4,10 @@ namespace DemoApplication.Metadata.Adapters
     using System.Web.Mvc;
     using Attributes;
 
-    public class UrlAttributeAdapter : DataAnnotationsModelValidator<UrlAttribute>
+    public class UrlAttributeAdapter : DataAnnotationsModelValidator<UrlTextboxAttribute>
     {
-        public UrlAttributeAdapter(ModelMetadata metadata, ControllerContext context, UrlAttribute attribute)
-            : base(metadata, context, attribute)
+        public UrlAttributeAdapter(ModelMetadata metadata, ControllerContext context, UrlTextboxAttribute textboxAttribute)
+            : base(metadata, context, textboxAttribute)
         {
         }
 

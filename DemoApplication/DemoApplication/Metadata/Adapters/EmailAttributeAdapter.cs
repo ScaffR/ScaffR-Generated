@@ -5,10 +5,10 @@ namespace DemoApplication.Metadata.Adapters
     using Attributes;
     using Rules;
 
-    public class EmailAttributeAdapter : DataAnnotationsModelValidator<EmailAttribute>
+    public class EmailAttributeAdapter : DataAnnotationsModelValidator<EmailTextboxAttribute>
     {
-        public EmailAttributeAdapter(ModelMetadata metadata, ControllerContext context, EmailAttribute attribute)
-            : base(metadata, context, attribute)
+        public EmailAttributeAdapter(ModelMetadata metadata, ControllerContext context, EmailTextboxAttribute textboxAttribute)
+            : base(metadata, context, textboxAttribute)
         {
         }
 

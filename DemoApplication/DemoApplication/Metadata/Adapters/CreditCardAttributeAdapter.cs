@@ -5,10 +5,10 @@ namespace DemoApplication.Metadata.Adapters
     using Attributes;
     using Rules;
 
-    public class CreditCardAttributeAdapter : DataAnnotationsModelValidator<CreditCardAttribute>
+    public class CreditCardAttributeAdapter : DataAnnotationsModelValidator<CreditCardTextboxAttribute>
     {
-        public CreditCardAttributeAdapter(ModelMetadata metadata, ControllerContext context, CreditCardAttribute attribute)
-            : base(metadata, context, attribute)
+        public CreditCardAttributeAdapter(ModelMetadata metadata, ControllerContext context, CreditCardTextboxAttribute textboxAttribute)
+            : base(metadata, context, textboxAttribute)
         {
         }
 

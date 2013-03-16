@@ -4,26 +4,25 @@ using DemoApplication.Application.Startup;
 namespace DemoApplication.Application.Startup
 {
     using System.Web.Mvc;
-    using DemoApplication.Metadata.Adapters;
-    using DemoApplication.Metadata.Attributes;
+    using Metadata.Adapters;
+    using Metadata.Attributes;
 
     public partial class AppStartup
     {
         public static void RegisterValidationExtensions()
         {
-            DataAnnotationsModelValidatorProvider.RegisterAdapter(typeof(EmailAttribute), typeof(EmailAttributeAdapter));
-            DataAnnotationsModelValidatorProvider.RegisterAdapter(typeof(UrlAttribute), typeof(UrlAttributeAdapter));
-            DataAnnotationsModelValidatorProvider.RegisterAdapter(typeof(CreditCardAttribute), typeof(CreditCardAttributeAdapter));
+            DataAnnotationsModelValidatorProvider.RegisterAdapter(typeof(EmailTextboxAttribute), typeof(EmailAttributeAdapter));
+            DataAnnotationsModelValidatorProvider.RegisterAdapter(typeof(UrlTextboxAttribute), typeof(UrlAttributeAdapter));
+            DataAnnotationsModelValidatorProvider.RegisterAdapter(typeof(CreditCardTextboxAttribute), typeof(CreditCardAttributeAdapter));
             DataAnnotationsModelValidatorProvider.RegisterAdapter(typeof(EqualToAttribute), typeof(EqualToAttributeAdapter));
             DataAnnotationsModelValidatorProvider.RegisterAdapter(typeof(FileExtensionsAttribute), typeof(FileExtensionsAttributeAdapter));
-            DataAnnotationsModelValidatorProvider.RegisterAdapter(typeof(NumericAttribute), typeof(NumericAttributeAdapter));
-            DataAnnotationsModelValidatorProvider.RegisterAdapter(typeof(DigitsAttribute), typeof(DigitsAttributeAdapter));
+            DataAnnotationsModelValidatorProvider.RegisterAdapter(typeof(NumericTextboxAttribute), typeof(NumericAttributeAdapter));
+            DataAnnotationsModelValidatorProvider.RegisterAdapter(typeof(DigitsTextboxAttribute), typeof(DigitsAttributeAdapter));
             DataAnnotationsModelValidatorProvider.RegisterAdapter(typeof(MinAttribute), typeof(MinAttributeAdapter));
             DataAnnotationsModelValidatorProvider.RegisterAdapter(typeof(MaxAttribute), typeof(MaxAttributeAdapter));
-            DataAnnotationsModelValidatorProvider.RegisterAdapter(typeof(DateAttribute), typeof(DateAttributeAdapter));
+            DataAnnotationsModelValidatorProvider.RegisterAdapter(typeof(DateTextboxAttribute), typeof(DateAttributeAdapter));
             DataAnnotationsModelValidatorProvider.RegisterAdapter(typeof(IntegerAttribute), typeof(IntegerAttributeAdapter));
-            DataAnnotationsModelValidatorProvider.RegisterAdapter(typeof(CuitAttribute), typeof(CuitAttributeAdapter));
-            DataAnnotationsModelValidatorProvider.RegisterAdapter(typeof(YearAttribute), typeof(YearAttributeAdapter));
+            DataAnnotationsModelValidatorProvider.RegisterAdapter(typeof(YearTextboxAttribute), typeof(YearAttributeAdapter));
         }
     }
 }

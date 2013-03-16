@@ -6,7 +6,7 @@ namespace DemoApplication.Metadata.Adapters
     using Attributes;
     using Rules;
 
-    public class NumericAttributeAdapter : DataAnnotationsModelValidator<NumericAttribute>
+    public class NumericAttributeAdapter : DataAnnotationsModelValidator<NumericTextboxAttribute>
     {
         private static readonly HashSet<Type> NumericTypes = new HashSet<Type>(new Type[] {
             typeof(byte), typeof(sbyte),
@@ -16,8 +16,8 @@ namespace DemoApplication.Metadata.Adapters
             typeof(float), typeof(double), typeof(decimal)
         });
 
-        public NumericAttributeAdapter(ModelMetadata metadata, ControllerContext context, NumericAttribute attribute)
-            : base(metadata, context, attribute)
+        public NumericAttributeAdapter(ModelMetadata metadata, ControllerContext context, NumericTextboxAttribute textboxAttribute)
+            : base(metadata, context, textboxAttribute)
         {
         }
 

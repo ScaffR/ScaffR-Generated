@@ -4,18 +4,18 @@ namespace DemoApplication.Metadata.Attributes
     using Resources;
 
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
-    public class DigitsAttribute : TextboxAttribute
+    public class NumericTextboxAttribute : TextboxAttribute
     {
-        public DigitsAttribute()
-            : base("digits")
+        public NumericTextboxAttribute() : base("string")
         {
+            this.DefaultTextboxSize = TextboxSize.Small;
         }
 
         public override string FormatErrorMessage(string name)
         {
             if (ErrorMessage == null && ErrorMessageResourceName == null)
             {
-                ErrorMessage = ValidatorResources.DigitsAttribute_Invalid;
+                ErrorMessage = ValidatorResources.NumericAttribute_Invalid;
             }
 
             return base.FormatErrorMessage(name);
@@ -25,11 +25,9 @@ namespace DemoApplication.Metadata.Attributes
         {
             if (value == null) return true;
 
-            long retNum;
+            double retNum;
 
-            var parseSuccess = long.TryParse(Convert.ToString(value), out retNum);
-
-            return parseSuccess && retNum >= 0;
+            return double.TryParse(Convert.ToString(value), out retNum);
         }
     }
 }

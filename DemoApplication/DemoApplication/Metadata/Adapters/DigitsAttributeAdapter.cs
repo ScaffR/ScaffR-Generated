@@ -5,10 +5,10 @@ namespace DemoApplication.Metadata.Adapters
     using Attributes;
     using Rules;
 
-    public class DigitsAttributeAdapter : DataAnnotationsModelValidator<DigitsAttribute>
+    public class DigitsAttributeAdapter : DataAnnotationsModelValidator<DigitsTextboxAttribute>
     {
-        public DigitsAttributeAdapter(ModelMetadata metadata, ControllerContext context, DigitsAttribute attribute)
-            : base(metadata, context, attribute)
+        public DigitsAttributeAdapter(ModelMetadata metadata, ControllerContext context, DigitsTextboxAttribute textboxAttribute)
+            : base(metadata, context, textboxAttribute)
         {
         }
 

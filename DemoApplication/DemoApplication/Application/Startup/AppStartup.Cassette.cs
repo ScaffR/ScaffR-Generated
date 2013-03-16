@@ -16,7 +16,6 @@ namespace DemoApplication.Application.Startup
 			});
 		
 			configurable.Add<StylesheetBundle>("content/less/site.less");
-			//configurable.AddPerSubDirectory<ScriptBundle>("Scripts/custom");
 
 			configurable.AddPerSubDirectory<ScriptBundle>("Scripts/lib");
 

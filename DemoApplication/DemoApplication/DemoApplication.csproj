@@ -206,8 +206,12 @@
     <Compile Include="Controllers\Components\ComponentsController.CKEditor.cs" />
     <Compile Include="Controllers\Components\ComponentsController.FileUpload.cs" />
     <Compile Include="Controllers\Components\ComponentsController.Video.cs" />
+    <Compile Include="Controllers\Components\ComponentsController.EditorTemplates.cs" />
     <Compile Include="Extensions\Sitemap\SiteMapNodeModelExtensions.cs" />
     <Compile Include="Filters\ShowMainMenu.cs" />
+    <Compile Include="Metadata\Attributes\PhoneNumberTextboxAttribute.cs" />
+    <Compile Include="Metadata\Resources\ClientValidationResources.Designer.cs" />
+    <Compile Include="Metadata\Resources\ValidatorResources.Designer.cs" />
     <Compile Include="Models\Components\SampleDropdownModel.cs" />
     <Compile Include="Controllers\DropdownController.cs" />
     <Compile Include="Controllers\Home\HomeController.cs" />
@@ -248,7 +252,6 @@
     <Compile Include="ModelBinders\DbGeographyModelBinder.cs" />
     <Compile Include="Metadata\Adapters\CKEditorAttributeAdapter.cs" />
     <Compile Include="Metadata\Adapters\CreditCardAttributeAdapter.cs" />
-    <Compile Include="Metadata\Adapters\CuitAttributeAdapter.cs" />
     <Compile Include="Metadata\Adapters\DateAttributeAdapter.cs" />
     <Compile Include="Metadata\Adapters\DigitsAttributeAdapter.cs" />
     <Compile Include="Metadata\Adapters\EmailAttributeAdapter.cs" />
@@ -262,10 +265,9 @@
     <Compile Include="Metadata\Adapters\YearAttributeAdapter.cs" />
     <Compile Include="Metadata\Attributes\CKEditorAttribute.cs" />
     <Compile Include="Metadata\Attributes\CKEditorEnums.cs" />
-    <Compile Include="Metadata\Attributes\CreditCardAttribute.cs" />
-    <Compile Include="Metadata\Attributes\CuitAttribute.cs" />
-    <Compile Include="Metadata\Attributes\DateAttribute.cs" />
-    <Compile Include="Metadata\Attributes\DigitsAttribute.cs" />
+    <Compile Include="Metadata\Attributes\CreditCardTextboxAttribute.cs" />
+    <Compile Include="Metadata\Attributes\DateTextboxAttribute.cs" />
+    <Compile Include="Metadata\Attributes\DigitsTextboxAttribute.cs" />
     <Compile Include="Metadata\Attributes\EmailAttribute.cs" />
     <Compile Include="Metadata\Attributes\EqualToAttribute.cs" />
     <Compile Include="Metadata\Attributes\Expressions.cs" />
@@ -274,19 +276,20 @@
     <Compile Include="Metadata\Attributes\IntegerAttribute.cs" />
     <Compile Include="Metadata\Attributes\MaxAttribute.cs" />
     <Compile Include="Metadata\Attributes\MinAttribute.cs" />
-    <Compile Include="Metadata\Attributes\NumericAttribute.cs" />
-    <Compile Include="Metadata\Attributes\PasswordAttribute.cs" />
+    <Compile Include="Metadata\Attributes\NumericTextboxAttribute.cs" />
+    <Compile Include="Metadata\Attributes\PasswordTextboxAttribute.cs" />
     <Compile Include="Metadata\Attributes\PhotoAttribute.cs" />
     <Compile Include="Metadata\Attributes\TextboxAttribute.cs" />
     <Compile Include="Metadata\Attributes\TextboxSize.cs" />
-    <Compile Include="Metadata\Attributes\UrlAttribute.cs" />
+    <Compile Include="Metadata\Attributes\UrlTextboxAttribute.cs" />
     <Compile Include="Metadata\Attributes\UrlOptions.cs" />
     <Compile Include="Metadata\Attributes\VideoAttribute.cs" />
     <Compile Include="Metadata\Attributes\VideoEnums.cs" />
     <Compile Include="Metadata\Attributes\WizardAttribute.cs" />
     <Compile Include="Metadata\Attributes\WizardStepAttribute.cs" />
-    <Compile Include="Metadata\Attributes\YearAttribute.cs" />
+    <Compile Include="Metadata\Attributes\YearTextboxAttribute.cs" />
     <Compile Include="Models\Account\ChangePasswordModel.cs" />
+    <Compile Include="Models\Components\SampleEditorTemplatesModel.cs" />
     <Compile Include="Models\Components\SampleVideoModel.cs" />
     <Compile Include="Models\Common\AddressModel.cs" />
     <Compile Include="Models\Components\CKEditorModel.cs" />
@@ -296,8 +299,6 @@
     <Compile Include="Models\Account\LogOnModel.cs" />
     <Compile Include="Models\Account\ProfileModel.cs" />
     <Compile Include="Models\Account\RegisterModel.cs" />
-    <Compile Include="Metadata\Resources\ClientValidationResources.Designer.cs" />
-    <Compile Include="Metadata\Resources\ValidatorResources.Designer.cs" />
     <Compile Include="Metadata\Rules\ModelClientValidationCKEditorRule.cs" />
     <Compile Include="Metadata\Rules\ModelClientValidationCreditCardRule.cs" />
     <Compile Include="Metadata\Rules\ModelClientValidationCuitRule.cs" />
@@ -381,6 +382,8 @@
     <Content Include="Content\font\proximanova-webfont.ttf" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\custom\bundle.txt" />
+    <Content Include="Scripts\custom\custom.js" />
     <Content Include="Scripts\global.address.js" />
     <Content Include="Scripts\global.bootstrap.js" />
     <Content Include="Scripts\global.dropdowns.js" />
@@ -586,6 +589,8 @@
     <Content Include="Scripts\lib\jquery-fileupload\load-image.js" />
     <Content Include="Scripts\lib\jquery-fileupload\locale.js" />
     <Content Include="Scripts\lib\jquery-fileupload\main.js" />
+    <Content Include="Scripts\lib\jquery-plugins\bundle.txt" />
+    <Content Include="Scripts\lib\jquery-plugins\jquery.maskedInput.js" />
     <Content Include="Scripts\lib\jquery-tmpl\bundle.txt" />
     <Content Include="Scripts\lib\jquery-tmpl\tmpl.js" />
     <Content Include="Scripts\lib\jquery-ui\bundle.txt" />
@@ -610,7 +615,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\images\Thumbnail\" />
-    <Folder Include="Scripts\custom\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -640,9 +644,6 @@
     <Content Include="Views\Shared\EditorTemplates\Password.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\EditorTemplates\Number.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Shared\EditorTemplates\Month.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -665,9 +666,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\EditorTemplates\Date.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Shared\EditorTemplates\CreditCard.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\EditorTemplates\Color.cshtml" />
@@ -1309,7 +1307,7 @@
     <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\Authorization\ClaimPermission.cs.t4" />
     <Content Include="CodeTemplates\Scaffolders\ScaffR.IdentityModel\AuthenticationInstantClaim.cs.t4" />
     <Content Include="Content\less\elements\elements.less" />
-    <Compile Include="Extensions\Html\HtmlExtensions.Strings.cs" />
+    <Compile Include="Extensions\Html\HtmlExtensions.Textbox.cs" />
     <Content Include="Content\less\global\common\common.less" />
     <Content Include="Content\less\global\common\fonts.less" />
     <Content Include="Content\less\global\common\layout.less" />
@@ -1373,6 +1371,7 @@
     <Content Include="Views\Account\_ViewStart.cshtml" />
     <Content Include="Views\Home\_ViewStart.cshtml" />
     <Content Include="Views\Account\Claims.cshtml" />
+    <Content Include="Views\Components\EditorTemplates.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

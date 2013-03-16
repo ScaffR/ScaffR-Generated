@@ -9,6 +9,8 @@ namespace DemoApplication.Application.Startup
         {
             RouteTable.Routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            RouteTable.Routes.LowercaseUrls = true;
+
             RouteTable.Routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

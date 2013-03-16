@@ -13,7 +13,7 @@ namespace DemoApplication.Models.Account
         [Required]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
-        [Password(TextboxSize = TextboxSize.Medium)]
+        [PasswordTextbox(TextboxSize = TextboxSize.Medium)]
         public string Password { get; set; }
         
         [Display(Name = "Remember me?")]

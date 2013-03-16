@@ -1,22 +1,22 @@
 namespace DemoApplication.Metadata.Attributes
 {
     using System;
-    using System.ComponentModel.DataAnnotations;
     using Resources;
 
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
-    public class DateAttribute : TextboxAttribute
+    public class DigitsTextboxAttribute : TextboxAttribute
     {
-        public DateAttribute()
-            : base(DataType.Date)
+        public DigitsTextboxAttribute()
+            : base("digits")
         {
+            this.DefaultTextboxSize = TextboxSize.Small;
         }
 
         public override string FormatErrorMessage(string name)
         {
             if (ErrorMessage == null && ErrorMessageResourceName == null)
             {
-                ErrorMessage = ValidatorResources.DateAttribute_Invalid;
+                ErrorMessage = ValidatorResources.DigitsAttribute_Invalid;
             }
 
             return base.FormatErrorMessage(name);
@@ -26,9 +26,11 @@ namespace DemoApplication.Metadata.Attributes
         {
             if (value == null) return true;
 
-            DateTime retDate;
+            long retNum;
 
-            return DateTime.TryParse(Convert.ToString(value), out retDate);
+            var parseSuccess = long.TryParse(Convert.ToString(value), out retNum);
+
+            return parseSuccess && retNum >= 0;
         }
     }
 }

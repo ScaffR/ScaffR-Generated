@@ -1,15 +1,1 @@
-@{
-    var attrs = new Dictionary<string, object>();
-    var classes = new List<string> { "text-box", "single-line" };
-
-    attrs.Add("type", "datetime");
-    
-    if (ViewData.ModelMetadata.IsReadOnly)
-    {
-        attrs.Add("disabled", "true");
-    }
-    
-    attrs.Add("class", String.Join(" ", classes));
-}
-
-@Html.TextBox("", ViewData.TemplateInfo.FormattedModelValue, attrs)
+@Html.TextBox("", ViewData.TemplateInfo.FormattedModelValue, Html.GetTextboxAttributes("datetime"))

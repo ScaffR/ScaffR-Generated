@@ -5,11 +5,12 @@ namespace DemoApplication.Metadata.Attributes
     using Resources;
 
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
-    public class CreditCardAttribute : TextboxAttribute
+    public class CreditCardTextboxAttribute : TextboxAttribute
     {
-        public CreditCardAttribute()
-            : base("creditcard")
+        public CreditCardTextboxAttribute()
+            : base("String")
         {
+            this.DefaultTextboxSize = TextboxSize.Large; 
         }
 
         public override string FormatErrorMessage(string name)

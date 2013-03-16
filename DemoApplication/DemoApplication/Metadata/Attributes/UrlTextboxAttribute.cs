@@ -6,7 +6,7 @@ namespace DemoApplication.Metadata.Attributes
     using Resources;
 
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
-    public class UrlAttribute : TextboxAttribute
+    public class UrlTextboxAttribute : TextboxAttribute
     {
         private readonly UrlOptions _urlOptions = UrlOptions.RequireProtocol; //Default to require protocol
 
@@ -20,7 +20,7 @@ namespace DemoApplication.Metadata.Attributes
             }
         }
 
-        public UrlAttribute(UrlOptions urlOptions = UrlOptions.RequireProtocol) : base(DataType.Url)
+        public UrlTextboxAttribute(UrlOptions urlOptions = UrlOptions.RequireProtocol) : base(DataType.Url)
         {
             _urlOptions = urlOptions;
 

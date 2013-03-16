@@ -1,0 +1,5 @@
+﻿
+*
+
+[references]
+~/scripts/lib/jquery

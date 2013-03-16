@@ -8,7 +8,7 @@
     <h3>Login</h3>
     @using (Html.BeginForm("Logon", "Account", FormMethod.Post))
     {
-        @Html.ValidationSummary(true, "Log on was unsuccessful. Please correct the errors and try again.", new { @class = "alert alert-block alert-error" })
+        @Html.ValidationSummary(true, "", new { @class = "alert alert-block alert-error" })
            
         @Html.EditorForModel()           
                                              

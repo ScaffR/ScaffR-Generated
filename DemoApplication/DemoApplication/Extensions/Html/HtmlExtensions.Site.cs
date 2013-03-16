@@ -43,19 +43,7 @@
 
         public static string GetPageTitle(this HtmlHelper helper)
         {
-            try
-            {
-                if (SiteMap.CurrentNode != null)
-                {
-                    return Site.Instance.WebsiteName +  " - " + SiteMap.CurrentNode.Title;
-                }
-            }
-            catch (Exception)
-            {
-                // do nothing
-            }
-
-            return Site.Instance.WebsiteName + " - " + helper.ViewBag.Title;
+            return Site.Instance.WebsiteName + " - " + GetPageHeadingText(helper);
         }
     }
 }

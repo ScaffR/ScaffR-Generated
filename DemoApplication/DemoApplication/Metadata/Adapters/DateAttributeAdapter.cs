@@ -5,10 +5,10 @@ namespace DemoApplication.Metadata.Adapters
     using Attributes;
     using Rules;
 
-    public class DateAttributeAdapter : DataAnnotationsModelValidator<DateAttribute>
+    public class DateAttributeAdapter : DataAnnotationsModelValidator<DateTextboxAttribute>
     {
-        public DateAttributeAdapter(ModelMetadata metadata, ControllerContext context, DateAttribute attribute)
-            : base(metadata, context, attribute)
+        public DateAttributeAdapter(ModelMetadata metadata, ControllerContext context, DateTextboxAttribute textboxAttribute)
+            : base(metadata, context, textboxAttribute)
         {
         }
 

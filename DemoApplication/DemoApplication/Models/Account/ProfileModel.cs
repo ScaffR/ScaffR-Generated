@@ -24,7 +24,7 @@ namespace DemoApplication.Models.Account
 
         [Required]
         [Display(Name = "Phone Number")]
-        [Textbox(DataType.PhoneNumber)]
+        [PhoneNumberTextbox]
         public string PhoneNumber { get; set; }
     }
 }

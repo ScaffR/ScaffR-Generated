@@ -1,5 +1,6 @@
 namespace DemoApplication.Controllers.Account
 {
+    using System.Web;
     using System.Web.Mvc;
     using Core.Common.Membership;
     using Core.Common.Membership.Events;
@@ -27,6 +28,8 @@ namespace DemoApplication.Controllers.Account
                 var authResult = _userService.Authenticate(model.UserName, model.Password, out status);
                 if (authResult)
                 {
+                    ((MvcSiteMapProvider.DefaultSiteMapProvider)SiteMap.Provider).Refresh();
+
                     _authenticationService.SignIn(model.UserName);
                     if (Url.IsLocalUrl(returnUrl))
                     {

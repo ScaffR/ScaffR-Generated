@@ -2,13 +2,13 @@ namespace DemoApplication.Metadata.Attributes
 {
     using System.ComponentModel.DataAnnotations;
     using System.Web.Mvc;
+    using Extensions;
 
     public class TextboxAttribute : DataTypeAttribute, IMetadataAware
     {
-        private TextboxSize _textboxSize = TextboxSize.XLarge;
-        private string _placeholderText = string.Empty;
-        private string _mask;
-        private FocusBehavior _focusBehavior = FocusBehavior.Normal;
+        readonly BootstrapInputOptions options = new BootstrapInputOptions();
+
+        public BootstrapInputOptions Options { get { return options; } }
 
         public TextboxAttribute()
             : this("String")
@@ -16,9 +16,10 @@ namespace DemoApplication.Metadata.Attributes
 
         }
 
-        public TextboxAttribute(DataType dataType) : base(dataType)
+        public TextboxAttribute(DataType dataType)
+            : base(dataType)
         {
-            
+
         }
 
         public TextboxAttribute(string dataType)
@@ -27,39 +28,38 @@ namespace DemoApplication.Metadata.Attributes
 
         }
 
-        public FocusBehavior FocusBehavior
-        {
-            get { return _focusBehavior; }
-            set { _focusBehavior = value; }
-        }
 
-        public bool IsMultiline { get; set; }
+        public bool IsMultiline
+        {
+            get { return options.Multiline; }
+            set { options.Multiline = value; }
+        }
 
         public TextboxSize TextboxSize
         {
-            get { return _textboxSize; }
-            set { _textboxSize = value; }
+            get { return options.Size; }
+            set { options.Size = value; }
         }
 
         public string PlaceholderText
         {
-            get { return _placeholderText; }
-            set { _placeholderText = value; }
+            get { return options.Placeholder; }
+            set { options.Placeholder = value; }
         }
 
         public string Mask
         {
-            get { return _mask; }
-            set { _mask = value; }
+            get { return options.Mask; }
+            set { options.Mask = value; }
         }
 
-        public void OnMetadataCreated(ModelMetadata metadata)
+        protected TextboxSize DefaultTextboxSize { get; set; }
+
+        public virtual void OnMetadataCreated(ModelMetadata metadata)
         {
-            metadata.AdditionalValues["textbox-size"] = _textboxSize;
-            metadata.AdditionalValues["placeholder"] = _placeholderText;
-            metadata.AdditionalValues["mask"] = _mask;
-            metadata.AdditionalValues["focus-behavior"] = _focusBehavior;
-            metadata.AdditionalValues["multiline"] = this.IsMultiline.ToString();
+            if (options.Size == TextboxSize.None)
+                options.Size = DefaultTextboxSize;
+            metadata.AdditionalValues["InputOptions"] = this.Options;
         }
     }
 

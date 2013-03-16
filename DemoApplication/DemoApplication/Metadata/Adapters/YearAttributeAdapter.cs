@@ -4,10 +4,10 @@ namespace DemoApplication.Metadata.Adapters
     using System.Web.Mvc;
     using Attributes;
 
-    public class YearAttributeAdapter : DataAnnotationsModelValidator<YearAttribute>
+    public class YearAttributeAdapter : DataAnnotationsModelValidator<YearTextboxAttribute>
     {
-        public YearAttributeAdapter(ModelMetadata metadata, ControllerContext context, YearAttribute attribute)
-            : base(metadata, context, attribute)
+        public YearAttributeAdapter(ModelMetadata metadata, ControllerContext context, YearTextboxAttribute textboxAttribute)
+            : base(metadata, context, textboxAttribute)
         {
         }
 
