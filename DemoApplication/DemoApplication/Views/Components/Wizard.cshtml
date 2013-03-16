@@ -1,14 +1,4 @@
-﻿@{
-    ViewBag.Title = "Wizard";
-}
-@model DemoApplication.Models.Components.SampleWizardModel
-
-@section LeftColumn
-{
-    <div>
-        <h2>This is left</h2>
-    </div>
-}
+﻿@model DemoApplication.Models.Components.SampleWizardModel
 
 @using (Html.BeginForm("Wizard", "Components", FormMethod.Post, new { @class = "form-horizontal" }))
 {
