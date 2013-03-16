@@ -4,11 +4,14 @@ namespace DemoApplication.Application.Startup
     using Cassette;
     using Cassette.Scripts;
     using Cassette.Stylesheets;
+    using Cassette.Views;
 
     public partial class AppStartup : IConfiguration<BundleCollection>
 	{
 		public void Configure(BundleCollection configurable)
 		{
+            Bundles.RebuildCache();
+
 			configurable.AddPerSubDirectory<ScriptBundle>("Scripts", new FileSearch()
 			{
 				SearchOption = SearchOption.TopDirectoryOnly
