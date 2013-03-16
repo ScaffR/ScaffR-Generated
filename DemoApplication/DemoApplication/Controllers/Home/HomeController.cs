@@ -3,6 +3,7 @@ namespace DemoApplication.Controllers.Home
     using System.Web.Mvc;
     using Filters;
     using Security;
+    using Security.Authorization;
 
     public partial class HomeController : Controller
     {

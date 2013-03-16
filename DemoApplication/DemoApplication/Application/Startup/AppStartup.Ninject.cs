@@ -19,6 +19,7 @@ namespace DemoApplication.Application.Startup
     using Ninject;
     using Ninject.Web.Common;
     using Security;
+    using Security.Authentication;
     using Service;
 
     public partial class AppStartup

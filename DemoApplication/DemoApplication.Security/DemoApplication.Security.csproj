@@ -74,12 +74,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AuthorizationManager.cs" />
-    <Compile Include="ClaimsAuthorization.cs" />
-    <Compile Include="ClaimsAuthorizeAttribute.cs" />
-    <Compile Include="ClaimsBasedAuthenticationService.cs" />
-    <Compile Include="MachineKeyCookieTransform.cs" />
-    <Compile Include="MachineKeySessionSecurityTokenHandler.cs" />
+    <Compile Include="Authorization\AuthorizationManager.cs" />
+    <Compile Include="Authorization\ClaimsAuthorization.cs" />
+    <Compile Include="Authorization\ClaimsAuthorizeAttribute.cs" />
+    <Compile Include="Authentication\ClaimsBasedAuthenticationService.cs" />
+    <Compile Include="Encryption\MachineKeyCookieTransform.cs" />
+    <Compile Include="Encryption\MachineKeySessionSecurityTokenHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Configuration\SecurityElement.cs" />
     <Compile Include="Security.cs" />

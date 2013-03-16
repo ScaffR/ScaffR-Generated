@@ -1,4 +1,4 @@
-﻿namespace DemoApplication.Security
+﻿namespace DemoApplication.Security.Encryption
 {
     using System.IdentityModel;
     using System.Web.Security;

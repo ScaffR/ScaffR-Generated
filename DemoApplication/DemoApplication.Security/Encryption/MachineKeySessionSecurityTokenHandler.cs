@@ -1,4 +1,4 @@
-﻿namespace DemoApplication.Security
+﻿namespace DemoApplication.Security.Encryption
 {
     using System;
     using System.Collections.Generic;

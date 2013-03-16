@@ -5,6 +5,7 @@
     using Models.Users;
     using Omu.ValueInjecter;
     using Security;
+    using Security.Authorization;
 
     public partial class UsersController
     {

@@ -1,4 +1,4 @@
-namespace DemoApplication.Security
+namespace DemoApplication.Security.Authorization
 {
     using System.Web.Mvc;
 

@@ -2,6 +2,7 @@
 {
     using System.Web.Mvc;
     using Security;
+    using Security.Authorization;
 
     public partial class UsersController
     {

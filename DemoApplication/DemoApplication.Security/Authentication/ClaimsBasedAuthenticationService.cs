@@ -1,4 +1,4 @@
-﻿namespace DemoApplication.Security
+﻿namespace DemoApplication.Security.Authentication
 {
     using System;
     using System.IdentityModel.Services;
@@ -6,8 +6,8 @@
     using System.Linq;
     using System.Security.Claims;
     using DemoApplication.Core.Interfaces.Service;
-    using Infrastructure.Extensions;
-    using Infrastructure.Tracing;
+    using DemoApplication.Infrastructure.Extensions;
+    using DemoApplication.Infrastructure.Tracing;
 
     public class ClaimsBasedAuthenticationService : IAuthenticationService
     {

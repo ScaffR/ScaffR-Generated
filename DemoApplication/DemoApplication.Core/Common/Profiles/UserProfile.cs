@@ -1,30 +1,24 @@
 ﻿namespace DemoApplication.Core.Common.Profiles
 {
+    using System.Web;
     using System.Threading;
     using System.Web.Mvc;
-    using Infrastructure.Interfaces.Storage;
     using Interfaces.Service;
     using Interfaces.Validation;
     using Model;
 
     public class UserProfile
     {
-        private static readonly IStorageProvider Storage;
-        static UserProfile()
-        {
-            Storage = DependencyResolver.Current.GetService<IStorageProvider>();
-        }
-
         public static User Current
         {
-            get { 
-                var user = Storage.GetValue<User>("UserProfile") as User;
+            get
+            {                
+                var user = HttpContext.Current.Session["UserProfile"] as User;
                 if (user == null)
                 {
-                    Storage.SetValue("UserProfile",
-                        user =
+                    HttpContext.Current.Session["UserProfile"] = user =
                             DependencyResolver.Current.GetService<IUserService>()
-                                              .GetByUsername(Thread.CurrentPrincipal.Identity.Name));
+                                              .GetByUsername(Thread.CurrentPrincipal.Identity.Name);
                 }
                 return user;
             }

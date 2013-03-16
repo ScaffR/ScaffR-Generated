@@ -1,4 +1,0 @@
-﻿*
-
-[references]
-~/scripts/lib

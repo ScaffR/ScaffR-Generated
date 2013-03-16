@@ -9,6 +9,7 @@ namespace DemoApplication.Sitemaps.Extensibility
     using MvcSiteMapProvider;
     using MvcSiteMapProvider.Extensibility;
     using Security;
+    using Security.Authorization;
 
     public class SitemapVisiblityProvider : ISiteMapNodeVisibilityProvider
     {
