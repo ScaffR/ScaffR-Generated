@@ -23,11 +23,10 @@
     </mvcSiteMapNode>
     
     <mvcSiteMapNode title="Admin" controller="Home" action="Manage" imageUrl="icon-lock" key="Manage" visibility="breadcrumb">
-      <mvcSiteMapNode title="Manage Users" controller="Users" action="Manager" imageUrl="icon-group">
-        <mvcSiteMapNode title="Details" controller="Users" action="Details" key="UserDetails" preservedRouteParameters="id">
-          <mvcSiteMapNode title="Security" controller="Users" action="Security" preservedRouteParameters="id"/>
-          <mvcSiteMapNode title="History" controller="Users" action="History" preservedRouteParameters="id"/>
-        </mvcSiteMapNode>
+      <mvcSiteMapNode title="Manage Users" controller="Users" action="Manager" imageUrl="icon-group" key="ManageUsers">
+        <mvcSiteMapNode title="Details" controller="Users" action="Details" key="UserDetails" preservedRouteParameters="id"/>
+        <mvcSiteMapNode title="Security" controller="Users" action="Security" preservedRouteParameters="id"/>
+        <mvcSiteMapNode title="History" controller="Users" action="History" preservedRouteParameters="id"/>
       </mvcSiteMapNode>
     </mvcSiteMapNode>
 

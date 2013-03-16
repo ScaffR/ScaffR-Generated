@@ -42,10 +42,11 @@
         public virtual DateTime? LastLoginDate { get; set; }
 
         [Required]
-        [Textbox(DataType.EmailAddress)]
+        [EmailTextbox]
+        [Display(Name = "Email Address")]
         public virtual string Email { get; set; }
 
-        [Textbox(IsMultiline = true)]
+        [CKEditor(ToolBar = CKEditorToolbar.Full)]
         public virtual string Comment { get; set; }
 
         [Display(Name = "Approved")]
