@@ -22,5 +22,8 @@ namespace DemoApplication.Models.Account
         
         [Display(Name = "Remember me?")]
         public bool RememberMe { get; set; }
+
+        [ScaffoldColumn(false)]
+        public string ReturnUrl { get; set; }
     }
 }
