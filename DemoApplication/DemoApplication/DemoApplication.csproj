@@ -1145,9 +1145,6 @@
     <Content Include="Views\Shared\Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\_LogOnPartial.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="CodeTemplates\Scaffolders\ScaffR.Membership\ViewStart.cs.t4" />
   </ItemGroup>
   <ItemGroup>
