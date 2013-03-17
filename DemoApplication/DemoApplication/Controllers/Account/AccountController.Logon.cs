@@ -19,7 +19,11 @@ namespace DemoApplication.Controllers.Account
         [AllowAnonymous, OnlyAnonymous, ShowMainMenu(false)]
         public ActionResult Logon()
         {
-            return View(new LogOnModel());
+            return View(new LogOnModel()
+                {
+                    UserName = "admin",
+                    Password = "admin"
+                });
         }
 
         [HttpPost]

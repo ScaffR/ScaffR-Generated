@@ -1,8 +1,9 @@
-namespace DemoApplication.Infrastructure.Data.Migrations
+namespace DemoApplication.Infrastructure.Migrations
 {
     #region
 
     using System.Data.Entity.Migrations;
+    using Data;
 
     #endregion
 
@@ -10,7 +11,8 @@ namespace DemoApplication.Infrastructure.Data.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationDataLossAllowed = true;
         }
 
         protected override void Seed(DataContext context)
@@ -27,7 +29,7 @@ namespace DemoApplication.Infrastructure.Data.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
-            new Seeders.MembershipDataSeeder().Seed(context);
+            new Data.Seeders.MembershipDataSeeder().Seed(context);
         }
     }
 }

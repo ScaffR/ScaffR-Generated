@@ -74,8 +74,11 @@ namespace DemoApplication.Application.Startup
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
+            // infrastructure
             kernel.Bind<IUnitOfWork>().To<UnitOfWork>().InRequestScope();
             kernel.Bind<IDatabaseFactory>().To<DatabaseFactory>().InRequestScope();
+
+            // services/repositories
             kernel.Bind<IPersonService>().To<PersonService>().InRequestScope();
             kernel.Bind<IPersonRepository>().To<PersonRepository>().InRequestScope();
             kernel.Bind<IUserService>().To<UserService>().InRequestScope();
@@ -90,6 +93,7 @@ namespace DemoApplication.Application.Startup
             kernel.Bind<IDropdownProvider>().To<Dropdowns>().InRequestScope();
             kernel.Bind<IStorageProvider>().To<SessionStorageProvider>();
 
+            // settings
             kernel.Bind<ISiteSettings>().ToConstant(AppConfig.Instance.Site);
             kernel.Bind<IPhotoSettings>().ToConstant(AppConfig.Instance.Photos);
         }

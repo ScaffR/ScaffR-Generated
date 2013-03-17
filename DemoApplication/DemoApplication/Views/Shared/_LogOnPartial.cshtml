@@ -1,17 +1,21 @@
+@using DemoApplication.Core.Common.Profiles
 @if (Request.IsAuthenticated)
 {
 
     <ul class="nav pull-right">
-        <li @Html.ActiveWhen("Profile", "Account")><a href="@Url.Action("Profile", "Account")"  data-toggle="tooltip" title="Profile"><i class="icon-user"></i></a></li>
+        <li @Html.ActiveWhen("Profile", "Account")><a href="@Url.Action("Profile", "Account")" data-toggle="tooltip" title="Profile">
+                                                       <i class="icon-user"></i> @UserProfile.Current.FullName</a></li>
         <li @Html.ActiveWhen("Settings", "Account")><a href="@Url.Action("Settings", "Account")"  data-toggle="tooltip" title="Settings"><i class="icon-cog"></i></a></li>
-        <li ><a href="@Url.Action("LogOff", "Account")" data-toggle="tooltip" title="Signout"><i  class="icon-signout"></i></a></li>
+        <li><a href="@Url.Action("LogOff", "Account")" data-toggle="tooltip" title="Signout"><i class="icon-signout"></i></a></li>
     </ul>
 
 }
 else
 {         
-    <ul class="nav pull-right">
-        <li @Html.ActiveWhen("Logon", "Account")><a href="@Url.Action("Logon", "Account")"><i class="icon-user icon-white"></i>Login</a></li>
-        <li @Html.ActiveWhen("Register", "Account")><a href="@Url.Action("Register", "Account")"><i class="icon-th-list icon-white"></i>Register</a></li>
-    </ul>        
+    <div class="nav-collapse collapse">
+        <ul class="nav pull-right">
+            <li @Html.ActiveWhen("Logon", "Account")><a href="@Url.Action("Logon", "Account")"><i class="icon-user icon-white"></i>Login</a></li>
+            <li @Html.ActiveWhen("Register", "Account")><a href="@Url.Action("Register", "Account")"><i class="icon-th-list icon-white"></i>Register</a></li>
+        </ul>
+    </div>
 }

@@ -131,6 +131,10 @@
     <Compile Include="Data\UserRepository.cs" />
     <Compile Include="Data\UserRoleRepository.cs" />
     <Compile Include="Eventing\MessageBus.cs" />
+    <Compile Include="Migrations\201303170554487_User Claims.cs" />
+    <Compile Include="Migrations\201303170554487_User Claims.Designer.cs">
+      <DependentUpon>201303170554487_User Claims.cs</DependentUpon>
+    </Compile>
     <Compile Include="Photos\ImageHelper.cs" />
     <Compile Include="Photos\PhotoManager.cs" />
     <Compile Include="Photos\PhotoRequest.cs" />
@@ -162,6 +166,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Data\Migrations\201211221854230_User changes.resx">
       <DependentUpon>201211221854230_User changes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201303170554487_User Claims.resx">
+      <DependentUpon>201303170554487_User Claims.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
