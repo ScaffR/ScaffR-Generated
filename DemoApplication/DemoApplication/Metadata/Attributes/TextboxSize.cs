@@ -10,14 +10,32 @@
 #endregion
 namespace DemoApplication.Metadata.Attributes
 {
+    using System.ComponentModel;
+
+    /// <summary>
+    /// Enum TextboxSize
+    /// </summary>
     public enum TextboxSize
     {
+        [Description("")]
         None,
+
+        [Description("input-mini")]
         Mini,
+
+        [Description("input-small")]
         Small,
+
+        [Description("input-medium")]
         Medium,
+
+        [Description("input-large")]
         Large,
+
+        [Description("input-xlarge")]
         XLarge,
+
+        [Description("input-xxlarge")]
         XXLarge
     }
 }

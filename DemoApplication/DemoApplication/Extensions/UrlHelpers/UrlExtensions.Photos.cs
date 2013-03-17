@@ -13,11 +13,11 @@ namespace DemoApplication.Extensions.UrlHelpers
     #region
 
     using System.Web.Mvc;
-    using DemoApplication.Infrastructure.Photos;
+    using Infrastructure.Photos;
 
     #endregion
 
-    public static class PhotoHelpers
+    public static partial class UrlExtensions
     {
         public static string GetPhotoUrl(this UrlHelper helper, string imageId, string size, string defaultUrl = null)
         {

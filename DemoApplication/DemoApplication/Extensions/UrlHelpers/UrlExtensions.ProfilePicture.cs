@@ -13,7 +13,7 @@ namespace DemoApplication.Extensions.UrlHelpers
     #region
 
     using System.Web.Mvc;
-    using DemoApplication.Core.Model;
+    using Core.Model;
 
     #endregion
 
@@ -23,7 +23,7 @@ namespace DemoApplication.Extensions.UrlHelpers
         {            
             string defaultUrl = string.Format("~/Content/images/{0}/{1}.jpg", resize, gender.ToString());
 
-            return PhotoHelpers.GetPhotoUrl(url, photoId, resize, defaultUrl);
+            return GetPhotoUrl(url, photoId, resize, defaultUrl);
         }
       
     }

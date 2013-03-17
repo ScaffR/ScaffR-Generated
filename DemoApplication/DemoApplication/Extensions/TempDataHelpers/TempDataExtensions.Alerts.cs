@@ -26,16 +26,23 @@ namespace DemoApplication.Extensions.TempDataHelpers
 
             var alertData = viewbag.AlertData as Dictionary<AlertLocation, Dictionary<AlertType, string>>;
             if (alertData == null)
-            {
                 viewbag.AlertData = alertData = new Dictionary<AlertLocation, Dictionary<AlertType, string>>();
-            }
 
             if (alertData[location] == null)
-            {
                 alertData[location] = new Dictionary<AlertType, string>();
-            }
 
             alertData[location].Add(AlertType.Success, message);
         }
+    }
+
+    public enum AlertType
+    {
+        Success,
+        Error
+    }
+
+    public enum AlertLocation
+    {
+        Top
     }
 }

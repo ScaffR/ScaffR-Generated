@@ -13,12 +13,18 @@ namespace DemoApplication.Extensions.ModelStateHelpers
     #region
 
     using System.Web.Mvc;
-    using DemoApplication.Core.Interfaces.Validation;
+    using Core.Interfaces.Validation;
 
     #endregion
 
     public static class ModelStateExtensions
     {
+        /// <summary>
+        /// Processes the specified model state.
+        /// </summary>
+        /// <param name="modelState">State of the model.</param>
+        /// <param name="result">The result.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise</returns>
         public static bool Process(this ModelStateDictionary modelState, IValidationContainer result)
         {
             foreach (var r in result.ValidationErrors)
@@ -27,6 +33,12 @@ namespace DemoApplication.Extensions.ModelStateHelpers
             return modelState.IsValid;
         }
 
+        /// <summary>
+        /// Processes the specified model state.
+        /// </summary>
+        /// <param name="modelState">State of the model.</param>
+        /// <param name="result">The result.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise</returns>
         public static bool Process(this System.Web.Http.ModelBinding.ModelStateDictionary modelState,
             IValidationContainer result)
         {

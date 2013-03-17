@@ -8,7 +8,7 @@
 // Last Modified On : 03-17-2013
 // ***********************************************************************
 #endregion
-namespace DemoApplication.Extensions.SitemapHelpers
+namespace DemoApplication.Extensions.HtmlHelpers
 {
     #region
 
@@ -18,15 +18,14 @@ namespace DemoApplication.Extensions.SitemapHelpers
 
     public static partial class BootstrapHelpers
     {
-        public static MvcHtmlString AddClass(this HtmlHelper helper, string className, bool active)
-        {
-            if (active)
-            {
-                return new MvcHtmlString(" " + className + " ");
-            }
-            return new MvcHtmlString("");
-        }
-
+        /// <summary>
+        /// Actives the when.
+        /// </summary>
+        /// <param name="helper">The helper.</param>
+        /// <param name="actionName">Name of the action.</param>
+        /// <param name="controllerName">Name of the controller.</param>
+        /// <param name="extraClasses">The extra classes.</param>
+        /// <returns>MvcHtmlString.</returns>
         public static MvcHtmlString ActiveWhen(this HtmlHelper helper, string actionName, string controllerName, string extraClasses = "")
         {
             var currentActionName = helper.ViewContext.RouteData.Values["action"].ToString();

@@ -10,13 +10,26 @@
 #endregion
 namespace DemoApplication.Dropdowns
 {
+    using System.ComponentModel;
+
     public enum DropdownSize
     {
+        [Description("input-mini")]
         Mini,
+
+        [Description("input-small")]
         Small,
+
+        [Description("input-medium")]
         Medium,
+
+        [Description("input-large")]
         Large,
+
+        [Description("input-xlarge")]
         XLarge,
+
+        [Description("input-xxlarge")]
         XXLarge
     }
 }

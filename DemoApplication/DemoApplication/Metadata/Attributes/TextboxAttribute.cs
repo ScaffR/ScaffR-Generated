@@ -15,6 +15,7 @@ namespace DemoApplication.Metadata.Attributes
     using System.ComponentModel.DataAnnotations;
     using System.Web.Mvc;
     using Extensions;
+    using Extensions.HtmlHelpers;
     using Extensions.ModelMetadataHelpers;
 
     #endregion

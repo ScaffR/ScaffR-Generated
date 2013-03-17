@@ -13,11 +13,17 @@ namespace DemoApplication.Extensions.ModelMetadataHelpers
     #region
 
     using System.Web.Mvc;
+    using HtmlHelpers;
 
     #endregion
 
-    public static class InputExtensions
-    {       
+    public static partial class ModelMetadataExtensions
+    {
+        /// <summary>
+        /// Gets the options.
+        /// </summary>
+        /// <param name="metadata">The metadata.</param>
+        /// <returns>BootstrapInputOptions.</returns>
         public static BootstrapInputOptions GetOptions(this ModelMetadata metadata)
         {
             object options;

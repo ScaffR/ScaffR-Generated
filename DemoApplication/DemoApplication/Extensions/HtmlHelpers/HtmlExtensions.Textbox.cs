@@ -15,19 +15,33 @@ namespace DemoApplication.Extensions.HtmlHelpers
     using System;
     using System.Collections.Generic;
     using System.Web.Mvc;
-    using DemoApplication.Metadata.Attributes;
+    using Core.Extensions;
+    using Metadata.Attributes;
     using ModelMetadataHelpers;
 
     #endregion
 
     public static partial class HtmlExtensions
     {
+        /// <summary>
+        /// Gets the textbox attributes.
+        /// </summary>
+        /// <param name="helper">The helper.</param>
+        /// <param name="classesToAdd">The classes to add.</param>
+        /// <returns>IDictionary{System.StringSystem.Object}.</returns>
         public static IDictionary<string, object> GetTextboxAttributes(this HtmlHelper helper,
             params string[] classesToAdd)
         {
             return helper.GetTextboxAttributes(null, classesToAdd);
         }
 
+        /// <summary>
+        /// Gets the textbox attributes.
+        /// </summary>
+        /// <param name="helper">The helper.</param>
+        /// <param name="type">The type.</param>
+        /// <param name="classesToAdd">The classes to add.</param>
+        /// <returns>IDictionary{System.StringSystem.Object}.</returns>
         public static IDictionary<string, object> GetTextboxAttributes(this HtmlHelper helper, string type, params string[] classesToAdd)
         {
             var options = helper.ViewData.ModelMetadata.GetOptions();
@@ -68,7 +82,7 @@ namespace DemoApplication.Extensions.HtmlHelpers
                 if (options.Size == TextboxSize.None)
                     options.Size = TextboxSize.XLarge;
 
-                classes.Add("input-" + options.Size.ToString().ToLower());
+                classes.Add(options.Size.GetDescription());
             }
 
             attrs.Add("class", String.Join(" ", classes));

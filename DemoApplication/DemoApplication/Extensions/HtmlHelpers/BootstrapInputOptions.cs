@@ -8,7 +8,7 @@
 // Last Modified On : 03-17-2013
 // ***********************************************************************
 #endregion
-namespace DemoApplication.Extensions.ModelMetadataHelpers
+namespace DemoApplication.Extensions.HtmlHelpers
 {
     #region
 

@@ -14,21 +14,20 @@ namespace DemoApplication.Extensions.HtmlHelpers
 
     using System;
     using System.Collections.Generic;
-    using System.Linq.Expressions;
     using System.Web;
     using System.Web.Mvc;
-    using DemoApplication.Core.Interfaces.Site;
+    using Core.Interfaces.Site;
 
     #endregion
 
     public static partial class HtmlExtensions
     {
-        public static MvcHtmlString ClientIdFor<TModel, TProperty>(this HtmlHelper<TModel> htmlHelper, Expression<Func<TModel, TProperty>> expression)
-        {
-            return MvcHtmlString.Create(
-                htmlHelper.ViewContext.ViewData.TemplateInfo.GetFullHtmlFieldId(ExpressionHelper.GetExpressionText(expression)));
-        }
-
+        /// <summary>
+        /// Gets the page heading text.
+        /// </summary>
+        /// <param name="helper">The helper.</param>
+        /// <param name="title">The title.</param>
+        /// <returns>System.String.</returns>
         public static string GetPageHeadingText(this HtmlHelper helper, string title = null)
         {
             var rules = new List<Func<string>>
@@ -55,12 +54,22 @@ namespace DemoApplication.Extensions.HtmlHelpers
             return title;
         }
 
+        /// <summary>
+        /// Gets the website title.
+        /// </summary>
+        /// <param name="helper">The helper.</param>
+        /// <returns>System.String.</returns>
         public static string GetWebsiteTitle(this HtmlHelper helper)
         {
             var settings = DependencyResolver.Current.GetService<ISiteSettings>();
             return settings.WebsiteName;
         }
 
+        /// <summary>
+        /// Gets the page title.
+        /// </summary>
+        /// <param name="helper">The helper.</param>
+        /// <returns>System.String.</returns>
         public static string GetPageTitle(this HtmlHelper helper)
         {            
             return GetWebsiteTitle(helper) + " - " + GetPageHeadingText(helper);
