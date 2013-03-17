@@ -4,6 +4,7 @@ namespace DemoApplication.Core.Common.Photos
 
     using System.Collections.Generic;
     using System.Configuration.Provider;
+    using Interfaces.Photos;
 
     #endregion
 
@@ -24,7 +25,7 @@ namespace DemoApplication.Core.Common.Photos
         /// <returns>
         /// The JamesRocks.Photos.Models.Photo.
         /// </returns>
-        public abstract Photo SavePhotoResize(PhotoRequest item, string resizeName);
+        public abstract Photo SavePhotoResize(IPhotoRequest item, string resizeName);
 
         /// <summary>
         /// The save photo for all sizes.
@@ -38,7 +39,7 @@ namespace DemoApplication.Core.Common.Photos
         /// <returns>
         /// The System.Collections.Generic.IList`1[T -&gt; JamesRocks.Photos.Models.Photo].
         /// </returns>
-        public abstract IList<Photo> SavePhotoForAllSizes(PhotoRequest item, bool keepOriginalSize);
+        public abstract IList<Photo> SavePhotoForAllSizes(IPhotoRequest item, bool keepOriginalSize);
 
         /// <summary>
         /// The get photo resize.

@@ -3,18 +3,18 @@ namespace DemoApplication.Infrastructure.Configuration
     #region
 
     using System.Configuration;
-    using Site;
+    using Photos;
 
     #endregion
 
-    public partial class CoreSection
+    public partial class AppConfig
     {
-        [ConfigurationProperty("site", IsRequired = true)]
-        public SiteElement Site
+        [ConfigurationProperty("photos", IsRequired = true)]
+        public PhotoElement Photos
         {
             get
             {
-                return (SiteElement)base["site"];
+                return (PhotoElement)base["photos"];
             }
         }
     }

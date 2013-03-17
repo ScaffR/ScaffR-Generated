@@ -100,10 +100,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configuration\CoreSection.cs" />
-    <Compile Include="Configuration\CoreSection.Membership.cs" />
-    <Compile Include="Configuration\CoreSection.Photos.cs" />
-    <Compile Include="Configuration\CoreSection.Site.cs" />
+    <Compile Include="Configuration\AppConfig.cs" />
+    <Compile Include="Configuration\AppConfig.Membership.cs" />
+    <Compile Include="Configuration\AppConfig.Photos.cs" />
+    <Compile Include="Configuration\AppConfig.Site.cs" />
     <Compile Include="Configuration\Membership\MembershipElement.cs" />
     <Compile Include="Configuration\Photos\PhotoConfigurationElement.cs" />
     <Compile Include="Configuration\Photos\PhotoProviderCollection.cs" />
@@ -131,7 +131,9 @@
     <Compile Include="Data\UserRepository.cs" />
     <Compile Include="Data\UserRoleRepository.cs" />
     <Compile Include="Eventing\MessageBus.cs" />
+    <Compile Include="Photos\ImageHelper.cs" />
     <Compile Include="Photos\PhotoManager.cs" />
+    <Compile Include="Photos\PhotoRequest.cs" />
     <Compile Include="Pipeline\Filter.cs" />
     <Compile Include="Pipeline\FilterActivator.cs" />
     <Compile Include="Pipeline\FilterChain.cs" />

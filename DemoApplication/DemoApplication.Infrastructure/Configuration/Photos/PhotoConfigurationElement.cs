@@ -10,7 +10,7 @@ namespace DemoApplication.Infrastructure.Configuration.Photos
     /// <summary>
     /// The photo section.
     /// </summary>
-    public class PhotoConfigurationElement : ConfigurationElement, IPhotoConfigurationSettings
+    public class PhotoElement : ConfigurationElement, IPhotoSettings
     {
         /// <summary>
         /// Gets the providers.

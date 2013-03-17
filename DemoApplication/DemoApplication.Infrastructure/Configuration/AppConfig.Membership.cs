@@ -7,7 +7,7 @@ namespace DemoApplication.Infrastructure.Configuration
 
     #endregion
 
-    public partial class CoreSection
+    public partial class AppConfig
     {
         [ConfigurationProperty("membership", IsRequired = false)]
         public MembershipSettings Membership

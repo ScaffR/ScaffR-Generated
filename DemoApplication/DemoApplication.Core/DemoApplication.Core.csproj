@@ -108,20 +108,16 @@
     <Compile Include="Common\Membership\Events\UserLockedOut.cs" />
     <Compile Include="Common\Membership\Events\UserLoggedIn.cs" />
     <Compile Include="Common\Membership\Events\UserLoggedOut.cs" />
-    <Compile Include="Common\Membership\MembershipManager.cs" />
     <Compile Include="Common\Paging\Page.cs" />
-    <Compile Include="Common\Photos\ImageHelper.cs" />
+    <Compile Include="Interfaces\Photos\IPhotoRequest.cs" />
     <Compile Include="Common\Photos\Photo.cs" />
     <Compile Include="Common\Photos\PhotoList.cs" />
     <Compile Include="Common\Photos\PhotoProvider.cs" />
-    <Compile Include="Common\Photos\PhotoRequest.cs" />
     <Compile Include="Common\Photos\PhotoResize.cs" />
     <Compile Include="Common\Photos\PhotoThumbnail.cs" />
     <Compile Include="Common\Profiles\UserProfile.cs" />
     <Compile Include="Common\Validation\ValidationContainer.cs" />
     <Compile Include="Common\Validation\ValidationEngine.cs" />
-    <Compile Include="Extensions\ClaimsExtensions.cs" />
-    <Compile Include="Extensions\ClaimsPrincipalExtensions.cs" />
     <Compile Include="Extensions\DisposableExtensions.cs" />
     <Compile Include="Extensions\EnumExtensions.cs" />
     <Compile Include="Interfaces\Data\IDatabaseFactory.cs" />
@@ -137,7 +133,7 @@
     <Compile Include="Interfaces\Eventing\IMessageBus.cs" />
     <Compile Include="Interfaces\Membership\IMembershipSettings.cs" />
     <Compile Include="Interfaces\Paging\IPage.cs" />
-    <Compile Include="Interfaces\Photos\IPhotoConfigurationSettings.cs" />
+    <Compile Include="Interfaces\Photos\IPhotoSettings.cs" />
     <Compile Include="Interfaces\Photos\IPhotoResize.cs" />
     <Compile Include="Interfaces\Photos\IPhotoResizeCollection.cs" />
     <Compile Include="Interfaces\Pipeline\ICoreProcessor.cs" />
@@ -177,9 +173,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Common\Storage\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

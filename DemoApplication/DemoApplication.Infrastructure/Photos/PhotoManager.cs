@@ -85,7 +85,7 @@ namespace DemoApplication.Infrastructure.Photos
             {
                 lock (Lock)
                 {
-                    var section = CoreSection.Instance.Photos;
+                    var section = AppConfig.Instance.Photos;
 
                     _providers = new PhotoProviderCollection();
                     ProvidersHelper.InstantiateProviders(section.Providers, _providers, typeof(PhotoProvider));

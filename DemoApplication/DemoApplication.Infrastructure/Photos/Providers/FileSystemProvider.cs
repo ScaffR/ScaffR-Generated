@@ -10,6 +10,7 @@ namespace DemoApplication.Infrastructure.Photos.Providers
     using System.IO;
     using System.Linq;
     using System.Security.AccessControl;
+    using Core.Interfaces.Photos;
     using DemoApplication.Core.Common.Photos;
     using DemoApplication.Infrastructure.Photos;
 
@@ -50,7 +51,7 @@ namespace DemoApplication.Infrastructure.Photos.Providers
 
         #region Overrides of PhotoProvider
 
-        public override Photo SavePhotoResize(PhotoRequest item, string resizeName)
+        public override Photo SavePhotoResize(IPhotoRequest item, string resizeName)
         {
             // todo: if resizeName doesn't exist, then we need to throw an exception
             var photoResize = PhotoManager.PhotoResizes[resizeName];
@@ -66,7 +67,7 @@ namespace DemoApplication.Infrastructure.Photos.Providers
             }
         }
 
-        public override IList<Photo> SavePhotoForAllSizes(PhotoRequest item, bool keepOriginalSize)
+        public override IList<Photo> SavePhotoForAllSizes(IPhotoRequest item, bool keepOriginalSize)
         {
             var photoResizes = PhotoManager.PhotoResizes;
 

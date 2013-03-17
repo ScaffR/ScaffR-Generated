@@ -1,4 +1,4 @@
-namespace DemoApplication.Core.Common.Photos
+namespace DemoApplication.Infrastructure.Photos
 {
     #region
 

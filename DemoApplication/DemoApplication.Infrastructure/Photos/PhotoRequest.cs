@@ -1,16 +1,17 @@
-namespace DemoApplication.Core.Common.Photos
+namespace DemoApplication.Infrastructure.Photos
 {
     #region
 
     using System.IO;
     using System.Web;
+    using Core.Interfaces.Photos;
 
     #endregion
 
     /// <summary>
     /// The photo request.
     /// </summary>
-    public class PhotoRequest
+    public class PhotoRequest : IPhotoRequest
     {
         /// <summary>
         /// Gets the stream.

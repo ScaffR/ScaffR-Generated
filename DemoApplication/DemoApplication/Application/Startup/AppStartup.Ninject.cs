@@ -15,6 +15,7 @@ namespace DemoApplication.Application.Startup
     using System.Web;
     using System.Web.Http;
     using Core.Interfaces.Data;
+    using Core.Interfaces.Photos;
     using Core.Interfaces.Service;
     using Core.Interfaces.Site;
     using Core.Interfaces.Storage;
@@ -89,7 +90,8 @@ namespace DemoApplication.Application.Startup
             kernel.Bind<IDropdownProvider>().To<Dropdowns>().InRequestScope();
             kernel.Bind<IStorageProvider>().To<SessionStorageProvider>();
 
-            kernel.Bind<ISiteSettings>().ToConstant(CoreSection.Instance.Site);
+            kernel.Bind<ISiteSettings>().ToConstant(AppConfig.Instance.Site);
+            kernel.Bind<IPhotoSettings>().ToConstant(AppConfig.Instance.Photos);
         }
     }
 }
