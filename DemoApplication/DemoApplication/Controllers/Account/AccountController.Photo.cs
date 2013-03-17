@@ -1,3 +1,13 @@
+#region credits
+// ***********************************************************************
+// Assembly	: DemoApplication
+// Author	: Rod Johnson
+// Created	: 02-24-2013
+// 
+// Last Modified By : Rod Johnson
+// Last Modified On : 03-17-2013
+// ***********************************************************************
+#endregion
 namespace DemoApplication.Controllers.Account
 {
     #region
@@ -7,17 +17,23 @@ namespace DemoApplication.Controllers.Account
     using Core.Common.Photos;
     using Core.Common.Profiles;
     using Extensions;
+    using Extensions.ModelStateHelpers;
     using Infrastructure.Photos;
 
     #endregion
 
+    /// <summary>
+    /// Class AccountController
+    /// </summary>
     public partial class AccountController
     {
+        /// <summary>
+        /// Update the profile photo.
+        /// </summary>
+        /// <returns>ActionResult.</returns>
         [HttpGet]
         public ActionResult Photo()
         {
-
-            // use this http://blueimp.github.com/jQuery-File-Upload/
             if (!string.IsNullOrWhiteSpace(UserProfile.Current.PhotoId))
             {
                 var photo = PhotoManager.Provider.GetPhotoResize(UserProfile.Current.PhotoId, "Medium");
@@ -27,6 +43,11 @@ namespace DemoApplication.Controllers.Account
             return View(new Photo { Url = Url.Content("~/Content/images/Medium/Male.jpg") });
         }
 
+        /// <summary>
+        /// Update the profile photo.
+        /// </summary>
+        /// <param name="file">The file.</param>
+        /// <returns>ActionResult.</returns>
         [HttpPost]
         public ActionResult Photo(HttpPostedFileBase file)
         {

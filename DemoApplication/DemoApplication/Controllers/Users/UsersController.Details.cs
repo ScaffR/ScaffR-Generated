@@ -1,9 +1,20 @@
-﻿namespace DemoApplication.Controllers.Users
+﻿#region credits
+// ***********************************************************************
+// Assembly	: DemoApplication
+// Author	: Rod Johnson
+// Created	: 02-24-2013
+// 
+// Last Modified By : Rod Johnson
+// Last Modified On : 03-17-2013
+// ***********************************************************************
+#endregion
+namespace DemoApplication.Controllers.Users
 {
     #region
 
     using System.Web.Mvc;
     using Extensions;
+    using Extensions.ModelStateHelpers;
     using Models.Users;
     using Omu.ValueInjecter;
     using Security.Authorization;
@@ -12,30 +23,11 @@
 
     public partial class UsersController
     {
-        [HttpGet]
-        public ActionResult History(int id)
-        {
-            var user = UserService.GetById(id);
-
-            var model = new UserViewModel();
-            model.InjectFrom<UnflatLoopValueInjection>(user);
-            model.Username = user.Username;
-
-            return View(model);
-        }
-
-        [HttpGet]
-        public ActionResult Security(int id)
-        {
-            var user = UserService.GetById(id);
-
-            var model = new UserViewModel();
-            model.InjectFrom<UnflatLoopValueInjection>(user);
-            model.Username = user.Username;
-
-            return View(model);
-        }
-
+        /// <summary>
+        /// Detailses the specified id.
+        /// </summary>
+        /// <param name="id">The id.</param>
+        /// <returns>ActionResult.</returns>
         [HttpGet]
         [ClaimsAuthorize("View", "ManageUsers")]
         public ActionResult Details(int id)
@@ -49,6 +41,12 @@
             return View(model);
         }
 
+        /// <summary>
+        /// Detailses the specified id.
+        /// </summary>
+        /// <param name="id">The id.</param>
+        /// <param name="model">The model.</param>
+        /// <returns>ActionResult.</returns>
         [HttpPost]
         [ClaimsAuthorize("View", "ManageUsers")]
         public ActionResult Details(int id, UserViewModel model)

@@ -1,4 +1,14 @@
-﻿namespace DemoApplication.Controllers.Components
+﻿#region credits
+// ***********************************************************************
+// Assembly	: DemoApplication
+// Author	: Rod Johnson
+// Created	: 03-09-2013
+// 
+// Last Modified By : Rod Johnson
+// Last Modified On : 03-17-2013
+// ***********************************************************************
+#endregion
+namespace DemoApplication.Controllers.Components
 {
     #region
 
@@ -9,6 +19,10 @@
 
     public partial  class ComponentsController
     {
+        /// <summary>
+        /// Demonstration of the DropDown framework.
+        /// </summary>
+        /// <returns>ActionResult.</returns>
         public ActionResult DropDown()
         {
             return View(new SampleDropdownModel());

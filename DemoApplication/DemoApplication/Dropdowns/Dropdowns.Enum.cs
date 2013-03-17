@@ -1,3 +1,13 @@
+#region credits
+// ***********************************************************************
+// Assembly	: DemoApplication
+// Author	: Rod Johnson
+// Created	: 02-24-2013
+// 
+// Last Modified By : Rod Johnson
+// Last Modified On : 03-17-2013
+// ***********************************************************************
+#endregion
 namespace DemoApplication.Dropdowns
 {
     #region
@@ -12,6 +22,12 @@ namespace DemoApplication.Dropdowns
 
     public partial class Dropdowns
     {
+        /// <summary>
+        /// Fors the enum.
+        /// </summary>
+        /// <typeparam name="TEnum">The type of the T enum.</typeparam>
+        /// <param name="enumType">Type of the enum.</param>
+        /// <returns>SelectList.</returns>
         public static SelectList ForEnum<TEnum>(TEnum enumType)
         {
             IEnumerable<TEnum> values = Enum.GetValues(typeof(TEnum)).Cast<TEnum>();

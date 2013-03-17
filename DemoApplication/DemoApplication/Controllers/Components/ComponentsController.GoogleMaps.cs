@@ -1,4 +1,14 @@
-﻿namespace DemoApplication.Controllers.Components
+﻿#region credits
+// ***********************************************************************
+// Assembly	: DemoApplication
+// Author	: Rod Johnson
+// Created	: 03-06-2013
+// 
+// Last Modified By : Rod Johnson
+// Last Modified On : 03-17-2013
+// ***********************************************************************
+#endregion
+namespace DemoApplication.Controllers.Components
 {
     #region
 
@@ -10,7 +20,10 @@
 
     public partial class ComponentsController
     {
-
+        /// <summary>
+        /// Demonstration of Google Maps
+        /// </summary>
+        /// <returns>ActionResult.</returns>
         public ActionResult GoogleMaps()
         {
             var model = new AddressModel
@@ -22,12 +35,17 @@
             return View(model);
         }
 
+        /// <summary>
+        /// Demonstration of Google Maps
+        /// </summary>
+        /// <param name="model">The model.</param>
+        /// <returns>ActionResult.</returns>
         [HttpPost]
         public ActionResult GoogleMaps(AddressModel model)
         {
             if (ModelState.IsValid)
             {
-                TempData["Success"] = "Location was successfuly submitted";
+                TempData["Success"] = "Location was successfully submitted";
             }
             return View(model);
         }

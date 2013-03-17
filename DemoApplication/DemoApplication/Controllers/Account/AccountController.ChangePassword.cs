@@ -1,3 +1,13 @@
+#region credits
+// ***********************************************************************
+// Assembly	: DemoApplication
+// Author	: Rod Johnson
+// Created	: 02-24-2013
+// 
+// Last Modified By : Rod Johnson
+// Last Modified On : 03-17-2013
+// ***********************************************************************
+#endregion
 namespace DemoApplication.Controllers.Account
 {
     #region
@@ -12,11 +22,21 @@ namespace DemoApplication.Controllers.Account
 
     public partial class AccountController
     {
+        /// <summary>
+        /// Changes the password.
+        /// </summary>
+        /// <param name="username">The username.</param>
+        /// <returns>ActionResult.</returns>
         public ActionResult ChangePassword(string username)
         {
             return View();
         }
 
+        /// <summary>
+        /// Changes the password.
+        /// </summary>
+        /// <param name="model">The model.</param>
+        /// <returns>ActionResult.</returns>
         [HttpPost]
         public ActionResult ChangePassword(ChangePasswordModel model)
         {

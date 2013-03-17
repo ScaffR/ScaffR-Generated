@@ -1,3 +1,13 @@
+#region credits
+// ***********************************************************************
+// Assembly	: DemoApplication
+// Author	: Rod Johnson
+// Created	: 02-24-2013
+// 
+// Last Modified By : Rod Johnson
+// Last Modified On : 03-17-2013
+// ***********************************************************************
+#endregion
 namespace DemoApplication.Areas.Api.Controllers
 {
     #region
@@ -11,6 +21,7 @@ namespace DemoApplication.Areas.Api.Controllers
     using Core.Interfaces.Service;
     using Core.Model;
     using Extensions;
+    using Extensions.ModelStateHelpers;
 
     #endregion
 

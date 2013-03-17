@@ -1,3 +1,13 @@
+#region credits
+// ***********************************************************************
+// Assembly	: DemoApplication
+// Author	: Rod Johnson
+// Created	: 03-09-2013
+// 
+// Last Modified By : Rod Johnson
+// Last Modified On : 03-17-2013
+// ***********************************************************************
+#endregion
 #region
 
 using DemoApplication.Application.Startup;
@@ -8,6 +18,9 @@ using DemoApplication.Application.Startup;
 
 namespace DemoApplication.Application.Startup
 {
+    /// <summary>
+    /// Class AppStartup
+    /// </summary>
     public partial class AppStartup
     {
         public static void EventHandlers()

@@ -1,3 +1,13 @@
+#region credits
+// ***********************************************************************
+// Assembly	: DemoApplication
+// Author	: Rod Johnson
+// Created	: 03-09-2013
+// 
+// Last Modified By : Rod Johnson
+// Last Modified On : 03-17-2013
+// ***********************************************************************
+#endregion
 namespace DemoApplication.Application.Startup
 {
     #region
@@ -9,8 +19,15 @@ namespace DemoApplication.Application.Startup
 
     #endregion
 
+    /// <summary>
+    /// Class AppStartup
+    /// </summary>
     public partial class AppStartup : IConfiguration<BundleCollection>
 	{
+        /// <summary>
+        /// Configures the specified configurable.
+        /// </summary>
+        /// <param name="configurable">The configurable.</param>
 		public void Configure(BundleCollection configurable)
 		{
 			configurable.AddPerSubDirectory<ScriptBundle>("Scripts", new FileSearch()

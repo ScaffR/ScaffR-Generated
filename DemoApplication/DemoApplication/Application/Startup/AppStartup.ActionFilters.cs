@@ -1,3 +1,13 @@
+#region credits
+// ***********************************************************************
+// Assembly	: DemoApplication
+// Author	: Rod Johnson
+// Created	: 03-09-2013
+// 
+// Last Modified By : Rod Johnson
+// Last Modified On : 03-17-2013
+// ***********************************************************************
+#endregion
 #region
 
 using DemoApplication.Application.Startup;
@@ -18,6 +28,9 @@ namespace DemoApplication.Application.Startup
 
     public partial class AppStartup
     {
+        /// <summary>
+        /// Actions the filters.
+        /// </summary>
         public static void ActionFilters()
         {
             GlobalFilters.Filters.Add(new HandleErrorAttribute());

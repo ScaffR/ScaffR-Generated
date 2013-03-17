@@ -1,4 +1,14 @@
-﻿namespace DemoApplication.Controllers.Components
+﻿#region credits
+// ***********************************************************************
+// Assembly	: DemoApplication
+// Author	: Rod Johnson
+// Created	: 03-07-2013
+// 
+// Last Modified By : Rod Johnson
+// Last Modified On : 03-17-2013
+// ***********************************************************************
+#endregion
+namespace DemoApplication.Controllers.Components
 {
     #region
 
@@ -7,9 +17,12 @@
 
     #endregion
 
-    public partial class ComponentsController : Controller
+    public partial class ComponentsController
     {
-
+        /// <summary>
+        /// Demonstration of the Video Player DisplayTemplates.
+        /// </summary>
+        /// <returns>ActionResult.</returns>
         public ActionResult Video()
         {
             var model = new SampleVideoModel
@@ -20,7 +33,6 @@
                 };
 
             return View(model);
-        }
-      
+        }      
     }
 }

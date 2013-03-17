@@ -1,4 +1,14 @@
-﻿namespace DemoApplication.Controllers.Components
+﻿#region credits
+// ***********************************************************************
+// Assembly	: DemoApplication
+// Author	: Rod Johnson
+// Created	: 03-04-2013
+// 
+// Last Modified By : Rod Johnson
+// Last Modified On : 03-17-2013
+// ***********************************************************************
+#endregion
+namespace DemoApplication.Controllers.Components
 {
     #region
 
@@ -6,8 +16,15 @@
 
     #endregion
 
-    public partial class ComponentsController : Controller
+    /// <summary>
+    /// Class ComponentsController
+    /// </summary>
+    public partial class ComponentsController
     {
+        /// <summary>
+        /// Landing page for the components section of the website.
+        /// </summary>
+        /// <returns>ActionResult.</returns>
         public ActionResult Index()
         {
             return View();

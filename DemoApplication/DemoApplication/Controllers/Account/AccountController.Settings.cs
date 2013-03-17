@@ -1,3 +1,13 @@
+#region credits
+// ***********************************************************************
+// Assembly	: DemoApplication
+// Author	: Rod Johnson
+// Created	: 02-24-2013
+// 
+// Last Modified By : Rod Johnson
+// Last Modified On : 03-17-2013
+// ***********************************************************************
+#endregion
 namespace DemoApplication.Controllers.Account
 {
     #region
@@ -5,18 +15,31 @@ namespace DemoApplication.Controllers.Account
     using System.Web.Mvc;
     using Core.Common.Membership;
     using Core.Common.Profiles;
+    using Core.Extensions;
     using Models.Account;
 
     #endregion
 
+    /// <summary>
+    /// Class AccountController
+    /// </summary>
     public partial class AccountController
-    {              
+    {
+        /// <summary>
+        /// Updates the user's password.
+        /// </summary>
+        /// <returns>ActionResult.</returns>
 		public ActionResult Settings()
         {
             ViewBag.PasswordLength = System.Web.Security.Membership.MinRequiredPasswordLength;
             return View();
         }
 
+        /// <summary>
+        /// Update the user's password.
+        /// </summary>
+        /// <param name="model">The model.</param>
+        /// <returns>ActionResult.</returns>
         [HttpPost]
         public ActionResult Settings(ChangePasswordModel model)
         {
@@ -27,13 +50,11 @@ namespace DemoApplication.Controllers.Account
                 switch (status)
                 {
                     case ChangePasswordStatus.Success:
-                        TempData["Success"] = "Password was changed successfully";
+                        TempData["Success"] = status.GetDescription();
                         break;
                     case ChangePasswordStatus.Failure:
-                        ModelState.AddModelError(string.Empty, "It was not possible change your password, please try again.");
-                        break;
                     case ChangePasswordStatus.InvalidPassword:
-                        ModelState.AddModelError(string.Empty, "The current password is incorrect or the new password is invalid.");
+                        ModelState.AddModelError("", status.GetDescription());
                         break;
                 }           
             }
