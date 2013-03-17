@@ -1,11 +1,14 @@
 ﻿namespace DemoApplication.Controllers.Users
 {
+    #region
+
     using System.Web.Mvc;
     using Extensions;
     using Models.Users;
     using Omu.ValueInjecter;
-    using Security;
     using Security.Authorization;
+
+    #endregion
 
     public partial class UsersController
     {

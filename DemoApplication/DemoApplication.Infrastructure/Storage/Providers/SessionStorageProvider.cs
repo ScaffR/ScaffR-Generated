@@ -1,7 +1,11 @@
 ﻿namespace DemoApplication.Infrastructure.Storage.Providers
 {
+    #region
+
     using System.Web;
-    using Interfaces.Storage;
+    using Core.Interfaces.Storage;
+
+    #endregion
 
     public class SessionStorageProvider : IStorageProvider
     {

@@ -1,5 +1,7 @@
 namespace DemoApplication.Extensions.Sitemap
 {
+    #region
+
     using System.Collections.Generic;
     using System.Web;
     using System.Web.Mvc;
@@ -7,6 +9,8 @@ namespace DemoApplication.Extensions.Sitemap
     using Models.Sitemap;
     using MvcSiteMapProvider;
     using MvcSiteMapProvider.Web.Html;
+
+    #endregion
 
     /// <summary>
     /// MvcBreadcrumbHtmlHelper extension methods

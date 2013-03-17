@@ -1,8 +1,12 @@
 ﻿namespace DemoApplication.Dropdowns
 {
+    #region
+
     using System.Collections.Generic;
     using System.Linq;
     using System.Web.Mvc;
+
+    #endregion
 
     public class PicklistModelBinder : DefaultModelBinder
     {

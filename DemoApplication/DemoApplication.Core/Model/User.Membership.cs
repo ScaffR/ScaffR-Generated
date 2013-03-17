@@ -1,7 +1,11 @@
 namespace DemoApplication.Core.Model
 {
+    #region
+
     using System;
     using System.Collections.Generic;
+
+    #endregion
 
     public partial class User
     {	

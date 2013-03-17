@@ -1,8 +1,12 @@
 namespace DemoApplication.Controllers
 {
-    using System.Web.Mvc;
+    #region
+
     using System.Reflection;
+    using System.Web.Mvc;
     using Dropdowns;
+
+    #endregion
 
     public class DropdownController : Controller
     {

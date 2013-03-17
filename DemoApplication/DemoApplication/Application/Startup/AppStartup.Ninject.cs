@@ -1,26 +1,35 @@
+#region
+
 using DemoApplication.Application.Startup;
+
+#endregion
 
 [assembly: WebActivator.PreApplicationStartMethod(typeof(AppStartup), "Start")]
 [assembly: WebActivator.ApplicationShutdownMethodAttribute(typeof(AppStartup), "Stop")]
 
 namespace DemoApplication.Application.Startup
 {
+    #region
+
     using System;
     using System.Web;
     using System.Web.Http;
     using Core.Interfaces.Data;
     using Core.Interfaces.Service;
-    using Data;
+    using Core.Interfaces.Site;
+    using Core.Interfaces.Storage;
+    using Core.Services;
     using DependencyResolution;
     using Dropdowns;
-    using Infrastructure.Interfaces.Storage;
+    using Infrastructure.Configuration;
+    using Infrastructure.Data;
     using Infrastructure.Storage.Providers;
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
     using Ninject;
     using Ninject.Web.Common;
-    using Security;
     using Security.Authentication;
-    using Service;
+
+    #endregion
 
     public partial class AppStartup
     {
@@ -81,6 +90,8 @@ namespace DemoApplication.Application.Startup
             kernel.Bind<ITaskService>().To<TaskService>().InRequestScope();
             kernel.Bind<ITaskRepository>().To<TaskRepository>().InRequestScope();
             kernel.Bind<IStorageProvider>().To<SessionStorageProvider>();
+
+            kernel.Bind<ISiteSettings>().ToConstant(CoreSection.Instance.Site);
         }
     }
 }

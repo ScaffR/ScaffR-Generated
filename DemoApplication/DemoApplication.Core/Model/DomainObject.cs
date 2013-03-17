@@ -1,8 +1,12 @@
 namespace DemoApplication.Core.Model
 {
+    #region
+
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+
+    #endregion
 
     public abstract class DomainObject : IValidatableObject
     {

@@ -1,7 +1,11 @@
 ﻿namespace DemoApplication.Models.Common
 {
+    #region
+
     using System.Data.Spatial;
     using Metadata.Attributes;
+
+    #endregion
 
     public class AddressModel
     {

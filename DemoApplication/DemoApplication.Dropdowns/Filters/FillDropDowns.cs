@@ -1,5 +1,7 @@
 namespace DemoApplication.Dropdowns.Filters
 {
+    #region
+
     using System;
     using System.Collections.Generic;
     using System.Data.Spatial;
@@ -7,6 +9,8 @@ namespace DemoApplication.Dropdowns.Filters
     using System.Reflection;
     using System.Web.Mvc;
     using Attributes;
+
+    #endregion
 
     public class FillDropDowns : ActionFilterAttribute
     {

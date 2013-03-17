@@ -1,6 +1,10 @@
 namespace DemoApplication.Infrastructure.Pipeline
 {
-    using Interfaces.Pipeline;
+    #region
+
+    using Core.Interfaces.Pipeline;
+
+    #endregion
 
     public class PipelineManager<T>
 	{

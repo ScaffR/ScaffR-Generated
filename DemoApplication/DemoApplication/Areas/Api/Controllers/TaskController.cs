@@ -1,7 +1,11 @@
 ﻿namespace DemoApplication.Areas.Api.Controllers
 {
+    #region
+
     using Core.Interfaces.Service;
     using Core.Model;
+
+    #endregion
 
     public partial class TaskController : ApiController<Task>
     {

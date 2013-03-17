@@ -1,11 +1,15 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.Mvc;
-
 namespace DemoApplication.Filters
 {
-	[AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, Inherited = true, AllowMultiple = true)]
+    #region
+
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Web.Mvc;
+
+    #endregion
+
+    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, Inherited = true, AllowMultiple = true)]
 	public class MultiResponseFormatAttribute : ActionFilterAttribute
 	{
 		public override void OnActionExecuted(ActionExecutedContext filterContext)

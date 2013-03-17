@@ -1,7 +1,11 @@
 ﻿namespace DemoApplication.Core.Model
 {
+    #region
+
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+
+    #endregion
 
     public class UserClaim
     {

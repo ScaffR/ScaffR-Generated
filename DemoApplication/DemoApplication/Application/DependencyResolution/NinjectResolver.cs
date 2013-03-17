@@ -1,7 +1,11 @@
 namespace DemoApplication.Application.DependencyResolution
 {
+    #region
+
     using System.Web.Http.Dependencies;
     using Ninject;
+
+    #endregion
 
     public class NinjectResolver : NinjectScope, IDependencyResolver
     {

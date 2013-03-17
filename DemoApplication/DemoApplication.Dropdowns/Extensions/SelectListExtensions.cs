@@ -1,10 +1,14 @@
 namespace DemoApplication.Dropdowns.Extensions
 {
+    #region
+
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Linq.Expressions;
     using System.Web.Mvc;
+
+    #endregion
 
     public static class SelectListExtensions
     {

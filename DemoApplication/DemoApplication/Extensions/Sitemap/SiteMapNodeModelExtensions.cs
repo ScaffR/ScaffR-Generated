@@ -1,9 +1,12 @@
-﻿using System;
-
-namespace DemoApplication.Extensions.Sitemap
+﻿namespace DemoApplication.Extensions.Sitemap
 {
+    #region
+
+    using System;
     using System.Web.Mvc;
     using MvcSiteMapProvider.Web.Html.Models;
+
+    #endregion
 
     public static class SiteMapNodeModelExtensions
     {

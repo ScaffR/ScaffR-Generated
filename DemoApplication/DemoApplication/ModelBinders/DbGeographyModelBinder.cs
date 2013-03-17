@@ -1,9 +1,13 @@
 ﻿namespace DemoApplication.ModelBinders
 {
+    #region
+
     using System;
     using System.Data.Spatial;
     using System.Web.ModelBinding;
     using System.Web.Mvc;
+
+    #endregion
 
     public class DbGeographyModelBinder : System.Web.Mvc.IModelBinder, System.Web.ModelBinding.IModelBinder
     {

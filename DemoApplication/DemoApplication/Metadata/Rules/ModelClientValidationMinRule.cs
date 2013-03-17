@@ -1,6 +1,10 @@
 namespace DemoApplication.Metadata.Rules
 {
+    #region
+
     using System.Web.Mvc;
+
+    #endregion
 
     public class ModelClientValidationMinRule : ModelClientValidationRule
     {

@@ -1,7 +1,11 @@
 namespace DemoApplication.Core.Common.Photos
 {
+    #region
+
     using System.Collections.Generic;
     using System.Configuration.Provider;
+
+    #endregion
 
     /// <summary>
     /// The photo provider.

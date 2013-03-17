@@ -1,10 +1,14 @@
 ﻿namespace DemoApplication.Upload
 {
+    #region
+
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
     using System.Web;
     using System.Web.Script.Serialization;
+
+    #endregion
 
     /// <summary>
     /// Summary description for UploadHandler

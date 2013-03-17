@@ -1,6 +1,10 @@
 ﻿namespace DemoApplication.Extensions
 {
+    #region
+
     using Metadata.Attributes;
+
+    #endregion
 
     public class BootstrapInputOptions
     {

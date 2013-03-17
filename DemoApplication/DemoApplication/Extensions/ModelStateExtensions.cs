@@ -1,7 +1,11 @@
 ﻿namespace DemoApplication.Extensions
 {
+    #region
+
     using System.Web.Mvc;
     using Core.Interfaces.Validation;
+
+    #endregion
 
     public static class ModelStateExtensions
     {

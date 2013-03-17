@@ -1,9 +1,13 @@
 ﻿namespace DemoApplication.Models.Users
 {
+    #region
+
     using System;
     using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
     using Metadata.Attributes;
+
+    #endregion
 
     [DisplayColumn("Username")]
     public partial class UserViewModel

@@ -1,9 +1,13 @@
 ﻿namespace DemoApplication.Extensions.Html
 {
+    #region
+
     using System;
     using System.Collections.Generic;
     using System.Web.Mvc;
     using Metadata.Attributes;
+
+    #endregion
 
     public static partial class HtmlExtensions
     {

@@ -1,11 +1,15 @@
 ﻿namespace DemoApplication.Core.Common.Profiles
 {
-    using System.Web;
+    #region
+
     using System.Threading;
+    using System.Web;
     using System.Web.Mvc;
     using Interfaces.Service;
     using Interfaces.Validation;
     using Model;
+
+    #endregion
 
     public class UserProfile
     {

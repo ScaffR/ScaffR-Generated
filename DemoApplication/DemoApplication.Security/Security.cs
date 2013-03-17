@@ -1,7 +1,10 @@
 namespace DemoApplication.Security
 {
+    #region
+
     using Configuration;
-    using DemoApplication.Core.Configuration;
+
+    #endregion
 
     public partial class Security
     {

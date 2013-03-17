@@ -1,7 +1,5 @@
 namespace DemoApplication.Application
 {
-    using System;
-
     public partial class MvcApplication
 	{
         /// <summary>

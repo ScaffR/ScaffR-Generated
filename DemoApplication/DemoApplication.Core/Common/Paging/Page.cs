@@ -1,8 +1,12 @@
 namespace DemoApplication.Core.Common.Paging
 {
+    #region
+
     using System.Collections.Generic;
     using Interfaces.Paging;
     using Model;
+
+    #endregion
 
     public partial class Page<T> : IPage<T> where T : DomainObject
     {

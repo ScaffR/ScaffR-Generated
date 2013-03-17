@@ -1,10 +1,15 @@
 namespace DemoApplication.Controllers.Account
 {
+    #region
+
     using System.Web;
     using System.Web.Mvc;
     using Core.Common.Photos;
     using Core.Common.Profiles;
     using Extensions;
+    using Infrastructure.Photos;
+
+    #endregion
 
     public partial class AccountController
     {

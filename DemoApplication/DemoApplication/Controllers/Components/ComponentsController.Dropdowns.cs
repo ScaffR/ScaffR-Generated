@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace DemoApplication.Controllers.Components
+﻿namespace DemoApplication.Controllers.Components
 {
+    #region
+
     using System.Web.Mvc;
     using Models.Components;
+
+    #endregion
 
     public partial  class ComponentsController
     {

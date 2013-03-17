@@ -1,5 +1,7 @@
 namespace DemoApplication.Areas.Api.Controllers
 {
+    #region
+
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -9,6 +11,8 @@ namespace DemoApplication.Areas.Api.Controllers
     using Core.Interfaces.Service;
     using Core.Model;
     using Extensions;
+
+    #endregion
 
     public abstract class ApiController<T> : ApiController where T : DomainObject
     {

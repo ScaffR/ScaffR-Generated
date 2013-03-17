@@ -1,9 +1,13 @@
 namespace DemoApplication.Core.Interfaces.Data
 {
+    #region
+
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     using System.Data.Objects;
     using Model;
+
+    #endregion
 
     public interface IDataContext
     {

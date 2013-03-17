@@ -1,8 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace DemoApplication.Models.Components
+﻿namespace DemoApplication.Models.Components
 {
+    #region
+
+    using System.ComponentModel.DataAnnotations;
     using Metadata.Attributes;
+
+    #endregion
 
     public partial class CKEditorModel
     {

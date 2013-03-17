@@ -1,7 +1,11 @@
 ﻿namespace DemoApplication.Dropdowns.Attributes
 {
+    #region
+
     using System;
     using System.Web.Mvc;
+
+    #endregion
 
     public class DropDownListenerAttribute : Attribute, IMetadataAware
     {

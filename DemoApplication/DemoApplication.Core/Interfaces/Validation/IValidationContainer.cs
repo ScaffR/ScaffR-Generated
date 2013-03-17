@@ -1,6 +1,10 @@
 namespace DemoApplication.Core.Interfaces.Validation
 {
+    #region
+
     using System.Collections.Generic;
+
+    #endregion
 
     public interface IValidationContainer<out T> : IValidationContainer
     {        

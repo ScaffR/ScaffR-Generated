@@ -1,8 +1,12 @@
 namespace DemoApplication.Infrastructure.Pipeline
 {
+    #region
+
     using System;
     using System.Collections.Specialized;
     using System.Configuration;
+
+    #endregion
 
     /// <summary>
     /// The pipeline activator.

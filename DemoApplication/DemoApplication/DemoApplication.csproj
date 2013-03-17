@@ -763,10 +763,6 @@
       <Project>{969AEF37-4ABC-47C9-82E6-DABAD3F60BB6}</Project>
       <Name>DemoApplication.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DemoApplication.Data\DemoApplication.Data.csproj">
-      <Project>{33E6D7E3-0302-4354-B5C1-0EDC248BA1C1}</Project>
-      <Name>DemoApplication.Data</Name>
-    </ProjectReference>
     <ProjectReference Include="..\DemoApplication.Dropdowns\DemoApplication.Dropdowns.csproj">
       <Project>{1695b94d-65de-4b6d-8009-ffa7793b15bd}</Project>
       <Name>DemoApplication.Dropdowns</Name>
@@ -778,10 +774,6 @@
     <ProjectReference Include="..\DemoApplication.Security\DemoApplication.Security.csproj">
       <Project>{93cea96e-c2e3-4258-836e-1d6ff14cb1c1}</Project>
       <Name>DemoApplication.Security</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DemoApplication.Service\DemoApplication.Service.csproj">
-      <Project>{6C386F27-D8C0-42A8-B28D-4DE14092C88A}</Project>
-      <Name>DemoApplication.Service</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

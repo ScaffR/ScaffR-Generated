@@ -1,8 +1,12 @@
 namespace DemoApplication.Infrastructure.Pipeline
 {
+    #region
+
     using System;
     using Configuration.Pipeline;
-    using Interfaces.Pipeline;
+    using Core.Interfaces.Pipeline;
+
+    #endregion
 
     public static class PipelineFactory
     {

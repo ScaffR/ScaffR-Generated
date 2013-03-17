@@ -1,10 +1,13 @@
 namespace DemoApplication.Application.Startup
 {
+    #region
+
     using System.IO;
     using Cassette;
     using Cassette.Scripts;
     using Cassette.Stylesheets;
-    using Cassette.Views;
+
+    #endregion
 
     public partial class AppStartup : IConfiguration<BundleCollection>
 	{

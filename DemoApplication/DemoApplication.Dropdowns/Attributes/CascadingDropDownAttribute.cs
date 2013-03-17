@@ -1,8 +1,12 @@
 namespace DemoApplication.Dropdowns.Attributes
 {
+    #region
+
     using System;
     using System.Collections.Generic;
     using System.Web.Mvc;
+
+    #endregion
 
     [AttributeUsage(AttributeTargets.Property, Inherited = false)]
     public class CascadingDropDownAttribute : DropDownAttribute

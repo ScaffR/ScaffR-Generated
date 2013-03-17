@@ -1,6 +1,10 @@
 namespace DemoApplication.Core.Interfaces.Paging
 {
+    #region
+
     using System.Collections.Generic;
+
+    #endregion
 
     public interface IPage<T>
     {

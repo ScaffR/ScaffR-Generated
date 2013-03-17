@@ -1,5 +1,7 @@
 namespace DemoApplication.Core.Interfaces.Service
 {
+    #region
+
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -7,6 +9,8 @@ namespace DemoApplication.Core.Interfaces.Service
     using System.ServiceModel;
     using Paging;
     using Validation;
+
+    #endregion
 
     [ServiceContract]
     public interface IService<T>

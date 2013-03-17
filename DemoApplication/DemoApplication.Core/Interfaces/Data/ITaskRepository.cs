@@ -1,6 +1,10 @@
 ﻿namespace DemoApplication.Core.Interfaces.Data
 {
+    #region
+
     using Model;
+
+    #endregion
 
     public interface ITaskRepository : IRepository<Task>
     {

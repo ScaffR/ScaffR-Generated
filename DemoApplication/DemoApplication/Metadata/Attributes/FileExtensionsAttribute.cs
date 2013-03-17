@@ -1,5 +1,7 @@
 namespace DemoApplication.Metadata.Attributes
 {
+    #region
+
     using System;
     using System.ComponentModel.DataAnnotations;
     using System.Globalization;
@@ -7,6 +9,8 @@ namespace DemoApplication.Metadata.Attributes
     using System.Linq;
     using System.Web;
     using Resources;
+
+    #endregion
 
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
     public class FileExtensionsAttribute : DataTypeAttribute

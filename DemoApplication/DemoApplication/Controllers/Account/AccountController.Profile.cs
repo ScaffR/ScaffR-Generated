@@ -1,11 +1,15 @@
 namespace DemoApplication.Controllers.Account
 {
+    #region
+
     using System;
     using System.Web.Mvc;
     using Core.Common.Profiles;
     using Extensions;
     using Models.Account;
     using Omu.ValueInjecter;
+
+    #endregion
 
     public partial class AccountController
     {

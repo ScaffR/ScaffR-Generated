@@ -1,11 +1,15 @@
 namespace DemoApplication.Metadata.Attributes
 {
+    #region
+
     using System;
     using System.ComponentModel.DataAnnotations;
     using System.Globalization;
     using System.Linq;
     using System.Reflection;
     using Resources;
+
+    #endregion
 
     /// <summary>
     /// Validates that the property has the same value as the given 'otherProperty' 

@@ -1,8 +1,12 @@
 namespace DemoApplication.Controllers.Account
 {
+    #region
+
     using System.Web.Mvc;
     using Core.Interfaces.Service;
     using Filters;
+
+    #endregion
 
     [ShowBreadcrumb(false)]
     public partial class AccountController : Controller

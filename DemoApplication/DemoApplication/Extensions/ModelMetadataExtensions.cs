@@ -1,6 +1,10 @@
 ﻿namespace DemoApplication.Extensions
 {
+    #region
+
     using System.Web.Mvc;
+
+    #endregion
 
     public static class ModelMetadataExtensions
     {

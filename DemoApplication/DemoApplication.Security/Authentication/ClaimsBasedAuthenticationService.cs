@@ -1,13 +1,17 @@
 ﻿namespace DemoApplication.Security.Authentication
 {
+    #region
+
     using System;
     using System.IdentityModel.Services;
     using System.IdentityModel.Tokens;
     using System.Linq;
     using System.Security.Claims;
-    using DemoApplication.Core.Interfaces.Service;
-    using DemoApplication.Infrastructure.Extensions;
-    using DemoApplication.Infrastructure.Tracing;
+    using Core.Extensions;
+    using Core.Interfaces.Service;
+    using Infrastructure.Tracing;
+
+    #endregion
 
     public class ClaimsBasedAuthenticationService : IAuthenticationService
     {

@@ -1,7 +1,11 @@
 namespace DemoApplication.Metadata.Attributes
 {
+    #region
+
     using System.ComponentModel.DataAnnotations;
     using System.Web.Mvc;
+
+    #endregion
 
     public class VideoAttribute : DataTypeAttribute, IMetadataAware
     {

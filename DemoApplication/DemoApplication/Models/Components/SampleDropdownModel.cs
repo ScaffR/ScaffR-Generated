@@ -1,7 +1,11 @@
 ﻿namespace DemoApplication.Models.Components
 {
+    #region
+
     using System.ComponentModel.DataAnnotations;
     using Dropdowns.Attributes;
+
+    #endregion
 
     public class SampleDropdownModel
     {

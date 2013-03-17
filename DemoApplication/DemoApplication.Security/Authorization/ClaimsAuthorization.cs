@@ -5,12 +5,16 @@
 
 namespace DemoApplication.Security.Authorization
 {
+    #region
+
     using System;
     using System.Collections.ObjectModel;
     using System.Diagnostics.Contracts;
     using System.IdentityModel.Services;
     using System.Linq;
     using System.Security.Claims;
+
+    #endregion
 
     /// <summary>
     /// Provides direct access methods for evaluating authorization policy

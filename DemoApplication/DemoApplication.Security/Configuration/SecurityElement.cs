@@ -1,6 +1,10 @@
 namespace DemoApplication.Security.Configuration
 {
+    #region
+
     using System.Configuration;
+
+    #endregion
 
     public partial class SecurityElement : ConfigurationElement
     {

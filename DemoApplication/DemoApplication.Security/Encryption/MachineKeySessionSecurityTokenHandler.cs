@@ -1,10 +1,14 @@
 ﻿namespace DemoApplication.Security.Encryption
 {
+    #region
+
     using System;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.IdentityModel;
     using System.IdentityModel.Tokens;
+
+    #endregion
 
     public class MachineKeySessionSecurityTokenHandler : SessionSecurityTokenHandler
     {

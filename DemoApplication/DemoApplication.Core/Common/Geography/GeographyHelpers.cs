@@ -1,7 +1,11 @@
 ﻿namespace DemoApplication.Core.Common.Geography
 {
+    #region
+
     using System.Data.Spatial;
     using System.Globalization;
+
+    #endregion
 
     public static class GeographyHelpers
     {

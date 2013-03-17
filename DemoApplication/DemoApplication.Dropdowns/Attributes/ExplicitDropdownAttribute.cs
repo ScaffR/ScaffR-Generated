@@ -1,6 +1,10 @@
 namespace DemoApplication.Dropdowns.Attributes
 {
+    #region
+
     using System;
+
+    #endregion
 
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = true, Inherited = false)]
     public class ExplicitDropdownAttribute : DropDownAttribute

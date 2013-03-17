@@ -1,10 +1,14 @@
 namespace DemoApplication.Core.Model
 {
+    #region
+
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.Runtime.Serialization;
     using System.Xml.Serialization;
     using Newtonsoft.Json;
+
+    #endregion
 
     [DataContract]
     [DisplayColumn("RoleName")]

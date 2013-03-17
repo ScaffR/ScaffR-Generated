@@ -1,8 +1,12 @@
 ﻿namespace DemoApplication.Models.Components
 {
+    #region
+
     using System;
     using System.ComponentModel.DataAnnotations;
     using Metadata.Attributes;
+
+    #endregion
 
     public class SampleEditorTemplatesModel
     {

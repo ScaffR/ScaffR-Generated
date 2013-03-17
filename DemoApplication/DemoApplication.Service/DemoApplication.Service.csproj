@@ -61,17 +61,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseService.cs" />
-    <Compile Include="MembershipConstant.cs" />
-    <Compile Include="TaskService.cs" />
-    <Compile Include="PersonService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RoleService.cs" />
-    <Compile Include="UserEmailService.cs" />
-    <Compile Include="UserRoleService.cs" />
-    <Compile Include="UserService.cs" />
-    <Compile Include="UserService.Membership.cs" />
-    <Compile Include="UserService.Security.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -80,10 +70,6 @@
     <ProjectReference Include="..\DemoApplication.Core\DemoApplication.Core.csproj">
       <Project>{969AEF37-4ABC-47C9-82E6-DABAD3F60BB6}</Project>
       <Name>DemoApplication.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DemoApplication.Data\DemoApplication.Data.csproj">
-      <Project>{33E6D7E3-0302-4354-B5C1-0EDC248BA1C1}</Project>
-      <Name>DemoApplication.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\DemoApplication.Infrastructure\DemoApplication.Infrastructure.csproj">
       <Project>{D3CDA29A-AA7D-469F-AF4C-D03E4416F5F6}</Project>

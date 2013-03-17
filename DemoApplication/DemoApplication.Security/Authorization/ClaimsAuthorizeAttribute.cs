@@ -1,6 +1,10 @@
 namespace DemoApplication.Security.Authorization
 {
+    #region
+
     using System.Web.Mvc;
+
+    #endregion
 
     public class ClaimsAuthorizeAttribute : AuthorizeAttribute
     {

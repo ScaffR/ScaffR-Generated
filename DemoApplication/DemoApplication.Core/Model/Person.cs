@@ -1,6 +1,10 @@
 namespace DemoApplication.Core.Model
 {
+    #region
+
     using System.ComponentModel.DataAnnotations;
+
+    #endregion
 
     public partial class Person : DomainObject
     {

@@ -1,11 +1,19 @@
+#region
+
 using DemoApplication.Application.Startup;
+
+#endregion
 
 [assembly: WebActivator.PreApplicationStartMethod(typeof(AppStartup), "RegisterValidationExtensions")]
 namespace DemoApplication.Application.Startup
 {
+    #region
+
     using System.Web.Mvc;
     using Metadata.Adapters;
     using Metadata.Attributes;
+
+    #endregion
 
     public partial class AppStartup
     {

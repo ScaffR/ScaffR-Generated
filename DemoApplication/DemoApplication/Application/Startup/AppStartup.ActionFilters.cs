@@ -1,12 +1,20 @@
+#region
+
 using DemoApplication.Application.Startup;
+
+#endregion
 
 [assembly: WebActivator.PreApplicationStartMethod(typeof(AppStartup), "ActionFilters")]
 
 namespace DemoApplication.Application.Startup
 {
+    #region
+
     using System.Web.Mvc;
-    using Filters;
     using Dropdowns.Filters;
+    using Filters;
+
+    #endregion
 
     public partial class AppStartup
     {

@@ -1,11 +1,15 @@
 namespace DemoApplication.Core.Common.Photos
 {
+    #region
+
     using System;
     using System.Collections.Generic;
     using System.Drawing;
     using System.Drawing.Drawing2D;
     using System.Drawing.Imaging;
     using System.IO;
+
+    #endregion
 
     /// <summary>
     /// Provides various image untilities, such as high quality resizing and the ability to save a JPEG.

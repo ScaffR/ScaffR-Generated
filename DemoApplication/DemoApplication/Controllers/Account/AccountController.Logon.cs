@@ -1,14 +1,18 @@
 namespace DemoApplication.Controllers.Account
 {
+    #region
+
     using System.Web;
     using System.Web.Mvc;
     using Core.Common.Membership;
     using Core.Common.Membership.Events;
     using Core.Common.Profiles;
-    using Infrastructure.Eventing;
-    using Infrastructure.Extensions;
+    using Core.Extensions;
     using Filters;
+    using Infrastructure.Eventing;
     using Models.Account;
+
+    #endregion
 
     public partial class AccountController
     {

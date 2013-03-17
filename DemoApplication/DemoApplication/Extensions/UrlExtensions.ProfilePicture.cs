@@ -1,7 +1,11 @@
 namespace DemoApplication.Extensions
 {
+    #region
+
     using System.Web.Mvc;
     using Core.Model;
+
+    #endregion
 
     public static partial class UrlExtensions
     {

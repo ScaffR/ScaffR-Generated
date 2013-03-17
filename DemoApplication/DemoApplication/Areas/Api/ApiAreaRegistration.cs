@@ -1,6 +1,10 @@
 namespace DemoApplication.Areas.Api
 {
+    #region
+
     using System.Web.Mvc;
+
+    #endregion
 
     public class ApiAreaRegistration : AreaRegistration
     {

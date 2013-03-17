@@ -1,6 +1,10 @@
 namespace DemoApplication.Models.Account
 {
+    #region
+
     using System.ComponentModel.DataAnnotations;
+
+    #endregion
 
     public class ForgotPasswordResetModel
     {

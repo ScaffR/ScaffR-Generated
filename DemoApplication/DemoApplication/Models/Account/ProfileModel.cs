@@ -1,8 +1,12 @@
 namespace DemoApplication.Models.Account
 {
+    #region
+
     using System;
     using System.ComponentModel.DataAnnotations;
     using Metadata.Attributes;
+
+    #endregion
 
     public partial class ProfileModel
     {

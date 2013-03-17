@@ -1,8 +1,12 @@
 namespace DemoApplication.Models.Sitemap
 {
+    #region
+
     using System.Collections;
     using System.Collections.Generic;
     using MvcSiteMapProvider.Web.Html.Models;
+
+    #endregion
 
     public partial class SitemapHelperModel : IEnumerable<SiteMapNodeModel>
     {

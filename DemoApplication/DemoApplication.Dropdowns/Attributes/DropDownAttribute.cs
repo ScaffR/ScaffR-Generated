@@ -1,9 +1,13 @@
 namespace DemoApplication.Dropdowns.Attributes
 {
+    #region
+
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.Web.Mvc;
+
+    #endregion
 
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = true, Inherited = false)]
     public class DropDownAttribute : UIHintAttribute, IDropDownAttribute, IMetadataAware

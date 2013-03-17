@@ -1,8 +1,11 @@
 namespace DemoApplication.Mailers
 {
+    #region
+
     using System.Net.Mail;
-    using Models;
     using Models.Account;
+
+    #endregion
 
     public partial class Mailer
     {

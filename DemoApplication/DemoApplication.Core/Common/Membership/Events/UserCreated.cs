@@ -1,6 +1,10 @@
 namespace DemoApplication.Core.Common.Membership.Events
 {
+    #region
+
     using Model;
+
+    #endregion
 
     public class UserCreated : UserActivity
     {

@@ -1,7 +1,11 @@
 ﻿namespace DemoApplication.Dropdowns.Extensions
 {
+    #region
+
     using System.Collections.Generic;
     using System.Web.Mvc;
+
+    #endregion
 
     public static class MetadataExtensions
     {

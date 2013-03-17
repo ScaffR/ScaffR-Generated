@@ -1,5 +1,7 @@
 namespace DemoApplication.Application.DependencyResolution
 {
+    #region
+
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -7,6 +9,8 @@ namespace DemoApplication.Application.DependencyResolution
     using Ninject.Activation;
     using Ninject.Parameters;
     using Ninject.Syntax;
+
+    #endregion
 
     public class NinjectScope : IDependencyScope
     {

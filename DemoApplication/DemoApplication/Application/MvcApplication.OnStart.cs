@@ -1,8 +1,12 @@
 namespace DemoApplication.Application
 {
+    #region
+
     using System.Web.Mvc;
     using ModelBinders;
     using Startup;
+
+    #endregion
 
     public partial class MvcApplication
 	{

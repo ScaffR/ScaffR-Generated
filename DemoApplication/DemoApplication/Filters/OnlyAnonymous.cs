@@ -1,7 +1,11 @@
 ﻿namespace DemoApplication.Filters
 {
+    #region
+
     using System.Web.Mvc;
     using System.Web.Security;
+
+    #endregion
 
     public class OnlyAnonymous : ActionFilterAttribute
     {

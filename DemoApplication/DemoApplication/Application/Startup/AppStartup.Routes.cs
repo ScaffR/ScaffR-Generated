@@ -1,7 +1,11 @@
 namespace DemoApplication.Application.Startup
 {
+    #region
+
     using System.Web.Mvc;
     using System.Web.Routing;
+
+    #endregion
 
     public partial class AppStartup
     {

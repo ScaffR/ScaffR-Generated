@@ -1,8 +1,11 @@
-﻿using System.Collections.Generic;
-
-namespace DemoApplication.Sitemaps.Extensibility
+﻿namespace DemoApplication.Sitemaps.Extensibility
 {
+    #region
+
+    using System.Collections.Generic;
     using MvcSiteMapProvider;
+
+    #endregion
 
     public class SitemapUrlResolver : DefaultSiteMapNodeUrlResolver
     {

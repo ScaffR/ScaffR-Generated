@@ -1,8 +1,12 @@
 namespace DemoApplication.Extensions
 {
+    #region
+
+    using System;
     using System.Web.Mvc;
     using System.Web.Routing;
-    using System;
+
+    #endregion
 
     public static class ActionDescriptorExtensions
     {

@@ -1,9 +1,13 @@
 namespace DemoApplication.Metadata.Adapters
 {
+    #region
+
     using System.Collections.Generic;
     using System.Web.Mvc;
     using Attributes;
     using Rules;
+
+    #endregion
 
     public class CKEditorAttributeAdapter : DataAnnotationsModelValidator<CKEditorAttribute>
     {

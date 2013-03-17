@@ -1,13 +1,16 @@
 namespace DemoApplication.Controllers.Account
 {
+    #region
+
     using System;
     using System.Linq;
     using System.Web.Mvc;
     using Extensions;
     using Mailers;
-    using Models;
-    using Models.Account;    
+    using Models.Account;
     using Mvc.Mailer;
+
+    #endregion
 
     public partial class AccountController
     {

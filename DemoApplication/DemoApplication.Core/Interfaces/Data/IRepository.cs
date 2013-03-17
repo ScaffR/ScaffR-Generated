@@ -1,10 +1,14 @@
 namespace DemoApplication.Core.Interfaces.Data
 {
+    #region
+
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Linq.Expressions;
     using Paging;
+
+    #endregion
 
     /// <summary>
     /// The generic base interface for all repositories...

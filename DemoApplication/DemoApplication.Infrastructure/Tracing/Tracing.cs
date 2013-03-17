@@ -1,7 +1,11 @@
 ﻿namespace DemoApplication.Infrastructure.Tracing
 {
+    #region
+
     using System;
     using System.Diagnostics;
+
+    #endregion
 
     public static class Tracing
     {

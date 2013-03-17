@@ -1,5 +1,7 @@
 namespace DemoApplication.Extensions.Sitemap
 {
+    #region
+
     using System;
     using System.Collections.Generic;
     using System.Web;
@@ -9,6 +11,8 @@ namespace DemoApplication.Extensions.Sitemap
     using MvcSiteMapProvider;
     using MvcSiteMapProvider.Web.Html;
     using MvcSiteMapProvider.Web.Html.Models;
+
+    #endregion
 
     /// <summary>
     /// MvcSiteMapHtmlHelper extension methods

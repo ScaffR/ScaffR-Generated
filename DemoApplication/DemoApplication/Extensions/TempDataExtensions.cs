@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace DemoApplication.Extensions
+﻿namespace DemoApplication.Extensions
 {
+    #region
+
+    using System.Collections.Generic;
     using System.Web.Mvc;
+
+    #endregion
 
     public static class TempDataExtensions
     {

@@ -1,4 +1,8 @@
+#region
+
 using DemoApplication.Application.Startup;
+
+#endregion
 
 [assembly: WebActivator.PreApplicationStartMethod(typeof(AppStartup), "EventHandlers")]
 

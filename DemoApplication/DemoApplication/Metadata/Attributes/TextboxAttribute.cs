@@ -1,8 +1,12 @@
 namespace DemoApplication.Metadata.Attributes
 {
+    #region
+
     using System.ComponentModel.DataAnnotations;
     using System.Web.Mvc;
     using Extensions;
+
+    #endregion
 
     public class TextboxAttribute : DataTypeAttribute, IMetadataAware
     {

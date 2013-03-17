@@ -1,6 +1,10 @@
 ﻿namespace DemoApplication.Models.Components
 {
+    #region
+
     using Metadata.Attributes;
+
+    #endregion
 
     public class SampleVideoModel
     {

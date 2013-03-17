@@ -1,11 +1,15 @@
 ﻿namespace DemoApplication.Extensions.Html
 {
+    #region
+
+    using System;
     using System.Collections.Generic;
     using System.Linq.Expressions;
     using System.Web;
-    using System;
     using System.Web.Mvc;
-    using Core.Common.Site;
+    using Core.Interfaces.Site;
+
+    #endregion
 
     public static partial class HtmlExtensions
     {
@@ -41,9 +45,15 @@
             return title;
         }
 
-        public static string GetPageTitle(this HtmlHelper helper)
+        public static string GetWebsiteTitle(this HtmlHelper helper)
         {
-            return Site.Instance.WebsiteName + " - " + GetPageHeadingText(helper);
+            var settings = DependencyResolver.Current.GetService<ISiteSettings>();
+            return settings.WebsiteName;
+        }
+
+        public static string GetPageTitle(this HtmlHelper helper)
+        {            
+            return GetWebsiteTitle(helper) + " - " + GetPageHeadingText(helper);
         }
     }
 }

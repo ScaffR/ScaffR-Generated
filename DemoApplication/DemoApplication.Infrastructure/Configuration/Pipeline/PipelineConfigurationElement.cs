@@ -1,8 +1,13 @@
 namespace DemoApplication.Infrastructure.Configuration.Pipeline
 {
-    using System.Configuration;
+    #region
 
-    public class PipelineConfigurationElement : ConfigurationElement
+    using System.Configuration;
+    using Core.Interfaces.Pipeline;
+
+    #endregion
+
+    public class PipelineConfigurationElement : ConfigurationElement, IPipelineSettings
     {
         [ConfigurationProperty("processor", IsRequired = false)]
         public string ProcessorType

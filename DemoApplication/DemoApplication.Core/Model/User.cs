@@ -1,8 +1,11 @@
 namespace DemoApplication.Core.Model
 {
+    #region
+
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    using System.IdentityModel.Claims;
+
+    #endregion
 
     [DisplayColumn("Username")]
     public partial class User : Person

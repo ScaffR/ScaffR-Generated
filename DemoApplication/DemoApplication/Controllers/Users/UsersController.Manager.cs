@@ -1,8 +1,11 @@
 ﻿namespace DemoApplication.Controllers.Users
 {
+    #region
+
     using System.Web.Mvc;
-    using Security;
     using Security.Authorization;
+
+    #endregion
 
     public partial class UsersController
     {

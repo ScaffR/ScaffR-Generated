@@ -1,6 +1,10 @@
 ﻿namespace DemoApplication.Metadata.Attributes
 {
+    #region
+
     using System.ComponentModel.DataAnnotations;
+
+    #endregion
 
     public class PhoneNumberTextboxAttribute : TextboxAttribute
     {

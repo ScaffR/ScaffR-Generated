@@ -1,8 +1,11 @@
 ﻿namespace DemoApplication.Dropdowns.Caching
 {
+    #region
+
     using System;
     using System.Web;
 
+    #endregion
 
     public static class DropdownCacheHelper
         {

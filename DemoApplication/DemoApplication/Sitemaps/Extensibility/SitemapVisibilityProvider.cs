@@ -1,5 +1,7 @@
 namespace DemoApplication.Sitemaps.Extensibility
 {
+    #region
+
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -8,8 +10,9 @@ namespace DemoApplication.Sitemaps.Extensibility
     using System.Web.Mvc;
     using MvcSiteMapProvider;
     using MvcSiteMapProvider.Extensibility;
-    using Security;
     using Security.Authorization;
+
+    #endregion
 
     public class SitemapVisiblityProvider : ISiteMapNodeVisibilityProvider
     {

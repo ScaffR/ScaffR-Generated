@@ -1,7 +1,11 @@
 ﻿namespace DemoApplication.Extensions
 {
+    #region
+
     using System.Web.Mvc;
-    using Core.Common.Photos;
+    using Infrastructure.Photos;
+
+    #endregion
 
     public static class PhotoHelpers
     {

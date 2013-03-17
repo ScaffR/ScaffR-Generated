@@ -1,10 +1,14 @@
 namespace DemoApplication.Core.Common.Validation
 {
+    #region
+
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.Reflection;
     using Interfaces.Validation;
     using Model;
+
+    #endregion
 
     public static class ValidationEngine
     {

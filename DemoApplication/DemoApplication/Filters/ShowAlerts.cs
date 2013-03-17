@@ -1,6 +1,10 @@
 namespace DemoApplication.Filters
 {
+    #region
+
     using System.Web.Mvc;
+
+    #endregion
 
     public class ShowAlerts : ActionFilterAttribute
     {

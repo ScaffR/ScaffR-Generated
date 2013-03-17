@@ -1,8 +1,12 @@
 namespace DemoApplication.Core.Model
 {
+    #region
+
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using Newtonsoft.Json;
+
+    #endregion
 
     public partial class UserRole : DomainObject
     {        

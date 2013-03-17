@@ -1,10 +1,14 @@
 namespace DemoApplication.Metadata.Adapters
 {
+    #region
+
     using System;
     using System.Collections.Generic;
     using System.Web.Mvc;
     using Attributes;
     using Resources;
+
+    #endregion
 
     public class EqualToAttributeAdapter : DataAnnotationsModelValidator<EqualToAttribute>
     {

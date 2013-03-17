@@ -1,12 +1,20 @@
+#region
+
 using DemoApplication.Application.Startup;
+
+#endregion
 
 [assembly: WebActivator.PreApplicationStartMethod(typeof(AppStartup), "WebApi")]
 
 namespace DemoApplication.Application.Startup
 {
+    #region
+
     using System.Net.Http;
     using System.Web.Http;
     using System.Web.Http.Routing;
+
+    #endregion
 
     public partial  class AppStartup
 	{

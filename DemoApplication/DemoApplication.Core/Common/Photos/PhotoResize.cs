@@ -1,6 +1,10 @@
 namespace DemoApplication.Core.Common.Photos
 {
-    using Configuration.Photos;
+    #region
+
+    using Interfaces.Photos;
+
+    #endregion
 
     /// <summary>
     /// The photo resize.
@@ -28,7 +32,7 @@ namespace DemoApplication.Core.Common.Photos
         /// <param name="element">
         /// The element.
         /// </param>
-        public PhotoResize(PhotoResizeElement element)
+        public PhotoResize(IPhotoResize element)
         {
             Name = element.Name;
             Width = element.Width;

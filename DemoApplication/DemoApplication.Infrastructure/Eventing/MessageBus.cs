@@ -1,10 +1,14 @@
 namespace DemoApplication.Infrastructure.Eventing
 {
+    #region
+
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading;
-    using Interfaces.Eventing;
+    using Core.Interfaces.Eventing;
+
+    #endregion
 
     public partial class MessageBus : IMessageBus
     {

@@ -1,6 +1,10 @@
 namespace DemoApplication.Extensions.Sitemap
 {
+    #region
+
     using System.Web.Mvc;
+
+    #endregion
 
     public static partial class BootstrapHelpers
     {

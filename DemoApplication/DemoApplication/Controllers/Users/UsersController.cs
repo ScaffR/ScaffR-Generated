@@ -1,7 +1,11 @@
 ﻿namespace DemoApplication.Controllers.Users
 {
+    #region
+
     using System.Web.Mvc;
     using Core.Interfaces.Service;
+
+    #endregion
 
     public partial class UsersController : Controller
     {

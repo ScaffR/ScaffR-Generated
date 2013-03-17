@@ -1,6 +1,10 @@
 ﻿namespace DemoApplication.Core.Interfaces.Service
 {
+    #region
+
     using Model;
+
+    #endregion
 
     public interface ITaskService : IService<Task>
     {

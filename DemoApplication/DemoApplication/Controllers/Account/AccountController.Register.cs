@@ -1,5 +1,7 @@
 namespace DemoApplication.Controllers.Account
 {
+    #region
+
     using System.Web.Mvc;
     using Core.Common.Membership;
     using Core.Common.Membership.Events;
@@ -7,9 +9,10 @@ namespace DemoApplication.Controllers.Account
     using Extensions;
     using Filters;
     using Infrastructure.Eventing;
-    using Models;
     using Models.Account;
     using Omu.ValueInjecter;
+
+    #endregion
 
     public partial class AccountController
     {

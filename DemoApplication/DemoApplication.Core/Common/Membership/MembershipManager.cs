@@ -1,19 +1,17 @@
 namespace DemoApplication.Core.Common.Membership
 {
-    using Configuration;
-    using Configuration.Membership;
+    #region
+
+    using Interfaces.Membership;
+
+    #endregion
 
     public partial class MembershipManager
     {
         private static MembershipManager _instance;
-        private MembershipElement _configuration;
+        private IMembershipSettings _configuration;
 
-        public static MembershipManager Instance
-        {
-            get { return _instance ?? (_instance = new MembershipManager(CoreSection.GetConfig().Membership)); }
-        }
-
-        private MembershipManager(MembershipElement configuration)
+        private MembershipManager(IMembershipSettings configuration)
         {
             _configuration = configuration;
         }

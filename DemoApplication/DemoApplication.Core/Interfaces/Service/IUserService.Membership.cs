@@ -1,7 +1,11 @@
 namespace DemoApplication.Core.Interfaces.Service
 {
+    #region
+
     using Common.Membership;
     using Model;
+
+    #endregion
 
     public partial interface IUserService
     {

@@ -1,10 +1,12 @@
-﻿using System.Web.Mvc;
-
-namespace DemoApplication.Controllers.Components
+﻿namespace DemoApplication.Controllers.Components
 {
+    #region
+
+    using System.Web.Mvc;
     using Core.Common.Geography;
     using Models.Common;
-    using Models.Components;
+
+    #endregion
 
     public partial class ComponentsController
     {

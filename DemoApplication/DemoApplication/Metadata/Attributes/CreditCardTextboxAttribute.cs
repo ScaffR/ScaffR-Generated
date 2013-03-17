@@ -1,8 +1,12 @@
 namespace DemoApplication.Metadata.Attributes
 {
+    #region
+
     using System;
     using System.Linq;
     using Resources;
+
+    #endregion
 
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
     public class CreditCardTextboxAttribute : TextboxAttribute

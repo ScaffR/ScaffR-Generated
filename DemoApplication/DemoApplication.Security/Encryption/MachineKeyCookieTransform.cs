@@ -1,7 +1,11 @@
 ﻿namespace DemoApplication.Security.Encryption
 {
+    #region
+
     using System.IdentityModel;
     using System.Web.Security;
+
+    #endregion
 
     public class MachineKeyCookieTransform : CookieTransform
     {

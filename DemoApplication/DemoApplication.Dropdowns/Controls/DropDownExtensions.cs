@@ -1,11 +1,15 @@
 ﻿namespace DemoApplication.Dropdowns.Controls
 {
-    using System.Linq.Expressions;
+    #region
+
     using System;
     using System.Collections.Generic;
+    using System.Linq.Expressions;
     using System.Web.Mvc;
     using System.Web.Mvc.Html;
     using Extensions;
+
+    #endregion
 
     public static class DropDownExtensions
     {

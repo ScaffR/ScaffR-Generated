@@ -1,7 +1,11 @@
 ﻿namespace DemoApplication.Upload
 {
+    #region
+
     using System;
     using System.IO;
+
+    #endregion
 
     public class FilesStatus
     {

@@ -1,7 +1,11 @@
 namespace DemoApplication.Core.Common.Photos
 {
+    #region
+
     using System.IO;
     using System.Web;
+
+    #endregion
 
     /// <summary>
     /// The photo request.
