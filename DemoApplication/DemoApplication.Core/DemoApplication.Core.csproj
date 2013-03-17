@@ -129,7 +129,6 @@
     <Compile Include="Interfaces\Data\IPersonRepository.cs" />
     <Compile Include="Interfaces\Data\IRepository.cs" />
     <Compile Include="Interfaces\Data\IRoleRepository.cs" />
-    <Compile Include="Interfaces\Data\ITaskRepository.cs" />
     <Compile Include="Interfaces\Data\IUnitOfWork.cs" />
     <Compile Include="Interfaces\Data\IUserEmailRepository.cs" />
     <Compile Include="Interfaces\Data\IUserRepository.cs" />
@@ -147,7 +146,6 @@
     <Compile Include="Interfaces\Service\IPersonService.cs" />
     <Compile Include="Interfaces\Service\IRoleService.cs" />
     <Compile Include="Interfaces\Service\IService.cs" />
-    <Compile Include="Interfaces\Service\ITaskService.cs" />
     <Compile Include="Interfaces\Service\IUserEmailService.cs" />
     <Compile Include="Interfaces\Service\IUserRoleService.cs" />
     <Compile Include="Interfaces\Service\IUserService.cs" />
@@ -160,7 +158,6 @@
     <Compile Include="Model\Gender.cs" />
     <Compile Include="Model\Person.cs" />
     <Compile Include="Model\Role.cs" />
-    <Compile Include="Model\Task.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Model\User.Membership.cs" />
     <Compile Include="Model\UserClaim.cs" />
@@ -171,7 +168,6 @@
     <Compile Include="Services\MembershipConstant.cs" />
     <Compile Include="Services\PersonService.cs" />
     <Compile Include="Services\RoleService.cs" />
-    <Compile Include="Services\TaskService.cs" />
     <Compile Include="Services\UserEmailService.cs" />
     <Compile Include="Services\UserRoleService.cs" />
     <Compile Include="Services\UserService.cs" />

@@ -87,8 +87,6 @@ namespace DemoApplication.Application.Startup
             kernel.Bind<IUserEmailRepository>().To<UserEmailRepository>().InRequestScope();
             kernel.Bind<IAuthenticationService>().To<ClaimsBasedAuthenticationService>().InRequestScope();
             kernel.Bind<IDropdownProvider>().To<Dropdowns>().InRequestScope();
-            kernel.Bind<ITaskService>().To<TaskService>().InRequestScope();
-            kernel.Bind<ITaskRepository>().To<TaskRepository>().InRequestScope();
             kernel.Bind<IStorageProvider>().To<SessionStorageProvider>();
 
             kernel.Bind<ISiteSettings>().ToConstant(CoreSection.Instance.Site);

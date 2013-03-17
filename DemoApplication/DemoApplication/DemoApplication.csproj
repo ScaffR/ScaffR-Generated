@@ -182,7 +182,6 @@
     <Compile Include="Application\MvcApplication.OnSessionStart.cs" />
     <Compile Include="Areas\Api\ApiAreaRegistration.cs" />
     <Compile Include="Areas\Api\Controllers\ApiController.cs" />
-    <Compile Include="Areas\Api\Controllers\TaskController.cs" />
     <Compile Include="Application\Startup\AppStartup.ActionFilters.cs" />
     <Compile Include="Application\Startup\AppStartup.Cassette.cs" />
     <Compile Include="Application\Startup\AppStartup.EventHandlers.cs" />

@@ -55,7 +55,5 @@ namespace DemoApplication.Infrastructure.Data
         public DbSet<UserRole> UserRoles { get; set; }
 
         public DbSet<UserEmail> UserEmails { get; set; }
-
-        public DbSet<Task> Tasks { get; set; }
     }    
 }

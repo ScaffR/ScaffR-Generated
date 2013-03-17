@@ -126,7 +126,6 @@
     <Compile Include="Data\PersonRepository.cs" />
     <Compile Include="Data\RoleRepository.cs" />
     <Compile Include="Data\Seeders\MembershipDataSeeder.cs" />
-    <Compile Include="Data\TaskRepository.cs" />
     <Compile Include="Data\UnitOfWork.cs" />
     <Compile Include="Data\UserEmailRepository.cs" />
     <Compile Include="Data\UserRepository.cs" />
