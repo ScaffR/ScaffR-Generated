@@ -38,7 +38,7 @@ namespace DemoApplication.Controllers.Account
                 {
                     _authenticationService.SignIn(model.Username);
 
-                    MessageBus.Instance.Publish(new UserCreated(user, Url.AbsoluteAction("Logon", "Account")));
+                    MessageBus.Instance.Publish(new UserCreated(user, Url.AbsoluteAction("Login", "Account")));
 
                     return RedirectToAction("Index", "Home");
                 }

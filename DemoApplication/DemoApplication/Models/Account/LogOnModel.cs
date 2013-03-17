@@ -7,7 +7,7 @@ namespace DemoApplication.Models.Account
 
     #endregion
 
-    public partial class LogOnModel
+    public partial class LoginModel
     {
         [Required]
         [Display(Name = "Username")]
@@ -15,7 +15,6 @@ namespace DemoApplication.Models.Account
         public string UserName { get; set; }
 
         [Required]
-        [DataType(DataType.Password)]
         [Display(Name = "Password")]
         [PasswordTextbox(TextboxSize = TextboxSize.Medium)]
         public string Password { get; set; }

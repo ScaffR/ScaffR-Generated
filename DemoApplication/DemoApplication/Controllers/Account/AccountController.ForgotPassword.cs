@@ -46,7 +46,7 @@ namespace DemoApplication.Controllers.Account
                             return View();                        
 
 
-                        var loginUrl = Url.AbsoluteAction("Logon", "Account");
+                        var loginUrl = Url.AbsoluteAction("Login", "Account");
 
                         new Mailer().ForgotPassword(new ForgotPasswordResetModel()
                         {

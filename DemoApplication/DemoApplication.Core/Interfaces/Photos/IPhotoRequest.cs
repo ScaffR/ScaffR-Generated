@@ -1,6 +1,10 @@
 namespace DemoApplication.Core.Interfaces.Photos
 {
+    #region
+
     using System.IO;
+
+    #endregion
 
     public interface IPhotoRequest
     {

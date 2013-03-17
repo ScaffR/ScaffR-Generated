@@ -10,9 +10,8 @@ namespace DemoApplication.Infrastructure.Photos.Providers
     using System.IO;
     using System.Linq;
     using System.Security.AccessControl;
+    using Core.Common.Photos;
     using Core.Interfaces.Photos;
-    using DemoApplication.Core.Common.Photos;
-    using DemoApplication.Infrastructure.Photos;
 
     #endregion
 

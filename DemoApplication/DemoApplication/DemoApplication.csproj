@@ -193,7 +193,7 @@
     <Compile Include="Controllers\Account\AccountController.cs" />
     <Compile Include="Controllers\Account\AccountController.Emails.cs" />
     <Compile Include="Controllers\Account\AccountController.ForgotPassword.cs" />
-    <Compile Include="Controllers\Account\AccountController.Logon.cs" />
+    <Compile Include="Controllers\Account\AccountController.Login.cs" />
     <Compile Include="Controllers\Account\AccountController.Photo.cs" />
     <Compile Include="Controllers\Account\AccountController.Profile.cs" />
     <Compile Include="Controllers\Account\AccountController.Register.cs" />
@@ -1070,7 +1070,7 @@
     <Content Include="Views\Account\Profile.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Account\Logon.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Account\ForgotPassword.cshtml" />

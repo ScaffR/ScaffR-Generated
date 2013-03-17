@@ -1,8 +1,11 @@
 namespace DemoApplication.Infrastructure.Migrations
 {
-    using System;
+    #region
+
     using System.Data.Entity.Migrations;
-    
+
+    #endregion
+
     public partial class UserClaims : DbMigration
     {
         public override void Up()

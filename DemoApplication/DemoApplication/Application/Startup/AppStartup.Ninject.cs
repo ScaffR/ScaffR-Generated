@@ -15,6 +15,7 @@ namespace DemoApplication.Application.Startup
     using System.Web;
     using System.Web.Http;
     using Core.Interfaces.Data;
+    using Core.Interfaces.Eventing;
     using Core.Interfaces.Photos;
     using Core.Interfaces.Service;
     using Core.Interfaces.Site;
@@ -24,6 +25,7 @@ namespace DemoApplication.Application.Startup
     using Dropdowns;
     using Infrastructure.Configuration;
     using Infrastructure.Data;
+    using Infrastructure.Eventing;
     using Infrastructure.Storage.Providers;
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
     using Ninject;
@@ -77,6 +79,7 @@ namespace DemoApplication.Application.Startup
             // infrastructure
             kernel.Bind<IUnitOfWork>().To<UnitOfWork>().InRequestScope();
             kernel.Bind<IDatabaseFactory>().To<DatabaseFactory>().InRequestScope();
+            kernel.Bind<IMessageBus>().ToConstant(MessageBus.Instance).InSingletonScope();
 
             // services/repositories
             kernel.Bind<IPersonService>().To<PersonService>().InRequestScope();
@@ -94,8 +97,8 @@ namespace DemoApplication.Application.Startup
             kernel.Bind<IStorageProvider>().To<SessionStorageProvider>();
 
             // settings
-            kernel.Bind<ISiteSettings>().ToConstant(AppConfig.Instance.Site);
-            kernel.Bind<IPhotoSettings>().ToConstant(AppConfig.Instance.Photos);
+            kernel.Bind<ISiteSettings>().ToConstant(AppConfig.Instance.Site).InSingletonScope();
+            kernel.Bind<IPhotoSettings>().ToConstant(AppConfig.Instance.Photos).InSingletonScope();
         }
     }
 }

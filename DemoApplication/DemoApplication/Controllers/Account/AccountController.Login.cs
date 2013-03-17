@@ -2,12 +2,12 @@ namespace DemoApplication.Controllers.Account
 {
     #region
 
-    using System.Web;
     using System.Web.Mvc;
     using Core.Common.Membership;
     using Core.Common.Membership.Events;
     using Core.Common.Profiles;
     using Core.Extensions;
+    using Core.Model;
     using Filters;
     using Infrastructure.Eventing;
     using Models.Account;
@@ -17,9 +17,9 @@ namespace DemoApplication.Controllers.Account
     public partial class AccountController
     {
         [AllowAnonymous, OnlyAnonymous, ShowMainMenu(false)]
-        public ActionResult Logon()
+        public ActionResult Login()
         {
-            return View(new LogOnModel()
+            return View(new LoginModel()
                 {
                     UserName = "admin",
                     Password = "admin"
@@ -28,15 +28,18 @@ namespace DemoApplication.Controllers.Account
 
         [HttpPost]
         [AllowAnonymous, OnlyAnonymous, ShowMainMenu(false)]
-        public ActionResult Logon(LogOnModel model, string returnUrl)
+        public ActionResult Login(LoginModel model, string returnUrl)
         {
             if (ModelState.IsValid)
             {
                 AuthenticationStatus status;
-                var authResult = _userService.Authenticate(model.UserName, model.Password, out status);
+                User user;
+                var authResult = _userService.Authenticate(model.UserName, model.Password, out status, out user);
                 if (authResult)
                 {
-                    ((MvcSiteMapProvider.DefaultSiteMapProvider)SiteMap.Provider).Refresh();
+                    _messageBus.Publish(new UserLoggedIn(user));
+
+                    
 
                     _authenticationService.SignIn(model.UserName);
                     if (Url.IsLocalUrl(returnUrl))

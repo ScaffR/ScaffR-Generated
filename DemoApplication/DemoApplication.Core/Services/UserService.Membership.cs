@@ -11,9 +11,10 @@ namespace DemoApplication.Core.Services
 
     public partial class UserService
     {
-        public bool Authenticate(string username, string password, out AuthenticationStatus status)
+        public bool Authenticate(string username, string password, out AuthenticationStatus status, out User usr)
         {
             var user = Find(u => u.Username == username).FirstOrDefault();
+            usr = null;
 
             if (user == null)
             {
@@ -31,11 +32,13 @@ namespace DemoApplication.Core.Services
 
                 if (!user.IsApproved)
                 {
+
                     status = AuthenticationStatus.UserLockedOut;
                     return false;
                 }
 
                 user.LastLoginDate = DateTime.UtcNow;
+                usr = user;
                 var result = SaveOrUpdate(user);
 
                 status = AuthenticationStatus.Authenticated;
