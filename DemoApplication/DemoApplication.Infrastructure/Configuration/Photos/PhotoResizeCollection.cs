@@ -149,7 +149,10 @@ namespace DemoApplication.Infrastructure.Configuration.Photos
 
         public new IEnumerator<IPhotoResize> GetEnumerator()
         {
-            throw new NotImplementedException();
+            foreach (PhotoResizeElement x in (ConfigurationElementCollection) this)
+            {
+                yield return x;
+            }
         }
     }
 }

@@ -21,3 +21,4 @@ _ReSharper.*
 *.ldf
 DemoApplication/DemoApplication/Files/*.*
 */images/*_*_*.png
+DemoApplication/DemoApplication/Content/images/*_2013_*.png

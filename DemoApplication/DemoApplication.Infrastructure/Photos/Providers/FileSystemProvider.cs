@@ -1,4 +1,4 @@
-namespace DemoApplication.Infrastructure.Providers
+namespace DemoApplication.Infrastructure.Photos.Providers
 {
     #region
 
@@ -10,8 +10,8 @@ namespace DemoApplication.Infrastructure.Providers
     using System.IO;
     using System.Linq;
     using System.Security.AccessControl;
-    using Core.Common.Photos;
-    using Photos;
+    using DemoApplication.Core.Common.Photos;
+    using DemoApplication.Infrastructure.Photos;
 
     #endregion
 
