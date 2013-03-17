@@ -294,7 +294,7 @@
     <Compile Include="Models\Components\SampleEditorTemplatesModel.cs" />
     <Compile Include="Models\Components\SampleVideoModel.cs" />
     <Compile Include="Models\Common\AddressModel.cs" />
-    <Compile Include="Models\Components\CKEditorModel.cs" />
+    <Compile Include="Models\Components\SampleEditorModel.cs" />
     <Compile Include="Models\Components\SampleWizardModel.cs" />
     <Compile Include="Models\Account\ForgotPasswordModel.cs" />
     <Compile Include="Models\Account\ForgotPasswordResetModel.cs" />
@@ -313,7 +313,6 @@
     <Compile Include="Metadata\Rules\ModelClientValidationMinRule.cs" />
     <Compile Include="Metadata\Rules\ModelClientValidationNumericRule.cs" />
     <Compile Include="Metadata\Rules\ModelClientValidationVideoRule.cs" />
-    <Compile Include="Models\Account\SettingsModel.cs" />
     <Compile Include="Models\Sitemap\SitemapHelperModel.cs" />
     <Compile Include="Models\Users\UserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

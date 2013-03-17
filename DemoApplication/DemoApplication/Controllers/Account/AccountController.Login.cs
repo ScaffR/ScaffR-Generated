@@ -36,12 +36,11 @@ namespace DemoApplication.Controllers.Account
                 User user;
                 var authResult = _userService.Authenticate(model.UserName, model.Password, out status, out user);
                 if (authResult)
-                {
-                    _messageBus.Publish(new UserLoggedIn(user));
-
-                    
-
+                {                                      
                     _authenticationService.SignIn(model.UserName);
+
+                    _messageBus.Publish(new UserLoggedIn(user));  
+
                     if (Url.IsLocalUrl(returnUrl))
                     {
                         return Redirect(returnUrl);
@@ -55,7 +54,7 @@ namespace DemoApplication.Controllers.Account
 
         public ActionResult LogOff()
         {
-            MessageBus.Instance.Publish(new UserLoggedOut(UserProfile.Current));
+            _messageBus.Publish(new UserLoggedOut(UserProfile.Current));
 
             _authenticationService.SignOut();            
             return RedirectToAction("Index", "Home");

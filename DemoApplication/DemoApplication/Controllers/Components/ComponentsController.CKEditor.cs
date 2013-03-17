@@ -12,11 +12,11 @@
 
         public ActionResult CKEditor()
         {
-            return View(new CKEditorModel());
+            return View(new SampleEditorModel());
         }
 
         [HttpPost]
-        public ActionResult CKEditor(CKEditorModel model)
+        public ActionResult CKEditor(SampleEditorModel model)
         {
             if (ModelState.IsValid)
             {

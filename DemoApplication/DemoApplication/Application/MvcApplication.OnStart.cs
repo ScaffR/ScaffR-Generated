@@ -20,6 +20,8 @@ namespace DemoApplication.Application
 
             //Add my MVC Provider
             ModelBinderProviders.BinderProviders.Add(new EFModelBinderProviderMvc());
+
+            
         }
 	}
 }

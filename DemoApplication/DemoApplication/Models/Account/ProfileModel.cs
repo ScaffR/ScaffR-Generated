@@ -20,6 +20,7 @@ namespace DemoApplication.Models.Account
 
         [Required]
         [EmailTextbox]
+        [Display(Name = "Email Address")]
         public virtual String Email { get; set; }
 
         [Required]

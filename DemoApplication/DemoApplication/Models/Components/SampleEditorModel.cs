@@ -7,7 +7,7 @@
 
     #endregion
 
-    public partial class CKEditorModel
+    public partial class SampleEditorModel
     {
         [ScaffoldColumn(false)]
         public virtual int Id { get; set; }
