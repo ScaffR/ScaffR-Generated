@@ -298,7 +298,7 @@
     <Compile Include="Models\Components\SampleWizardModel.cs" />
     <Compile Include="Models\Account\ForgotPasswordModel.cs" />
     <Compile Include="Models\Account\ForgotPasswordResetModel.cs" />
-    <Compile Include="Models\Account\LogOnModel.cs" />
+    <Compile Include="Models\Account\LoginModel.cs" />
     <Compile Include="Models\Account\ProfileModel.cs" />
     <Compile Include="Models\Account\RegisterModel.cs" />
     <Compile Include="Metadata\Rules\ModelClientValidationCKEditorRule.cs" />
