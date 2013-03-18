@@ -5,11 +5,9 @@
 // Created	: 03-16-2013
 // 
 // Last Modified By : Rod Johnson
-// Last Modified On : 03-17-2013
+// Last Modified On : 03-18-2013
 // ***********************************************************************
 #endregion
-
-using System.Linq.Expressions;
 
 namespace DemoApplication.Core.Services
 {
@@ -18,6 +16,7 @@ namespace DemoApplication.Core.Services
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Linq.Expressions;
     using Common.Validation;
     using Interfaces.Data;
     using Interfaces.Paging;

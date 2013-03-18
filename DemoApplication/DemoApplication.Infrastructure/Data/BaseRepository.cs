@@ -5,11 +5,9 @@
 // Created	: 03-16-2013
 // 
 // Last Modified By : Rod Johnson
-// Last Modified On : 03-17-2013
+// Last Modified On : 03-18-2013
 // ***********************************************************************
 #endregion
-
-using System.Linq.Expressions;
 
 namespace DemoApplication.Infrastructure.Data
 {
@@ -20,6 +18,7 @@ namespace DemoApplication.Infrastructure.Data
     using System.Data;
     using System.Data.Entity;
     using System.Linq;
+    using System.Linq.Expressions;
     using Core.Common.Paging;
     using Core.Interfaces.Data;
     using Core.Interfaces.Paging;

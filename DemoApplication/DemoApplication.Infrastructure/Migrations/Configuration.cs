@@ -2,17 +2,20 @@
 // ***********************************************************************
 // Assembly	: DemoApplication.Infrastructure
 // Author	: Rod Johnson
-// Created	: 03-16-2013
+// Created	: 03-18-2013
 // 
 // Last Modified By : Rod Johnson
-// Last Modified On : 03-17-2013
+// Last Modified On : 03-18-2013
 // ***********************************************************************
 #endregion
-
 namespace DemoApplication.Infrastructure.Migrations
 {
+    #region
+
     using System.Data.Entity.Migrations;
     using Data;
+
+    #endregion
 
     #region
 

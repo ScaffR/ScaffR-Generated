@@ -5,14 +5,9 @@
 // Created	: 02-24-2013
 // 
 // Last Modified By : Rod Johnson
-// Last Modified On : 03-17-2013
+// Last Modified On : 03-18-2013
 // ***********************************************************************
 #endregion
-
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Web.Script.Serialization;
-using System.Xml.Serialization;
 
 namespace DemoApplication.Core.Model
 {
@@ -21,6 +16,10 @@ namespace DemoApplication.Core.Model
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Linq;
+    using System.Web.Script.Serialization;
+    using System.Xml.Serialization;
 
     #endregion
 
