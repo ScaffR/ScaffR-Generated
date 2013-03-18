@@ -20,11 +20,11 @@ namespace DemoApplication.Infrastructure.Configuration
     public partial class AppConfig
     {
         [ConfigurationProperty("membership", IsRequired = false)]
-        public MembershipSettings Membership
+        public MembershipElement Membership
         {
             get
             {
-                return (MembershipSettings)base["membership"];
+                return (MembershipElement)base["membership"];
             }
         }
     }
