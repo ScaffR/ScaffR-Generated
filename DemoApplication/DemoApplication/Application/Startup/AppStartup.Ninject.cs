@@ -92,16 +92,12 @@ namespace DemoApplication.Application.Startup
             kernel.Bind<IMessageBus>().ToConstant(MessageBus.Instance).InSingletonScope();
 
             // services/repositories
-            //kernel.Bind<IPersonService>().To<PersonService>().InRequestScope();
-            //kernel.Bind<IPersonRepository>().To<PersonRepository>().InRequestScope();
             kernel.Bind<IUserService>().To<UserService>().InRequestScope();
             kernel.Bind<IUserRepository>().To<UserRepository>().InRequestScope();
             kernel.Bind<IRoleService>().To<RoleService>().InRequestScope();
             kernel.Bind<IRoleRepository>().To<RoleRepository>().InRequestScope();
-            kernel.Bind<IUserRoleService>().To<UserRoleService>().InRequestScope();
-            kernel.Bind<IUserRoleRepository>().To<UserRoleRepository>().InRequestScope();
-            kernel.Bind<IUserEmailService>().To<UserEmailService>().InRequestScope();
-            kernel.Bind<IUserEmailRepository>().To<UserEmailRepository>().InRequestScope();
+            kernel.Bind<IUserClaimService>().To<UserClaimService>().InRequestScope();
+            kernel.Bind<IUserClaimRepository>().To<UserClaimRepository>().InRequestScope();
             kernel.Bind<IAuthenticationService>().To<ClaimsBasedAuthenticationService>().InRequestScope();
             kernel.Bind<IDropdownProvider>().To<Dropdowns>().InRequestScope();
             kernel.Bind<IStorageProvider>().To<SessionStorageProvider>();

@@ -18,14 +18,14 @@ namespace DemoApplication.Core.Services
 
     #endregion
 
-    public partial class UserEmailService : BaseService<UserEmail>, IUserEmailService
+    public partial class UserClaimService : BaseService<UserClaim>, IUserClaimService
     {
-		protected new IUserEmailRepository Repository;				
-		
-		public UserEmailService(IUnitOfWork unitOfWork, IUserEmailRepository useremailRepository)
+        protected new IUserClaimRepository Repository;
+
+        public UserClaimService(IUnitOfWork unitOfWork, IUserClaimRepository userRepository)
 			:base(unitOfWork)
 		{
-		    base.Repository = Repository = useremailRepository;
+		    base.Repository = Repository = userRepository;
 		}		
 	}
 }

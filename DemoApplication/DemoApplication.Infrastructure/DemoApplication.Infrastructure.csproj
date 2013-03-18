@@ -112,23 +112,18 @@
     <Compile Include="Configuration\Pipeline\PipelineConfigurationElement.cs" />
     <Compile Include="Configuration\Site\SiteElement.cs" />
     <Compile Include="Data\BaseRepository.cs" />
+    <Compile Include="Data\UserClaimRepository.cs" />
+    <Compile Include="Data\RoleRepository.cs" />
     <Compile Include="Data\DatabaseFactory.cs" />
     <Compile Include="Data\DataContext.cs" />
     <Compile Include="Data\Migrations\Configuration.cs" />
-    <Compile Include="Data\RoleRepository.cs" />
     <Compile Include="Data\Seeders\MembershipDataSeeder.cs" />
     <Compile Include="Data\UnitOfWork.cs" />
-    <Compile Include="Data\UserEmailRepository.cs" />
     <Compile Include="Data\UserRepository.cs" />
-    <Compile Include="Data\UserRoleRepository.cs" />
     <Compile Include="Eventing\MessageBus.cs" />
-    <Compile Include="Migrations\201303170554487_User Claims.cs" />
-    <Compile Include="Migrations\201303170554487_User Claims.Designer.cs">
-      <DependentUpon>201303170554487_User Claims.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201303180601263_Initial.cs" />
-    <Compile Include="Migrations\201303180601263_Initial.Designer.cs">
-      <DependentUpon>201303180601263_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201303180731133_Initial.cs" />
+    <Compile Include="Migrations\201303180731133_Initial.Designer.cs">
+      <DependentUpon>201303180731133_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Photos\ImageHelper.cs" />
     <Compile Include="Photos\PhotoManager.cs" />
@@ -156,11 +151,8 @@
     <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201303170554487_User Claims.resx">
-      <DependentUpon>201303170554487_User Claims.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201303180601263_Initial.resx">
-      <DependentUpon>201303180601263_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201303180731133_Initial.resx">
+      <DependentUpon>201303180731133_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

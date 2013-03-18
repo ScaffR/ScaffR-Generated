@@ -17,7 +17,7 @@ namespace DemoApplication.Core.Model
 
     #endregion
 
-    public class UserClaim
+    public class UserClaim : DomainObject
     {
         [Key]
         [Column(Order = 1)]

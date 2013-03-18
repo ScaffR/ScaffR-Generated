@@ -11,7 +11,7 @@ namespace DemoApplication.Infrastructure.Data.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201303180601263_Initial"; }
+            get { return "201303180731133_Initial"; }
         }
         
         string IMigrationMetadata.Source

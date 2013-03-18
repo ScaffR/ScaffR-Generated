@@ -20,7 +20,6 @@ namespace DemoApplication.Core.Model
     public partial class User
     {	
 		public string PhotoId { get; set; }
-		public virtual ICollection<UserRole> Roles { get; set; }
 
         public virtual bool IsApproved { get; set; }
 
@@ -35,5 +34,6 @@ namespace DemoApplication.Core.Model
         public virtual bool IsLockedOut { get; set; }
 
         public virtual DateTime? LastPasswordChangedDate { get; set; }
+
     }
 }

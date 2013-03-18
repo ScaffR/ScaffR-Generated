@@ -23,7 +23,7 @@ namespace DemoApplication.Infrastructure.Data.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
             AutomaticMigrationDataLossAllowed = true;
         }
 

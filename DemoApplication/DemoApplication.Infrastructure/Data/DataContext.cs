@@ -56,14 +56,11 @@ namespace DemoApplication.Infrastructure.Data
             base.OnModelCreating(modelBuilder);
         }
 
-        //public DbSet<Person> People { get; set; }
+        public DbSet<UserClaim> UserClaims { get; set; }
 
         public DbSet<User> Users { get; set; }
 
         public DbSet<Role> Roles { get; set; }
 
-        public DbSet<UserRole> UserRoles { get; set; }
-
-        public DbSet<UserEmail> UserEmails { get; set; }
     }    
 }

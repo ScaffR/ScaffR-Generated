@@ -23,7 +23,6 @@ namespace DemoApplication.Controllers.Account
     public partial class AccountController : Controller
     {
         private readonly IUserService _userService;
-        private readonly IUserEmailService _userEmailService;
 
         private readonly IAuthenticationService _authenticationService;
         private readonly IMessageBus _messageBus;
@@ -32,14 +31,12 @@ namespace DemoApplication.Controllers.Account
         /// Initializes a new instance of the <see cref="AccountController"/> class.
         /// </summary>
         /// <param name="userService">The user service.</param>
-        /// <param name="userEmailService">The user email service.</param>
         /// <param name="authenticationService">The authentication service.</param>
         /// <param name="messageBus">The message bus.</param>
-        public AccountController(IUserService userService, IUserEmailService userEmailService, IAuthenticationService authenticationService, IMessageBus messageBus)
+        public AccountController(IUserService userService, IAuthenticationService authenticationService, IMessageBus messageBus)
         {
             _messageBus = messageBus;
             _userService = userService;
-            _userEmailService = userEmailService;
             _authenticationService = authenticationService;
         }       
     }
