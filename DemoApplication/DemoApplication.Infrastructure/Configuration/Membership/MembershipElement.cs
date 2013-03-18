@@ -74,7 +74,7 @@ namespace DemoApplication.Infrastructure.Configuration.Membership
             set { AccountLockoutMinutes = (int)value.TotalMinutes; }
         }
 
-        [ConfigurationProperty(ACCOUNTLOCKOUTDURATION, DefaultValue = false)]
+        [ConfigurationProperty(ACCOUNTLOCKOUTDURATION, DefaultValue = 10)]
         public int AccountLockoutMinutes
         {
             get { return (int)this[ACCOUNTLOCKOUTDURATION]; }

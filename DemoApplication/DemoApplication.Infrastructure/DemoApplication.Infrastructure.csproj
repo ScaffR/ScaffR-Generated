@@ -116,7 +116,7 @@
     <Compile Include="Data\RoleRepository.cs" />
     <Compile Include="Data\DatabaseFactory.cs" />
     <Compile Include="Data\DataContext.cs" />
-    <Compile Include="Data\Migrations\Configuration.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Data\Seeders\MembershipDataSeeder.cs" />
     <Compile Include="Data\UnitOfWork.cs" />
     <Compile Include="Data\UserRepository.cs" />
