@@ -13,9 +13,9 @@ namespace DemoApplication.Controllers.Account
     #region
 
     using System.Web.Mvc;
-    using System.Web.Security;
     using Core.Common.Membership;
     using Core.Common.Profiles;
+    using Core.Extensions;
     using Extensions.TempDataHelpers;
     using Models.Account;
 
@@ -49,20 +49,19 @@ namespace DemoApplication.Controllers.Account
                 {
                     case ChangePasswordStatus.Success:
                         
-                        TempData.AddSuccessMessage("Password was changed successfully");
-
-                        return Redirect(FormsAuthentication.DefaultUrl);
+                        TempData.AddSuccessMessage(status.GetDescription());
+                        return RedirectToAction("Index", "Home");
                         
                     case ChangePasswordStatus.InvalidPassword:
-                        ModelState.AddModelError(string.Empty, "The current password is incorrect or the new password is invalid.");
+                        ModelState.AddModelError(string.Empty, status.GetDescription());
                         break;
                     case ChangePasswordStatus.Failure:
-                        ModelState.AddModelError(string.Empty, "An unexpected error occurred.");
+                        ModelState.AddModelError(string.Empty, status.GetDescription());
                         break;
                 }
             }
 
-            ViewBag.PasswordLength = 6; // todo: this should come from a "membership" setting configuration element
+            ViewBag.PasswordLength = _membershipSetings.MinimumPasswordLength;
             return View(model);
         }
     }

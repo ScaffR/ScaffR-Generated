@@ -6,8 +6,6 @@ namespace DemoApplication.Infrastructure.Configuration.Membership
 
     public class MembershipElement : ConfigurationElement, IMembershipSettings
     {
-        public const string SectionName = "membershipReboot";
-
         private const string MULTITENANT = "multiTenant";
         private const string DEFAULTTENANT = "defaultTenant";
         private const string EMAILISUSERNAME = "emailIsUsername";
@@ -93,6 +91,13 @@ namespace DemoApplication.Infrastructure.Configuration.Membership
         {
             get { return (string)this[CONNECTIONSTRING]; }
             set { this[CONNECTIONSTRING] = value; }
+        }
+
+        [ConfigurationProperty("minPasswordLength", DefaultValue = 4)]
+        public int MinimumPasswordLength
+        {
+            get { return (int)this["minPasswordLength"]; }
+            set { this["minPasswordLength"] = value; }
         }
     }
 }

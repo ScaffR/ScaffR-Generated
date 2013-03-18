@@ -14,6 +14,7 @@ namespace DemoApplication.Controllers.Account
 
     using System.Web.Mvc;
     using Core.Interfaces.Eventing;
+    using Core.Interfaces.Membership;
     using Core.Interfaces.Service;
     using Filters;
 
@@ -26,6 +27,7 @@ namespace DemoApplication.Controllers.Account
 
         private readonly IAuthenticationService _authenticationService;
         private readonly IMessageBus _messageBus;
+        private readonly IMembershipSettings _membershipSetings;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AccountController"/> class.
@@ -33,8 +35,9 @@ namespace DemoApplication.Controllers.Account
         /// <param name="userService">The user service.</param>
         /// <param name="authenticationService">The authentication service.</param>
         /// <param name="messageBus">The message bus.</param>
-        public AccountController(IUserService userService, IAuthenticationService authenticationService, IMessageBus messageBus)
+        public AccountController(IUserService userService, IAuthenticationService authenticationService, IMessageBus messageBus, IMembershipSettings membershipSetings)
         {
+            _membershipSetings = membershipSetings;
             _messageBus = messageBus;
             _userService = userService;
             _authenticationService = authenticationService;

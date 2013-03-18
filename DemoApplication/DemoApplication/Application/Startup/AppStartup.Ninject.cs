@@ -26,6 +26,7 @@ namespace DemoApplication.Application.Startup
     using System.Web.Http;
     using Core.Interfaces.Data;
     using Core.Interfaces.Eventing;
+    using Core.Interfaces.Membership;
     using Core.Interfaces.Photos;
     using Core.Interfaces.Service;
     using Core.Interfaces.Site;
@@ -105,6 +106,7 @@ namespace DemoApplication.Application.Startup
             // settings
             kernel.Bind<ISiteSettings>().ToConstant(AppConfig.Instance.Site).InSingletonScope();
             kernel.Bind<IPhotoSettings>().ToConstant(AppConfig.Instance.Photos).InSingletonScope();
+            kernel.Bind<IMembershipSettings>().ToConstant(AppConfig.Instance.Membership).InSingletonScope();
         }
     }
 }

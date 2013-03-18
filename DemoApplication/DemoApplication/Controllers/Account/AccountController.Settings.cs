@@ -32,7 +32,7 @@ namespace DemoApplication.Controllers.Account
         /// <returns>ActionResult.</returns>
 		public ActionResult Settings()
         {
-            ViewBag.PasswordLength = System.Web.Security.Membership.MinRequiredPasswordLength;
+            ViewBag.PasswordLength = _membershipSetings.MinimumPasswordLength;
             return View();
         }
 
@@ -60,7 +60,7 @@ namespace DemoApplication.Controllers.Account
                 }           
             }
 
-            ViewBag.PasswordLength = System.Web.Security.Membership.MinRequiredPasswordLength;
+            ViewBag.PasswordLength = _membershipSetings.MinimumPasswordLength;
             return View(model);
         }
     }

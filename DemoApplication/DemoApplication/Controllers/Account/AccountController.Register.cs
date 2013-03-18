@@ -17,6 +17,7 @@ namespace DemoApplication.Controllers.Account
     using Core.Common.Membership.Events;
     using Core.Extensions;
     using Core.Model;
+    using Extensions.TempDataHelpers;
     using Extensions.UrlHelpers;
     using Filters;
     using Models.Account;
@@ -57,12 +58,20 @@ namespace DemoApplication.Controllers.Account
                 CreateUserStatus createStatus = _userService.CreateUser(user);
 
                 if (createStatus == CreateUserStatus.Success)
-                {
-                    _authenticationService.SignIn(user);
-
+                {                   
                     _messageBus.Publish(new UserCreated(user, Url.AbsoluteAction("Login", "Account")));
 
-                    return RedirectToAction("Index", "Home");
+                    if (_membershipSetings.RequireAccountVerification)
+                    {
+                        return View("Success", model);
+                    }
+                    if (_membershipSetings.AllowLoginAfterAccountCreation)
+                    {
+                        _authenticationService.SignIn(user);
+                        TempData.AddSuccessMessage("Welcome to your new account, " + user.Username + "!");                            
+                        return RedirectToAction("Index", "Home");
+                    }
+                    return View("Confirm", true);
                 }
 
                 ModelState.AddModelError(string.Empty, createStatus.GetDescription());

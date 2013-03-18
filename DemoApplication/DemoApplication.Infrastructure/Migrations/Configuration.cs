@@ -9,10 +9,11 @@
 // ***********************************************************************
 #endregion
 
-using System.Data.Entity.Migrations;
-
-namespace DemoApplication.Infrastructure.Data.Migrations
+namespace DemoApplication.Infrastructure.Migrations
 {
+    using System.Data.Entity.Migrations;
+    using Data;
+
     #region
 
     

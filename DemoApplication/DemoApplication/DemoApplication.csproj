@@ -1361,6 +1361,8 @@
     <Content Include="Views\Shared\Basic.cshtml" />
     <Content Include="Views\Account\Claims.cshtml" />
     <Content Include="Views\Components\EditorTemplates.cshtml" />
+    <Content Include="Views\Account\Success.cshtml" />
+    <Content Include="Views\Account\Confirm.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
