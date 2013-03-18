@@ -7,20 +7,15 @@
     <ul class="nav nav-tabs nav-stacked">
 
         <li>
-            <a href="@Url.Action("Profile", "Account")">User Account</a>
+            <a href="./account.html">User Account</a>
         </li>
         <li>
-            <a href="@Url.Action("Settings", "Account")">Change Password</a>
+            <a href="./change_password.html">Change Password</a>
         </li>
     </ul>
-    <form class="well form-search">
-        <input type="text" class="search-query" style="width: 200px" placeholder="type and hit the enter key">
-    </form>
-
 }
 
-<h3>Chart Using Progress Bars </h3>
-<br />
+<h4>User Signups</h4>
 <table class="table table-bordered">
     <tr>
         <td width="20%">Today</td>
@@ -32,7 +27,7 @@
                 </div>
             </div>
         </td>
-        <td width="10%">$25.00</td>
+        <td width="10%">15</td>
     </tr>
     <tr>
         <td>This Week</td>
@@ -44,7 +39,7 @@
                 </div>
             </div>
         </td>
-        <td>$550.00</td>
+        <td>45</td>
     </tr>
     <tr>
         <td>This Month</td>
@@ -56,10 +51,10 @@
                 </div>
             </div>
         </td>
-        <td>$750.00</td>
+        <td>65</td>
     </tr>
     <tr>
-        <td>Total Income</td>
+        <td>Total Signups</td>
         <td>
             <div class="progress progress-success">
                 <div class="bar" style="width: 95%;">
@@ -68,113 +63,73 @@
                 </div>
             </div>
         </td>
-        <td>$1,200.00</td>
+        <td>95</td>
     </tr>
 </table>
-<h3>Latest Transaction</h3>
-<br />
-<form>
-    <table class="table table-striped table-bordered ">
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>Date</th>
-                <th>Description</th>
-                <th>Debit</th>
-                <th>Credit</th>
-                <th>Action</th>
-                <th>
-                    <input type="checkbox" class="check_all" />
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>1</td>
-                <td width="15%"><a href="#" class="tooltip-right" title="Put Some Information Here">
-                    <i class="icon-calendar"></i>
-                    May 1, 2012
-                </a></td>
-                <td><i class="icon-file"></i>Invoice #1 </td>
-                <td>$100.00</td>
-                <td>$50.00</td>
-                <td width="15%">
-                    <div class="btn-group">
-                        <a href="#" class="tooltip-top btn" title="Detail"><i class="icon-info-sign"></i></a>
-                        <a href="#" class="tooltip-top btn" title="Edit"><i class="icon-list-alt"></i></a>
+
+<h4>User Widgets</h4>
+<div class="sortableContent">
+
+        <div class="row-fluid">
+            <div class="span4 column">
+                <div class="widget" id="sWidget_1">
+                    <div class="head">
+                        <div class="icon"><i class="icosg-gridview"></i></div>
+                        <h2>Sample block</h2>                        
                     </div>
-                </td>
-                <td width="1%">
-                    <input type="checkbox" />
-                </td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td><a href="#" class="tooltip-left" title="Put Some Information Here">
-                    <i class="icon-calendar"></i>
-                    May 2, 2012
-                </a></td>
-                <td><i class="icon-file"></i>Invoice #2</td>
-                <td>$200.00</td>
-                <td>$40.00</td>
-                <td>
-                    <div class="btn-group">
-                        <a href="#" class="tooltip-top btn" title="Detail"><i class="icon-info-sign"></i></a>
-                        <a href="#" class="tooltip-top btn" title="Edit"><i class="icon-list-alt"></i></a>
+                    <div class="block">
+                        Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia
                     </div>
-                </td>
-                <td>
-                    <input type="checkbox" />
-                </td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td><a href="#" class="tooltip-right" title="Put Some Information Here">
-                        <i class="icon-calendar"></i>
-                    May 3, 2012
-                    </a></td>
-                <td><i class="icon-file"></i>Invoice #3</td>
-                <td>$300.00</td>
-                <td>$30.00</td>
-                <td>
-                    <div class="btn-group">
-                        <a href="#" class="tooltip-top btn" title="Detail"><i class="icon-info-sign"></i></a>
-                        <a href="#" class="tooltip-top btn" title="Edit"><i class="icon-list-alt"></i></a>
+                </div>                
+                <div class="widget" id="sWidget_2">
+                    <div class="head dark">
+                        <div class="icon"><i class="icos-gridview"></i></div>
+                        <h2>Sample block</h2>                      
                     </div>
-                </td>
-                <td>
-                    <input type="checkbox" />
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <div class="pull-right">
-        <button type="button" class="delete btn btn-warning">
-            <i class="icon-white icon-trash"></i>
-            Delete Checked Box
-							
-        </button>
-    </div>
-    <div class="pagination">
-        <ul>
-            <li>
-                <a href="#">&laquo;</a>
-            </li>
-            <li class="active">
-                <a href="#">1</a>
-            </li>
-            <li>
-                <a href="#">2</a>
-            </li>
-            <li>
-                <a href="#">3</a>
-            </li>
-            <li>
-                <a href="#">4</a>
-            </li>
-            <li>
-                <a href="#">&raquo;</a>
-            </li>
-        </ul>
-    </div>
-</form>
+                    <div class="block">
+                        Ut quis lectus turpis, a pretium massa. Aliquam diam libero, ullamcorper sit amet consequat ut, rutrum a dui. Morbi hendrerit tempus lectus, non euismod mauris tempus sit amet. Curabitur sed rhoncus nibh. Maecenas fringilla ornare lorem sit amet egestas. Donec sit amet nunc diam. Cras urna dui, vestibulum feugiat luctus eu, semper vel diam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+                    </div>
+                </div>                
+            </div>
+            <div class="span4 column">
+                <div class="widget" id="sWidget_3">
+                    <div class="head dark">
+                        <div class="icon"><i class="icos-gridview"></i></div>
+                        <h2>Sample block</h2>                   
+                    </div>
+                    <div class="block">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam leo ligula, aliquam in ullamcorper sed, adipiscing vitae ligula. Morbi sed mi ipsum. Vivamus laoreet, ante eget bibendum accumsan
+                    </div>
+                </div>                
+                <div class="widget" id="sWidget_4">
+                    <div class="head simple">                        
+                        <h2>Sample block</h2>
+                    </div>
+                    <div class="block">
+                        Sed leo orci, placerat consectetur gravida a, varius in purus. Cras scelerisque lorem a lorem rutrum molestie. Nulla tincidunt diam at orci ultrices eleifend. Vestibulum metus elit, mollis sed blandit non, adipiscing ornare magna. Suspendisse eget tincidunt enim. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec vel lobortis felis.
+                    </div>
+                </div>                 
+            </div>
+            <div class="span4 column">
+                <div class="widget" id="sWidget_5">
+                    <div class="head">
+                        <div class="icon"><i class="icosg-gridview"></i></div>
+                        <h2>Sample block</h2>                      
+                    </div>
+                    <div class="block">
+                        Fusce et justo risus, sed suscipit sapien. Aenean ornare pharetra massa, ac scelerisque ligula venenatis sed. Aliquam at sapien quis magna imperdiet placerat. Ut eros orci, luctus nec tincidunt venenatis, interdum nec augue. Ut nibh tellus, sollicitudin nec aliquam ut
+                    </div>
+                </div>                
+                <div class="widget" id="sWidget_6">
+                    <div class="head dark">
+                        <div class="icon"><i class="icos-gridview"></i></div>
+                        <h2>Sample block</h2>                     
+                    </div>
+                    <div class="block">
+                        Morbi ut ligula nec eros rutrum congue quis sed diam. Sed venenatis purus ac diam scelerisque bibendum. Vestibulum euismod, nulla ut malesuada pretium, massa dolor suscipit ligula, nec laoreet metus nisl vel urna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse vestibulum pharetra interdum. Vivamus bibendum, lectus tincidunt viverra feugiat, neque risus auctor felis, ut convallis ipsum ipsum at metus.
+                    </div>
+                </div>                
+            </div>
+        </div>
+        
+    </div>  

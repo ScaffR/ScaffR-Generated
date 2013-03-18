@@ -394,6 +394,7 @@
     <Content Include="Scripts\global.js" />
     <Content Include="Scripts\global.modal.js" />
     <Content Include="Scripts\global.validation.js" />
+    <Content Include="Scripts\global.widgets.js" />
     <Content Include="Scripts\lib\bootstrap\bootstrap.js" />
     <Content Include="Scripts\lib\bootstrap\bundle.txt" />
     <Content Include="Scripts\lib\bundle.txt">
@@ -1323,6 +1324,7 @@
     <Content Include="Content\less\global\components\dropdown.less" />
     <Content Include="Content\font\museo_slab_300-webfont.ttf" />
     <Content Include="Content\less\global\components\login.less" />
+    <Content Include="Content\less\global\components\widgets.less" />
     <None Include="Properties\PublishProfiles\staging.pubxml" />
     <Content Include="Views\Users\Manager.cshtml" />
     <Content Include="Views\Users\Details.cshtml" />

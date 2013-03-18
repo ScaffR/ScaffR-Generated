@@ -22,7 +22,7 @@ namespace DemoApplication.Metadata.Attributes
             : base(DataType.PhoneNumber)
         {
             this.DefaultTextboxSize = TextboxSize.Medium;
-            this.Options.Mask = "(999) 999-9999";
+            this.Options.Mask = "(999) 999-9999? x99999";
         }
     }
 }
