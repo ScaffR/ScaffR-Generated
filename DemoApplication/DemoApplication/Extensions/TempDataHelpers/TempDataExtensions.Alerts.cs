@@ -25,13 +25,13 @@ namespace DemoApplication.Extensions.TempDataHelpers
         {
             var dataValue = tempData["AlertData"] as Dictionary<AlertLocation, Dictionary<AlertType, List<string>>>;
             if (dataValue == null)
-            {               
-                dataValue = new Dictionary<AlertLocation, Dictionary<AlertType, List<string>>>(); 
-                foreach (AlertLocation loc in Enum.GetValues(typeof (AlertLocation)))
+            {
+                dataValue = new Dictionary<AlertLocation, Dictionary<AlertType, List<string>>>();
+                foreach (AlertLocation loc in Enum.GetValues(typeof(AlertLocation)))
                 {
                     var locValues = new Dictionary<AlertType, List<string>>();
-                    
-                    foreach (AlertType alertType in Enum.GetValues(typeof (AlertType)))
+
+                    foreach (AlertType alertType in Enum.GetValues(typeof(AlertType)))
                     {
                         locValues[alertType] = new List<string>();
                     }
@@ -45,9 +45,27 @@ namespace DemoApplication.Extensions.TempDataHelpers
         public static void AddSuccessMessage(this TempDataDictionary tempData, string message,
             AlertLocation location = AlertLocation.Top)
         {
+            AddMessage(tempData, AlertType.Success, message, location);
+        }
+
+        public static void AddErrorMessage(this TempDataDictionary tempData, string message,
+            AlertLocation location = AlertLocation.Top)
+        {
+            AddMessage(tempData, AlertType.Error, message, location);
+        }
+
+        public static void AddInfoMessage(this TempDataDictionary tempData, string message,
+            AlertLocation location = AlertLocation.Top)
+        {
+            AddMessage(tempData, AlertType.Info, message, location);
+        }
+
+        private static void AddMessage(TempDataDictionary tempData, AlertType type, string message,
+            AlertLocation location)
+        {
             var alertData = tempData.InitializeAlertData();
 
-            alertData[location][AlertType.Success].Add(message);
+            alertData[location][type].Add(message);
 
             tempData["AlertData"] = alertData;
         }
@@ -55,6 +73,9 @@ namespace DemoApplication.Extensions.TempDataHelpers
 
     public enum AlertType
     {
+        [Description("alert-info")]
+        Info,
+
         [Description("alert-success")]
         Success,
 

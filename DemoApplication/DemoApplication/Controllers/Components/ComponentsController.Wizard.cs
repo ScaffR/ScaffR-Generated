@@ -40,6 +40,8 @@ namespace DemoApplication.Controllers.Components
             if (ModelState.IsValid)
             {
                 TempData.AddSuccessMessage("Model was saved successfully");
+                TempData.AddErrorMessage("Model wasn't saved successfully");
+                TempData.AddInfoMessage("This is just information");
                 return RedirectToAction("Wizard");
             }
             return View(model);
