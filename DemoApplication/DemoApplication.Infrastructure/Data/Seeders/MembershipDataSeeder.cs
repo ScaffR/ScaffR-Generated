@@ -51,20 +51,21 @@ namespace DemoApplication.Infrastructure.Data.Seeders
                         }
                 }.ForEach(u => context.Users.AddOrUpdate(u));
 
-            var existsInRole = context.UserRoles.Any(ur => ur.UserId == 1 && ur.UserId == 1);
+            /*
+            var existsInRole = context.UserClaims.Any(ur => ur.UserId == 1 && ur.UserId == 1);
                                
             if (!existsInRole)
             {
-                new List<UserRole>()
+                new List<UserClaim>()
                 {
-                    new UserRole()
+                    new UserClaim()
                         {
-                            RoleId = 1,
+                            Type = "1",
                             UserId = 1
                         }
-                }.ForEach(ur => context.UserRoles.Add(ur));
+                }.ForEach(ur => context.UserClaims.Add(ur));
             }
-
+            */
         }
     }
 }

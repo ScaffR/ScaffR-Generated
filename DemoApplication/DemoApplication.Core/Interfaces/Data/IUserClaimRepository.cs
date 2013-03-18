@@ -16,7 +16,7 @@ namespace DemoApplication.Core.Interfaces.Data
 
     #endregion
 
-    public partial interface IUserRoleRepository : IRepository<UserRole>
+    public partial interface IUserClaimRepository : IRepository<UserClaim>
     {		
 		// Add extra datainterface methods in a partial interface
 	}

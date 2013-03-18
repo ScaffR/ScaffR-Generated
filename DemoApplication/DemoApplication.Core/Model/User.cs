@@ -20,16 +20,28 @@ namespace DemoApplication.Core.Model
     [DisplayColumn("Username")]
     public partial class User : DomainObject
     {
-        public User()
-        {
-            Claims = new List<UserClaim>();
-        }
 
         [Key, Required]
         public virtual int UserId { get; set; }
 
         [Required]
         public virtual string Username { get; set; }
+
+        [Required]
+        [DataType(DataType.EmailAddress)]
+        public virtual string Email { get; set; }
+
+        [Required]
+        public virtual string FirstName { get; set; }
+        [Required]
+        public virtual string LastName { get; set; }
+
+        public Gender Gender { get; set; }
+
+        public string FullName
+        {
+            get { return FirstName + " " + LastName; }
+        }
 
         [Required, DataType(DataType.Password)]
         public virtual string Password { get; set; }
@@ -50,5 +62,11 @@ namespace DemoApplication.Core.Model
         public string PhoneNumber { get; set; }
 
         public ICollection<UserClaim> Claims { get; set; }
+
+
+        public User()
+        {
+            Claims = new List<UserClaim>();
+        }
     }
 }

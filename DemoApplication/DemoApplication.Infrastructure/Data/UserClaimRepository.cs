@@ -17,9 +17,9 @@ namespace DemoApplication.Infrastructure.Data
 
     #endregion
 
-    public partial class UserRoleRepository : BaseRepository<UserRole>, IUserRoleRepository
+    public partial class UserClaimRepository : BaseRepository<UserClaim>, IUserClaimRepository
     {
-		public UserRoleRepository(IDatabaseFactory databaseFactory)
+        public UserClaimRepository(IDatabaseFactory databaseFactory)
 	        : base(databaseFactory)
 	    {
 	    }
