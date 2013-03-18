@@ -16,8 +16,8 @@ namespace DemoApplication.Controllers.Account
     using System.Web.Mvc;
     using Core.Common.Photos;
     using Core.Common.Profiles;
-    using Extensions;
     using Extensions.ModelStateHelpers;
+    using Extensions.TempDataHelpers;
     using Infrastructure.Photos;
 
     #endregion
@@ -61,7 +61,7 @@ namespace DemoApplication.Controllers.Account
 
             if (ModelState.Process(_userService.SaveOrUpdate(user)))
             {
-                TempData["Success"] = "Profile photo was successfully updated";
+                TempData.AddSuccessMessage("Profile photo was successfully updated");
                 return RedirectToAction("Photo");
             }
             return View();

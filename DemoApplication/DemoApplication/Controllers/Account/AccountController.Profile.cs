@@ -15,8 +15,8 @@ namespace DemoApplication.Controllers.Account
     using System;
     using System.Web.Mvc;
     using Core.Common.Profiles;
-    using Extensions;
     using Extensions.ModelStateHelpers;
+    using Extensions.TempDataHelpers;
     using Models.Account;
     using Omu.ValueInjecter;
 
@@ -59,7 +59,7 @@ namespace DemoApplication.Controllers.Account
 
                     if (ModelState.Process(result))
                     {
-                        TempData["Success"] = "User was successfully updated.";
+                        TempData.AddSuccessMessage("User was successfully updated.");
                         return RedirectToAction("Profile");
                     }                    
                 }

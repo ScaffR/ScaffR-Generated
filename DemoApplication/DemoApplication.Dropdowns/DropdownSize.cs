@@ -10,7 +10,11 @@
 #endregion
 namespace DemoApplication.Dropdowns
 {
+    #region
+
     using System.ComponentModel;
+
+    #endregion
 
     public enum DropdownSize
     {

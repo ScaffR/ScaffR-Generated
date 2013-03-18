@@ -13,6 +13,7 @@ namespace DemoApplication.Controllers.Components
     #region
 
     using System.Web.Mvc;
+    using Extensions.TempDataHelpers;
     using Models.Components;
 
     #endregion
@@ -38,7 +39,7 @@ namespace DemoApplication.Controllers.Components
         {
             if (ModelState.IsValid)
             {
-                TempData["Success"] = "Model was saved successfully";
+                TempData.AddSuccessMessage("Model was saved successfully");
                 return RedirectToAction("Wizard");
             }
             return View(model);

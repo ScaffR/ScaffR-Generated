@@ -13,8 +13,8 @@ namespace DemoApplication.Controllers.Users
     #region
 
     using System.Web.Mvc;
-    using Extensions;
     using Extensions.ModelStateHelpers;
+    using Extensions.TempDataHelpers;
     using Models.Users;
     using Omu.ValueInjecter;
     using Security.Authorization;
@@ -60,7 +60,7 @@ namespace DemoApplication.Controllers.Users
                 
                 if (ModelState.Process(UserService.SaveOrUpdate(user)))
                 {
-                    TempData["Success"] = "User was successfully updated";
+                    TempData.AddSuccessMessage("User was successfully updated");
                     return RedirectToAction("Manager", "Users");
                 }                
             }

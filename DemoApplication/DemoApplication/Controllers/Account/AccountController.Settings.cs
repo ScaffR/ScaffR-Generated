@@ -16,6 +16,7 @@ namespace DemoApplication.Controllers.Account
     using Core.Common.Membership;
     using Core.Common.Profiles;
     using Core.Extensions;
+    using Extensions.TempDataHelpers;
     using Models.Account;
 
     #endregion
@@ -50,7 +51,7 @@ namespace DemoApplication.Controllers.Account
                 switch (status)
                 {
                     case ChangePasswordStatus.Success:
-                        TempData["Success"] = status.GetDescription();
+                        TempData.AddSuccessMessage(status.GetDescription());
                         break;
                     case ChangePasswordStatus.Failure:
                     case ChangePasswordStatus.InvalidPassword:

@@ -16,6 +16,7 @@ namespace DemoApplication.Controllers.Account
     using System.Web.Security;
     using Core.Common.Membership;
     using Core.Common.Profiles;
+    using Extensions.TempDataHelpers;
     using Models.Account;
 
     #endregion
@@ -48,7 +49,7 @@ namespace DemoApplication.Controllers.Account
                 {
                     case ChangePasswordStatus.Success:
                         
-                        TempData["Success"] = "Password was changed successfully";
+                        TempData.AddSuccessMessage("Password was changed successfully");
 
                         return Redirect(FormsAuthentication.DefaultUrl);
                         

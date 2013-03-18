@@ -10,7 +10,11 @@
 #endregion
 namespace DemoApplication.Metadata.Attributes
 {
+    #region
+
     using System.ComponentModel;
+
+    #endregion
 
     /// <summary>
     /// Enum TextboxSize

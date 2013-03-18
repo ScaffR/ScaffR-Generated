@@ -210,6 +210,8 @@
     <Compile Include="Controllers\Home\HomeController.Admin.cs" />
     <Compile Include="Controllers\Users\UsersController.History.cs" />
     <Compile Include="Controllers\Users\UsersController.Security.cs" />
+    <Compile Include="Extensions\HtmlHelpers\HtmlExtensions.Alerts.cs" />
+    <Compile Include="Extensions\StringHelpers\StringExtensions.cs" />
     <Compile Include="Extensions\SitemapHelpers\SiteMapNodeModelExtensions.cs" />
     <Compile Include="Extensions\TempDataHelpers\TempDataExtensions.Alerts.cs" />
     <Compile Include="Filters\ShowMainMenu.cs" />

@@ -14,6 +14,7 @@ namespace DemoApplication.Controllers.Components
 
     using System.Web.Mvc;
     using Core.Common.Geography;
+    using Extensions.TempDataHelpers;
     using Models.Common;
 
     #endregion
@@ -45,7 +46,7 @@ namespace DemoApplication.Controllers.Components
         {
             if (ModelState.IsValid)
             {
-                TempData["Success"] = "Location was successfully submitted";
+                TempData.AddSuccessMessage("Location was successfully submitted");
             }
             return View(model);
         }

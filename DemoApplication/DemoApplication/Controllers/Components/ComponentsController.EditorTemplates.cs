@@ -13,6 +13,7 @@ namespace DemoApplication.Controllers.Components
     #region
 
     using System.Web.Mvc;
+    using Extensions.TempDataHelpers;
     using Models.Components;
 
     #endregion
@@ -43,7 +44,7 @@ namespace DemoApplication.Controllers.Components
         {
             if (ModelState.IsValid)
             {
-                TempData["Success"] = "This was a success";
+                TempData.AddSuccessMessage("This was a success");
                 return RedirectToAction("EditorTemplates");
             }
             return View(model);

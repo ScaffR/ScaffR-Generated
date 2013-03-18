@@ -20,7 +20,6 @@ namespace DemoApplication.Areas.Api.Controllers
     using System.Web.Http;
     using Core.Interfaces.Service;
     using Core.Model;
-    using Extensions;
     using Extensions.ModelStateHelpers;
 
     #endregion

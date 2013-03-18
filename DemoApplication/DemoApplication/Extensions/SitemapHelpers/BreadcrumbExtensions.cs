@@ -16,7 +16,7 @@ namespace DemoApplication.Extensions.SitemapHelpers
     using System.Web;
     using System.Web.Mvc;
     using System.Web.Mvc.Html;
-    using DemoApplication.Models.Sitemap;
+    using Models.Sitemap;
     using MvcSiteMapProvider;
     using MvcSiteMapProvider.Web.Html;
 

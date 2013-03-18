@@ -1,16 +1,2 @@
-﻿@if (TempData["Success"] != null)
-{            
-    <div class="container-fluid">
-        <div class="alert alert-success">
-            @TempData["Success"]
-        </div>
-    </div>         
-}
-@if (TempData["Error"] != null)
-{                
-    <div class="container-fluid">
-        <div class="alert alert-danger">
-            @TempData["Error"]
-        </div>
-    </div>
-}
+﻿@using DemoApplication.Extensions.TempDataHelpers
+@Html.GetAlerts(AlertType.Success, AlertLocation.Top)

@@ -1,4 +1,4 @@
-#region credits
+﻿#region credits
 // ***********************************************************************
 // Assembly	: DemoApplication
 // Author	: Rod Johnson
@@ -8,7 +8,7 @@
 // Last Modified On : 03-17-2013
 // ***********************************************************************
 #endregion
-namespace DemoApplication.Controllers.Account
+namespace DemoApplication.Extensions.StringHelpers
 {
     #region
 
@@ -16,19 +16,11 @@ namespace DemoApplication.Controllers.Account
 
     #endregion
 
-    /// <summary>
-    /// Class AccountController
-    /// </summary>
-    public partial class AccountController
+    public static class StringExtensions
     {
-        /// <summary>
-        /// List's the current user's claims.
-        /// </summary>
-        /// <returns>ActionResult.</returns>
-        public ActionResult Claims()
+        public static MvcHtmlString ToMvcHtmlString(this string value)
         {
-            return View();
+            return new MvcHtmlString(value);
         }
-
     }
 }

@@ -17,10 +17,8 @@ namespace DemoApplication.Controllers.Account
     using Core.Common.Membership.Events;
     using Core.Extensions;
     using Core.Model;
-    using Extensions;
     using Extensions.UrlHelpers;
     using Filters;
-    using Infrastructure.Eventing;
     using Models.Account;
     using Omu.ValueInjecter;
 

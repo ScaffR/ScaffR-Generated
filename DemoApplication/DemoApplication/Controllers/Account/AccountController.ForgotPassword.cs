@@ -15,8 +15,8 @@ namespace DemoApplication.Controllers.Account
     using System;
     using System.Linq;
     using System.Web.Mvc;
-    using Extensions;
     using Extensions.ModelStateHelpers;
+    using Extensions.TempDataHelpers;
     using Extensions.UrlHelpers;
     using Mailers;
     using Models.Account;
@@ -69,7 +69,6 @@ namespace DemoApplication.Controllers.Account
                         if (!ModelState.Process(_userService.SaveOrUpdate(user)))
                             return View();                        
 
-
                         var loginUrl = Url.AbsoluteAction("Login", "Account");
 
                         new Mailer().ForgotPassword(new ForgotPasswordResetModel()
@@ -82,7 +81,7 @@ namespace DemoApplication.Controllers.Account
                         }).Send();
 
                         // send email
-                        TempData["Success"] = "An email was sent to your account with password reset instructions";
+                        TempData.AddSuccessMessage("An email was sent to your account with password reset instructions");
                     }
                     catch (Exception ex)
                     {

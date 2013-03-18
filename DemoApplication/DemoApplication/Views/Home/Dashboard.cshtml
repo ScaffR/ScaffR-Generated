@@ -1,30 +1,16 @@
 @{
     ViewBag.Title = "My Dashboard";
     ViewBag.ShowMainMenu = true;
-    }
+}
 
 @section LeftColumn{
     <ul class="nav nav-tabs nav-stacked">
-        <li class="active">
-            <a href="./dash.html">Dashboard <span class="label label-warning pull-right">1</span></a>
-        </li>
-        <li>
-            <a href="./table.html">Table</a>
-        </li>
-        <li>
-            <a href="./form.html">Form</a>
-        </li>
-        <li>
-            <a href="./tab.html">Tabular &amp; Accordion</a>
-        </li>
-    </ul>
-    <ul class="nav nav-tabs nav-stacked">
 
         <li>
-            <a href="./account.html">User Account</a>
+            <a href="@Url.Action("Profile", "Account")">User Account</a>
         </li>
         <li>
-            <a href="./change_password.html">Change Password</a>
+            <a href="@Url.Action("Settings", "Account")">Change Password</a>
         </li>
     </ul>
     <form class="well form-search">
@@ -105,7 +91,10 @@
         <tbody>
             <tr>
                 <td>1</td>
-                <td width="15%"><a href="#" class="tooltip-right" title="Put Some Information Here"><i class="icon-calendar"></i>May 1, 2012</a></td>
+                <td width="15%"><a href="#" class="tooltip-right" title="Put Some Information Here">
+                    <i class="icon-calendar"></i>
+                    May 1, 2012
+                </a></td>
                 <td><i class="icon-file"></i>Invoice #1 </td>
                 <td>$100.00</td>
                 <td>$50.00</td>
@@ -121,7 +110,10 @@
             </tr>
             <tr>
                 <td>2</td>
-                <td><a href="#" class="tooltip-left" title="Put Some Information Here"><i class="icon-calendar"></i>May 2, 2012</a></td>
+                <td><a href="#" class="tooltip-left" title="Put Some Information Here">
+                    <i class="icon-calendar"></i>
+                    May 2, 2012
+                </a></td>
                 <td><i class="icon-file"></i>Invoice #2</td>
                 <td>$200.00</td>
                 <td>$40.00</td>
@@ -137,7 +129,10 @@
             </tr>
             <tr>
                 <td>3</td>
-                <td><a href="#" class="tooltip-right" title="Put Some Information Here"><i class="icon-calendar"></i>May 3, 2012</a></td>
+                <td><a href="#" class="tooltip-right" title="Put Some Information Here">
+                        <i class="icon-calendar"></i>
+                    May 3, 2012
+                    </a></td>
                 <td><i class="icon-file"></i>Invoice #3</td>
                 <td>$300.00</td>
                 <td>$30.00</td>
@@ -155,7 +150,8 @@
     </table>
     <div class="pull-right">
         <button type="button" class="delete btn btn-warning">
-            <i class="icon-white icon-trash"></i>Delete Checked Box
+            <i class="icon-white icon-trash"></i>
+            Delete Checked Box
 							
         </button>
     </div>

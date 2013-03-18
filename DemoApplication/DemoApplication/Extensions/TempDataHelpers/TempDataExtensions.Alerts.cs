@@ -1,8 +1,8 @@
-﻿#region credits
+#region credits
 // ***********************************************************************
 // Assembly	: DemoApplication
 // Author	: Rod Johnson
-// Created	: 03-16-2013
+// Created	: 03-17-2013
 // 
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-17-2013
@@ -12,32 +12,53 @@ namespace DemoApplication.Extensions.TempDataHelpers
 {
     #region
 
+    using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.Web.Mvc;
 
     #endregion
 
-    public static class TempDataExtensions
+    public static partial class TempDataDictionaryExtensions
     {
-        public static void Success(this TempDataDictionary dictionary, ViewContext context, string message,
+        public static Dictionary<AlertLocation, Dictionary<AlertType, List<string>>> InitializeAlertData(this TempDataDictionary tempData)
+        {
+            var dataValue = tempData["AlertData"] as Dictionary<AlertLocation, Dictionary<AlertType, List<string>>>;
+            if (dataValue == null)
+            {               
+                dataValue = new Dictionary<AlertLocation, Dictionary<AlertType, List<string>>>(); 
+                foreach (AlertLocation loc in Enum.GetValues(typeof (AlertLocation)))
+                {
+                    var locValues = new Dictionary<AlertType, List<string>>();
+                    
+                    foreach (AlertType alertType in Enum.GetValues(typeof (AlertType)))
+                    {
+                        locValues[alertType] = new List<string>();
+                    }
+                    dataValue.Add(loc, locValues);
+                }
+                tempData["AlertData"] = dataValue;
+            }
+            return dataValue;
+        }
+
+        public static void AddSuccessMessage(this TempDataDictionary tempData, string message,
             AlertLocation location = AlertLocation.Top)
         {
-            var viewbag = context.Controller.ViewBag;
+            var alertData = tempData.InitializeAlertData();
 
-            var alertData = viewbag.AlertData as Dictionary<AlertLocation, Dictionary<AlertType, string>>;
-            if (alertData == null)
-                viewbag.AlertData = alertData = new Dictionary<AlertLocation, Dictionary<AlertType, string>>();
+            alertData[location][AlertType.Success].Add(message);
 
-            if (alertData[location] == null)
-                alertData[location] = new Dictionary<AlertType, string>();
-
-            alertData[location].Add(AlertType.Success, message);
+            tempData["AlertData"] = alertData;
         }
     }
 
     public enum AlertType
     {
+        [Description("alert-success")]
         Success,
+
+        [Description("alert-error")]
         Error
     }
 
