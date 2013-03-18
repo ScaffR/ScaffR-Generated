@@ -237,7 +237,6 @@
     <Compile Include="Extensions\ModelMetadataHelpers\ModelMetadataExtensions.Textboxes.cs" />
     <Compile Include="Extensions\ModelMetadataHelpers\ModelMetadataExtensions.Predicates.cs" />
     <Compile Include="Extensions\ModelStateHelpers\ModelStateExtensions.cs" />
-    <Compile Include="Extensions\SelectListHelpers\SelectListExtensions.cs" />
     <Compile Include="Extensions\HtmlHelpers\HtmlExtensions.Conditionals.cs" />
     <Compile Include="Extensions\SitemapHelpers\BreadcrumbExtensions.cs" />
     <Compile Include="Extensions\SitemapHelpers\MainMenuExtensions.cs" />
