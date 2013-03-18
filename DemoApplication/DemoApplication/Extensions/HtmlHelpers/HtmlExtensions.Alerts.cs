@@ -35,9 +35,20 @@ namespace DemoApplication.Extensions.HtmlHelpers
                 {
                     var builder = new TagBuilder("div");
                     builder.AddCssClass("alert");
+                    builder.AddCssClass("in");
+                    builder.AddCssClass("fade");
                     builder.AddCssClass(alertType.GetDescription());
 
                     builder.SetInnerText(message);
+
+                    var closeButton = new TagBuilder("a");
+                    closeButton.AddCssClass("close");
+                    closeButton.MergeAttribute("data-dismiss", "alert");
+                    closeButton.MergeAttribute("href", "#");
+                    closeButton.InnerHtml += "&times;";
+
+                    builder.InnerHtml += closeButton.ToString(TagRenderMode.Normal);
+
                     outerBuilder.InnerHtml += builder.ToString(TagRenderMode.Normal);
                 }
                 return outerBuilder.ToString(TagRenderMode.Normal).ToMvcHtmlString();
