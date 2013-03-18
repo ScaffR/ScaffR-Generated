@@ -23,7 +23,7 @@ namespace DemoApplication.Core.Model
         [Required]
         public string EmailAddress { get; set; }
 
-        [Required]
+        [Key, Required]
         public int UserId { get; set; }
 
         [ForeignKey("UserId")]        

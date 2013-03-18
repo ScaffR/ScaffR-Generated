@@ -28,7 +28,7 @@ namespace DemoApplication.Areas.Api.Controllers
     {
         protected IService<T> Service;
 
-        public virtual HttpResponseMessage Get(int id)
+        public virtual HttpResponseMessage Get(object id)
         {
             T item = Service.GetById(id);
             var response = Request.CreateResponse(HttpStatusCode.Created, item);
@@ -45,7 +45,7 @@ namespace DemoApplication.Areas.Api.Controllers
             return Service.GetAll();
         }
 
-        public virtual void Delete(int id)
+        public virtual void Delete(object id)
         {
             T entity = Service.GetById(id);
             Service.Delete(entity);

@@ -32,14 +32,20 @@ namespace DemoApplication.Core.Interfaces.Data
 
         IQueryable<T> GetAllReadOnly();
 
-        T GetById(int id);
+        T GetById(object id);
 
         void SaveOrUpdate(T entity);
 
         void Delete(T entity);
 
+        void BulkDelete(List<object> keys);
+
         IEnumerable<T> Find(Expression<Func<T, bool>> expression, int maxHits = 100);
 
         IPage<T> Page(int page = 1, int pageSize = 10);
+
+        long Count();
+
+        long Count(Expression<Func<T, bool>> expression);
     }
 }

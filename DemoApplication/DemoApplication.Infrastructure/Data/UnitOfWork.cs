@@ -8,6 +8,9 @@
 // Last Modified On : 03-17-2013
 // ***********************************************************************
 #endregion
+
+using System.ComponentModel.DataAnnotations;
+
 namespace DemoApplication.Infrastructure.Data
 {
     #region
@@ -56,7 +59,8 @@ namespace DemoApplication.Infrastructure.Data
 
         public static bool IsPersistent(DomainObject entity)
         {
-            return entity.Id != 0;
+            var keyAttributedProps = entity.GetType().GetProperties().FirstOrDefault(p => p.GetCustomAttributes(typeof(KeyAttribute), true).Length == 1);
+            return (keyAttributedProps != null) && !keyAttributedProps.GetValue(entity, null).ToString().Equals("0");
         }
 
         public int Commit()

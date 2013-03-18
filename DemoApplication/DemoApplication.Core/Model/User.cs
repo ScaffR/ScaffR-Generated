@@ -18,12 +18,15 @@ namespace DemoApplication.Core.Model
     #endregion
 
     [DisplayColumn("Username")]
-    public partial class User : Person
+    public partial class User : DomainObject
     {
         public User()
         {
-            this.Claims = new List<UserClaim>();
+            Claims = new List<UserClaim>();
         }
+
+        [Key, Required]
+        public virtual int UserId { get; set; }
 
         [Required]
         public virtual string Username { get; set; }

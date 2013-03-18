@@ -32,7 +32,8 @@ namespace DemoApplication.Core.Interfaces.Service
         IQueryable<T> GetAllReadOnly();
 
         [OperationContract]
-        T GetById(int id);
+        T GetById(object id);
+
 
         [OperationContract]
         IValidationContainer<T> SaveOrUpdate(T entity);
@@ -41,9 +42,18 @@ namespace DemoApplication.Core.Interfaces.Service
         void Delete(T entity);
 
         [OperationContract]
+        void BulkDelete(List<object> keys);
+
+        [OperationContract]
         IEnumerable<T> Find(Expression<Func<T, bool>> expression, int maxHits = 100);
 
         [OperationContract]
         IPage<T> Page(int page = 1, int pageSize = 10);
+
+        [OperationContract]
+        long Count();
+
+        [OperationContract]
+        long Count(Expression<Func<T, bool>> expression);
     }
 }

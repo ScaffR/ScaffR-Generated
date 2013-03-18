@@ -114,16 +114,7 @@
     <Compile Include="Data\BaseRepository.cs" />
     <Compile Include="Data\DatabaseFactory.cs" />
     <Compile Include="Data\DataContext.cs" />
-    <Compile Include="Data\Migrations\201211202232558_Membership Added.cs" />
-    <Compile Include="Data\Migrations\201211202232558_Membership Added.Designer.cs">
-      <DependentUpon>201211202232558_Membership Added.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Data\Migrations\201211221854230_User changes.cs" />
-    <Compile Include="Data\Migrations\201211221854230_User changes.Designer.cs">
-      <DependentUpon>201211221854230_User changes.cs</DependentUpon>
-    </Compile>
     <Compile Include="Data\Migrations\Configuration.cs" />
-    <Compile Include="Data\PersonRepository.cs" />
     <Compile Include="Data\RoleRepository.cs" />
     <Compile Include="Data\Seeders\MembershipDataSeeder.cs" />
     <Compile Include="Data\UnitOfWork.cs" />
@@ -134,6 +125,10 @@
     <Compile Include="Migrations\201303170554487_User Claims.cs" />
     <Compile Include="Migrations\201303170554487_User Claims.Designer.cs">
       <DependentUpon>201303170554487_User Claims.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201303180601263_Initial.cs" />
+    <Compile Include="Migrations\201303180601263_Initial.Designer.cs">
+      <DependentUpon>201303180601263_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Photos\ImageHelper.cs" />
     <Compile Include="Photos\PhotoManager.cs" />
@@ -161,14 +156,11 @@
     <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Data\Migrations\201211202232558_Membership Added.resx">
-      <DependentUpon>201211202232558_Membership Added.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Data\Migrations\201211221854230_User changes.resx">
-      <DependentUpon>201211221854230_User changes.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201303170554487_User Claims.resx">
       <DependentUpon>201303170554487_User Claims.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201303180601263_Initial.resx">
+      <DependentUpon>201303180601263_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -92,8 +92,8 @@ namespace DemoApplication.Application.Startup
             kernel.Bind<IMessageBus>().ToConstant(MessageBus.Instance).InSingletonScope();
 
             // services/repositories
-            kernel.Bind<IPersonService>().To<PersonService>().InRequestScope();
-            kernel.Bind<IPersonRepository>().To<PersonRepository>().InRequestScope();
+            //kernel.Bind<IPersonService>().To<PersonService>().InRequestScope();
+            //kernel.Bind<IPersonRepository>().To<PersonRepository>().InRequestScope();
             kernel.Bind<IUserService>().To<UserService>().InRequestScope();
             kernel.Bind<IUserRepository>().To<UserRepository>().InRequestScope();
             kernel.Bind<IRoleService>().To<RoleService>().InRequestScope();

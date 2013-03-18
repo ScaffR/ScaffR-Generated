@@ -8,12 +8,14 @@
 // Last Modified On : 03-17-2013
 // ***********************************************************************
 #endregion
-namespace DemoApplication.Infrastructure.Migrations
+
+using System.Data.Entity.Migrations;
+
+namespace DemoApplication.Infrastructure.Data.Migrations
 {
     #region
 
-    using System.Data.Entity.Migrations;
-    using Data;
+    
 
     #endregion
 
@@ -21,7 +23,7 @@ namespace DemoApplication.Infrastructure.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
             AutomaticMigrationDataLossAllowed = true;
         }
 
@@ -32,7 +34,7 @@ namespace DemoApplication.Infrastructure.Migrations
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data. E.g.
             //
-            //    context.People.AddOrUpdate(
+            //    context.Users.AddOrUpdate(
             //      p => p.FullName,
             //      new Person { FullName = "Andrew Peters" },
             //      new Person { FullName = "Brice Lambson" },

@@ -1,22 +1,9 @@
-#region credits
-// ***********************************************************************
-// Assembly	: DemoApplication.Infrastructure
-// Author	: Rod Johnson
-// Created	: 03-16-2013
-// 
-// Last Modified By : Rod Johnson
-// Last Modified On : 03-17-2013
-// ***********************************************************************
-#endregion
 namespace DemoApplication.Infrastructure.Data.Migrations
 {
-    #region
-
+    using System;
     using System.Data.Entity.Migrations;
-
-    #endregion
-
-    public partial class MembershipAdded : DbMigration
+    
+    public partial class Initial : DbMigration
     {
         public override void Up()
         {
@@ -29,26 +16,39 @@ namespace DemoApplication.Infrastructure.Data.Migrations
                         FirstName = c.String(nullable: false),
                         LastName = c.String(nullable: false),
                         Gender = c.Int(nullable: false),
-                        Created = c.DateTime(),
-                        RowVersion = c.Binary(),
-                        Updated = c.DateTime(),
-                        Username = c.String(),
-                        Password = c.String(),
+                        Username = c.String(nullable: false),
+                        Password = c.String(nullable: false),
                         Comment = c.String(),
-                        ResetPassword = c.Boolean(),
-                        ShowWelcomePage = c.Boolean(),
+                        ResetPassword = c.Boolean(nullable: false),
+                        ShowWelcomePage = c.Boolean(nullable: false),
                         TemporaryPassword = c.String(),
+                        Address = c.String(nullable: false),
+                        PhoneNumber = c.String(nullable: false),
                         PhotoId = c.String(),
-                        IsApproved = c.Boolean(),
-                        PasswordFailuresSinceLastSuccess = c.Int(),
+                        IsApproved = c.Boolean(nullable: false),
+                        PasswordFailuresSinceLastSuccess = c.Int(nullable: false),
                         LastPasswordFailureDate = c.DateTime(),
                         LastActivityDate = c.DateTime(),
                         LastLoginDate = c.DateTime(),
-                        IsLockedOut = c.Boolean(),
+                        IsLockedOut = c.Boolean(nullable: false),
                         LastPasswordChangedDate = c.DateTime(),
-                        Discriminator = c.String(nullable: false, maxLength: 128),
+                        Created = c.DateTime(),
+                        RowVersion = c.Binary(),
+                        Updated = c.DateTime(),
                     })
                 .PrimaryKey(t => t.UserId);
+            
+            CreateTable(
+                "dbo.UserClaims",
+                c => new
+                    {
+                        UserId = c.Int(nullable: false),
+                        Type = c.String(nullable: false, maxLength: 150),
+                        Value = c.String(nullable: false, maxLength: 150),
+                    })
+                .PrimaryKey(t => new { t.UserId, t.Type, t.Value })
+                .ForeignKey("dbo.Users", t => t.UserId)
+                .Index(t => t.UserId);
             
             CreateTable(
                 "dbo.UserRoles",
@@ -83,7 +83,7 @@ namespace DemoApplication.Infrastructure.Data.Migrations
                 "dbo.UserEmails",
                 c => new
                     {
-                        UserId = c.Int(nullable: false, identity: true),
+                        UserId = c.Int(nullable: false),
                         EmailAddress = c.String(nullable: false),
                         Created = c.DateTime(),
                         RowVersion = c.Binary(),
@@ -100,12 +100,15 @@ namespace DemoApplication.Infrastructure.Data.Migrations
             DropIndex("dbo.UserEmails", new[] { "UserId" });
             DropIndex("dbo.UserRoles", new[] { "RoleId" });
             DropIndex("dbo.UserRoles", new[] { "UserId" });
+            DropIndex("dbo.UserClaims", new[] { "UserId" });
             DropForeignKey("dbo.UserEmails", "UserId", "dbo.Users");
             DropForeignKey("dbo.UserRoles", "RoleId", "dbo.Roles");
             DropForeignKey("dbo.UserRoles", "UserId", "dbo.Users");
+            DropForeignKey("dbo.UserClaims", "UserId", "dbo.Users");
             DropTable("dbo.UserEmails");
             DropTable("dbo.Roles");
             DropTable("dbo.UserRoles");
+            DropTable("dbo.UserClaims");
             DropTable("dbo.Users");
         }
     }

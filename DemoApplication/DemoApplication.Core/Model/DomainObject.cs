@@ -8,6 +8,12 @@
 // Last Modified On : 03-17-2013
 // ***********************************************************************
 #endregion
+
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Web.Script.Serialization;
+using System.Xml.Serialization;
+
 namespace DemoApplication.Core.Model
 {
     #region
@@ -20,7 +26,17 @@ namespace DemoApplication.Core.Model
 
     public abstract class DomainObject : IValidatableObject
     {
-        public int Id { get; set; }
+        [NotMapped]
+        [ScriptIgnore, XmlIgnore]
+        public object Id
+        {
+            get
+            {
+                var keyAttributedProps = GetType().GetProperties().FirstOrDefault(p => p.GetCustomAttributes(typeof(KeyAttribute), true).Length == 1);
+                return (keyAttributedProps != null) ? keyAttributedProps.GetValue(this, null) : "0";
+            }
+            set { }
+        }
 
         public DateTime? Created { get; set; }
 

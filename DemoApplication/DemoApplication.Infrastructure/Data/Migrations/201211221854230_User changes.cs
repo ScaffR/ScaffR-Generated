@@ -20,14 +20,14 @@ namespace DemoApplication.Infrastructure.Data.Migrations
     {
         public override void Up()
         {
-            AddColumn("dbo.People", "Address", c => c.String());
-            AddColumn("dbo.People", "PhoneNumber", c => c.String());
+            AddColumn("dbo.Users", "Address", c => c.String());
+            AddColumn("dbo.Users", "PhoneNumber", c => c.String());
         }
         
         public override void Down()
         {
-            DropColumn("dbo.People", "PhoneNumber");
-            DropColumn("dbo.People", "Address");
+            DropColumn("dbo.Users", "PhoneNumber");
+            DropColumn("dbo.Users", "Address");
         }
     }
 }

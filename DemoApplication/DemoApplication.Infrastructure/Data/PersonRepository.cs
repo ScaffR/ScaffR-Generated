@@ -17,7 +17,7 @@ namespace DemoApplication.Infrastructure.Data
 
     #endregion
 
-    public partial class PersonRepository : BaseRepository<Person>, IPersonRepository
+    public partial class PersonRepository : BaseRepository<User>, IPersonRepository
     {
 		public PersonRepository(IDatabaseFactory databaseFactory)
 	        : base(databaseFactory)

@@ -19,15 +19,17 @@ namespace DemoApplication.Core.Model
     #endregion
 
     public partial class UserRole : DomainObject
-    {        
+    {
         [Required]
+        [Key, Column(Order = 0)]
         public int UserId { get; set; }
         
         [ForeignKey("UserId")]
 		[JsonIgnore]
         public virtual User User { get; set; }
-        
+
         [Required]
+        [Key, Column(Order = 1)]
         public int RoleId { get; set; }
         
         [ForeignKey("RoleId")]

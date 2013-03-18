@@ -28,7 +28,7 @@ namespace DemoApplication.Infrastructure.Data.Seeders
                 {
                     new Role()
                         {
-                            Id = 1,
+                            RoleId = 1,
                             RoleName = "Super Admin"
                         }
                 }.ForEach(a => context.Roles.AddOrUpdate(a));
@@ -37,7 +37,7 @@ namespace DemoApplication.Infrastructure.Data.Seeders
                 {
                     new User()
                         {
-                            Id = 1,
+                            UserId = 1,
                             Email = "webmaster@scaffr.com",
                             Username = "admin",
                             FirstName = "Rod",
