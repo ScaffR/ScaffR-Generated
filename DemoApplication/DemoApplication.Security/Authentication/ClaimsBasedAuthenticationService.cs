@@ -8,6 +8,9 @@
 // Last Modified On : 03-17-2013
 // ***********************************************************************
 #endregion
+
+using DemoApplication.Core.Model;
+
 namespace DemoApplication.Security.Authentication
 {
     #region
@@ -34,29 +37,25 @@ namespace DemoApplication.Security.Authentication
             this.userService = userService;
         }
 
-        public virtual void SignIn(string username)
+        public virtual void SignIn(User user)
         {
-            Tracing.Information(String.Format("[ClaimsBasedAuthenticationService.Signin] called: {0}", username));
+            Tracing.Information(String.Format("[ClaimsBasedAuthenticationService.Signin] called: {0}", user.Username));
 
-            if (String.IsNullOrWhiteSpace(username)) throw new ArgumentException("username");
-
-            // find user
-            var account = this.userService.GetByUsername(username);
-            if (account == null) throw new ArgumentException("Invalid username");
+            if (String.IsNullOrWhiteSpace(user.Username)) throw new ArgumentException("username");
 
             // gather claims
             var claims =
-                (from uc in account.Claims
+                (from uc in user.Claims
                  select new Claim(uc.Type, uc.Value)).ToList();
 
-            if (!String.IsNullOrWhiteSpace(account.Email))
+            if (!String.IsNullOrWhiteSpace(user.Email))
             {
-                claims.Insert(0, new Claim(ClaimTypes.Email, account.Email));
+                claims.Insert(0, new Claim(ClaimTypes.Email, user.Email));
             }
             claims.Insert(0, new Claim(ClaimTypes.AuthenticationMethod, AuthenticationMethods.Password));
             claims.Insert(0, new Claim(ClaimTypes.AuthenticationInstant, DateTime.UtcNow.ToString("s")));
-            claims.Insert(0, new Claim(ClaimTypes.Name, account.Username));
-            claims.Insert(0, new Claim(ClaimTypes.NameIdentifier, account.Username));
+            claims.Insert(0, new Claim(ClaimTypes.Name, user.Username));
+            claims.Insert(0, new Claim(ClaimTypes.NameIdentifier, user.Username));
 
             // create principal/identity
             var id = new ClaimsIdentity(claims, "Forms");

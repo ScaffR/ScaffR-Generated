@@ -8,6 +8,9 @@
 // Last Modified On : 03-17-2013
 // ***********************************************************************
 #endregion
+
+using System.Linq.Expressions;
+
 namespace DemoApplication.Core.Services
 {
     #region
@@ -50,7 +53,7 @@ namespace DemoApplication.Core.Services
             return Repository.GetAllReadOnly();
         }
 
-        public virtual T GetById(int id)
+        public virtual T GetById(object id)
         {
             return Repository.GetById(id);
         }
@@ -72,7 +75,13 @@ namespace DemoApplication.Core.Services
             UnitOfWork.Commit();
         }
 
-        public virtual IEnumerable<T> Find(System.Linq.Expressions.Expression<Func<T, bool>> expression, int maxHits = 100)
+        public void BulkDelete(List<object> keys)
+        {
+            Repository.BulkDelete(keys);
+            UnitOfWork.Commit();
+        }
+
+        public virtual IEnumerable<T> Find(Expression<Func<T, bool>> expression, int maxHits = 100)
         {
             return Repository.Find(expression, maxHits);
         }
@@ -80,6 +89,16 @@ namespace DemoApplication.Core.Services
         public IPage<T> Page(int page = 1, int pageSize = 10)
         {
             return Repository.Page(page, pageSize);
+        }
+
+        public long Count()
+        {
+            return Repository.Count();
+        }
+
+        public long Count(Expression<Func<T, bool>> expression)
+        {
+            return Repository.Count(expression);
         }
     }
 }

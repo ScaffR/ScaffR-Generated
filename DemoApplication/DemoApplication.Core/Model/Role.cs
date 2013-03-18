@@ -24,6 +24,9 @@ namespace DemoApplication.Core.Model
     [DisplayColumn("RoleName")]
     public partial class Role : DomainObject
     {
+        [Key, Required, DataMember]
+        public virtual int RoleId { get; set; }
+
         [Required, DataMember]
         public virtual string RoleName { get; set; }
 

@@ -16,8 +16,9 @@ namespace DemoApplication.Core.Model
 
     #endregion
 
-    public partial class Person : DomainObject
+    public partial class User 
     {
+
         [Required]
         [DataType(DataType.EmailAddress)]        
         public virtual string Email { get; set; }

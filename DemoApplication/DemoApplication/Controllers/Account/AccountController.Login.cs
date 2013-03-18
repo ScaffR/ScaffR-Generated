@@ -56,8 +56,8 @@ namespace DemoApplication.Controllers.Account
                 AuthenticationStatus status; 
                 User user;
                 if (_userService.Authenticate(model.UserName, model.Password, out status, out user))
-                {                                      
-                    _authenticationService.SignIn(model.UserName);
+                {
+                    _authenticationService.SignIn(user);
 
                     _messageBus.Publish(new UserLoggedIn(user));  
 

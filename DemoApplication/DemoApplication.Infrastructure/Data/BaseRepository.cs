@@ -8,6 +8,9 @@
 // Last Modified On : 03-17-2013
 // ***********************************************************************
 #endregion
+
+using System.Linq.Expressions;
+
 namespace DemoApplication.Infrastructure.Data
 {
     #region
@@ -36,8 +39,8 @@ namespace DemoApplication.Infrastructure.Data
 
         protected BaseRepository(IDatabaseFactory databaseFactory)
         {
-            this._databaseFactory = databaseFactory;            
-            this._dbset = this.DataContext.DbSet<T>();
+            _databaseFactory = databaseFactory;            
+            _dbset = DataContext.DbSet<T>();
         }
 
 		public virtual IQueryable<T> Query
@@ -47,7 +50,7 @@ namespace DemoApplication.Infrastructure.Data
 
         public IDataContext DataContext
         {
-            get { return this._context ?? (this._context = this._databaseFactory.Get()); }
+            get { return _context ?? (_context = _databaseFactory.Get()); }
         }
 
         protected string EntitySetName { get; set; }
@@ -56,47 +59,62 @@ namespace DemoApplication.Infrastructure.Data
         {
             if (UnitOfWork.IsPersistent(entity))
             {
-                this.DataContext.Entry(entity).State = EntityState.Modified;
+                DataContext.Entry(entity).State = EntityState.Modified;
             }
             else
-                this._dbset.Add(entity);
+                _dbset.Add(entity);
         }
 
-        public virtual T GetById(int id)
+        public virtual T GetById(object id)
         {
-            return this.Query.SingleOrDefault(e => e.Id == id);
+            return _dbset.Find(id);
         }
 
         public virtual IQueryable<T> GetAll()
         {
-            return this.Query;
+            return Query;
         }
 
         public virtual IQueryable<T> GetAllReadOnly()
         {
-            return this.Query.AsNoTracking();
+            return Query.AsNoTracking();
         }
 
         public virtual void Delete(T entity)
         {
-            this._dbset.Remove(entity);
+            _dbset.Remove(entity);
         }
 
-        public virtual IEnumerable<T> Find(System.Linq.Expressions.Expression<Func<T, bool>> expression, int maxHits = 100)
+        public void BulkDelete(List<object> keys)
         {
-            return this.Query.Where(expression).Take(maxHits);
+            keys.ForEach(i => Delete(GetById(i)));
+        }
+
+        public virtual IEnumerable<T> Find(Expression<Func<T, bool>> expression, int maxHits = 100)
+        {
+            return Query.Where(expression).Take(maxHits);
         }
 
         public IPage<T> Page(int page = 1, int pageSize = 10)
         {
             var internalPage = page - 1;
-            var data = this.Query.OrderByDescending(k => k.Created).Skip(pageSize * internalPage).Take(pageSize).AsEnumerable();
-            return new Page<T>(data, this._dbset.Count(), pageSize, page);
+            var data = Query.OrderByDescending(k => k.Created).Skip(pageSize * internalPage).Take(pageSize).AsEnumerable();
+            return new Page<T>(data, _dbset.Count(), pageSize, page);
+        }
+
+        public long Count()
+        {
+            return _dbset.LongCount();
+        }
+
+        public long Count(Expression<Func<T, bool>> expression)
+        {
+            return expression != null ? _dbset.Where(expression).LongCount() : Count();
         }
 
         public void Dispose()
         {
-            this.DataContext.ObjectContext().Dispose();
+            DataContext.ObjectContext().Dispose();
         }
     }
 }

@@ -58,7 +58,7 @@ namespace DemoApplication.Controllers.Account
 
                 if (createStatus == CreateUserStatus.Success)
                 {
-                    _authenticationService.SignIn(model.Username);
+                    _authenticationService.SignIn(user);
 
                     _messageBus.Publish(new UserCreated(user, Url.AbsoluteAction("Login", "Account")));
 

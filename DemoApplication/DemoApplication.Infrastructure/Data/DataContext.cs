@@ -56,7 +56,7 @@ namespace DemoApplication.Infrastructure.Data
             base.OnModelCreating(modelBuilder);
         }
 
-        public DbSet<Person> People { get; set; }
+        //public DbSet<Person> People { get; set; }
 
         public DbSet<User> Users { get; set; }
 

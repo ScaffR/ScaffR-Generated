@@ -8,11 +8,14 @@
 // Last Modified On : 03-17-2013
 // ***********************************************************************
 #endregion
+
+using DemoApplication.Core.Model;
+
 namespace DemoApplication.Core.Interfaces.Service
 {
     public interface IAuthenticationService
     {
-        void SignIn(string username);
+        void SignIn(User user);
         void SignOut();
     }
 }
