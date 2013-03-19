@@ -13,6 +13,7 @@ namespace DemoApplication.Core.Services
     #region
 
     using Interfaces.Data;
+    using Interfaces.Membership;
     using Interfaces.Service;
     using Model;
 
@@ -22,7 +23,7 @@ namespace DemoApplication.Core.Services
     {
 		protected new IUserRepository Repository;				
 		
-		public UserService(IUnitOfWork unitOfWork, IUserRepository userRepository)
+		public UserService(IUnitOfWork unitOfWork, IUserRepository userRepository, IMembershipSettings membershipSettings)
 			:base(unitOfWork)
 		{
 		    base.Repository = Repository = userRepository;

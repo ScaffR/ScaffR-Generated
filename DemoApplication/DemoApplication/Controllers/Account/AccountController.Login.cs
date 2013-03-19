@@ -62,7 +62,7 @@ namespace DemoApplication.Controllers.Account
                     _messageBus.Publish(new UserLoggedIn(user));  
 
                     if (Url.IsLocalUrl(returnUrl))
-                    {
+                    {                       
                         return Redirect(returnUrl);
                     }
                     return RedirectToAction("Index", "Home");

@@ -8,13 +8,13 @@
 // Last Modified On : 03-19-2013
 // ***********************************************************************
 #endregion
-namespace DemoApplication.Infrastructure.Configuration.Photos
+namespace DemoApplication.Infrastructure.Photos.Configuration
 {
     #region
 
     using System;
     using System.Configuration.Provider;
-    using Core.Common.Photos;
+    using DemoApplication.Core.Common.Photos;
 
     #endregion
 

@@ -110,6 +110,8 @@
     <Compile Include="Common\Membership\Events\UserLoggedIn.cs" />
     <Compile Include="Common\Membership\Events\UserLoggedOut.cs" />
     <Compile Include="Common\Paging\Page.cs" />
+    <Compile Include="Common\Validation\ValidationContainer.cs" />
+    <Compile Include="Extensions\DomainObjectExtensions.Validation.cs" />
     <Compile Include="Interfaces\Data\IRoleRepository.cs" />
     <Compile Include="Interfaces\Service\IUserClaimService.cs" />
     <Compile Include="Model\Role.cs" />
@@ -119,8 +121,6 @@
     <Compile Include="Common\Photos\PhotoProvider.cs" />
     <Compile Include="Common\Photos\PhotoResize.cs" />
     <Compile Include="Common\Photos\PhotoThumbnail.cs" />
-    <Compile Include="Common\Validation\ValidationContainer.cs" />
-    <Compile Include="Common\Validation\ValidationEngine.cs" />
     <Compile Include="Extensions\DisposableExtensions.cs" />
     <Compile Include="Extensions\EnumExtensions.cs" />
     <Compile Include="Interfaces\Data\IDatabaseFactory.cs" />

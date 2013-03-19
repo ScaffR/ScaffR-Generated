@@ -17,7 +17,7 @@ namespace DemoApplication.Core.Services
     using System.Collections.Generic;
     using System.Linq;
     using System.Linq.Expressions;
-    using Common.Validation;
+    using Extensions;
     using Interfaces.Data;
     using Interfaces.Paging;
     using Interfaces.Service;

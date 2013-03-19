@@ -13,7 +13,7 @@ namespace DemoApplication.Core.Common.Validation
     #region
 
     using System.Collections.Generic;
-    using Interfaces.Validation;
+    using DemoApplication.Core.Interfaces.Validation;
 
     #endregion
 

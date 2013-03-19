@@ -89,7 +89,7 @@ namespace DemoApplication.DependencyResolution
         private static void RegisterServices(IKernel kernel)
         {
             // infrastructure
-            kernel.Bind(typeof(IUnitOfWork<>)).To(typeof(UnitOfWork<>)).InRequestScope();
+            kernel.Bind<IUnitOfWork>().To<UnitOfWork>().InRequestScope();
             kernel.Bind<IMessageBus>().ToConstant(MessageBus.Instance).InSingletonScope();
 
             // services/repositories

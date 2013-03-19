@@ -29,5 +29,16 @@ namespace DemoApplication.Mailers
 
             return mailMessage;
         }
+
+        public virtual MailMessage VerifyAccount(VerifyAccountModel model)
+        {
+            var mailMessage = new MailMessage {Subject = "Verify your account"};
+
+            mailMessage.To.Add(model.EmailAddress);
+            ViewBag.Data = model;
+            PopulateBody(mailMessage, viewName: "VerifyPassword");
+
+            return mailMessage;
+        }
     }
 }

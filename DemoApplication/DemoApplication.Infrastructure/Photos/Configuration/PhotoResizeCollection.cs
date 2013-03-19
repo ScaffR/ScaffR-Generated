@@ -8,14 +8,14 @@
 // Last Modified On : 03-19-2013
 // ***********************************************************************
 #endregion
-namespace DemoApplication.Infrastructure.Configuration.Photos
+namespace DemoApplication.Infrastructure.Photos.Configuration
 {
     #region
 
     using System;
     using System.Collections.Generic;
     using System.Configuration;
-    using Core.Interfaces.Photos;
+    using DemoApplication.Core.Interfaces.Photos;
 
     #endregion
 

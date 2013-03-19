@@ -27,6 +27,7 @@ namespace DemoApplication.Controllers.Account
         /// Logout the existing user.
         /// </summary>
         /// <returns>ActionResult.</returns>
+        [Authorize(Roles = "ASdf")]
         public ActionResult LogOff()
         {
             _messageBus.Publish(new UserLoggedOut(UserProfile.Current));

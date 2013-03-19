@@ -20,6 +20,7 @@ namespace DemoApplication.Controllers.Account
     using Extensions.TempDataHelpers;
     using Extensions.UrlHelpers;
     using Filters;
+    using Mailers;
     using Models.Account;
     using Omu.ValueInjecter;
 
@@ -63,6 +64,10 @@ namespace DemoApplication.Controllers.Account
 
                     if (_membershipSetings.RequireAccountVerification)
                     {
+                        new Mailer().VerifyAccount(new VerifyAccountModel());
+
+                        // I don't like this
+                        // should be return RedirectToAction
                         return View("Success", model);
                     }
                     if (_membershipSetings.AllowLoginAfterAccountCreation)

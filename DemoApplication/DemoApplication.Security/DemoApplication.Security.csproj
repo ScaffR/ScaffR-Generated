@@ -74,6 +74,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Authentication\AuthorizationTransformer.cs" />
     <Compile Include="Authorization\AuthorizationManager.cs" />
     <Compile Include="Authorization\ClaimsAuthorization.cs" />
     <Compile Include="Authorization\ClaimsAuthorizeAttribute.cs" />

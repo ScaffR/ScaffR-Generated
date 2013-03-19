@@ -212,6 +212,7 @@
     <Compile Include="Extensions\SitemapHelpers\SiteMapNodeModelExtensions.cs" />
     <Compile Include="Extensions\TempDataHelpers\TempDataExtensions.Alerts.cs" />
     <Compile Include="Filters\ShowMainMenu.cs" />
+    <Compile Include="Models\Account\VerifyAccountModel.cs" />
     <Compile Include="Metadata\Attributes\PhoneNumberTextboxAttribute.cs" />
     <Compile Include="Metadata\Resources\ClientValidationResources.Designer.cs" />
     <Compile Include="Metadata\Resources\ValidatorResources.Designer.cs" />
@@ -1361,6 +1362,7 @@
     <Content Include="Views\Components\EditorTemplates.cshtml" />
     <Content Include="Views\Account\Success.cshtml" />
     <Content Include="Views\Account\Confirm.cshtml" />
+    <Content Include="Views\Mailer\VerifyAccount.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
