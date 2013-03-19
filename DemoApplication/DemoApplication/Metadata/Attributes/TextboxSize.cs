@@ -40,6 +40,9 @@ namespace DemoApplication.Metadata.Attributes
         XLarge,
 
         [Description("input-xxlarge")]
-        XXLarge
+        XXLarge,
+
+        [Description("input-huge")]
+        Huge
     }
 }

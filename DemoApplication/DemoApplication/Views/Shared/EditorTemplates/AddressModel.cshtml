@@ -1,9 +1,11 @@
 ﻿@model DemoApplication.Models.Common.AddressModel
 
 <div class="control-group">
-    <div class="input-append">        
-        @Html.TextBoxFor(x=>x.Address, new{data_address=true, @class="input-xxlarge"})
+    <div class="row-fluid">        
+        @Html.TextBoxFor(x=>x.Address, new{data_address=true, @class="span12"})
     </div>
-    @Html.EditorFor(x => x.Location)
+    <div class="row-fluid">
+        @Html.EditorFor(x => x.Location)
+    </div>                
 </div>
 
