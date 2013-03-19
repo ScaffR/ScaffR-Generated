@@ -8,24 +8,25 @@
 // Last Modified On : 03-18-2013
 // ***********************************************************************
 #endregion
-namespace DemoApplication.Dropdowns
+namespace DemoApplication.Dropdowns.Dropdowns
 {
     #region
 
+    using System.Collections.Generic;
     using System.Web.Mvc;
     using Core.Common.Lists;
 
     #endregion
 
-    public partial class Dropdowns
+    public partial class Dropdowns : IDropdownProvider
     {
         /// <summary>
-        /// Monthses this instance.
+        /// Gets a list of countries.
         /// </summary>
-        /// <returns>SelectList.</returns>
-        public static SelectList Months()
+        /// <returns>IEnumerable{SelectListItem}.</returns>
+        public static IEnumerable<SelectListItem> Countries()
         {
-            return new SelectList(Lists.MonthDictionary, "Value", "Key");
+            return new SelectList(Lists.CountryDictionary, "Value", "Key");
         }
     }
 }

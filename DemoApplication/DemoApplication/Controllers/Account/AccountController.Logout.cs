@@ -14,7 +14,7 @@ namespace DemoApplication.Controllers.Account
 
     using System.Web.Mvc;
     using Core.Common.Membership.Events;
-    using Core.Common.Profiles;
+    using Infrastructure.Profiles;
 
     #endregion
 

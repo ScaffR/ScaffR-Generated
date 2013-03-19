@@ -2,26 +2,27 @@
 // ***********************************************************************
 // Assembly	: DemoApplication.Infrastructure
 // Author	: Rod Johnson
-// Created	: 03-16-2013
+// Created	: 03-19-2013
 // 
 // Last Modified By : Rod Johnson
-// Last Modified On : 03-18-2013
+// Last Modified On : 03-19-2013
 // ***********************************************************************
 #endregion
-namespace DemoApplication.Infrastructure.Data
+namespace DemoApplication.Infrastructure.Membership
 {
     #region
 
     using Core.Interfaces.Data;
     using Core.Model;
+    using Data;
 
     #endregion
 
-    public partial class RoleRepository : BaseRepository<Role>, IRoleRepository
+    /// <summary>
+    /// Class UserClaimRepository
+    /// </summary>
+    public partial class UserClaimRepository : BaseRepository<UserClaim, MembershipContext>, IUserClaimRepository
     {
-		public RoleRepository(IDatabaseFactory databaseFactory)
-	        : base(databaseFactory)
-	    {
-	    }
+
 	}
 }

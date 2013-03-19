@@ -8,37 +8,34 @@
 // Last Modified On : 03-18-2013
 // ***********************************************************************
 #endregion
-namespace DemoApplication.Dropdowns
+namespace DemoApplication.Dropdowns.Dropdowns
 {
     #region
 
-    using System;
     using System.Collections.Generic;
-    using System.Linq;
     using System.Web.Mvc;
+    using Core.Common.Lists;
 
     #endregion
 
     public partial class Dropdowns
     {
         /// <summary>
-        /// Gets a IEnumerable{SelectListItem} with the next 5 years.
+        /// Gets the current states.
         /// </summary>
+        /// <param name="code">The code.</param>
         /// <returns>IEnumerable{SelectListItem}.</returns>
-        public IEnumerable<SelectListItem> CreditCardExpirationYears()
+        public static IEnumerable<SelectListItem> States(string code)
         {
-            var years = new List<int>();
-            var currentYear = DateTime.Now.Year;
-            while (currentYear < DateTime.Now.Year + 5)
+            if (code == "US")
             {
-                years.Add(currentYear++);
+                return new SelectList(Lists.UnitedStates, "Value", "Key");
             }
-
-            return years.Select(m => new SelectListItem
+            if (code == "CA")
             {
-                Text = m.ToString(),
-                Value = m.ToString()
-            });
+                return new SelectList(Lists.CanadianProvinces, "Value", "Key");
+            }
+            return new List<SelectListItem>();
         }
     }
 }

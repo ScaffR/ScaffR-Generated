@@ -1,29 +1,16 @@
-﻿#region credits
-// ***********************************************************************
-// Assembly	: DemoApplication.Infrastructure
-// Author	: Rod Johnson
-// Created	: 02-24-2013
-// 
-// Last Modified By : Rod Johnson
-// Last Modified On : 03-19-2013
-// ***********************************************************************
-#endregion
-#region
-
-using System.Reflection;
+﻿using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-
-#endregion
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("DemoApplication.Infrastructure")]
+[assembly: AssemblyTitle("DemoApplication.InfrastructureTests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("DemoApplication.Infrastructure")]
-[assembly: AssemblyCopyright("Copyright ©  2012")]
+[assembly: AssemblyProduct("DemoApplication.InfrastructureTests")]
+[assembly: AssemblyCopyright("Copyright ©  2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -33,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("70284d73-b7b5-4f85-841c-db5f6443a35d")]
+[assembly: Guid("b8a7a695-db33-44e5-8710-f98343fb07dc")]
 
 // Version information for an assembly consists of the following four values:
 //

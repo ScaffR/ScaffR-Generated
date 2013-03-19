@@ -15,10 +15,10 @@ namespace DemoApplication.Controllers.Account
     using System.Web;
     using System.Web.Mvc;
     using Core.Common.Photos;
-    using Core.Common.Profiles;
     using Extensions.ModelStateHelpers;
     using Extensions.TempDataHelpers;
     using Infrastructure.Photos;
+    using Infrastructure.Profiles;
 
     #endregion
 

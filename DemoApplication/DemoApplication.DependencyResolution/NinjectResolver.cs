@@ -8,7 +8,7 @@
 // Last Modified On : 03-18-2013
 // ***********************************************************************
 #endregion
-namespace DemoApplication.Application.DependencyResolution
+namespace DemoApplication.DependencyResolution
 {
     #region
 

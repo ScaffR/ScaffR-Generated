@@ -159,8 +159,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Application\DependencyResolution\NinjectResolver.cs" />
-    <Compile Include="Application\DependencyResolution\NinjectScope.cs" />
     <Compile Include="Application\MvcApplication.OnEnd.cs" />
     <Compile Include="Application\MvcApplication.OnError.cs" />
     <Compile Include="Application\MvcApplication.OnDisposed.cs" />
@@ -185,7 +183,6 @@
     <Compile Include="Application\Startup\AppStartup.ActionFilters.cs" />
     <Compile Include="Application\Startup\AppStartup.Cassette.cs" />
     <Compile Include="Application\Startup\AppStartup.EventHandlers.cs" />
-    <Compile Include="Application\Startup\AppStartup.Ninject.cs" />
     <Compile Include="Application\Startup\AppStartup.Routes.cs" />
     <Compile Include="Application\Startup\AppStartup.Validators.cs" />
     <Compile Include="Application\Startup\AppStartup.WebApi.cs" />
@@ -224,12 +221,6 @@
     <Compile Include="Controllers\Users\UsersController.Details.cs" />
     <Compile Include="Controllers\Users\UsersController.Manager.cs" />
     <Compile Include="Controllers\Users\UsersController.cs" />
-    <Compile Include="Dropdowns\Dropdowns.Countries.cs" />
-    <Compile Include="Dropdowns\Dropdowns.CreditCardExpirationYears.cs" />
-    <Compile Include="Dropdowns\Dropdowns.CreditCardTypes.cs" />
-    <Compile Include="Dropdowns\Dropdowns.Enum.cs" />
-    <Compile Include="Dropdowns\Dropdowns.Months.cs" />
-    <Compile Include="Dropdowns\Dropdowns.States.cs" />
     <Compile Include="Extensions\ActionDescriptorHElpers\ActionDescriptorExtensions.cs" />
     <Compile Include="Extensions\HtmlHelpers\BootstrapInputOptions.cs" />
     <Compile Include="Extensions\ControllerHelpers\ControllerExtensions.cs" />
@@ -617,6 +608,7 @@
     <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Application\DependencyResolution\" />
     <Folder Include="App_Data\" />
     <Folder Include="Content\images\Thumbnail\" />
   </ItemGroup>
@@ -763,6 +755,10 @@
     <ProjectReference Include="..\DemoApplication.Core\DemoApplication.Core.csproj">
       <Project>{969AEF37-4ABC-47C9-82E6-DABAD3F60BB6}</Project>
       <Name>DemoApplication.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DemoApplication.DependencyResolution\DemoApplication.DependencyResolution.csproj">
+      <Project>{7cd2c0ae-a054-4ecf-a922-d6277a6cdea5}</Project>
+      <Name>DemoApplication.DependencyResolution</Name>
     </ProjectReference>
     <ProjectReference Include="..\DemoApplication.Dropdowns\DemoApplication.Dropdowns.csproj">
       <Project>{1695b94d-65de-4b6d-8009-ffa7793b15bd}</Project>

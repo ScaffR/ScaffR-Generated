@@ -119,7 +119,6 @@
     <Compile Include="Common\Photos\PhotoProvider.cs" />
     <Compile Include="Common\Photos\PhotoResize.cs" />
     <Compile Include="Common\Photos\PhotoThumbnail.cs" />
-    <Compile Include="Common\Profiles\UserProfile.cs" />
     <Compile Include="Common\Validation\ValidationContainer.cs" />
     <Compile Include="Common\Validation\ValidationEngine.cs" />
     <Compile Include="Extensions\DisposableExtensions.cs" />

@@ -2,13 +2,13 @@
 // ***********************************************************************
 // Assembly	: DemoApplication.Infrastructure
 // Author	: Rod Johnson
-// Created	: 03-16-2013
+// Created	: 03-19-2013
 // 
 // Last Modified By : Rod Johnson
-// Last Modified On : 03-18-2013
+// Last Modified On : 03-19-2013
 // ***********************************************************************
 #endregion
-namespace DemoApplication.Infrastructure.Data.Seeders
+namespace DemoApplication.Infrastructure.Membership
 {
     #region
 
@@ -16,6 +16,7 @@ namespace DemoApplication.Infrastructure.Data.Seeders
     using System.Collections.Generic;
     using System.Data.Entity.Migrations;
     using Core.Model;
+    using Data;
 
     #endregion
 

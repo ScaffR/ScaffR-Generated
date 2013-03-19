@@ -1,23 +1,23 @@
 ﻿#region credits
 // ***********************************************************************
-// Assembly	: DemoApplication.Core
+// Assembly	: DemoApplication.Infrastructure
 // Author	: Rod Johnson
-// Created	: 03-10-2013
+// Created	: 03-19-2013
 // 
 // Last Modified By : Rod Johnson
-// Last Modified On : 03-18-2013
+// Last Modified On : 03-19-2013
 // ***********************************************************************
 #endregion
-namespace DemoApplication.Core.Common.Profiles
+namespace DemoApplication.Infrastructure.Profiles
 {
     #region
 
     using System.Threading;
     using System.Web;
     using System.Web.Mvc;
-    using Interfaces.Service;
-    using Interfaces.Validation;
-    using Model;
+    using Core.Interfaces.Service;
+    using Core.Interfaces.Validation;
+    using Core.Model;
 
     #endregion
 

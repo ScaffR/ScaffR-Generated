@@ -104,22 +104,23 @@
     <Compile Include="Configuration\AppConfig.Membership.cs" />
     <Compile Include="Configuration\AppConfig.Photos.cs" />
     <Compile Include="Configuration\AppConfig.Site.cs" />
-    <Compile Include="Configuration\Membership\MembershipElement.cs" />
-    <Compile Include="Configuration\Photos\PhotoConfigurationElement.cs" />
-    <Compile Include="Configuration\Photos\PhotoProviderCollection.cs" />
-    <Compile Include="Configuration\Photos\PhotoResizeCollection.cs" />
-    <Compile Include="Configuration\Photos\PhotoResizeElement.cs" />
+    <Compile Include="Membership\MembershipElement.cs" />
+    <Compile Include="Photos\Configuration\PhotoConfigurationElement.cs" />
+    <Compile Include="Photos\Configuration\PhotoProviderCollection.cs" />
+    <Compile Include="Photos\Configuration\PhotoResizeCollection.cs" />
+    <Compile Include="Photos\Configuration\PhotoResizeElement.cs" />
     <Compile Include="Configuration\Pipeline\PipelineConfigurationElement.cs" />
     <Compile Include="Configuration\Site\SiteElement.cs" />
+    <Compile Include="Data\BaseContext.cs" />
     <Compile Include="Data\BaseRepository.cs" />
-    <Compile Include="Data\UserClaimRepository.cs" />
-    <Compile Include="Data\RoleRepository.cs" />
-    <Compile Include="Data\DatabaseFactory.cs" />
+    <Compile Include="Membership\MembershipContext.cs" />
+    <Compile Include="Membership\UserClaimRepository.cs" />
+    <Compile Include="Membership\RoleRepository.cs" />
     <Compile Include="Data\DataContext.cs" />
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Data\Seeders\MembershipDataSeeder.cs" />
+    <Compile Include="Membership\MembershipDataSeeder.cs" />
     <Compile Include="Data\UnitOfWork.cs" />
-    <Compile Include="Data\UserRepository.cs" />
+    <Compile Include="Membership\UserRepository.cs" />
     <Compile Include="Eventing\MessageBus.cs" />
     <Compile Include="Migrations\201303180731133_Initial.cs" />
     <Compile Include="Migrations\201303180731133_Initial.Designer.cs">
@@ -133,6 +134,7 @@
     <Compile Include="Pipeline\FilterChain.cs" />
     <Compile Include="Pipeline\PipelineFactory.cs" />
     <Compile Include="Pipeline\PipelineManager.cs" />
+    <Compile Include="Profiles\UserProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Photos\Providers\FileSystemProvider.cs" />
     <Compile Include="Storage\Providers\SessionStorageProvider.cs" />
@@ -148,6 +150,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Configuration\Photos\" />
     <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>

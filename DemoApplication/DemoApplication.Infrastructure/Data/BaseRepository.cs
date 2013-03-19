@@ -5,10 +5,9 @@
 // Created	: 03-16-2013
 // 
 // Last Modified By : Rod Johnson
-// Last Modified On : 03-18-2013
+// Last Modified On : 03-19-2013
 // ***********************************************************************
 #endregion
-
 namespace DemoApplication.Infrastructure.Data
 {
     #region
@@ -27,34 +26,35 @@ namespace DemoApplication.Infrastructure.Data
     #endregion
 
     /// <summary>
-    /// An abstract baseclass handling basic CRUD operations against the context.
+    /// An abstract base class handling basic CRUD operations against the context.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    public abstract class BaseRepository<T> : IDisposable, IRepository<T> where T : DomainObject
+    /// <typeparam name="TEntity"></typeparam>
+    /// <typeparam name="TContext"></typeparam>
+    public abstract class BaseRepository<TEntity, TContext> : IDisposable, IRepository<TEntity> 
+        where TEntity : DomainObject 
+        where TContext : IDataContext, new()
     {        
-        protected readonly IDbSet<T> _dbset;
-        protected readonly IDatabaseFactory _databaseFactory;
+        protected readonly IDbSet<TEntity> _dbset;
         private IDataContext _context;
 
-        protected BaseRepository(IDatabaseFactory databaseFactory)
-        {
-            _databaseFactory = databaseFactory;            
-            _dbset = DataContext.DbSet<T>();
+        protected BaseRepository()
+        {         
+            _dbset = DataContext.DbSet<TEntity>();
         }
 
-		public virtual IQueryable<T> Query
+		public virtual IQueryable<TEntity> Query
         {
             get { return _dbset; }
         }
 
         public IDataContext DataContext
         {
-            get { return _context ?? (_context = _databaseFactory.Get()); }
+            get { return _context ?? (_context = new TContext()); }
         }
 
         protected string EntitySetName { get; set; }
 
-        public virtual void SaveOrUpdate(T entity)
+        public virtual void SaveOrUpdate(TEntity entity)
         {
             if (UnitOfWork.IsPersistent(entity))
             {
@@ -64,22 +64,22 @@ namespace DemoApplication.Infrastructure.Data
                 _dbset.Add(entity);
         }
 
-        public virtual T GetById(object id)
+        public virtual TEntity GetById(object id)
         {
             return _dbset.Find(id);
         }
 
-        public virtual IQueryable<T> GetAll()
+        public virtual IQueryable<TEntity> GetAll()
         {
             return Query;
         }
 
-        public virtual IQueryable<T> GetAllReadOnly()
+        public virtual IQueryable<TEntity> GetAllReadOnly()
         {
             return Query.AsNoTracking();
         }
 
-        public virtual void Delete(T entity)
+        public virtual void Delete(TEntity entity)
         {
             _dbset.Remove(entity);
         }
@@ -89,16 +89,16 @@ namespace DemoApplication.Infrastructure.Data
             keys.ForEach(i => Delete(GetById(i)));
         }
 
-        public virtual IEnumerable<T> Find(Expression<Func<T, bool>> expression, int maxHits = 100)
+        public virtual IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> expression, int maxHits = 100)
         {
             return Query.Where(expression).Take(maxHits);
         }
 
-        public IPage<T> Page(int page = 1, int pageSize = 10)
+        public IPage<TEntity> Page(int page = 1, int pageSize = 10)
         {
             var internalPage = page - 1;
             var data = Query.OrderByDescending(k => k.Created).Skip(pageSize * internalPage).Take(pageSize).AsEnumerable();
-            return new Page<T>(data, _dbset.Count(), pageSize, page);
+            return new Page<TEntity>(data, _dbset.Count(), pageSize, page);
         }
 
         public long Count()
@@ -106,7 +106,7 @@ namespace DemoApplication.Infrastructure.Data
             return _dbset.LongCount();
         }
 
-        public long Count(Expression<Func<T, bool>> expression)
+        public long Count(Expression<Func<TEntity, bool>> expression)
         {
             return expression != null ? _dbset.Where(expression).LongCount() : Count();
         }

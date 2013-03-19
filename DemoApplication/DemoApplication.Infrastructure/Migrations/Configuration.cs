@@ -5,7 +5,7 @@
 // Created	: 03-18-2013
 // 
 // Last Modified By : Rod Johnson
-// Last Modified On : 03-18-2013
+// Last Modified On : 03-19-2013
 // ***********************************************************************
 #endregion
 namespace DemoApplication.Infrastructure.Migrations
@@ -14,6 +14,7 @@ namespace DemoApplication.Infrastructure.Migrations
 
     using System.Data.Entity.Migrations;
     using Data;
+    using Membership;
 
     #endregion
 
@@ -45,7 +46,7 @@ namespace DemoApplication.Infrastructure.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
-            new Data.Seeders.MembershipDataSeeder().Seed(context);
+            new MembershipDataSeeder().Seed(context);
         }
     }
 }

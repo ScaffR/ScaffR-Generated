@@ -8,14 +8,14 @@
 // Last Modified On : 03-18-2013
 // ***********************************************************************
 #endregion
-namespace DemoApplication.Dropdowns
+namespace DemoApplication.Dropdowns.Dropdowns
 {
     #region
 
-    using System.Collections.Generic;
     using System.Linq;
+    using DemoApplication.Core.Common.Lists;
+    using System.Collections.Generic;
     using System.Web.Mvc;
-    using Core.Common.Lists;
 
     #endregion
 

@@ -14,9 +14,9 @@ namespace DemoApplication.Controllers.Account
 
     using System;
     using System.Web.Mvc;
-    using Core.Common.Profiles;
     using Extensions.ModelStateHelpers;
     using Extensions.TempDataHelpers;
+    using Infrastructure.Profiles;
     using Models.Account;
     using Omu.ValueInjecter;
 

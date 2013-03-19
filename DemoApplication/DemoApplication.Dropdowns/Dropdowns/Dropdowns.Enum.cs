@@ -8,7 +8,7 @@
 // Last Modified On : 03-18-2013
 // ***********************************************************************
 #endregion
-namespace DemoApplication.Dropdowns
+namespace DemoApplication.Dropdowns.Dropdowns
 {
     #region
 
@@ -16,7 +16,7 @@ namespace DemoApplication.Dropdowns
     using System.Collections.Generic;
     using System.Linq;
     using System.Web.Mvc;
-    using ScaffR.Extensions;
+    using Core.Extensions;
 
     #endregion
 
@@ -35,7 +35,7 @@ namespace DemoApplication.Dropdowns
             IEnumerable<SelectListItem> items = from value in values
                                                 select new SelectListItem
                                                 {
-                                                    Text = EnumExtensions.GetEnumDescription(value),
+                                                    Text = value.ToString(),
                                                     Value = value.ToString()
                                                 };
             return new SelectList(items);
