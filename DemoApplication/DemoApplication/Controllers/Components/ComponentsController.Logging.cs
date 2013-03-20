@@ -53,6 +53,7 @@ namespace DemoApplication.Controllers.Components
         [HttpPost]
         public ActionResult Logging(List<SampleLoggingModel> models)
         {
+            
             foreach (var log in models)
             {
                 if (string.IsNullOrEmpty(log.Event))
@@ -81,6 +82,7 @@ namespace DemoApplication.Controllers.Components
 
                 } 
             }
+             
             return RedirectToAction("Logging", "Components");
         }
         
