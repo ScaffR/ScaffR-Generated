@@ -55,6 +55,9 @@ namespace DemoApplication.Controllers.Components
         {
             foreach (var log in models)
             {
+                if (string.IsNullOrEmpty(log.Event))
+                    continue;
+
                 switch (log.Status)
                 {
                     case EventStatus.Error :
