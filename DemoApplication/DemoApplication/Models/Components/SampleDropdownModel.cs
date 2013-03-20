@@ -19,11 +19,11 @@ namespace DemoApplication.Models.Components
 
     public class SampleDropdownModel
     {
-        [DropDown("Countries")]
+        [DropDown("Countries", OptionLabel = "-Select an option-")]
         [Display(Name = "Country")]
         public string CountryId { get; set; }
 
-        [CascadingDropDown("CountryId", "States")]
+        [CascadingDropDown("CountryId", "States", OptionLabel = "-Select an option-")]
         [Display(Name = "State")]
         public string StateId { get; set; }
     }
