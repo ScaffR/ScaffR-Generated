@@ -18,6 +18,7 @@ _ReSharper.*
 *.suo
 *.cache
 *.mdf
+*/App_Data/log/*
 *.ldf
 DemoApplication/DemoApplication/Files/*.*
 */images/*_*_*.png
