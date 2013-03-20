@@ -12,6 +12,7 @@ namespace DemoApplication.Filters
 
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
+
             _logger.InfoFormat(CultureInfo.InvariantCulture, 
                 "Executing action {0}.{1}", 
                 filterContext.ActionDescriptor.ControllerDescriptor.ControllerName,
