@@ -159,25 +159,25 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Application\MvcApplication.OnEnd.cs" />
-    <Compile Include="Application\MvcApplication.OnError.cs" />
-    <Compile Include="Application\MvcApplication.OnDisposed.cs" />
-    <Compile Include="Application\MvcApplication.OnInit.cs" />
-    <Compile Include="Application\MvcApplication.OnBeginRequest.cs" />
-    <Compile Include="Application\MvcApplication.OnAuthenticateRequest.cs" />
-    <Compile Include="Application\MvcApplication.OnAuthorizeRequest.cs" />
-    <Compile Include="Application\MvcApplication.OnEndRequest.cs" />
-    <Compile Include="Application\MvcApplication.OnUpdateRequestCache.cs" />
-    <Compile Include="Application\MvcApplication.OnReleaseRequestState.cs" />
-    <Compile Include="Application\MvcApplication.OnPreSendRequestContent.cs" />
-    <Compile Include="Application\MvcApplication.OnPreSendRequestHeaders.cs" />
-    <Compile Include="Application\MvcApplication.OnPreRequestHandlerExecute.cs" />
-    <Compile Include="Application\MvcApplication.OnAcquireRequestState.cs" />
-    <Compile Include="Application\MvcApplication.OnResolveRequestCache.cs" />
-    <Compile Include="Application\MvcApplication.OnPostRequestHandlerExecute.cs" />
-    <Compile Include="Application\MvcApplication.OnSessionEnd.cs" />
-    <Compile Include="Application\MvcApplication.OnStart.cs" />
-    <Compile Include="Application\MvcApplication.OnSessionStart.cs" />
+    <Compile Include="Application\Lifecycle\MvcApplication.OnEnd.cs" />
+    <Compile Include="Application\Lifecycle\MvcApplication.OnError.cs" />
+    <Compile Include="Application\Lifecycle\MvcApplication.OnDisposed.cs" />
+    <Compile Include="Application\Lifecycle\MvcApplication.OnInit.cs" />
+    <Compile Include="Application\Lifecycle\MvcApplication.OnBeginRequest.cs" />
+    <Compile Include="Application\Lifecycle\MvcApplication.OnAuthenticateRequest.cs" />
+    <Compile Include="Application\Lifecycle\MvcApplication.OnAuthorizeRequest.cs" />
+    <Compile Include="Application\Lifecycle\MvcApplication.OnEndRequest.cs" />
+    <Compile Include="Application\Lifecycle\MvcApplication.OnUpdateRequestCache.cs" />
+    <Compile Include="Application\Lifecycle\MvcApplication.OnReleaseRequestState.cs" />
+    <Compile Include="Application\Lifecycle\MvcApplication.OnPreSendRequestContent.cs" />
+    <Compile Include="Application\Lifecycle\MvcApplication.OnPreSendRequestHeaders.cs" />
+    <Compile Include="Application\Lifecycle\MvcApplication.OnPreRequestHandlerExecute.cs" />
+    <Compile Include="Application\Lifecycle\MvcApplication.OnAcquireRequestState.cs" />
+    <Compile Include="Application\Lifecycle\MvcApplication.OnResolveRequestCache.cs" />
+    <Compile Include="Application\Lifecycle\MvcApplication.OnPostRequestHandlerExecute.cs" />
+    <Compile Include="Application\Lifecycle\MvcApplication.OnSessionEnd.cs" />
+    <Compile Include="Application\Lifecycle\MvcApplication.OnStart.cs" />
+    <Compile Include="Application\Lifecycle\MvcApplication.OnSessionStart.cs" />
     <Compile Include="Areas\Api\ApiAreaRegistration.cs" />
     <Compile Include="Areas\Api\Controllers\ApiController.cs" />
     <Compile Include="Application\Startup\AppStartup.ActionFilters.cs" />
