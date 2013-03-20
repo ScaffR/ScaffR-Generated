@@ -27,7 +27,7 @@ namespace DemoApplication.Filters
 
         public override void OnActionExecuted(ActionExecutedContext filterContext)
         {
-            filterContext.Controller.ViewBag.ShowMainMenu = _show;
+            filterContext.Controller.ViewBag.ShowPageHeadingText = _show;
 
             base.OnActionExecuted(filterContext);
         }
