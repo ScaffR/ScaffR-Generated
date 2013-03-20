@@ -63,9 +63,12 @@ namespace DemoApplication.Dropdowns.Controls
                 return PicklistHelper(helper, metadata, (IList<string>)model, attrs);     
             }
 
+            var optionLabel = metadata.AdditionalValues.ContainsKey("option-label") ?
+                            metadata.AdditionalValues["option-label"] != null ? metadata.AdditionalValues["option-label"].ToString() : null
+                                          : null;
             attrs.Add("data-dropdown", "select");
 
-            return helper.DropDownList("", helper.GetAutomatedList(metadata).SetSelected(model), null, attrs);
+            return helper.DropDownList("", helper.GetAutomatedList(metadata).SetSelected(model), optionLabel, attrs);
         }
 
         private static MvcHtmlString PicklistHelper<T>(this HtmlHelper<T> helper, ModelMetadata metadata, IList<string> model,

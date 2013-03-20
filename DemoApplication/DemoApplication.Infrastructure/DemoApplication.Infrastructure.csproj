@@ -113,6 +113,10 @@
     <Compile Include="Membership\UserClaimRepository.cs" />
     <Compile Include="Membership\RoleRepository.cs" />
     <Compile Include="Data\DataContext.cs" />
+    <Compile Include="Migrations\201303200322226_Log.cs" />
+    <Compile Include="Migrations\201303200322226_Log.Designer.cs">
+      <DependentUpon>201303200322226_Log.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Membership\MembershipDataSeeder.cs" />
     <Compile Include="Data\UnitOfWork.cs" />
@@ -155,6 +159,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201303180731133_Initial.resx">
       <DependentUpon>201303180731133_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201303200322226_Log.resx">
+      <DependentUpon>201303200322226_Log.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
