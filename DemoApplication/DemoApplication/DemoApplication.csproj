@@ -56,11 +56,20 @@
     <Reference Include="Cassette.Views">
       <HintPath>..\packages\Cassette.Views.2.0.0\lib\net40\Cassette.Views.dll</HintPath>
     </Reference>
+    <Reference Include="Common.Logging">
+      <HintPath>..\packages\Common.Logging.2.0.0\lib\2.0\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Log4Net">
+      <HintPath>..\packages\Common.Logging.Log4Net.2.0.1\lib\net20\Common.Logging.Log4Net.dll</HintPath>
+    </Reference>
     <Reference Include="dotless.ClientOnly">
       <HintPath>..\packages\DotlessClientOnly.1.3.1.0\lib\dotless.ClientOnly.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.SqlServer.Types, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
@@ -206,12 +215,14 @@
     <Compile Include="Controllers\Components\ComponentsController.EditorTemplates.cs" />
     <Compile Include="Controllers\Error\ErrorController.cs" />
     <Compile Include="Controllers\Home\HomeController.Admin.cs" />
+    <Compile Include="Controllers\Components\ComponentsController.Logging.cs" />
     <Compile Include="Controllers\Users\UsersController.History.cs" />
     <Compile Include="Controllers\Users\UsersController.Security.cs" />
     <Compile Include="Extensions\HtmlHelpers\HtmlExtensions.Alerts.cs" />
     <Compile Include="Extensions\StringHelpers\StringExtensions.cs" />
     <Compile Include="Extensions\SitemapHelpers\SiteMapNodeModelExtensions.cs" />
     <Compile Include="Extensions\TempDataHelpers\TempDataExtensions.Alerts.cs" />
+    <Compile Include="Filters\LogFilter.cs" />
     <Compile Include="Filters\ShowMainMenu.cs" />
     <Compile Include="Filters\ShowPageHeadingText.cs" />
     <Compile Include="Models\Account\VerifyAccountModel.cs" />
@@ -309,6 +320,8 @@
     <Compile Include="Metadata\Rules\ModelClientValidationMinRule.cs" />
     <Compile Include="Metadata\Rules\ModelClientValidationNumericRule.cs" />
     <Compile Include="Metadata\Rules\ModelClientValidationVideoRule.cs" />
+    <Compile Include="Models\Components\SampleLoggingModel.cs" />
+    <Compile Include="Models\Components\EventStatus.cs" />
     <Compile Include="Models\Sitemap\SitemapHelperModel.cs" />
     <Compile Include="Models\Users\UserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -612,7 +625,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Application\DependencyResolution\" />
-    <Folder Include="App_Data\" />
+    <Folder Include="App_Data\log\" />
     <Folder Include="Content\images\Thumbnail\" />
   </ItemGroup>
   <ItemGroup>
@@ -1325,6 +1338,8 @@
     <Content Include="Content\less\global\components\login.less" />
     <Content Include="Content\less\global\components\widgets.less" />
     <Content Include="Content\less\global\error.less" />
+    <Content Include="Config\text.config" />
+    <Content Include="Config\mssql.config" />
     <None Include="Properties\PublishProfiles\staging.pubxml" />
     <Content Include="Views\Users\Manager.cshtml" />
     <Content Include="Views\Users\Details.cshtml" />
@@ -1369,6 +1384,7 @@
     <Content Include="Views\Error\AccessDenied.cshtml" />
     <Content Include="Views\Error\Index.cshtml" />
     <Content Include="Views\Error\NotFound.cshtml" />
+    <Content Include="Views\Components\Logging.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

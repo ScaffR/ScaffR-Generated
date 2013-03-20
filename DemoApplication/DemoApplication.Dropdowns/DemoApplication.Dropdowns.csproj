@@ -86,6 +86,7 @@
     <Compile Include="Caching\CacheHelper.cs" />
     <Compile Include="Controls\DropDownExtensions.cs" />
     <Compile Include="DropdownSize.cs" />
+    <Compile Include="Dropdowns\Dropdowns.EventStatus.cs" />
     <Compile Include="Dropdowns\Dropdowns.Countries.cs" />
     <Compile Include="Dropdowns\Dropdowns.CreditCardExpirationYears.cs" />
     <Compile Include="Dropdowns\Dropdowns.CreditCardTypes.cs" />

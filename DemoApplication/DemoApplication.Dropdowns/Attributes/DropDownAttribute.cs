@@ -22,6 +22,7 @@ namespace DemoApplication.Dropdowns.Attributes
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = true, Inherited = false)]
     public class DropDownAttribute : UIHintAttribute, IDropDownAttribute, IMetadataAware
     {
+        protected string _optionLabel;
         protected readonly Type _serviceType;
         protected readonly string _methodName;
         protected string _dependsOn;
@@ -37,6 +38,12 @@ namespace DemoApplication.Dropdowns.Attributes
         {
             get { return _dependsOn; }
             set { _dependsOn = value; }
+        }
+
+        public string OptionLabel
+        {
+            get { return _optionLabel; }
+            set { _optionLabel = value; }
         }
 
         protected virtual object[] GetArguments()
@@ -75,7 +82,7 @@ namespace DemoApplication.Dropdowns.Attributes
 
         public virtual void OnMetadataCreated(ModelMetadata metadata)
         {
-
+            metadata.AdditionalValues["option-label"] = _optionLabel;
         }
     }
 }
