@@ -2,7 +2,7 @@
 // ***********************************************************************
 // Assembly	: DemoApplication.Infrastructure
 // Author	: Rod Johnson
-// Created	: 03-16-2013
+// Created	: 03-19-2013
 // 
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-19-2013
@@ -15,7 +15,7 @@ namespace DemoApplication.Infrastructure.Photos.Configuration
     using System;
     using System.Collections.Generic;
     using System.Configuration;
-    using DemoApplication.Core.Interfaces.Photos;
+    using Core.Interfaces.Photos;
 
     #endregion
 

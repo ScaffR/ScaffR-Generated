@@ -5,7 +5,7 @@
 // Created	: 03-17-2013
 // 
 // Last Modified By : Rod Johnson
-// Last Modified On : 03-18-2013
+// Last Modified On : 03-19-2013
 // ***********************************************************************
 #endregion
 namespace DemoApplication.Controllers.Dropdowns
@@ -14,7 +14,6 @@ namespace DemoApplication.Controllers.Dropdowns
 
     using System.Reflection;
     using System.Web.Mvc;
-    using DemoApplication.Dropdowns;
     using DemoApplication.Dropdowns.Dropdowns;
 
     #endregion

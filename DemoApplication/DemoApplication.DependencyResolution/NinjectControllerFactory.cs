@@ -1,9 +1,14 @@
-﻿using System;
+﻿#region credits
+// ***********************************************************************
+// Assembly	: DemoApplication.DependencyResolution
+// Author	: Rod Johnson
+// Created	: 03-19-2013
+// 
+// Last Modified By : Rod Johnson
+// Last Modified On : 03-19-2013
+// ***********************************************************************
+#endregion
 
 namespace DemoApplication.DependencyResolution
 {
-    using System.Web.Mvc;
-    using Ninject;
-
-
 }

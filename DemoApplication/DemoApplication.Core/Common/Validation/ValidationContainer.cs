@@ -2,10 +2,10 @@
 // ***********************************************************************
 // Assembly	: DemoApplication.Core
 // Author	: Rod Johnson
-// Created	: 03-16-2013
+// Created	: 03-19-2013
 // 
 // Last Modified By : Rod Johnson
-// Last Modified On : 03-18-2013
+// Last Modified On : 03-19-2013
 // ***********************************************************************
 #endregion
 namespace DemoApplication.Core.Common.Validation
@@ -13,7 +13,7 @@ namespace DemoApplication.Core.Common.Validation
     #region
 
     using System.Collections.Generic;
-    using DemoApplication.Core.Interfaces.Validation;
+    using Interfaces.Validation;
 
     #endregion
 

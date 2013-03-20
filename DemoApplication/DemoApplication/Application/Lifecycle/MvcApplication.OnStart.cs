@@ -2,10 +2,10 @@
 // ***********************************************************************
 // Assembly	: DemoApplication
 // Author	: Rod Johnson
-// Created	: 02-24-2013
+// Created	: 03-19-2013
 // 
 // Last Modified By : Rod Johnson
-// Last Modified On : 03-18-2013
+// Last Modified On : 03-19-2013
 // ***********************************************************************
 #endregion
 namespace DemoApplication.Application
@@ -13,7 +13,6 @@ namespace DemoApplication.Application
     #region
 
     using System.Web.Mvc;
-    using DependencyResolution;
     using ModelBinders;
 
     #endregion

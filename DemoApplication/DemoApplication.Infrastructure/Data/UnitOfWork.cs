@@ -16,7 +16,6 @@ namespace DemoApplication.Infrastructure.Data
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.Data;
-    using System.Data.Entity;
     using System.Linq;
     using Core.Interfaces.Data;
     using Core.Model;

@@ -1,12 +1,27 @@
-using System;
-using System.Security;
-using System.Web;
-using System.Web.Mvc;
-using System.Web.Routing;
-using DemoApplication.Controllers.Error;
+#region credits
+// ***********************************************************************
+// Assembly	: DemoApplication
+// Author	: Rod Johnson
+// Created	: 03-19-2013
+// 
+// Last Modified By : Rod Johnson
+// Last Modified On : 03-19-2013
+// ***********************************************************************
+#endregion
 
 namespace DemoApplication.Application
 {
+    #region
+
+    using System;
+    using System.Security;
+    using System.Web;
+    using System.Web.Mvc;
+    using System.Web.Routing;
+    using Controllers.Error;
+
+    #endregion
+
     public partial class MvcApplication
 	{
         protected void Application_Error(object sender, EventArgs e)
