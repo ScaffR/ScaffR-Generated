@@ -13,8 +13,8 @@ namespace DemoApplication.Application
     #region
 
     using System.Web.Mvc;
+    using DependencyResolution;
     using ModelBinders;
-    using Startup;
 
     #endregion
 
@@ -29,12 +29,10 @@ namespace DemoApplication.Application
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
-            AppStartup.Routes();
+            Startup.AppStartup.Routes();
 
             //Add my MVC Provider
             ModelBinderProviders.BinderProviders.Add(new EFModelBinderProviderMvc());
-
-            
         }
 	}
 }

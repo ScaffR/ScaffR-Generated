@@ -24,6 +24,7 @@ namespace DemoApplication.DependencyResolution
     using System;
     using System.Web;
     using System.Web.Http;
+    using System.Web.Mvc;
     using Core.Interfaces.Data;
     using Core.Interfaces.Eventing;
     using Core.Interfaces.Membership;
@@ -77,7 +78,8 @@ namespace DemoApplication.DependencyResolution
             var kernel = new StandardKernel();
             kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
             kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
-            GlobalConfiguration.Configuration.DependencyResolver = new NinjectResolver(kernel);
+            GlobalConfiguration.Configuration.DependencyResolver = new NinjectResolver(kernel);  
+            ControllerBuilder.Current.SetControllerFactory(new NinjectControllerFactory(kernel));
             RegisterServices(kernel);
             return kernel;
         }
@@ -107,6 +109,21 @@ namespace DemoApplication.DependencyResolution
             kernel.Bind<ISiteSettings>().ToConstant(AppConfig.Instance.Site).InSingletonScope();
             kernel.Bind<IPhotoSettings>().ToConstant(AppConfig.Instance.Photos).InSingletonScope();
             kernel.Bind<IMembershipSettings>().ToConstant(AppConfig.Instance.Membership).InSingletonScope();
+        }
+
+        public class NinjectControllerFactory : DefaultControllerFactory
+        {
+            private IKernel ninjectKernel;
+
+            public NinjectControllerFactory(IKernel kernel)
+            {
+                ninjectKernel = kernel;
+            }
+
+            protected override IController GetControllerInstance(System.Web.Routing.RequestContext requestContext, Type controllerType)
+            {
+                return controllerType == null ? null : (IController)ninjectKernel.Get(controllerType);
+            }
         }
     }
 }

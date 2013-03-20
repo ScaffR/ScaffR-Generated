@@ -35,6 +35,7 @@ namespace DemoApplication.Controllers.Account
         /// <param name="userService">The user service.</param>
         /// <param name="authenticationService">The authentication service.</param>
         /// <param name="messageBus">The message bus.</param>
+        /// <param name="membershipSetings"></param>
         public AccountController(IUserService userService, IAuthenticationService authenticationService, IMessageBus messageBus, IMembershipSettings membershipSetings)
         {
             _membershipSetings = membershipSetings;
