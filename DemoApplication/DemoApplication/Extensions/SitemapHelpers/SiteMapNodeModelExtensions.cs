@@ -24,8 +24,10 @@ namespace DemoApplication.Extensions.SitemapHelpers
         {
             bool isRootNode = model.IsRootNode;
             bool isCurrentPath = model.IsInCurrentPath;
-            bool isCurrentNode = (context.Controller.ValueProvider.GetValue("action").RawValue.ToString().Equals(model.Action, StringComparison.CurrentCultureIgnoreCase)
-                                 && context.Controller.ValueProvider.GetValue("controller").RawValue.ToString().Equals(model.Controller, StringComparison.InvariantCultureIgnoreCase));
+            bool isCurrentNode = model.IsCurrentNode;
+            
+            //bool isCurrentNode = (context.Controller.ValueProvider.GetValue("action").RawValue.ToString().Equals(model.Action, StringComparison.CurrentCultureIgnoreCase)
+            //                     && context.Controller.ValueProvider.GetValue("controller").RawValue.ToString().Equals(model.Controller, StringComparison.InvariantCultureIgnoreCase));
 
             if (isCurrentNode)
             {

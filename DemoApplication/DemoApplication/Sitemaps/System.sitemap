@@ -29,6 +29,12 @@
         <mvcSiteMapNode title="Security" controller="Users" action="Security" preservedRouteParameters="id"/>
         <mvcSiteMapNode title="History" controller="Users" action="History" preservedRouteParameters="id"/>
       </mvcSiteMapNode>
+      <mvcSiteMapNode title="View Logs" controller="Logging" action="Manage" key="ViewLogs">
+        <mvcSiteMapNode title="Success" controller="Logging" action="Success"/>
+        <mvcSiteMapNode title="Error" controller="Logging" action="Error" />
+        <mvcSiteMapNode title="Fatal" controller="Logging" action="Fatal" />
+        <mvcSiteMapNode title="Warn" controller="Logging" action="Warning"/>
+      </mvcSiteMapNode>
     </mvcSiteMapNode>
 
   </mvcSiteMapNode>

@@ -1,0 +1,11 @@
+﻿@model string
+@{
+    ViewBag.Title = Model;
+}
+
+@section AltNav
+{
+     @Html.MvcSiteMap().Pills(SiteMap.Provider.FindSiteMapNodeFromKey("ViewLogs"), true,false)
+}
+
+

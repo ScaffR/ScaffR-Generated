@@ -228,6 +228,7 @@
     <Compile Include="Controllers\Error\ErrorController.cs" />
     <Compile Include="Controllers\Home\HomeController.Admin.cs" />
     <Compile Include="Controllers\Components\ComponentsController.Logging.cs" />
+    <Compile Include="Controllers\Logging\LoggingController.cs" />
     <Compile Include="Controllers\Users\UsersController.History.cs" />
     <Compile Include="Controllers\Users\UsersController.Security.cs" />
     <Compile Include="Extensions\HtmlHelpers\HtmlExtensions.Alerts.cs" />
@@ -1353,6 +1354,7 @@
     <Content Include="Config\log4net\text.config" />
     <Content Include="Config\log4net\mssql.config" />
     <Content Include="Config\log4net\mongo.config" />
+    <Content Include="Content\less\global\containers\header.less" />
     <None Include="Properties\PublishProfiles\staging.pubxml" />
     <Content Include="Views\Users\Manager.cshtml" />
     <Content Include="Views\Users\Details.cshtml" />
@@ -1398,6 +1400,11 @@
     <Content Include="Views\Error\Index.cshtml" />
     <Content Include="Views\Error\NotFound.cshtml" />
     <Content Include="Views\Components\Logging.cshtml" />
+    <Content Include="Views\Logging\Manage.cshtml" />
+    <None Include="Sitemaps\MvcSiteMapSchema.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Views\Logging\Results.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
