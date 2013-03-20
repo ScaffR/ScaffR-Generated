@@ -204,6 +204,7 @@
     <Compile Include="Controllers\Components\ComponentsController.FileUpload.cs" />
     <Compile Include="Controllers\Components\ComponentsController.Video.cs" />
     <Compile Include="Controllers\Components\ComponentsController.EditorTemplates.cs" />
+    <Compile Include="Controllers\Error\ErrorController.cs" />
     <Compile Include="Controllers\Home\HomeController.Admin.cs" />
     <Compile Include="Controllers\Users\UsersController.History.cs" />
     <Compile Include="Controllers\Users\UsersController.Security.cs" />
@@ -212,6 +213,7 @@
     <Compile Include="Extensions\SitemapHelpers\SiteMapNodeModelExtensions.cs" />
     <Compile Include="Extensions\TempDataHelpers\TempDataExtensions.Alerts.cs" />
     <Compile Include="Filters\ShowMainMenu.cs" />
+    <Compile Include="Filters\ShowPageHeadingText.cs" />
     <Compile Include="Models\Account\VerifyAccountModel.cs" />
     <Compile Include="Metadata\Attributes\PhoneNumberTextboxAttribute.cs" />
     <Compile Include="Metadata\Resources\ClientValidationResources.Designer.cs" />
@@ -1322,6 +1324,7 @@
     <Content Include="Content\font\museo_slab_300-webfont.ttf" />
     <Content Include="Content\less\global\components\login.less" />
     <Content Include="Content\less\global\components\widgets.less" />
+    <Content Include="Content\less\global\error.less" />
     <None Include="Properties\PublishProfiles\staging.pubxml" />
     <Content Include="Views\Users\Manager.cshtml" />
     <Content Include="Views\Users\Details.cshtml" />
@@ -1363,6 +1366,9 @@
     <Content Include="Views\Account\Success.cshtml" />
     <Content Include="Views\Account\Confirm.cshtml" />
     <Content Include="Views\Mailer\VerifyAccount.cshtml" />
+    <Content Include="Views\Error\AccessDenied.cshtml" />
+    <Content Include="Views\Error\Index.cshtml" />
+    <Content Include="Views\Error\NotFound.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

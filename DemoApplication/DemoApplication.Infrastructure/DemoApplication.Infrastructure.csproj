@@ -105,10 +105,6 @@
     <Compile Include="Configuration\AppConfig.Photos.cs" />
     <Compile Include="Configuration\AppConfig.Site.cs" />
     <Compile Include="Membership\MembershipElement.cs" />
-    <Compile Include="Photos\Configuration\PhotoConfigurationElement.cs" />
-    <Compile Include="Photos\Configuration\PhotoProviderCollection.cs" />
-    <Compile Include="Photos\Configuration\PhotoResizeCollection.cs" />
-    <Compile Include="Photos\Configuration\PhotoResizeElement.cs" />
     <Compile Include="Configuration\Pipeline\PipelineConfigurationElement.cs" />
     <Compile Include="Configuration\Site\SiteElement.cs" />
     <Compile Include="Data\BaseContext.cs" />
@@ -126,6 +122,10 @@
     <Compile Include="Migrations\201303180731133_Initial.Designer.cs">
       <DependentUpon>201303180731133_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Photos\Configuration\PhotoConfigurationElement.cs" />
+    <Compile Include="Photos\Configuration\PhotoProviderCollection.cs" />
+    <Compile Include="Photos\Configuration\PhotoResizeCollection.cs" />
+    <Compile Include="Photos\Configuration\PhotoResizeElement.cs" />
     <Compile Include="Photos\ImageHelper.cs" />
     <Compile Include="Photos\PhotoManager.cs" />
     <Compile Include="Photos\PhotoRequest.cs" />
@@ -150,7 +150,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Configuration\Photos\" />
     <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>

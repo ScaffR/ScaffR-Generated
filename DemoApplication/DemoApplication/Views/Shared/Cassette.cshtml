@@ -18,7 +18,7 @@
     @Bundles.RenderStylesheets()
     @Bundles.RenderScripts("head")
 </head>
-<body>
+<body class="@ViewBag.BodyClass">
     @Html.Partial("_Modal")
     @RenderBody()
 

@@ -24,8 +24,10 @@
     <div class="row-fluid">
         <div class="span12">
             <div class="page-header clearfix">
-                <h3 class="pull-left">@Html.GetPageHeadingText()</h3>
-                
+                @if (ViewBag.ShowPageHeadingText == true)
+                { 
+                    <h3 class="pull-left">@Html.GetPageHeadingText()</h3>
+                }
                 @if (IsSectionDefined("AltNav"))
                 {
                     @RenderSection("AltNav", true)
