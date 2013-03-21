@@ -26,11 +26,7 @@ namespace DemoApplication.Controllers.Home
         [AllowAnonymous, ShowMainMenu(false)]
         public ActionResult Index()
         {
-            if (Request.IsAuthenticated)
-            {
-                return View("Dashboard");
-            }
-            return View();
+            return View("Dashboard");
         }
 
     }

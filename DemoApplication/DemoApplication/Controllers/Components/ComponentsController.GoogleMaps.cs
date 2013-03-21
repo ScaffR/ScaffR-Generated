@@ -25,6 +25,7 @@ namespace DemoApplication.Controllers.Components
         /// Demonstration of Google Maps
         /// </summary>
         /// <returns>ActionResult.</returns>
+        [AllowAnonymous]
         public ActionResult GoogleMaps()
         {
             var model = new AddressModel
@@ -41,7 +42,7 @@ namespace DemoApplication.Controllers.Components
         /// </summary>
         /// <param name="model">The model.</param>
         /// <returns>ActionResult.</returns>
-        [HttpPost]
+        [HttpPost, AllowAnonymous]
         public ActionResult GoogleMaps(AddressModel model)
         {
             if (ModelState.IsValid)

@@ -23,6 +23,7 @@ namespace DemoApplication.Controllers.Components
         /// Demonstration of the DropDown framework.
         /// </summary>
         /// <returns>ActionResult.</returns>
+        [AllowAnonymous]
         public ActionResult DropDown()
         {
             return View(new SampleDropdownModel());

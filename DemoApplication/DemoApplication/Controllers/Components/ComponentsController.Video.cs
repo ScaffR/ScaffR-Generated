@@ -23,6 +23,7 @@ namespace DemoApplication.Controllers.Components
         /// Demonstration of the Video Player DisplayTemplates.
         /// </summary>
         /// <returns>ActionResult.</returns>
+        [AllowAnonymous]
         public ActionResult Video()
         {
             var model = new SampleVideoModel

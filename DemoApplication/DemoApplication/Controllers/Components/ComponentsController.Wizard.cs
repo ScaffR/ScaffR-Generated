@@ -24,6 +24,7 @@ namespace DemoApplication.Controllers.Components
         /// Demonstration of the wizard control.
         /// </summary>
         /// <returns>ActionResult.</returns>
+        [AllowAnonymous]
         public ActionResult Wizard()
         {
             return View(new SampleWizardModel());
@@ -34,7 +35,7 @@ namespace DemoApplication.Controllers.Components
         /// </summary>
         /// <param name="model">The model.</param>
         /// <returns>ActionResult.</returns>
-        [HttpPost]
+        [HttpPost, AllowAnonymous]
         public ActionResult Wizard(SampleWizardModel model)
         {
             if (ModelState.IsValid)

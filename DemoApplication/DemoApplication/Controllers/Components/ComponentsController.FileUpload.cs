@@ -25,6 +25,7 @@ namespace DemoApplication.Controllers.Components
         /// Demonstration of the file upload.
         /// </summary>
         /// <returns>ActionResult.</returns>
+        [AllowAnonymous]
         public ActionResult FileUpload()
         {
             return View();

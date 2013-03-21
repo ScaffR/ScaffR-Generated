@@ -12,7 +12,6 @@ namespace DemoApplication.Extensions.SitemapHelpers
 {
     #region
 
-    using System;
     using System.Web.Mvc;
     using MvcSiteMapProvider.Web.Html.Models;
 

@@ -19,12 +19,11 @@ namespace DemoApplication.Controllers.Home
 
     public partial class HomeController : Controller
     {
-
         /// <summary>
         /// Landing page for the administrative portion of the website
         /// </summary>
         /// <returns>ActionResult.</returns>
-        [ClaimsAuthorize("View", "ManageUsers")]
+        [Authorize(Roles = "Admin")]
         public ActionResult Manage()
         {
             return View();

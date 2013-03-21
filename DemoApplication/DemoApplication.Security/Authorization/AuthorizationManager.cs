@@ -22,6 +22,5 @@ namespace DemoApplication.Security.Authorization
         {
             return true;
         }        
-
     }
 }

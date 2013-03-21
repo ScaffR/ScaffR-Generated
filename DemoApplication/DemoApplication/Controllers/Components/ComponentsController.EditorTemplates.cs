@@ -27,6 +27,7 @@ namespace DemoApplication.Controllers.Components
         /// Demonstration of the EditorTemplates
         /// </summary>
         /// <returns>ActionResult.</returns>
+        [AllowAnonymous]
         public ActionResult EditorTemplates()
         {
             var model = new SampleEditorTemplatesModel();
@@ -39,7 +40,7 @@ namespace DemoApplication.Controllers.Components
         /// </summary>
         /// <param name="model">The model.</param>
         /// <returns>ActionResult.</returns>
-        [HttpPost]
+        [HttpPost, AllowAnonymous]
         public ActionResult EditorTemplates(SampleEditorTemplatesModel model)
         {
             if (ModelState.IsValid)

@@ -56,6 +56,18 @@ namespace DemoApplication.Extensions.SitemapHelpers
         }
 
         /// <summary>
+        /// Mains the menu.
+        /// </summary>
+        /// <param name="helper">The helper.</param>
+        /// <param name="showStartingNode">if set to <c>true</c> [show starting node].</param>
+        /// <param name="maxDepth">The max depth.</param>
+        /// <returns>MvcHtmlString.</returns>
+        public static MvcHtmlString MainMenu(this MvcSiteMapHtmlHelper helper, bool showStartingNode, int maxDepth)
+        {
+            return MainMenu(helper, helper.Provider.RootNode, true, showStartingNode, maxDepth, false);
+        }
+
+        /// <summary>
         /// Build a menu, based on the MvcSiteMap
         /// </summary>
         /// <param name="helper">The helper.</param>
@@ -376,18 +388,13 @@ namespace DemoApplication.Extensions.SitemapHelpers
             {
                 return model;
             }
-
             
-
-
             // Check visibility
             bool nodeVisible = true;
             if (mvcNode != null)
             {
                 nodeVisible = mvcNode.VisibilityProvider.IsVisible(
-                    node, HttpContext.Current, TabsSourceMetadata);   
-            
-
+                    node, HttpContext.Current, TabsSourceMetadata);               
             }
 
             // Check ACL

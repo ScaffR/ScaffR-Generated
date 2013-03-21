@@ -14,8 +14,6 @@ namespace DemoApplication.Security.Authentication
 
     using System.Linq;
     using System.Security.Claims;
-    using System.Web.Mvc;
-    using Core.Interfaces.Service;
 
     #endregion
 
@@ -33,22 +31,7 @@ namespace DemoApplication.Security.Authentication
 
         ClaimsPrincipal Transform(ClaimsPrincipal incomingPrincipal)
         {
-            var nameClaim = incomingPrincipal.Identities.First().FindFirst(ClaimTypes.Name);
-
-            var userService = DependencyResolver.Current.GetService<IUserService>();
-
-            var user = userService.GetByUsername(nameClaim.Value);
-            
-           
-            //// get roles...
-            //var claims = new List<Claim>();
-
-            //foreach (var claim in user.Claims)
-            //{
-            //    claims.Add(new Claim(claim.Type, claim.Value));
-            //}
-
-            //incomingPrincipal.Identities.FirstOrDefault().AddClaims(claims);
+            incomingPrincipal.Identities.FirstOrDefault().AddClaim(new Claim(ClaimTypes.Role, "Admin"));
            
             return incomingPrincipal;
         }

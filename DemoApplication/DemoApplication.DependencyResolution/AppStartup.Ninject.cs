@@ -39,8 +39,11 @@ namespace DemoApplication.DependencyResolution
     using Infrastructure.Data;
     using Infrastructure.Eventing;
     using Infrastructure.Membership;
+    using Infrastructure.Sitemap;
     using Infrastructure.Storage.Providers;
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
+    using MvcSiteMapProvider;
+    using MvcSiteMapProvider.Extensibility;
     using Ninject;
     using Ninject.Web.Common;
     using Security.Authentication;
@@ -104,6 +107,10 @@ namespace DemoApplication.DependencyResolution
             kernel.Bind<IAuthenticationService>().To<ClaimsBasedAuthenticationService>().InRequestScope();
             kernel.Bind<IDropdownProvider>().To<Dropdowns>().InRequestScope();
             kernel.Bind<IStorageProvider>().To<SessionStorageProvider>();
+
+            // sitemap
+            kernel.Bind<IAclModule>().To<SitemapAclModule>().InSingletonScope();
+            kernel.Bind<ISiteMapNodeVisibilityProvider>().To<FilteredSiteMapNodeVisibilityProvider>().InSingletonScope();
 
             // settings
             kernel.Bind<ISiteSettings>().ToConstant(AppConfig.Instance.Site).InSingletonScope();

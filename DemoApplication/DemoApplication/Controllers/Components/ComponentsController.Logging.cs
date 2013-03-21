@@ -13,7 +13,7 @@ namespace DemoApplication.Controllers.Components
         //
         // GET: /Logging/
 
-        [Log]
+        [Log, AllowAnonymous]
         public ActionResult Logging()
         {
             var model = new List<SampleLoggingModel>
@@ -48,9 +48,7 @@ namespace DemoApplication.Controllers.Components
             return View(model);
         }
 
-        //
-        // POST: /Logging/
-        [HttpPost]
+        [HttpPost,AllowAnonymous]
         public ActionResult Logging(List<SampleLoggingModel> models)
         {
             

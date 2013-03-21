@@ -25,6 +25,7 @@ namespace DemoApplication.Controllers.Components
         /// Landing page for the components section of the website.
         /// </summary>
         /// <returns>ActionResult.</returns>
+        [AllowAnonymous]
         public ActionResult Index()
         {
             return View();
