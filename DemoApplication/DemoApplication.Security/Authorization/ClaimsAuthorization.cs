@@ -5,7 +5,7 @@
 // Created	: 03-16-2013
 // 
 // Last Modified By : Rod Johnson
-// Last Modified On : 03-19-2013
+// Last Modified On : 03-21-2013
 // ***********************************************************************
 #endregion
 namespace DemoApplication.Security.Authorization
@@ -14,7 +14,6 @@ namespace DemoApplication.Security.Authorization
 
     using System;
     using System.Collections.ObjectModel;
-    using System.Diagnostics.Contracts;
     using System.IdentityModel.Services;
     using System.Linq;
     using System.Security.Claims;
@@ -62,9 +61,6 @@ namespace DemoApplication.Security.Authorization
         /// <returns>true when authorized, otherwise false</returns>
         public static bool CheckAccess(string action, params string[] resources)
         {
-            Contract.Requires(!String.IsNullOrEmpty(action));
-
-
             return CheckAccess(ClaimsPrincipal.Current, action, resources);
         }
 
@@ -86,10 +82,6 @@ namespace DemoApplication.Security.Authorization
         /// <returns>true when authorized, otherwise false</returns>
         public static bool CheckAccess(Collection<Claim> actions, Collection<Claim> resources)
         {
-            Contract.Requires(actions != null);
-            Contract.Requires(resources != null);
-
-
             return CheckAccess(new AuthorizationContext(
                 ClaimsPrincipal.Current, resources, actions));
         }
@@ -101,9 +93,6 @@ namespace DemoApplication.Security.Authorization
         /// <returns>true when authorized, otherwise false</returns>
         public static bool CheckAccess(AuthorizationContext context)
         {
-            Contract.Requires(context != null);
-
-
             if (EnforceAuthorizationManagerImplementation)
             {
                 var authZtype = AuthorizationManager.GetType().FullName;

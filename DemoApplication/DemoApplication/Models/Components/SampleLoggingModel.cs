@@ -2,19 +2,23 @@
 // ***********************************************************************
 // Assembly	: DemoApplication
 // Author	: Rod Johnson
-// Created	: 03-07-2013
+// Created	: 03-20-2013
 // 
 // Last Modified By : Rod Johnson
-// Last Modified On : 03-18-2013
+// Last Modified On : 03-21-2013
 // ***********************************************************************
 #endregion
 
-using System.ComponentModel.DataAnnotations;
-using DemoApplication.Dropdowns.Attributes;
-using DemoApplication.Metadata.Attributes;
-
 namespace DemoApplication.Models.Components
 {
+    #region
+
+    using System.ComponentModel.DataAnnotations;
+    using Dropdowns.Attributes;
+    using Metadata.Attributes;
+
+    #endregion
+
     #region
 
     

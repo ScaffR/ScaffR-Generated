@@ -1,20 +1,19 @@
 #region credits
 // ***********************************************************************
 // Assembly	: DemoApplication.Core
-// Author	: Victor Cardins
+// Author	: Rod Johnson
 // Created	: 03-20-2013
 // 
-// Last Modified By : Victor Cardins
-// Last Modified On : 03-18-2013
+// Last Modified By : Rod Johnson
+// Last Modified On : 03-21-2013
 // ***********************************************************************
 #endregion
-
-using System;
 
 namespace DemoApplication.Core.Model
 {
     #region
 
+    using System;
     using System.ComponentModel.DataAnnotations;
 
     #endregion

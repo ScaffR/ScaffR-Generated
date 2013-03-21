@@ -5,7 +5,7 @@
 // Created	: 02-24-2013
 // 
 // Last Modified By : Rod Johnson
-// Last Modified On : 03-19-2013
+// Last Modified On : 03-21-2013
 // ***********************************************************************
 #endregion
 namespace DemoApplication.Controllers.Account
@@ -72,7 +72,7 @@ namespace DemoApplication.Controllers.Account
                     }
                     if (_membershipSetings.AllowLoginAfterAccountCreation)
                     {
-                        _authenticationService.SignIn(user);
+                        _authenticationService.SignIn(user, true);
                         TempData.AddSuccessMessage("Welcome to your new account, " + user.Username + "!");                            
                         return RedirectToAction("Index", "Home");
                     }

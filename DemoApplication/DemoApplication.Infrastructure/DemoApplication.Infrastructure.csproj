@@ -119,6 +119,7 @@
     <Compile Include="Configuration\AppConfig.Membership.cs" />
     <Compile Include="Configuration\AppConfig.Photos.cs" />
     <Compile Include="Configuration\AppConfig.Site.cs" />
+    <Compile Include="Extensions\SessionExtensions.cs" />
     <Compile Include="Membership\MembershipElement.cs" />
     <Compile Include="Configuration\Pipeline\PipelineConfigurationElement.cs" />
     <Compile Include="Configuration\Site\SiteElement.cs" />

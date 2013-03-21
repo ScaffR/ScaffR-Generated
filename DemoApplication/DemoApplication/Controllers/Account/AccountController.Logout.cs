@@ -5,7 +5,7 @@
 // Created	: 03-17-2013
 // 
 // Last Modified By : Rod Johnson
-// Last Modified On : 03-19-2013
+// Last Modified On : 03-21-2013
 // ***********************************************************************
 #endregion
 namespace DemoApplication.Controllers.Account
@@ -27,11 +27,16 @@ namespace DemoApplication.Controllers.Account
         /// Logout the existing user.
         /// </summary>
         /// <returns>ActionResult.</returns>
+        [AllowAnonymous]
         public ActionResult LogOff()
         {
-            _messageBus.Publish(new UserLoggedOut(UserProfile.Current));
-
-            _authenticationService.SignOut();            
+            if (Request.IsAuthenticated)
+            {
+                _messageBus.Publish(new UserLoggedOut(UserProfile.Current));
+                _authenticationService.SignOut();  
+                Session.Abandon();
+            }
+                      
             return RedirectToAction("Index", "Home");
         }       
     }

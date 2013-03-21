@@ -5,7 +5,7 @@
 // Created	: 03-15-2013
 // 
 // Last Modified By : Rod Johnson
-// Last Modified On : 03-19-2013
+// Last Modified On : 03-21-2013
 // ***********************************************************************
 #endregion
 namespace DemoApplication.Controllers.Account
@@ -57,7 +57,7 @@ namespace DemoApplication.Controllers.Account
                 User user;
                 if (_userService.Authenticate(model.UserName, model.Password, out status, out user))
                 {
-                    _authenticationService.SignIn(user);
+                    _authenticationService.SignIn(user, model.RememberMe);
 
                     _messageBus.Publish(new UserLoggedIn(user));  
 

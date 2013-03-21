@@ -5,7 +5,7 @@
 // Created	: 03-19-2013
 // 
 // Last Modified By : Rod Johnson
-// Last Modified On : 03-19-2013
+// Last Modified On : 03-21-2013
 // ***********************************************************************
 #endregion
 #region
@@ -104,7 +104,7 @@ namespace DemoApplication.DependencyResolution
             kernel.Bind<IRoleRepository>().To<RoleRepository>().InRequestScope();
             kernel.Bind<IUserClaimService>().To<UserClaimService>().InRequestScope();
             kernel.Bind<IUserClaimRepository>().To<UserClaimRepository>().InRequestScope();
-            kernel.Bind<IAuthenticationService>().To<ClaimsBasedAuthenticationService>().InRequestScope();
+            kernel.Bind<IAuthenticationService>().To<ClaimsAuthenticationService>().InRequestScope();
             kernel.Bind<IDropdownProvider>().To<Dropdowns>().InRequestScope();
             kernel.Bind<IStorageProvider>().To<SessionStorageProvider>();
 

@@ -5,7 +5,7 @@
 // Created	: 02-24-2013
 // 
 // Last Modified By : Rod Johnson
-// Last Modified On : 03-19-2013
+// Last Modified On : 03-21-2013
 // ***********************************************************************
 #endregion
 namespace DemoApplication.Core.Interfaces.Service
@@ -18,7 +18,7 @@ namespace DemoApplication.Core.Interfaces.Service
 
     public interface IAuthenticationService
     {
-        void SignIn(User user);
+        void SignIn(User user, bool isPersistant);
         void SignOut();
     }
 }

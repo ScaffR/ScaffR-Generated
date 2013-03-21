@@ -1,8 +1,21 @@
+#region credits
+// ***********************************************************************
+// Assembly	: DemoApplication.Infrastructure
+// Author	: Rod Johnson
+// Created	: 03-20-2013
+// 
+// Last Modified By : Rod Johnson
+// Last Modified On : 03-21-2013
+// ***********************************************************************
+#endregion
 namespace DemoApplication.Infrastructure.Migrations
 {
-    using System;
+    #region
+
     using System.Data.Entity.Migrations;
-    
+
+    #endregion
+
     public partial class Log : DbMigration
     {
         public override void Up()

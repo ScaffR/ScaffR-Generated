@@ -1,7 +1,22 @@
-﻿using System.Web;
+﻿#region credits
+// ***********************************************************************
+// Assembly	: DemoApplication.Infrastructure
+// Author	: Rod Johnson
+// Created	: 03-21-2013
+// 
+// Last Modified By : Rod Johnson
+// Last Modified On : 03-21-2013
+// ***********************************************************************
+#endregion
 
 namespace DemoApplication.Infrastructure.Sitemap.External
 {
+    #region
+
+    using System.Web;
+
+    #endregion
+
     public class HttpContextMethodOverrider : HttpContextWrapper
     {
         private readonly HttpContext httpContext;

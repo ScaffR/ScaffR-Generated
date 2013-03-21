@@ -5,7 +5,7 @@
 // Created	: 03-16-2013
 // 
 // Last Modified By : Rod Johnson
-// Last Modified On : 03-19-2013
+// Last Modified On : 03-21-2013
 // ***********************************************************************
 #endregion
 namespace DemoApplication.Security.Authentication
@@ -17,25 +17,18 @@ namespace DemoApplication.Security.Authentication
     using System.IdentityModel.Tokens;
     using System.Linq;
     using System.Security.Claims;
-    using Core.Extensions;
+    using System.Web.Security;
     using Core.Interfaces.Service;
     using Core.Model;
+    using Extensions;
+    using Infrastructure.Extensions;
     using Infrastructure.Tracing;
 
     #endregion
 
-    public class ClaimsBasedAuthenticationService : IAuthenticationService
+    public class ClaimsAuthenticationService : IAuthenticationService
     {
-        const int DefaultTokenLifetime_InHours = 10;
-
-        IUserService userService;
-
-        public ClaimsBasedAuthenticationService(IUserService userService)
-        {
-            this.userService = userService;
-        }
-
-        public virtual void SignIn(User user)
+        public virtual void SignIn(User user, bool isPersistant = false)
         {
             Tracing.Information(String.Format("[ClaimsBasedAuthenticationService.Signin] called: {0}", user.Username));
 
@@ -65,12 +58,12 @@ namespace DemoApplication.Security.Authentication
             // issue cookie
             var sam = FederatedAuthentication.SessionAuthenticationModule;
             if (sam == null)
-            {
-                Tracing.Verbose("[ClaimsBasedAuthenticationService.Signin] SessionAuthenticationModule is not configured");
                 throw new Exception("SessionAuthenticationModule is not configured and it needs to be.");
-            }
 
-            var token = new SessionSecurityToken(cp, TimeSpan.FromHours(DefaultTokenLifetime_InHours));
+            var token = new SessionSecurityToken(cp, isPersistant ?  FormsAuthentication.Timeout : TimeSpan.FromMinutes(SessionHelpers.GetSessionTimeoutInMinutes))
+                {
+                    IsPersistent = isPersistant
+                };
             sam.WriteSessionTokenToCookie(token);
 
             Tracing.Verbose(String.Format("[ClaimsBasedAuthenticationService.Signin] cookie issued: {0}", claims.GetValue(ClaimTypes.NameIdentifier)));
@@ -88,7 +81,7 @@ namespace DemoApplication.Security.Authentication
                 throw new Exception("SessionAuthenticationModule is not configured and it needs to be.");
             }
 
-            sam.SignOut();
+            sam.SignOut();            
         }
     }
 }

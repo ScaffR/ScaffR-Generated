@@ -5,7 +5,7 @@
 // Created	: 03-16-2013
 // 
 // Last Modified By : Rod Johnson
-// Last Modified On : 03-19-2013
+// Last Modified On : 03-21-2013
 // ***********************************************************************
 #endregion
 namespace DemoApplication.Security.Authorization
@@ -21,7 +21,7 @@ namespace DemoApplication.Security.Authorization
         public string _action;
         public string[] _resources;
 
-        private const string _label = "Thinktecture.IdentityModel.Authorization.Mvc.ClaimsAuthorizeAttribute";
+        private static readonly string _label = typeof(ClaimsAuthorizeAttribute).FullName;
 
         public ClaimsAuthorizeAttribute()
         { }
@@ -44,11 +44,8 @@ namespace DemoApplication.Security.Authorization
             {
                 return ClaimsAuthorization.CheckAccess(_action, _resources);
             }
-            else
-            {
-                var filterContext = httpContext.Items[_label] as AuthorizationContext;
-                return CheckAccess(filterContext);
-            }
+            var filterContext = httpContext.Items[_label] as AuthorizationContext;
+            return CheckAccess(filterContext);
         }
 
         protected virtual bool CheckAccess(AuthorizationContext filterContext)

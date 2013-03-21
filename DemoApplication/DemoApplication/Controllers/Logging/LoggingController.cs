@@ -1,7 +1,22 @@
-﻿using System.Web.Mvc;
+﻿#region credits
+// ***********************************************************************
+// Assembly	: DemoApplication
+// Author	: Rod Johnson
+// Created	: 03-20-2013
+// 
+// Last Modified By : Rod Johnson
+// Last Modified On : 03-21-2013
+// ***********************************************************************
+#endregion
 
 namespace DemoApplication.Controllers.Logging
 {
+    #region
+
+    using System.Web.Mvc;
+
+    #endregion
+
     public class LoggingController : Controller
     {
         public ActionResult Manage()

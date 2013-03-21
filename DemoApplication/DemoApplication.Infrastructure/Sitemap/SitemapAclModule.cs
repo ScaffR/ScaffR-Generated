@@ -1,5 +1,17 @@
-﻿namespace DemoApplication.Infrastructure.Sitemap
+﻿#region credits
+// ***********************************************************************
+// Assembly	: DemoApplication.Infrastructure
+// Author	: Rod Johnson
+// Created	: 03-21-2013
+// 
+// Last Modified By : Rod Johnson
+// Last Modified On : 03-21-2013
+// ***********************************************************************
+#endregion
+namespace DemoApplication.Infrastructure.Sitemap
 {
+    #region
+
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -12,6 +24,8 @@
     using MvcSiteMapProvider.Extensibility;
     using MvcSiteMapProvider.External;
     using Telerik.Web.Mvc.Infrastructure.Implementation;
+
+    #endregion
 
     public class SitemapAclModule : IAclModule
     {
