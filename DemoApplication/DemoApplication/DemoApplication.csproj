@@ -1161,9 +1161,6 @@
     <Content Include="Views\Shared\DisplayTemplates\Photo.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Account\Photo.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Home\Dashboard.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -1403,6 +1400,7 @@
       <SubType>Designer</SubType>
     </None>
     <Content Include="Views\Logging\Results.cshtml" />
+    <Content Include="Views\Account\Photo.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
