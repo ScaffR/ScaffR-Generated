@@ -159,7 +159,6 @@
     <Compile Include="Photos\Providers\FileSystemProvider.cs" />
     <Compile Include="Sitemap\External\HttpContextMethodOverrider.cs" />
     <Compile Include="Sitemap\External\HttpRequestMethodOverrider.cs" />
-    <Compile Include="Sitemap\SitemapAclModule.cs" />
     <Compile Include="Storage\Providers\SessionStorageProvider.cs" />
     <Compile Include="Tracing\Tracing.cs" />
   </ItemGroup>

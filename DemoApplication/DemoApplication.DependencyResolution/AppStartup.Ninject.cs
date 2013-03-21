@@ -47,6 +47,7 @@ namespace DemoApplication.DependencyResolution
     using Ninject;
     using Ninject.Web.Common;
     using Security.Authentication;
+    using Security.Authorization;
 
     #endregion
 
@@ -109,7 +110,7 @@ namespace DemoApplication.DependencyResolution
             kernel.Bind<IStorageProvider>().To<SessionStorageProvider>();
 
             // sitemap
-            kernel.Bind<IAclModule>().To<SitemapAclModule>().InSingletonScope();
+            kernel.Bind<IAclModule>().To<ClaimsAuthorizeModule>().InSingletonScope();
             kernel.Bind<ISiteMapNodeVisibilityProvider>().To<FilteredSiteMapNodeVisibilityProvider>().InSingletonScope();
 
             // settings
