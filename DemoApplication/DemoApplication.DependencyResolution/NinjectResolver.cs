@@ -20,7 +20,7 @@ namespace DemoApplication.DependencyResolution
     /// <summary>
     /// Class NinjectResolver
     /// </summary>
-    public class NinjectResolver : NinjectScope, IDependencyResolver
+    public class NinjectResolver : NinjectScope, System.Web.Mvc.IDependencyResolver
     {
         private readonly IKernel _kernel;
         /// <summary>

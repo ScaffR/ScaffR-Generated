@@ -29,7 +29,7 @@ namespace DemoApplication.Application
             var currentController = " ";
             var currentAction = " ";
             var currentRouteData = RouteTable.Routes.GetRouteData(new HttpContextWrapper(httpContext));
-
+            
             if (currentRouteData != null)
             {
                 if (currentRouteData.Values["controller"] != null && !String.IsNullOrEmpty(currentRouteData.Values["controller"].ToString()))

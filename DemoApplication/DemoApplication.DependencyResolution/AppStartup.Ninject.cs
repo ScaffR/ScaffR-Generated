@@ -23,7 +23,6 @@ namespace DemoApplication.DependencyResolution
 
     using System;
     using System.Web;
-    using System.Web.Http;
     using System.Web.Mvc;
     using Core.Interfaces.Data;
     using Core.Interfaces.Eventing;
@@ -39,7 +38,6 @@ namespace DemoApplication.DependencyResolution
     using Infrastructure.Data;
     using Infrastructure.Eventing;
     using Infrastructure.Membership;
-    using Infrastructure.Sitemap;
     using Infrastructure.Storage.Providers;
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
     using MvcSiteMapProvider;
@@ -82,7 +80,7 @@ namespace DemoApplication.DependencyResolution
             var kernel = new StandardKernel();
             kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
             kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
-            GlobalConfiguration.Configuration.DependencyResolver = new NinjectResolver(kernel);  
+            DependencyResolver.SetResolver(new NinjectResolver(kernel));  
             ControllerBuilder.Current.SetControllerFactory(new NinjectControllerFactory(kernel));
             RegisterServices(kernel);
             return kernel;
