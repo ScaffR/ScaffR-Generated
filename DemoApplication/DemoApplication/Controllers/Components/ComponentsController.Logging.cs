@@ -23,7 +23,7 @@ namespace DemoApplication.Controllers.Components
     public partial class ComponentsController
     {
 
-        private readonly Common.Logging.ILog _logger = Common.Logging.LogManager.GetCurrentClassLogger();
+        //private readonly Common.Logging.ILog _logger = Common.Logging.LogManager.GetCurrentClassLogger();
         //
         // GET: /Logging/
 
@@ -71,28 +71,28 @@ namespace DemoApplication.Controllers.Components
                 if (string.IsNullOrEmpty(log.Event))
                     continue;
 
-                switch (log.Status)
-                {
-                    case EventStatus.Error :
-                        _logger.ErrorFormat("Logging '{0}'", log.Event);
-                        break;
-                    case EventStatus.Warning:
-                        _logger.WarnFormat("Logging '{0}'", log.Event);
-                        break;
-                    case EventStatus.Info:
-                        _logger.InfoFormat("Logging '{0}'", log.Event);
-                        break;
-                    case EventStatus.Success:
-                        _logger.InfoFormat("Logging '{0}'", log.Event);
-                        break;
-                    case EventStatus.Debug:
-                        _logger.DebugFormat("Logging '{0}'", log.Event);
-                        break;
-                    case EventStatus.Fatal:
-                        _logger.FatalFormat("Logging '{0}'", log.Event);
-                        break;
+                //switch (log.Status)
+                //{
+                //    case EventStatus.Error :
+                //        _logger.ErrorFormat("Logging '{0}'", log.Event);
+                //        break;
+                //    case EventStatus.Warning:
+                //        _logger.WarnFormat("Logging '{0}'", log.Event);
+                //        break;
+                //    case EventStatus.Info:
+                //        _logger.InfoFormat("Logging '{0}'", log.Event);
+                //        break;
+                //    case EventStatus.Success:
+                //        _logger.InfoFormat("Logging '{0}'", log.Event);
+                //        break;
+                //    case EventStatus.Debug:
+                //        _logger.DebugFormat("Logging '{0}'", log.Event);
+                //        break;
+                //    case EventStatus.Fatal:
+                //        _logger.FatalFormat("Logging '{0}'", log.Event);
+                //        break;
 
-                } 
+                //} 
             }
              
             return RedirectToAction("Logging", "Components");
