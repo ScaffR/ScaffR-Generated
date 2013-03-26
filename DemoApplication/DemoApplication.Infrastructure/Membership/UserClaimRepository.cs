@@ -21,8 +21,10 @@ namespace DemoApplication.Infrastructure.Membership
     /// <summary>
     /// Class UserClaimRepository
     /// </summary>
-    public partial class UserClaimRepository : BaseRepository<UserClaim, MembershipContext>, IUserClaimRepository
+    public partial class UserClaimRepository : BaseRepository<UserClaim>, IUserClaimRepository
     {
-
-	}
+        public UserClaimRepository(IDatabaseFactory databaseFactory) : base(databaseFactory)
+        {
+        }
+    }
 }

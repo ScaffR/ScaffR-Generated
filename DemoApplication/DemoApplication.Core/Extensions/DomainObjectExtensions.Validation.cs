@@ -16,8 +16,8 @@ namespace DemoApplication.Core.Extensions
     using System.ComponentModel.DataAnnotations;
     using System.Reflection;
     using Common.Validation;
-    using Interfaces.Validation;
-    using Model;
+    using DemoApplication.Core.Interfaces.Validation;
+    using DemoApplication.Core.Model;
 
     #endregion
 

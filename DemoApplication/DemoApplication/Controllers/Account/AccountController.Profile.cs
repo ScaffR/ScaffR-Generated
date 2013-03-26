@@ -55,7 +55,7 @@ namespace DemoApplication.Controllers.Account
 
                 try
                 {
-                    var result = UserProfile.Current.Save();
+                    var result = _userService.SaveOrUpdate(UserProfile.Current);
 
                     if (ModelState.Process(result))
                     {

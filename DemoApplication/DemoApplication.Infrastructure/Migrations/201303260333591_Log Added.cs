@@ -1,27 +1,14 @@
-#region credits
-// ***********************************************************************
-// Assembly	: DemoApplication.Infrastructure
-// Author	: Rod Johnson
-// Created	: 03-20-2013
-// 
-// Last Modified By : Rod Johnson
-// Last Modified On : 03-21-2013
-// ***********************************************************************
-#endregion
 namespace DemoApplication.Infrastructure.Migrations
 {
-    #region
-
+    using System;
     using System.Data.Entity.Migrations;
-
-    #endregion
-
-    public partial class Log : DbMigration
+    
+    public partial class LogAdded : DbMigration
     {
         public override void Up()
         {
             CreateTable(
-                "dbo.Log",
+                "dbo.Logs",
                 c => new
                     {
                         LogId = c.Int(nullable: false, identity: true),
@@ -38,7 +25,7 @@ namespace DemoApplication.Infrastructure.Migrations
         
         public override void Down()
         {
-            DropTable("dbo.Log");
+            DropTable("dbo.Logs");
         }
     }
 }

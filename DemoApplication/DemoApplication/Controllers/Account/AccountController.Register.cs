@@ -12,11 +12,13 @@ namespace DemoApplication.Controllers.Account
 {
     #region
 
+    using System.ComponentModel.DataAnnotations;
     using System.Web.Mvc;
     using Core.Common.Membership;
     using Core.Common.Membership.Events;
     using Core.Extensions;
     using Core.Model;
+    using Extensions.ModelStateHelpers;
     using Extensions.TempDataHelpers;
     using Extensions.UrlHelpers;
     using Filters;
@@ -51,37 +53,23 @@ namespace DemoApplication.Controllers.Account
         {
             if (ModelState.IsValid)
             {
-                var user = new User();
-
-                user.InjectFrom<UnflatLoopValueInjection>(model);
-                user.ShowWelcomePage = true;
-
-                CreateUserStatus createStatus = _userService.CreateUser(user);
-
-                if (createStatus == CreateUserStatus.Success)
-                {                   
-                    _messageBus.Publish(new UserCreated(user, Url.AbsoluteAction("Login", "Account")));
-
-                    if (_membershipSetings.RequireAccountVerification)
+                try
+                {
+                    var user = _userService.CreateAccount(model.Username, model.Password, model.Email,model.FirstName, model.LastName, model.PhoneNumber, model.Address);
+                    if (ModelState.Process(user))
                     {
-                        new Mailer().VerifyAccount(new VerifyAccountModel());
-
-                        // I don't like this
-                        // should be return RedirectToAction
-                        return View("Success", model);
-                    }
-                    if (_membershipSetings.AllowLoginAfterAccountCreation)
-                    {
-                        _authenticationService.SignIn(user, true);
-                        TempData.AddSuccessMessage("Welcome to your new account, " + user.Username + "!");                            
-                        return RedirectToAction("Index", "Home");
-                    }
-                    return View("Confirm", true);
+                        if (_membershipSettings.RequireAccountVerification)
+                        {
+                            return View("Success", model);
+                        }
+                        return View("Confirm", true);
+                    }                   
                 }
-
-                ModelState.AddModelError(string.Empty, createStatus.GetDescription());
+                catch (ValidationException ex)
+                {
+                    ModelState.AddModelError("", ex.Message);
+                }
             }
-
             return View(model);
         }
     }

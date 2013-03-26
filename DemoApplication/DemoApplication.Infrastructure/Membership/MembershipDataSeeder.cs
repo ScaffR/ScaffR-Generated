@@ -37,17 +37,23 @@ namespace DemoApplication.Infrastructure.Membership
                 {
                     new User()
                         {
-                            UserId = 1,
+                            ID = 1,
                             Email = "webmaster@scaffr.com",
                             Username = "admin",
                             FirstName = "Rod",
                             LastName = "Johnson",
-                            LastLoginDate = DateTime.Now,
-                            Password = "admin",
-                            IsApproved = true,							
+                            LastLogin = DateTime.UtcNow,
                             Gender = Gender.Male,
                             Address = "Admin address",
-                            PhoneNumber = "555-555-5555"
+                            PhoneNumber = "555-555-5555",
+                            IsLoginAllowed = true,
+                            IsAccountClosed = false,
+                            IsAccountVerified = true,
+                            Created = DateTime.UtcNow,
+                            Tenant = "default",
+                            HashedPassword = "FA00.ACHEhktjwC+lLMLKq0PZXYsnr9HreWXtgMY55xMDY4ctWYeyzGPxt2vGLEtOEX2SKA==",
+                            PasswordChanged = DateTime.UtcNow,
+                            FailedLoginCount = 0
                         }
                 }.ForEach(u => context.Users.AddOrUpdate(u));
 

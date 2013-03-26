@@ -22,13 +22,13 @@ namespace DemoApplication.Controllers.Users
     /// </summary>
     public partial class UsersController : Controller
     {
-        protected readonly IUserService UserService;
+        protected readonly IUserAccountService UserService;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="UsersController"/> class.
         /// </summary>
         /// <param name="userService">The user service.</param>
-        public UsersController(IUserService userService)
+        public UsersController(IUserAccountService userService)
         {
             UserService = userService;
         }

@@ -25,15 +25,17 @@ namespace DemoApplication.Infrastructure.Data
     public partial class UnitOfWork : IUnitOfWork
     {
         private IDataContext _datacontext;
+        private readonly IDatabaseFactory _databaseFactory;
 
-        public UnitOfWork()
+        public UnitOfWork(IDatabaseFactory databaseFactory)
         {
+            _databaseFactory = databaseFactory;
             this.DataContext.ObjectContext().SavingChanges += (sender, e) => BeforeSave(this.GetChangedOrNewEntities());
         }
 
         public IDataContext DataContext
         {
-            get { return this._datacontext ?? (this._datacontext = new DataContext()); }
+            get { return this._datacontext ?? (this._datacontext = _databaseFactory.Get()); }
         }
 
         private IEnumerable<DomainObject> GetChangedOrNewEntities()

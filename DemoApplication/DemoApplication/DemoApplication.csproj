@@ -189,14 +189,7 @@
     <Compile Include="Application\Lifecycle\MvcApplication.OnAuthenticateRequest.cs" />
     <Compile Include="Application\Lifecycle\MvcApplication.OnAuthorizeRequest.cs" />
     <Compile Include="Application\Lifecycle\MvcApplication.OnEndRequest.cs" />
-    <Compile Include="Application\Lifecycle\MvcApplication.OnUpdateRequestCache.cs" />
-    <Compile Include="Application\Lifecycle\MvcApplication.OnReleaseRequestState.cs" />
-    <Compile Include="Application\Lifecycle\MvcApplication.OnPreSendRequestContent.cs" />
-    <Compile Include="Application\Lifecycle\MvcApplication.OnPreSendRequestHeaders.cs" />
-    <Compile Include="Application\Lifecycle\MvcApplication.OnPreRequestHandlerExecute.cs" />
     <Compile Include="Application\Lifecycle\MvcApplication.OnAcquireRequestState.cs" />
-    <Compile Include="Application\Lifecycle\MvcApplication.OnResolveRequestCache.cs" />
-    <Compile Include="Application\Lifecycle\MvcApplication.OnPostRequestHandlerExecute.cs" />
     <Compile Include="Application\Lifecycle\MvcApplication.OnSessionEnd.cs" />
     <Compile Include="Application\Lifecycle\MvcApplication.OnStart.cs" />
     <Compile Include="Application\Lifecycle\MvcApplication.OnSessionStart.cs" />
@@ -215,7 +208,6 @@
     <Compile Include="Controllers\Account\AccountController.Photo.cs" />
     <Compile Include="Controllers\Account\AccountController.Profile.cs" />
     <Compile Include="Controllers\Account\AccountController.Register.cs" />
-    <Compile Include="Controllers\Account\AccountController.Settings.cs" />
     <Compile Include="Controllers\Account\AccountController.Claims.cs" />
     <Compile Include="Controllers\Account\AccountController.Logout.cs" />
     <Compile Include="Controllers\Components\ComponentsController.cs" />
@@ -779,6 +771,10 @@
     <Content Include="CodeTemplates\Scaffolders\ScaffR.Core\CoreSection.cs.t4" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DemoApplication.Common\DemoApplication.Common.csproj">
+      <Project>{c6f67818-d5ac-4fa0-9325-186aeef0f01b}</Project>
+      <Name>DemoApplication.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DemoApplication.Core\DemoApplication.Core.csproj">
       <Project>{969AEF37-4ABC-47C9-82E6-DABAD3F60BB6}</Project>
       <Name>DemoApplication.Core</Name>

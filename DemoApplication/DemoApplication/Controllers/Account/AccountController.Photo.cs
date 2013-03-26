@@ -15,8 +15,6 @@ namespace DemoApplication.Controllers.Account
     using System.Web;
     using System.Web.Mvc;
     using Core.Common.Photos;
-    using Extensions.ModelStateHelpers;
-    using Extensions.TempDataHelpers;
     using Infrastructure.Photos;
     using Infrastructure.Profiles;
 
@@ -55,15 +53,8 @@ namespace DemoApplication.Controllers.Account
 
             var photo = PhotoManager.Provider.SavePhotoForAllSizes(request, true);
 
-            var user = UserProfile.Current;
-            
-            user.PhotoId = photo[0].Id;            
+            _userService.SetProfilePicture(UserProfile.Current.Tenant, UserProfile.Current.Username, photo[0].Id);
 
-            if (ModelState.Process(_userService.SaveOrUpdate(user)))
-            {
-                TempData.AddSuccessMessage("Profile photo was successfully updated");
-                return RedirectToAction("Photo");
-            }
             return View();
             
         }

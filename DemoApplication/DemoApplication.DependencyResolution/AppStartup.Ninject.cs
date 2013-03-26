@@ -24,9 +24,11 @@ namespace DemoApplication.DependencyResolution
     using System;
     using System.Web;
     using System.Web.Mvc;
+    using Core.Common.Membership.PasswordPolicies;
     using Core.Interfaces.Data;
     using Core.Interfaces.Eventing;
     using Core.Interfaces.Membership;
+    using Core.Interfaces.Notifications;
     using Core.Interfaces.Photos;
     using Core.Interfaces.Service;
     using Core.Interfaces.Site;
@@ -94,10 +96,11 @@ namespace DemoApplication.DependencyResolution
         {
             // infrastructure
             kernel.Bind<IUnitOfWork>().To<UnitOfWork>().InRequestScope();
+            kernel.Bind<IDatabaseFactory>().To<DatabaseFactory>().InRequestScope();
             kernel.Bind<IMessageBus>().ToConstant(MessageBus.Instance).InSingletonScope();
 
             // services/repositories
-            kernel.Bind<IUserService>().To<UserService>().InRequestScope();
+            kernel.Bind<IUserAccountService>().To<UserAccountService>().InRequestScope();
             kernel.Bind<IUserRepository>().To<UserRepository>().InRequestScope();
             kernel.Bind<IRoleService>().To<RoleService>().InRequestScope();
             kernel.Bind<IRoleRepository>().To<RoleRepository>().InRequestScope();
@@ -105,7 +108,9 @@ namespace DemoApplication.DependencyResolution
             kernel.Bind<IUserClaimRepository>().To<UserClaimRepository>().InRequestScope();
             kernel.Bind<IAuthenticationService>().To<ClaimsAuthenticationService>().InRequestScope();
             kernel.Bind<IDropdownProvider>().To<Dropdowns>().InRequestScope();
-            kernel.Bind<IStorageProvider>().To<SessionStorageProvider>();
+            kernel.Bind<INotificationService>().To<NopNotificationService>().InRequestScope();
+
+            kernel.Bind<IPasswordPolicy>().To<NopPasswordPolicy>().InRequestScope();
 
             // sitemap
             kernel.Bind<IAclModule>().To<ClaimsAuthorizeModule>().InSingletonScope();

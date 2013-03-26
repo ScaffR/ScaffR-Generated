@@ -2,22 +2,23 @@
 // ***********************************************************************
 // Assembly	: DemoApplication.Core
 // Author	: Rod Johnson
-// Created	: 02-24-2013
+// Created	: 03-20-2013
 // 
 // Last Modified By : Rod Johnson
 // Last Modified On : 03-21-2013
 // ***********************************************************************
 #endregion
-namespace DemoApplication.Core.Interfaces.Service
+namespace DemoApplication.Core.Model
 {
     #region
 
-    using Model;
+    using System;
 
     #endregion
 
-    public partial interface IUserService : IService<User>
-    {
-		// Add extra serviceinterface methods in a partial interface
-	}
+    public partial class User
+    {	
+		public string PhotoId { get; set; }
+
+    }
 }

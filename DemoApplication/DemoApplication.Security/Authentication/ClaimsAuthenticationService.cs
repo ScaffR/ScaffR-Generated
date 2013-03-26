@@ -18,11 +18,11 @@ namespace DemoApplication.Security.Authentication
     using System.Linq;
     using System.Security.Claims;
     using System.Web.Security;
+    using Common.Tracing;
     using Core.Interfaces.Service;
     using Core.Model;
     using Extensions;
     using Infrastructure.Extensions;
-    using Infrastructure.Tracing;
 
     #endregion
 

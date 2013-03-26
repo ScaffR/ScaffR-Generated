@@ -12,6 +12,7 @@ namespace DemoApplication.Controllers.Users
 {
     #region
 
+    using System.Linq;
     using System.Web.Mvc;
 
     #endregion
@@ -20,7 +21,7 @@ namespace DemoApplication.Controllers.Users
     {        
         public ActionResult Manager(int page = 1, int pageSize = 10)
         {
-            var model = UserService.Page(page, pageSize);
+            var model = UserService.GetAll("default").ToList();
             return View(model);
         }
     }

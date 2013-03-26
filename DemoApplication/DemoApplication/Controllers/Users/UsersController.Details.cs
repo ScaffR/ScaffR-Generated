@@ -32,7 +32,7 @@ namespace DemoApplication.Controllers.Users
         [ClaimsAuthorize("View", "ManageUsers")]
         public ActionResult Details(int id)
         {
-            var user = UserService.GetById(id);
+            var user = UserService.GetByID(id);
 
             var model = new UserViewModel();
             model.InjectFrom<UnflatLoopValueInjection>(user);
@@ -53,7 +53,7 @@ namespace DemoApplication.Controllers.Users
         {
             if (ModelState.IsValid)
             {
-                var user = UserService.GetById(id);
+                var user = UserService.GetByID(id);
 
                 model.Username = user.Username;
                 user.InjectFrom<UnflatLoopValueInjection>(model);

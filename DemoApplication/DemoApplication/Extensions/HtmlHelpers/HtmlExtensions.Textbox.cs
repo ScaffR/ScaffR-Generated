@@ -15,7 +15,6 @@ namespace DemoApplication.Extensions.HtmlHelpers
     using System;
     using System.Collections.Generic;
     using System.Web.Mvc;
-    using Core.Extensions;
     using Metadata.Attributes;
     using ModelMetadataHelpers;
 

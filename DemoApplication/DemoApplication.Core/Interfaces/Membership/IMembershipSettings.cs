@@ -39,5 +39,11 @@ namespace DemoApplication.Core.Interfaces.Membership
         bool AllowAccountDeletion { get; set; }
 
         int MinimumPasswordLength { get; set; }
+
+        int PasswordResetFrequency { get; set; }
+
+        int PasswordHashingIterationCount { get; set; }
+
+        bool AllowEmailChangeWhenEmailIsUsername { get; set; }
     }
 }

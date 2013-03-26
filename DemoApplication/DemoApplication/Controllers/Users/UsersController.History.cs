@@ -28,7 +28,7 @@ namespace DemoApplication.Controllers.Users
         [HttpGet]
         public ActionResult History(int id)
         {
-            var user = UserService.GetById(id);
+            var user = UserService.GetByID(id);
 
             var model = new UserViewModel();
             model.InjectFrom<UnflatLoopValueInjection>(user);

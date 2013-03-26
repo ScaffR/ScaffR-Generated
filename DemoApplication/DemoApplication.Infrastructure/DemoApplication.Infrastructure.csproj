@@ -119,29 +119,33 @@
     <Compile Include="Configuration\AppConfig.Membership.cs" />
     <Compile Include="Configuration\AppConfig.Photos.cs" />
     <Compile Include="Configuration\AppConfig.Site.cs" />
+    <Compile Include="Data\DatabaseFactory.cs" />
     <Compile Include="Extensions\SessionExtensions.cs" />
     <Compile Include="Membership\MembershipElement.cs" />
     <Compile Include="Configuration\Pipeline\PipelineConfigurationElement.cs" />
     <Compile Include="Configuration\Site\SiteElement.cs" />
     <Compile Include="Data\BaseContext.cs" />
     <Compile Include="Data\BaseRepository.cs" />
-    <Compile Include="Membership\MembershipContext.cs" />
     <Compile Include="Membership\UserClaimRepository.cs" />
     <Compile Include="Membership\RoleRepository.cs" />
     <Compile Include="Data\DataContext.cs" />
-    <Compile Include="Migrations\201303200322226_Log.cs" />
-    <Compile Include="Migrations\201303200322226_Log.Designer.cs">
-      <DependentUpon>201303200322226_Log.cs</DependentUpon>
+    <Compile Include="Migrations\201303260329162_Empty Database.cs" />
+    <Compile Include="Migrations\201303260329162_Empty Database.Designer.cs">
+      <DependentUpon>201303260329162_Empty Database.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201303260331061_Users Roles and UserClaims Added.cs" />
+    <Compile Include="Migrations\201303260331061_Users Roles and UserClaims Added.Designer.cs">
+      <DependentUpon>201303260331061_Users Roles and UserClaims Added.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201303260333591_Log Added.cs" />
+    <Compile Include="Migrations\201303260333591_Log Added.Designer.cs">
+      <DependentUpon>201303260333591_Log Added.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Membership\MembershipDataSeeder.cs" />
     <Compile Include="Data\UnitOfWork.cs" />
     <Compile Include="Membership\UserRepository.cs" />
     <Compile Include="Eventing\MessageBus.cs" />
-    <Compile Include="Migrations\201303180731133_Initial.cs" />
-    <Compile Include="Migrations\201303180731133_Initial.Designer.cs">
-      <DependentUpon>201303180731133_Initial.cs</DependentUpon>
-    </Compile>
     <Compile Include="Photos\Configuration\PhotoConfigurationElement.cs" />
     <Compile Include="Photos\Configuration\PhotoProviderCollection.cs" />
     <Compile Include="Photos\Configuration\PhotoResizeCollection.cs" />
@@ -160,12 +164,15 @@
     <Compile Include="Sitemap\External\HttpContextMethodOverrider.cs" />
     <Compile Include="Sitemap\External\HttpRequestMethodOverrider.cs" />
     <Compile Include="Storage\Providers\SessionStorageProvider.cs" />
-    <Compile Include="Tracing\Tracing.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DemoApplication.Common\DemoApplication.Common.csproj">
+      <Project>{c6f67818-d5ac-4fa0-9325-186aeef0f01b}</Project>
+      <Name>DemoApplication.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DemoApplication.Core\DemoApplication.Core.csproj">
       <Project>{969aef37-4abc-47c9-82e6-dabad3f60bb6}</Project>
       <Name>DemoApplication.Core</Name>
@@ -175,11 +182,14 @@
     <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201303180731133_Initial.resx">
-      <DependentUpon>201303180731133_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201303260329162_Empty Database.resx">
+      <DependentUpon>201303260329162_Empty Database.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201303200322226_Log.resx">
-      <DependentUpon>201303200322226_Log.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201303260331061_Users Roles and UserClaims Added.resx">
+      <DependentUpon>201303260331061_Users Roles and UserClaims Added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201303260333591_Log Added.resx">
+      <DependentUpon>201303260333591_Log Added.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

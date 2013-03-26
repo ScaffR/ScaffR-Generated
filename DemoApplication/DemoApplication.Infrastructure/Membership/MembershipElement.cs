@@ -95,5 +95,26 @@ namespace DemoApplication.Infrastructure.Membership
             get { return (int)this["minPasswordLength"]; }
             set { this["minPasswordLength"] = value; }
         }
+
+        [ConfigurationProperty("passwordResetFrequency", DefaultValue = 0)]
+        public int PasswordResetFrequency
+        {
+            get { return (int)this["passwordResetFrequency"]; }
+            set { this["passwordResetFrequency"] = value; }
+        }
+
+        [ConfigurationProperty("passwordHashingIterationCount", DefaultValue = 0)]
+        public int PasswordHashingIterationCount
+        {
+            get { return (int)this["passwordHashingIterationCount"]; }
+            set { this["passwordHashingIterationCount"] = value; }
+        }
+
+        [ConfigurationProperty("allowEmailChangeWhenEmailIsUsername", DefaultValue = false)]
+        public bool AllowEmailChangeWhenEmailIsUsername
+        {
+            get { return (bool)this["allowEmailChangeWhenEmailIsUsername"]; }
+            set { this["allowEmailChangeWhenEmailIsUsername"] = value; }
+        }
     }
 }

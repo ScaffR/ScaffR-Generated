@@ -21,8 +21,10 @@ namespace DemoApplication.Infrastructure.Membership
     /// <summary>
     /// Class RoleRepository
     /// </summary>
-    public partial class RoleRepository : BaseRepository<Role, MembershipContext>, IRoleRepository
+    public partial class RoleRepository : BaseRepository<Role>, IRoleRepository
     {
-		
-	}
+        public RoleRepository(IDatabaseFactory databaseFactory) : base(databaseFactory)
+        {
+        }
+    }
 }

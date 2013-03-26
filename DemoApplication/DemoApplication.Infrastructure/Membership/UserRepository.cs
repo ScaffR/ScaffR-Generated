@@ -18,8 +18,10 @@ namespace DemoApplication.Infrastructure.Membership
 
     #endregion
 
-    public partial class UserRepository : BaseRepository<User, MembershipContext>, IUserRepository
+    public partial class UserRepository : BaseRepository<User>, IUserRepository
     {
-		
-	}
+        public UserRepository(IDatabaseFactory databaseFactory) : base(databaseFactory)
+        {
+        }
+    }
 }

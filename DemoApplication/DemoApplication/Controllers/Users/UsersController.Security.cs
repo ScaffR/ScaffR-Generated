@@ -28,7 +28,7 @@ namespace DemoApplication.Controllers.Users
         [HttpGet]
         public ActionResult Security(int id)
         {
-            var user = UserService.GetById(id);
+            var user = UserService.GetByUsername("");
 
             var model = new UserViewModel();
             model.InjectFrom<UnflatLoopValueInjection>(user);

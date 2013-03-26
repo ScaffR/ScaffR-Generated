@@ -8,7 +8,7 @@
 // Last Modified On : 03-21-2013
 // ***********************************************************************
 #endregion
-namespace DemoApplication.Infrastructure.Tracing
+namespace DemoApplication.Common.Tracing
 {
     #region
 
