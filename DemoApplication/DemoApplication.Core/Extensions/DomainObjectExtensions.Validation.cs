@@ -2,10 +2,10 @@
 // ***********************************************************************
 // Assembly	: DemoApplication.Core
 // Author	: Rod Johnson
-// Created	: 03-19-2013
+// Created	: 03-23-2013
 // 
 // Last Modified By : Rod Johnson
-// Last Modified On : 03-21-2013
+// Last Modified On : 03-26-2013
 // ***********************************************************************
 #endregion
 namespace DemoApplication.Core.Extensions
@@ -16,8 +16,8 @@ namespace DemoApplication.Core.Extensions
     using System.ComponentModel.DataAnnotations;
     using System.Reflection;
     using Common.Validation;
-    using DemoApplication.Core.Interfaces.Validation;
-    using DemoApplication.Core.Model;
+    using Interfaces.Validation;
+    using Model;
 
     #endregion
 

@@ -5,7 +5,7 @@
 // Created	: 03-19-2013
 // 
 // Last Modified By : Rod Johnson
-// Last Modified On : 03-21-2013
+// Last Modified On : 03-26-2013
 // ***********************************************************************
 #endregion
 #region
@@ -32,7 +32,6 @@ namespace DemoApplication.DependencyResolution
     using Core.Interfaces.Photos;
     using Core.Interfaces.Service;
     using Core.Interfaces.Site;
-    using Core.Interfaces.Storage;
     using Core.Services;
     using Dropdowns;
     using Dropdowns.Dropdowns;
@@ -41,7 +40,6 @@ namespace DemoApplication.DependencyResolution
     using Infrastructure.Eventing;
     using Infrastructure.Membership;
     using Infrastructure.Notifications;
-    using Infrastructure.Storage.Providers;
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
     using MvcSiteMapProvider;
     using MvcSiteMapProvider.Extensibility;

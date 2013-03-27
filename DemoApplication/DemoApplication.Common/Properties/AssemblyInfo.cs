@@ -1,6 +1,20 @@
-﻿using System.Reflection;
-using System.Runtime.CompilerServices;
+﻿#region credits
+// ***********************************************************************
+// Assembly	: DemoApplication.Common
+// Author	: Rod Johnson
+// Created	: 03-23-2013
+// 
+// Last Modified By : Rod Johnson
+// Last Modified On : 03-26-2013
+// ***********************************************************************
+#endregion
+
+#region
+
+using System.Reflection;
 using System.Runtime.InteropServices;
+
+#endregion
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information

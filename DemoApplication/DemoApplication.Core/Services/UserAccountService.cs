@@ -8,7 +8,6 @@
 // Last Modified On : 03-26-2013
 // ***********************************************************************
 #endregion
-
 namespace DemoApplication.Core.Services
 {
     #region

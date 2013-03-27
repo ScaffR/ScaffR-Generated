@@ -1,8 +1,22 @@
-﻿namespace DemoApplication.Infrastructure.Notifications
+﻿#region credits
+// ***********************************************************************
+// Assembly	: DemoApplication.Infrastructure
+// Author	: Rod Johnson
+// Created	: 03-26-2013
+// 
+// Last Modified By : Rod Johnson
+// Last Modified On : 03-26-2013
+// ***********************************************************************
+#endregion
+namespace DemoApplication.Infrastructure.Notifications
 {
+    #region
+
     using System.Web;
     using ActionMailer.Net.Standalone;
     using Core.Model;
+
+    #endregion
 
     public class MailerController : RazorMailerBase
     {

@@ -1,9 +1,23 @@
-﻿namespace DemoApplication.Core.Common.Membership.PasswordPolicies
+﻿#region credits
+// ***********************************************************************
+// Assembly	: DemoApplication.Core
+// Author	: Rod Johnson
+// Created	: 03-25-2013
+// 
+// Last Modified By : Rod Johnson
+// Last Modified On : 03-26-2013
+// ***********************************************************************
+#endregion
+namespace DemoApplication.Core.Common.Membership.PasswordPolicies
 {
+    #region
+
     using System;
     using System.Linq;
     using System.Text;
     using Interfaces.Membership;
+
+    #endregion
 
     public class BasicPasswordPolicy : IPasswordPolicy
     {

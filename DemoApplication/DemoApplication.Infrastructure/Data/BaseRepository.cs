@@ -1,5 +1,17 @@
+#region credits
+// ***********************************************************************
+// Assembly	: DemoApplication.Infrastructure
+// Author	: Rod Johnson
+// Created	: 03-16-2013
+// 
+// Last Modified By : Rod Johnson
+// Last Modified On : 03-26-2013
+// ***********************************************************************
+#endregion
 namespace DemoApplication.Infrastructure.Data
 {
+    #region
+
     using System;
     using System.Collections.Generic;
     using System.Data;
@@ -10,6 +22,8 @@ namespace DemoApplication.Infrastructure.Data
     using Core.Interfaces.Data;
     using Core.Interfaces.Paging;
     using Core.Model;
+
+    #endregion
 
     /// <summary>
     /// An abstract baseclass handling basic CRUD operations against the context.

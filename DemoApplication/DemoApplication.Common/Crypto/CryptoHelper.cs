@@ -1,8 +1,21 @@
-﻿namespace DemoApplication.Common.Crypto
+﻿#region credits
+// ***********************************************************************
+// Assembly	: DemoApplication.Common
+// Author	: Rod Johnson
+// Created	: 03-23-2013
+// 
+// Last Modified By : Rod Johnson
+// Last Modified On : 03-26-2013
+// ***********************************************************************
+#endregion
+namespace DemoApplication.Common.Crypto
 {
+    #region
+
     using System;
     using System.Linq;
-    using BrockAllen.MembershipReboot.Helpers;
+
+    #endregion
 
     public static class CryptoHelper
     {

@@ -1,9 +1,23 @@
-﻿namespace DemoApplication.Infrastructure.Extensions
+﻿#region credits
+// ***********************************************************************
+// Assembly	: DemoApplication.Infrastructure
+// Author	: Rod Johnson
+// Created	: 03-26-2013
+// 
+// Last Modified By : Rod Johnson
+// Last Modified On : 03-26-2013
+// ***********************************************************************
+#endregion
+namespace DemoApplication.Infrastructure.Extensions
 {
+    #region
+
     using System.Web;
     using System.Web.Mvc;
     using System.Web.Routing;
-    using DemoApplication.Core.Model;
+    using Core.Model;
+
+    #endregion
 
     public static class UserExtensions
     {

@@ -5,7 +5,7 @@
 // Created	: 02-24-2013
 // 
 // Last Modified By : Rod Johnson
-// Last Modified On : 03-21-2013
+// Last Modified On : 03-26-2013
 // ***********************************************************************
 #endregion
 namespace DemoApplication.Controllers.Account
@@ -16,7 +16,6 @@ namespace DemoApplication.Controllers.Account
     using Core.Interfaces.Eventing;
     using Core.Interfaces.Membership;
     using Core.Interfaces.Service;
-    using Core.Services;
     using Filters;
 
     #endregion

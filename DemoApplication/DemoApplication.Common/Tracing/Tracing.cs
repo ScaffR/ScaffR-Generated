@@ -1,11 +1,11 @@
 ﻿#region credits
 // ***********************************************************************
-// Assembly	: DemoApplication.Infrastructure
+// Assembly	: DemoApplication.Common
 // Author	: Rod Johnson
-// Created	: 03-15-2013
+// Created	: 03-23-2013
 // 
 // Last Modified By : Rod Johnson
-// Last Modified On : 03-21-2013
+// Last Modified On : 03-26-2013
 // ***********************************************************************
 #endregion
 namespace DemoApplication.Common.Tracing

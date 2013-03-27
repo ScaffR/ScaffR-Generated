@@ -1,7 +1,21 @@
+#region credits
+// ***********************************************************************
+// Assembly	: DemoApplication
+// Author	: Rod Johnson
+// Created	: 03-26-2013
+// 
+// Last Modified By : Rod Johnson
+// Last Modified On : 03-26-2013
+// ***********************************************************************
+#endregion
 namespace DemoApplication.Models.Account
 {
+    #region
+
     using System.ComponentModel.DataAnnotations;
     using System.Web.Mvc;
+
+    #endregion
 
     public class ChangePasswordFromResetKeyModel
     {

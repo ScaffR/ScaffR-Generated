@@ -1,16 +1,28 @@
-﻿// Original Version Copyright:
-// Copyright (c) Microsoft Open Technologies, Inc. All rights reserved.
-// Original License: http://www.apache.org/licenses/LICENSE-2.0
+﻿#region credits
+// ***********************************************************************
+// Assembly	: DemoApplication.Common
+// Author	: Rod Johnson
+// Created	: 03-23-2013
+// 
+// Last Modified By : Rod Johnson
+// Last Modified On : 03-26-2013
+// ***********************************************************************
+#endregion
 
-using System;
-using System.Diagnostics.CodeAnalysis;
-using System.Runtime.CompilerServices;
-using System.Security.Cryptography;
-using System.Text;
 //using System.Web.Helpers.Resources;
 
-namespace BrockAllen.MembershipReboot.Helpers
+namespace DemoApplication.Common.Crypto
 {
+    #region
+
+    using System;
+    using System.Diagnostics.CodeAnalysis;
+    using System.Runtime.CompilerServices;
+    using System.Security.Cryptography;
+    using System.Text;
+
+    #endregion
+
     internal static class Crypto
     {
         private const int PBKDF2IterCount = 1000; // default for Rfc2898DeriveBytes
