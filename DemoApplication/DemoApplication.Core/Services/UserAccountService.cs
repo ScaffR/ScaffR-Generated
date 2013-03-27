@@ -435,6 +435,10 @@ namespace DemoApplication.Core.Services
                 return container;
 
             var result = account.Authenticate(password, failedLoginCount, lockoutDuration);
+
+            if (!result)
+                container.ValidationErrors.Add("", new List<string>() {"Unable to authenticate user"});
+
             this.userRepository.SaveOrUpdate(account);
             _unitOfWork.Commit();
 
@@ -498,18 +502,15 @@ namespace DemoApplication.Core.Services
             }
             finally
             {
-                // put this into finally since ChangePassword uses Authenticate which modifies state
-                using (var tx = new TransactionScope())
+
+                this.userRepository.SaveOrUpdate(account);
+
+                if (result && this.notificationService != null)
                 {
-                    this.userRepository.SaveOrUpdate(account);
-
-                    if (result && this.notificationService != null)
-                    {
-                        this.notificationService.SendPasswordChangeNotice(account);
-                    }
-
-                    tx.Complete();
+                    this.notificationService.SendPasswordChangeNotice(account);
                 }
+
+                _unitOfWork.Commit();
             }
             return result;
         }
