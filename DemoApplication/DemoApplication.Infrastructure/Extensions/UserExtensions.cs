@@ -44,5 +44,10 @@
         {
             return BuildUrl(user, "Login", "Account");
         }
+
+        public static string PasswordResetUrl(this User user)
+        {
+            return BuildUrl(user, "PasswordResetConfirm", "Account", new { id = user.VerificationKey });
+        }
     }
 }

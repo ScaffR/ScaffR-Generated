@@ -582,9 +582,7 @@ namespace DemoApplication.Core.Services
             Tracing.Information(String.Format("[UserAccountService.ChangePasswordFromResetKey] called: {0}", key));
 
             if (String.IsNullOrWhiteSpace(key))
-            {
                 return false;
-            }
 
             var account = this.GetByVerificationKey(key);
             if (account == null) return false;
@@ -599,17 +597,13 @@ namespace DemoApplication.Core.Services
 
             if (result)
             {
-                using (var tx = new TransactionScope())
+                this.userRepository.SaveOrUpdate(account);
+
+                if (this.notificationService != null)
                 {
-                    this.userRepository.SaveOrUpdate(account);
-
-                    if (this.notificationService != null)
-                    {
-                        this.notificationService.SendPasswordChangeNotice(account);
-                    }
-
-                    tx.Complete();
+                    this.notificationService.SendPasswordChangeNotice(account);
                 }
+                _unitOfWork.Commit();
             }
             return result;
         }

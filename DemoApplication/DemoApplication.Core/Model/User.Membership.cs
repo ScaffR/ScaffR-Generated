@@ -226,7 +226,7 @@ namespace DemoApplication.Core.Model
             }
 
             // check if key matches
-            if (this.VerificationKey != key)
+            if (!this.VerificationKey.Equals(key, StringComparison.InvariantCultureIgnoreCase))
             {
                 Tracing.Verbose("[UserAccount.ChangePasswordFromResetKey] failed -- verification keys don't match");
                 return false;

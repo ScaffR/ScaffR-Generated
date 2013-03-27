@@ -29,7 +29,7 @@ namespace DemoApplication.Metadata.Attributes
     {
         public static bool HideSurroundingChrome(this ModelMetadata metadata)
         {
-            return metadata.AdditionalValues.ContainsKey("HideSurroundingChrome");
+            return metadata.AdditionalValues.ContainsKey("HideSurroundingChrome") || metadata.HideSurroundingHtml;
         }
     }
 }

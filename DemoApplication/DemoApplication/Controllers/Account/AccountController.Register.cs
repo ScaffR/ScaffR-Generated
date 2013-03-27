@@ -59,9 +59,9 @@ namespace DemoApplication.Controllers.Account
                     {
                         if (_membershipSettings.RequireAccountVerification)
                         {
-                            return View("Success", model);
+                            return View("RegisterSuccess", model);
                         }
-                        return View("Confirm", true);
+                        return View("RegisterConfirm", true);
                     }                   
                 }
                 catch (ValidationException ex)
@@ -72,18 +72,28 @@ namespace DemoApplication.Controllers.Account
             return View(model);
         }
 
+        /// <summary>
+        /// Confirms a new registration
+        /// </summary>
+        /// <param name="id">The id.</param>
+        /// <returns>ActionResult.</returns>
         [AllowAnonymous, OnlyAnonymous, ShowMainMenu(false)]
         public ActionResult Confirm(string id)
         {
             var result = _userService.VerifyAccount(id);
-            return View("Confirm", result);
+            return View("RegisterConfirm", result);
         }
 
+        /// <summary>
+        /// Cancels an existing registration
+        /// </summary>
+        /// <param name="id">The id.</param>
+        /// <returns>ActionResult.</returns>
         [AllowAnonymous, OnlyAnonymous, ShowMainMenu(false)]
         public ActionResult Cancel(string id)
         {
             var result = _userService.CancelNewAccount(id);
-            return View("Cancel", result);
+            return View("RegisterCancel", result);
         }
     }
 }

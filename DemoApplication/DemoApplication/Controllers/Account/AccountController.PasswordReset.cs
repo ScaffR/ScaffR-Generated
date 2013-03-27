@@ -68,19 +68,28 @@ namespace DemoApplication.Controllers.Account
             return View(model);
         }
 
-        [HttpGet]
-        public ActionResult ConfirmPasswordReset(string id)
+        /// <summary>
+        /// The url they get redirected to from the Password Reset email
+        /// </summary>
+        /// <param name="id">The id.</param>
+        /// <returns>ActionResult.</returns>
+        [AllowAnonymous, HttpGet, ShowMainMenu(false)]
+        public ActionResult PasswordResetConfirm(string id)
         {
             var vm = new ChangePasswordFromResetKeyModel()
             {
                 Key = id
             };
-            return View("ConfirmResetPassword", vm);
+            return View("PasswordResetConfirm", vm);
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult ConfirmPasswordReset(ChangePasswordFromResetKeyModel model)
+        /// <summary>
+        /// Apply the password reset
+        /// </summary>
+        /// <param name="model">The model.</param>
+        /// <returns>ActionResult.</returns>
+        [AllowAnonymous, HttpPost, ShowMainMenu(false)]
+        public ActionResult PasswordResetConfirm(ChangePasswordFromResetKeyModel model)
         {
             if (ModelState.IsValid)
             {
@@ -88,7 +97,7 @@ namespace DemoApplication.Controllers.Account
                 {
                     if (_userService.ChangePasswordFromResetKey(model.Key, model.Password))
                     {
-                        return View("ResetPasswordSuccess");
+                        return View("PasswordResetSuccess");
                     }
                     ModelState.AddModelError("", "Error changing password. The key might be invalid.");
                 }

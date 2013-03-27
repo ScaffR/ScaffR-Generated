@@ -10,11 +10,11 @@ namespace DemoApplication.Models.Account
         public string Password { get; set; }
 
         [Required]
-        [System.ComponentModel.DataAnnotations.Compare("Password", ErrorMessage = "Password confirmation must match password.")]
+        [System.Web.Mvc.Compare("Password", ErrorMessage = "Password confirmation must match password.")]
         [DataType(DataType.Password)]
         public string ConfirmPassword { get; set; }
 
-        [HiddenInput]
+        [HiddenInput(DisplayValue = false)]
         public string Key { get; set; }
     }
 }

@@ -31,12 +31,12 @@
             return Email("SendAccountVerified", model); 
         }
 
-        public RazorEmailResult SendResetPassword(User model)
+        public RazorEmailResult SendPasswordReset(User model)
         {
             To.Add(model.Email);
             From = "noreply@scaffr.com";
             Subject = "Password Reset";
-            return Email("SendResetPassword", model);
+            return Email("SendPasswordReset", model);
         }
 
         public RazorEmailResult SendAccountNameReminder(User model)

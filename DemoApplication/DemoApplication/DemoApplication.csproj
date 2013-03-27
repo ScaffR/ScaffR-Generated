@@ -1381,8 +1381,8 @@
     <Content Include="Views\Shared\Basic.cshtml" />
     <Content Include="Views\Account\Claims.cshtml" />
     <Content Include="Views\Components\EditorTemplates.cshtml" />
-    <Content Include="Views\Account\Success.cshtml" />
-    <Content Include="Views\Account\Confirm.cshtml" />
+    <Content Include="Views\Account\RegisterSuccess.cshtml" />
+    <Content Include="Views\Account\RegisterConfirm.cshtml" />
     <Content Include="Views\Mailer\VerifyAccount.cshtml" />
     <Content Include="Views\Error\AccessDenied.cshtml" />
     <Content Include="Views\Error\Index.cshtml" />
@@ -1395,9 +1395,10 @@
     <Content Include="Views\Logging\Results.cshtml" />
     <Content Include="Views\Account\Photo.cshtml" />
     <Content Include="Views\Account\ResetSuccess.cshtml" />
-    <Content Include="Views\Account\ResetPasswordSuccess.cshtml" />
-    <Content Include="Views\Account\ConfirmResetPassword.cshtml" />
-    <Content Include="Views\Account\Cancel.cshtml" />
+    <Content Include="Views\Account\PasswordResetSuccess.cshtml" />
+    <Content Include="Views\Account\RegisterCancel.cshtml" />
+    <Content Include="Views\Account\PasswordResetConfirm.cshtml" />
+    <Content Include="Views\Account\ChangePasswordSuccess.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

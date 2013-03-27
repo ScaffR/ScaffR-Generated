@@ -44,7 +44,7 @@ namespace DemoApplication.Controllers.Account
                 {
                     if (this._userService.ChangePassword(User.Identity.Name, model.OldPassword, model.NewPassword))
                     {
-                        return View("Success");
+                        return View("ChangePasswordSuccess");
                     }
                     else
                     {

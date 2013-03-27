@@ -31,11 +31,7 @@ namespace DemoApplication.Controllers.Account
         [AllowAnonymous, OnlyAnonymous, ShowMainMenu(false)]
         public ActionResult Login()
         {
-            return View(new LoginModel()
-                {
-                    UserName = "admin",
-                    Password = "admin"
-                });
+            return View(new LoginModel());
         }
 
         /// <summary>

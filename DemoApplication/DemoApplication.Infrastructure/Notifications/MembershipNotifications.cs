@@ -24,7 +24,7 @@
 
         public void SendResetPassword(User user)
         {
-            _controller.SendResetPassword(user).Deliver();
+            _controller.SendPasswordReset(user).Deliver();
         }
 
         public void SendPasswordChangeNotice(User user)
