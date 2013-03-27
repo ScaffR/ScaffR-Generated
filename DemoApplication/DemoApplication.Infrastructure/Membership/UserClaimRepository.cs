@@ -5,7 +5,7 @@
 // Created	: 03-19-2013
 // 
 // Last Modified By : Rod Johnson
-// Last Modified On : 03-21-2013
+// Last Modified On : 03-26-2013
 // ***********************************************************************
 #endregion
 namespace DemoApplication.Infrastructure.Membership
@@ -21,8 +21,10 @@ namespace DemoApplication.Infrastructure.Membership
     /// <summary>
     /// Class UserClaimRepository
     /// </summary>
-    public partial class UserClaimRepository : BaseRepository<UserClaim, MembershipContext>, IUserClaimRepository
+    public partial class UserClaimRepository : BaseRepository<UserClaim>, IUserClaimRepository
     {
-
-	}
+        public UserClaimRepository(IDatabaseFactory databaseFactory) : base(databaseFactory)
+        {
+        }
+    }
 }

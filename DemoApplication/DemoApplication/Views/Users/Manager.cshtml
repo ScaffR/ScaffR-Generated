@@ -1,7 +1,7 @@
 ﻿@{
     Layout = "~/Views/Shared/Basic.cshtml";
 }
-@model DemoApplication.Core.Interfaces.Paging.IPage<DemoApplication.Core.Model.User>
+@model IList<DemoApplication.Core.Model.User>
 
 
 <table class="table table-striped">
@@ -15,7 +15,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var user in Model.Entities)
+        @foreach (var user in Model)
         {
             <tr>
                 <td>
@@ -25,14 +25,14 @@
                     @user.Username
                 </td>
                 <td>
-                    @user.LastLoginDate.GetValueOrDefault(DateTime.MinValue).ToLocalTime()
+                    @user.LastLogin.GetValueOrDefault(DateTime.MinValue).ToLocalTime()
                 </td>
                 <td>
-                    @user.IsApproved
+                    @user.IsAccountVerified
                 </td>
 
                 <td>
-                    @user.IsLockedOut
+                    @user.IsLoginAllowed
                 </td>
             </tr>
         }

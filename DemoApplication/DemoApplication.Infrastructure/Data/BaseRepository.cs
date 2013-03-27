@@ -5,7 +5,7 @@
 // Created	: 03-16-2013
 // 
 // Last Modified By : Rod Johnson
-// Last Modified On : 03-21-2013
+// Last Modified On : 03-26-2013
 // ***********************************************************************
 #endregion
 namespace DemoApplication.Infrastructure.Data
@@ -26,62 +26,61 @@ namespace DemoApplication.Infrastructure.Data
     #endregion
 
     /// <summary>
-    /// An abstract base class handling basic CRUD operations against the context.
+    /// An abstract baseclass handling basic CRUD operations against the context.
     /// </summary>
-    /// <typeparam name="TEntity"></typeparam>
-    /// <typeparam name="TContext"></typeparam>
-    public abstract class BaseRepository<TEntity, TContext> : IDisposable, IRepository<TEntity> 
-        where TEntity : DomainObject 
-        where TContext : IDataContext, new()
-    {        
-        protected readonly IDbSet<TEntity> _dbset;
+    /// <typeparam name="T"></typeparam>
+    public abstract class BaseRepository<T> : IDisposable, IRepository<T> where T : DomainObject
+    {
+        protected readonly IDbSet<T> _dbset;
+        protected readonly IDatabaseFactory _databaseFactory;
         private IDataContext _context;
 
-        protected BaseRepository()
-        {         
-            _dbset = DataContext.DbSet<TEntity>();
+        protected BaseRepository(IDatabaseFactory databaseFactory)
+        {
+            this._databaseFactory = databaseFactory;
+            this._dbset = this.DataContext.DbSet<T>();
         }
 
-		public virtual IQueryable<TEntity> Query
+        public virtual IQueryable<T> Query
         {
             get { return _dbset; }
         }
 
         public IDataContext DataContext
         {
-            get { return _context ?? (_context = new TContext()); }
+            get { return this._context ?? (this._context = this._databaseFactory.Get()); }
         }
 
         protected string EntitySetName { get; set; }
 
-        public virtual void SaveOrUpdate(TEntity entity)
+        public virtual void SaveOrUpdate(T entity)
         {
             if (UnitOfWork.IsPersistent(entity))
             {
-                DataContext.Entry(entity).State = EntityState.Modified;
+                this.DataContext.Entry(entity).State = EntityState.Modified;
             }
             else
-                _dbset.Add(entity);
+                this._dbset.Add(entity);
         }
 
-        public virtual TEntity GetById(object id)
+        public virtual T GetById(object id)
         {
-            return _dbset.Find(id);
+            return this.Query.SingleOrDefault(e => e.Id == id);
         }
 
-        public virtual IQueryable<TEntity> GetAll()
+        public virtual IQueryable<T> GetAll()
         {
-            return Query;
+            return this.Query;
         }
 
-        public virtual IQueryable<TEntity> GetAllReadOnly()
+        public virtual IQueryable<T> GetAllReadOnly()
         {
-            return Query.AsNoTracking();
+            return this.Query.AsNoTracking();
         }
 
-        public virtual void Delete(TEntity entity)
+        public virtual void Delete(T entity)
         {
-            _dbset.Remove(entity);
+            this._dbset.Remove(entity);
         }
 
         public void BulkDelete(List<object> keys)
@@ -89,16 +88,16 @@ namespace DemoApplication.Infrastructure.Data
             keys.ForEach(i => Delete(GetById(i)));
         }
 
-        public virtual IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> expression, int maxHits = 100)
+        public virtual IEnumerable<T> Find(System.Linq.Expressions.Expression<Func<T, bool>> expression, int maxHits = 100)
         {
-            return Query.Where(expression).Take(maxHits);
+            return this.Query.Where(expression).Take(maxHits);
         }
 
-        public IPage<TEntity> Page(int page = 1, int pageSize = 10)
+        public IPage<T> Page(int page = 1, int pageSize = 10)
         {
             var internalPage = page - 1;
-            var data = Query.OrderByDescending(k => k.Created).Skip(pageSize * internalPage).Take(pageSize).AsEnumerable();
-            return new Page<TEntity>(data, _dbset.Count(), pageSize, page);
+            var data = this.Query.OrderByDescending(k => k.Created).Skip(pageSize * internalPage).Take(pageSize).AsEnumerable();
+            return new Page<T>(data, this._dbset.Count(), pageSize, page);
         }
 
         public long Count()
@@ -106,7 +105,7 @@ namespace DemoApplication.Infrastructure.Data
             return _dbset.LongCount();
         }
 
-        public long Count(Expression<Func<TEntity, bool>> expression)
+        public long Count(Expression<Func<T, bool>> expression)
         {
             return expression != null ? _dbset.Where(expression).LongCount() : Count();
         }

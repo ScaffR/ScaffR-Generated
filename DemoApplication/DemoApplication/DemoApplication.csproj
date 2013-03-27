@@ -31,6 +31,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -87,9 +88,6 @@
     </Reference>
     <Reference Include="MongoDB.Driver">
       <HintPath>..\packages\mongocsharpdriver.1.7.1\lib\net35\MongoDB.Driver.dll</HintPath>
-    </Reference>
-    <Reference Include="Mvc.Mailer">
-      <HintPath>..\packages\ScaffR.MvcMailer.1.1.4\lib\40\Mvc.Mailer.dll</HintPath>
     </Reference>
     <Reference Include="MvcSiteMapProvider">
       <HintPath>..\packages\ScaffR.Sitemap.1.1.4\lib\MvcSiteMapProvider.dll</HintPath>
@@ -189,14 +187,7 @@
     <Compile Include="Application\Lifecycle\MvcApplication.OnAuthenticateRequest.cs" />
     <Compile Include="Application\Lifecycle\MvcApplication.OnAuthorizeRequest.cs" />
     <Compile Include="Application\Lifecycle\MvcApplication.OnEndRequest.cs" />
-    <Compile Include="Application\Lifecycle\MvcApplication.OnUpdateRequestCache.cs" />
-    <Compile Include="Application\Lifecycle\MvcApplication.OnReleaseRequestState.cs" />
-    <Compile Include="Application\Lifecycle\MvcApplication.OnPreSendRequestContent.cs" />
-    <Compile Include="Application\Lifecycle\MvcApplication.OnPreSendRequestHeaders.cs" />
-    <Compile Include="Application\Lifecycle\MvcApplication.OnPreRequestHandlerExecute.cs" />
     <Compile Include="Application\Lifecycle\MvcApplication.OnAcquireRequestState.cs" />
-    <Compile Include="Application\Lifecycle\MvcApplication.OnResolveRequestCache.cs" />
-    <Compile Include="Application\Lifecycle\MvcApplication.OnPostRequestHandlerExecute.cs" />
     <Compile Include="Application\Lifecycle\MvcApplication.OnSessionEnd.cs" />
     <Compile Include="Application\Lifecycle\MvcApplication.OnStart.cs" />
     <Compile Include="Application\Lifecycle\MvcApplication.OnSessionStart.cs" />
@@ -210,14 +201,14 @@
     <Compile Include="Application\Startup\AppStartup.WebApi.cs" />
     <Compile Include="Controllers\Account\AccountController.ChangePassword.cs" />
     <Compile Include="Controllers\Account\AccountController.cs" />
-    <Compile Include="Controllers\Account\AccountController.ForgotPassword.cs" />
+    <Compile Include="Controllers\Account\AccountController.PasswordReset.cs" />
     <Compile Include="Controllers\Account\AccountController.Login.cs" />
     <Compile Include="Controllers\Account\AccountController.Photo.cs" />
     <Compile Include="Controllers\Account\AccountController.Profile.cs" />
     <Compile Include="Controllers\Account\AccountController.Register.cs" />
-    <Compile Include="Controllers\Account\AccountController.Settings.cs" />
     <Compile Include="Controllers\Account\AccountController.Claims.cs" />
     <Compile Include="Controllers\Account\AccountController.Logout.cs" />
+    <Compile Include="Models\Account\ChangePasswordFromResetKeyModel.cs" />
     <Compile Include="Controllers\Components\ComponentsController.cs" />
     <Compile Include="Controllers\Components\ComponentsController.Dropdowns.cs" />
     <Compile Include="Controllers\Components\ComponentsController.GoogleMaps.cs" />
@@ -270,8 +261,6 @@
     <Compile Include="Filters\OnlyAnonymous.cs" />
     <Compile Include="Filters\ShowAlerts.cs" />
     <Compile Include="Filters\ShowBreadcrumb.cs" />
-    <Compile Include="Mailers\Mailer.cs" />
-    <Compile Include="Mailers\Mailer.ForgotPassword.cs" />
     <Compile Include="ModelBinders\DbGeographyModelBinder.cs" />
     <Compile Include="Metadata\Adapters\CKEditorAttributeAdapter.cs" />
     <Compile Include="Metadata\Adapters\CreditCardAttributeAdapter.cs" />
@@ -779,6 +768,10 @@
     <Content Include="CodeTemplates\Scaffolders\ScaffR.Core\CoreSection.cs.t4" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DemoApplication.Common\DemoApplication.Common.csproj">
+      <Project>{c6f67818-d5ac-4fa0-9325-186aeef0f01b}</Project>
+      <Name>DemoApplication.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DemoApplication.Core\DemoApplication.Core.csproj">
       <Project>{969AEF37-4ABC-47C9-82E6-DABAD3F60BB6}</Project>
       <Name>DemoApplication.Core</Name>
@@ -1098,7 +1091,7 @@
     <Content Include="Views\Account\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\PasswordReset.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Account\ChangePassword.cshtml" />
@@ -1388,8 +1381,8 @@
     <Content Include="Views\Shared\Basic.cshtml" />
     <Content Include="Views\Account\Claims.cshtml" />
     <Content Include="Views\Components\EditorTemplates.cshtml" />
-    <Content Include="Views\Account\Success.cshtml" />
-    <Content Include="Views\Account\Confirm.cshtml" />
+    <Content Include="Views\Account\RegisterSuccess.cshtml" />
+    <Content Include="Views\Account\RegisterConfirm.cshtml" />
     <Content Include="Views\Mailer\VerifyAccount.cshtml" />
     <Content Include="Views\Error\AccessDenied.cshtml" />
     <Content Include="Views\Error\Index.cshtml" />
@@ -1401,6 +1394,11 @@
     </None>
     <Content Include="Views\Logging\Results.cshtml" />
     <Content Include="Views\Account\Photo.cshtml" />
+    <Content Include="Views\Account\ResetSuccess.cshtml" />
+    <Content Include="Views\Account\PasswordResetSuccess.cshtml" />
+    <Content Include="Views\Account\RegisterCancel.cshtml" />
+    <Content Include="Views\Account\PasswordResetConfirm.cshtml" />
+    <Content Include="Views\Account\ChangePasswordSuccess.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

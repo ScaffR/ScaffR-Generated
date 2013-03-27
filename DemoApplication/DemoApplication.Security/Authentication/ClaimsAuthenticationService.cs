@@ -5,7 +5,7 @@
 // Created	: 03-16-2013
 // 
 // Last Modified By : Rod Johnson
-// Last Modified On : 03-21-2013
+// Last Modified On : 03-26-2013
 // ***********************************************************************
 #endregion
 namespace DemoApplication.Security.Authentication
@@ -18,11 +18,11 @@ namespace DemoApplication.Security.Authentication
     using System.Linq;
     using System.Security.Claims;
     using System.Web.Security;
+    using Common.Tracing;
     using Core.Interfaces.Service;
     using Core.Model;
     using Extensions;
     using Infrastructure.Extensions;
-    using Infrastructure.Tracing;
 
     #endregion
 

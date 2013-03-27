@@ -5,7 +5,7 @@
 // Created	: 03-19-2013
 // 
 // Last Modified By : Rod Johnson
-// Last Modified On : 03-21-2013
+// Last Modified On : 03-26-2013
 // ***********************************************************************
 #endregion
 #region
@@ -24,13 +24,14 @@ namespace DemoApplication.DependencyResolution
     using System;
     using System.Web;
     using System.Web.Mvc;
+    using Core.Common.Membership.PasswordPolicies;
     using Core.Interfaces.Data;
     using Core.Interfaces.Eventing;
     using Core.Interfaces.Membership;
+    using Core.Interfaces.Notifications;
     using Core.Interfaces.Photos;
     using Core.Interfaces.Service;
     using Core.Interfaces.Site;
-    using Core.Interfaces.Storage;
     using Core.Services;
     using Dropdowns;
     using Dropdowns.Dropdowns;
@@ -38,7 +39,7 @@ namespace DemoApplication.DependencyResolution
     using Infrastructure.Data;
     using Infrastructure.Eventing;
     using Infrastructure.Membership;
-    using Infrastructure.Storage.Providers;
+    using Infrastructure.Notifications;
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
     using MvcSiteMapProvider;
     using MvcSiteMapProvider.Extensibility;
@@ -94,18 +95,24 @@ namespace DemoApplication.DependencyResolution
         {
             // infrastructure
             kernel.Bind<IUnitOfWork>().To<UnitOfWork>().InRequestScope();
+            kernel.Bind<IDatabaseFactory>().To<DatabaseFactory>().InRequestScope();
             kernel.Bind<IMessageBus>().ToConstant(MessageBus.Instance).InSingletonScope();
 
-            // services/repositories
-            kernel.Bind<IUserService>().To<UserService>().InRequestScope();
+            // security
+            kernel.Bind<IAuthenticationService>().To<ClaimsAuthenticationService>().InRequestScope();
+
+            // dropdowns
+            kernel.Bind<IDropdownProvider>().To<Dropdowns>().InRequestScope();
+
+            // membership
+            kernel.Bind<IUserAccountService>().To<UserAccountService>().InRequestScope();
             kernel.Bind<IUserRepository>().To<UserRepository>().InRequestScope();
             kernel.Bind<IRoleService>().To<RoleService>().InRequestScope();
             kernel.Bind<IRoleRepository>().To<RoleRepository>().InRequestScope();
             kernel.Bind<IUserClaimService>().To<UserClaimService>().InRequestScope();
             kernel.Bind<IUserClaimRepository>().To<UserClaimRepository>().InRequestScope();
-            kernel.Bind<IAuthenticationService>().To<ClaimsAuthenticationService>().InRequestScope();
-            kernel.Bind<IDropdownProvider>().To<Dropdowns>().InRequestScope();
-            kernel.Bind<IStorageProvider>().To<SessionStorageProvider>();
+            kernel.Bind<INotificationService>().To<MembershipNotifications>().InRequestScope();
+            kernel.Bind<IPasswordPolicy>().To<NopPasswordPolicy>().InRequestScope();
 
             // sitemap
             kernel.Bind<IAclModule>().To<ClaimsAuthorizeModule>().InSingletonScope();
@@ -119,7 +126,7 @@ namespace DemoApplication.DependencyResolution
 
         public class NinjectControllerFactory : DefaultControllerFactory
         {
-            private IKernel ninjectKernel;
+            private readonly IKernel ninjectKernel;
 
             public NinjectControllerFactory(IKernel kernel)
             {

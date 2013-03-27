@@ -5,7 +5,7 @@
 // Created	: 03-19-2013
 // 
 // Last Modified By : Rod Johnson
-// Last Modified On : 03-21-2013
+// Last Modified On : 03-26-2013
 // ***********************************************************************
 #endregion
 namespace DemoApplication.Infrastructure.Membership
@@ -18,8 +18,10 @@ namespace DemoApplication.Infrastructure.Membership
 
     #endregion
 
-    public partial class UserRepository : BaseRepository<User, MembershipContext>, IUserRepository
+    public partial class UserRepository : BaseRepository<User>, IUserRepository
     {
-		
-	}
+        public UserRepository(IDatabaseFactory databaseFactory) : base(databaseFactory)
+        {
+        }
+    }
 }

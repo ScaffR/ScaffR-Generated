@@ -5,7 +5,7 @@
 // Created	: 03-16-2013
 // 
 // Last Modified By : Rod Johnson
-// Last Modified On : 03-21-2013
+// Last Modified On : 03-26-2013
 // ***********************************************************************
 #endregion
 namespace DemoApplication.Core.Interfaces.Membership
@@ -39,5 +39,11 @@ namespace DemoApplication.Core.Interfaces.Membership
         bool AllowAccountDeletion { get; set; }
 
         int MinimumPasswordLength { get; set; }
+
+        int PasswordResetFrequency { get; set; }
+
+        int PasswordHashingIterationCount { get; set; }
+
+        bool AllowEmailChangeWhenEmailIsUsername { get; set; }
     }
 }

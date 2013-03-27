@@ -7,7 +7,7 @@
   <mvcSiteMapNode title="Dashboard" controller="Home" action="Index" imageUrl="icon-home" key="root" visibility="breadcrumb">
 
     <mvcSiteMapNode title="Profile" controller="Account" action="Profile" imageUrl="icon-user" >
-      <mvcSiteMapNode title="Security" controller="Account" action="Settings" imageUrl="icon-lock"/>
+      <mvcSiteMapNode title="Change Password" controller="Account" action="ChangePassword" imageUrl="icon-lock"/>
       <mvcSiteMapNode title="Photo" controller="Account" action="Photo" imageUrl="icon-camera"/>
       <mvcSiteMapNode title="Claims" controller="Account" action="Claims" imageUrl="icon-camera"/>
     </mvcSiteMapNode>

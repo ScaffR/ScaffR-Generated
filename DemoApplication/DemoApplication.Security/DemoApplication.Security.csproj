@@ -93,6 +93,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DemoApplication.Common\DemoApplication.Common.csproj">
+      <Project>{c6f67818-d5ac-4fa0-9325-186aeef0f01b}</Project>
+      <Name>DemoApplication.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DemoApplication.Core\DemoApplication.Core.csproj">
       <Project>{969aef37-4abc-47c9-82e6-dabad3f60bb6}</Project>
       <Name>DemoApplication.Core</Name>

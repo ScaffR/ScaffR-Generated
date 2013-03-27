@@ -5,18 +5,15 @@
 // Created	: 02-24-2013
 // 
 // Last Modified By : Rod Johnson
-// Last Modified On : 03-21-2013
+// Last Modified On : 03-26-2013
 // ***********************************************************************
 #endregion
 namespace DemoApplication.Controllers.Account
 {
     #region
 
+    using System.ComponentModel.DataAnnotations;
     using System.Web.Mvc;
-    using Core.Common.Membership;
-    using Core.Extensions;
-    using Extensions.TempDataHelpers;
-    using Infrastructure.Profiles;
     using Models.Account;
 
     #endregion
@@ -43,25 +40,22 @@ namespace DemoApplication.Controllers.Account
         {
             if (ModelState.IsValid)
             {
-                var status = _userService.ChangePassword(UserProfile.Current, model.OldPassword, model.NewPassword);
-
-                switch (status)
+                try
                 {
-                    case ChangePasswordStatus.Success:
-                        
-                        TempData.AddSuccessMessage(status.GetDescription());
-                        return RedirectToAction("Index", "Home");
-                        
-                    case ChangePasswordStatus.InvalidPassword:
-                        ModelState.AddModelError(string.Empty, status.GetDescription());
-                        break;
-                    case ChangePasswordStatus.Failure:
-                        ModelState.AddModelError(string.Empty, status.GetDescription());
-                        break;
+                    if (this._userService.ChangePassword(User.Identity.Name, model.OldPassword, model.NewPassword))
+                    {
+                        return View("ChangePasswordSuccess");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Error changing password");
+                    }
+                }
+                catch (ValidationException ex)
+                {
+                    ModelState.AddModelError("", ex.Message);
                 }
             }
-
-            ViewBag.PasswordLength = _membershipSetings.MinimumPasswordLength;
             return View(model);
         }
     }

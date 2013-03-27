@@ -5,7 +5,7 @@
 // Created	: 03-09-2013
 // 
 // Last Modified By : Rod Johnson
-// Last Modified On : 03-21-2013
+// Last Modified On : 03-26-2013
 // ***********************************************************************
 #endregion
 namespace DemoApplication.Models.Account
@@ -46,7 +46,7 @@ namespace DemoApplication.Models.Account
         public string ConfirmEmail { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 5)]
         [Textbox(DataType.Password, TextboxSize = TextboxSize.Large)]
         [Display(Name = "Password")]
         public string Password { get; set; }

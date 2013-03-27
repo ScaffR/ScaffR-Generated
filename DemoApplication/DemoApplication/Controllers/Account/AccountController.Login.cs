@@ -5,7 +5,7 @@
 // Created	: 03-15-2013
 // 
 // Last Modified By : Rod Johnson
-// Last Modified On : 03-21-2013
+// Last Modified On : 03-26-2013
 // ***********************************************************************
 #endregion
 namespace DemoApplication.Controllers.Account
@@ -13,10 +13,7 @@ namespace DemoApplication.Controllers.Account
     #region
 
     using System.Web.Mvc;
-    using Core.Common.Membership;
-    using Core.Common.Membership.Events;
-    using Core.Extensions;
-    using Core.Model;
+    using Extensions.ModelStateHelpers;
     using Filters;
     using Models.Account;
 
@@ -34,11 +31,7 @@ namespace DemoApplication.Controllers.Account
         [AllowAnonymous, OnlyAnonymous, ShowMainMenu(false)]
         public ActionResult Login()
         {
-            return View(new LoginModel()
-                {
-                    UserName = "admin",
-                    Password = "admin"
-                });
+            return View(new LoginModel());
         }
 
         /// <summary>
@@ -53,23 +46,27 @@ namespace DemoApplication.Controllers.Account
         {
             if (ModelState.IsValid)
             {
-                AuthenticationStatus status; 
-                User user;
-                if (_userService.Authenticate(model.UserName, model.Password, out status, out user))
+                var result = this._userService.Authenticate(model.UserName, model.Password);
+                if (ModelState.Process(result))
                 {
+                    var user = result.Entity;
+
                     _authenticationService.SignIn(user, model.RememberMe);
 
-                    _messageBus.Publish(new UserLoggedIn(user));  
-
-                    if (Url.IsLocalUrl(returnUrl))
-                    {                       
-                        return Redirect(returnUrl);
+                    if (_userService.IsPasswordExpired(model.UserName))
+                    {
+                        return RedirectToAction("ChangePassword", "Account");
+                    }
+                    if (Url.IsLocalUrl(model.ReturnUrl))
+                    {
+                        return Redirect(model.ReturnUrl);
                     }
                     return RedirectToAction("Index", "Home");
                 }
-                ModelState.AddModelError("", status.GetDescription());
+               
+                ModelState.AddModelError("", "Invalid Username or Password");
             }
             return View(model);
-        }  
+        }
     }
 }

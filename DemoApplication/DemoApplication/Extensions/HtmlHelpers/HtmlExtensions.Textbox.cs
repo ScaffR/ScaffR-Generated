@@ -5,7 +5,7 @@
 // Created	: 02-24-2013
 // 
 // Last Modified By : Rod Johnson
-// Last Modified On : 03-21-2013
+// Last Modified On : 03-26-2013
 // ***********************************************************************
 #endregion
 namespace DemoApplication.Extensions.HtmlHelpers
@@ -15,7 +15,6 @@ namespace DemoApplication.Extensions.HtmlHelpers
     using System;
     using System.Collections.Generic;
     using System.Web.Mvc;
-    using Core.Extensions;
     using Metadata.Attributes;
     using ModelMetadataHelpers;
 

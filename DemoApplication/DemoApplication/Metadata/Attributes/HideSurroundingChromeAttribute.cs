@@ -5,7 +5,7 @@
 // Created	: 03-09-2013
 // 
 // Last Modified By : Rod Johnson
-// Last Modified On : 03-21-2013
+// Last Modified On : 03-26-2013
 // ***********************************************************************
 #endregion
 namespace DemoApplication.Metadata.Attributes
@@ -29,7 +29,7 @@ namespace DemoApplication.Metadata.Attributes
     {
         public static bool HideSurroundingChrome(this ModelMetadata metadata)
         {
-            return metadata.AdditionalValues.ContainsKey("HideSurroundingChrome");
+            return metadata.AdditionalValues.ContainsKey("HideSurroundingChrome") || metadata.HideSurroundingHtml;
         }
     }
 }

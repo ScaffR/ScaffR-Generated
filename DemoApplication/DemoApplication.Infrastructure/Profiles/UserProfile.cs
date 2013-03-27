@@ -5,7 +5,7 @@
 // Created	: 03-19-2013
 // 
 // Last Modified By : Rod Johnson
-// Last Modified On : 03-21-2013
+// Last Modified On : 03-26-2013
 // ***********************************************************************
 #endregion
 namespace DemoApplication.Infrastructure.Profiles
@@ -16,7 +16,6 @@ namespace DemoApplication.Infrastructure.Profiles
     using System.Web;
     using System.Web.Mvc;
     using Core.Interfaces.Service;
-    using Core.Interfaces.Validation;
     using Core.Model;
 
     #endregion
@@ -31,20 +30,11 @@ namespace DemoApplication.Infrastructure.Profiles
                 if (user == null)
                 {
                     HttpContext.Current.Session["UserProfile"] = user =
-                            DependencyResolver.Current.GetService<IUserService>()
+                            DependencyResolver.Current.GetService<IUserAccountService>()
                                               .GetByUsername(Thread.CurrentPrincipal.Identity.Name);
                 }
                 return user;
             }
-        }
-    }
-
-    public static class UserExtensions
-    {
-        public static IValidationContainer<User> Save(this User user)
-        {
-            var service = DependencyResolver.Current.GetService<IUserService>();
-            return service.SaveOrUpdate(user);
         }
     }
 }

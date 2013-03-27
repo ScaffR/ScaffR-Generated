@@ -5,24 +5,18 @@
 // Created	: 02-24-2013
 // 
 // Last Modified By : Rod Johnson
-// Last Modified On : 03-21-2013
+// Last Modified On : 03-26-2013
 // ***********************************************************************
 #endregion
 namespace DemoApplication.Controllers.Account
 {
     #region
 
+    using System.ComponentModel.DataAnnotations;
     using System.Web.Mvc;
-    using Core.Common.Membership;
-    using Core.Common.Membership.Events;
-    using Core.Extensions;
-    using Core.Model;
-    using Extensions.TempDataHelpers;
-    using Extensions.UrlHelpers;
+    using Extensions.ModelStateHelpers;
     using Filters;
-    using Mailers;
     using Models.Account;
-    using Omu.ValueInjecter;
 
     #endregion
 
@@ -51,38 +45,48 @@ namespace DemoApplication.Controllers.Account
         {
             if (ModelState.IsValid)
             {
-                var user = new User();
-
-                user.InjectFrom<UnflatLoopValueInjection>(model);
-                user.ShowWelcomePage = true;
-
-                CreateUserStatus createStatus = _userService.CreateUser(user);
-
-                if (createStatus == CreateUserStatus.Success)
-                {                   
-                    _messageBus.Publish(new UserCreated(user, Url.AbsoluteAction("Login", "Account")));
-
-                    if (_membershipSetings.RequireAccountVerification)
+                try
+                {
+                    var user = _userService.CreateAccount(model.Username, model.Password, model.Email,model.FirstName, model.LastName, model.PhoneNumber, model.Address);
+                    if (ModelState.Process(user))
                     {
-                        new Mailer().VerifyAccount(new VerifyAccountModel());
-
-                        // I don't like this
-                        // should be return RedirectToAction
-                        return View("Success", model);
-                    }
-                    if (_membershipSetings.AllowLoginAfterAccountCreation)
-                    {
-                        _authenticationService.SignIn(user, true);
-                        TempData.AddSuccessMessage("Welcome to your new account, " + user.Username + "!");                            
-                        return RedirectToAction("Index", "Home");
-                    }
-                    return View("Confirm", true);
+                        if (_membershipSettings.RequireAccountVerification)
+                        {
+                            return View("RegisterSuccess", model);
+                        }
+                        return View("RegisterConfirm", true);
+                    }                   
                 }
-
-                ModelState.AddModelError(string.Empty, createStatus.GetDescription());
+                catch (ValidationException ex)
+                {
+                    ModelState.AddModelError("", ex.Message);
+                }
             }
-
             return View(model);
+        }
+
+        /// <summary>
+        /// Confirms a new registration
+        /// </summary>
+        /// <param name="id">The id.</param>
+        /// <returns>ActionResult.</returns>
+        [AllowAnonymous, OnlyAnonymous, ShowMainMenu(false)]
+        public ActionResult Confirm(string id)
+        {
+            var result = _userService.VerifyAccount(id);
+            return View("RegisterConfirm", result);
+        }
+
+        /// <summary>
+        /// Cancels an existing registration
+        /// </summary>
+        /// <param name="id">The id.</param>
+        /// <returns>ActionResult.</returns>
+        [AllowAnonymous, OnlyAnonymous, ShowMainMenu(false)]
+        public ActionResult Cancel(string id)
+        {
+            var result = _userService.CancelNewAccount(id);
+            return View("RegisterCancel", result);
         }
     }
 }

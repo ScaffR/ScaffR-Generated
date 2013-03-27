@@ -5,7 +5,7 @@
 // Created	: 03-16-2013
 // 
 // Last Modified By : Rod Johnson
-// Last Modified On : 03-21-2013
+// Last Modified On : 03-26-2013
 // ***********************************************************************
 #endregion
 namespace DemoApplication.Infrastructure.Data
@@ -25,15 +25,17 @@ namespace DemoApplication.Infrastructure.Data
     public partial class UnitOfWork : IUnitOfWork
     {
         private IDataContext _datacontext;
+        private readonly IDatabaseFactory _databaseFactory;
 
-        public UnitOfWork()
+        public UnitOfWork(IDatabaseFactory databaseFactory)
         {
+            _databaseFactory = databaseFactory;
             this.DataContext.ObjectContext().SavingChanges += (sender, e) => BeforeSave(this.GetChangedOrNewEntities());
         }
 
         public IDataContext DataContext
         {
-            get { return this._datacontext ?? (this._datacontext = new DataContext()); }
+            get { return this._datacontext ?? (this._datacontext = _databaseFactory.Get()); }
         }
 
         private IEnumerable<DomainObject> GetChangedOrNewEntities()

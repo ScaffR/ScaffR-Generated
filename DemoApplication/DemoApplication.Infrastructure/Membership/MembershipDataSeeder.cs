@@ -5,7 +5,7 @@
 // Created	: 03-19-2013
 // 
 // Last Modified By : Rod Johnson
-// Last Modified On : 03-21-2013
+// Last Modified On : 03-26-2013
 // ***********************************************************************
 #endregion
 namespace DemoApplication.Infrastructure.Membership
@@ -37,17 +37,23 @@ namespace DemoApplication.Infrastructure.Membership
                 {
                     new User()
                         {
-                            UserId = 1,
+                            ID = 1,
                             Email = "webmaster@scaffr.com",
                             Username = "admin",
                             FirstName = "Rod",
                             LastName = "Johnson",
-                            LastLoginDate = DateTime.Now,
-                            Password = "admin",
-                            IsApproved = true,							
+                            LastLogin = DateTime.UtcNow,
                             Gender = Gender.Male,
                             Address = "Admin address",
-                            PhoneNumber = "555-555-5555"
+                            PhoneNumber = "555-555-5555",
+                            IsLoginAllowed = true,
+                            IsAccountClosed = false,
+                            IsAccountVerified = true,
+                            Created = DateTime.UtcNow,
+                            Tenant = "default",
+                            HashedPassword = "FA00.ACHEhktjwC+lLMLKq0PZXYsnr9HreWXtgMY55xMDY4ctWYeyzGPxt2vGLEtOEX2SKA==",
+                            PasswordChanged = DateTime.UtcNow,
+                            FailedLoginCount = 0
                         }
                 }.ForEach(u => context.Users.AddOrUpdate(u));
 
