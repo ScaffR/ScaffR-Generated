@@ -111,7 +111,7 @@ namespace DemoApplication.Core.Model
                 Tracing.Verbose("[UserAccount.VerifyAccount] failed -- account already verified");
                 return false;
             }
-            if (this.VerificationKey != key)
+            if (!this.VerificationKey.Equals(key, StringComparison.InvariantCultureIgnoreCase))
             {
                 Tracing.Verbose("[UserAccount.VerifyAccount] failed -- verification key doesn't match");
                 return false;

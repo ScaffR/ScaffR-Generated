@@ -1,6 +1,15 @@
 ﻿@model bool
 @{
-    ViewBag.Title = "Registration Confirmed";
+    
+    if (Model)
+    {
+        ViewBag.Title = "Registration Confirmed";
+    }
+    else
+    {
+        ViewBag.Title = "Error confirming registration";
+    }
+    
 }
 
 @if (Model)
@@ -12,7 +21,6 @@
 }
 else
 {
-    <h2>Error confirming registration</h2>
     <p>
         There was an error confirming the registration. If you have already confirmed your account
         then you should recieve a confirmation email and should be able to login 
@@ -23,4 +31,3 @@ else
         @Html.ActionLink("here", "Register", "Account").
     </p>
 }
-<p>Thanks!</p>

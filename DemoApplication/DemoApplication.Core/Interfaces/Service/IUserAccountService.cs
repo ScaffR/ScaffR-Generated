@@ -55,8 +55,8 @@
             string oldPassword, string newPassword,
             int failedLoginCount, TimeSpan lockoutDuration);
 
-        bool ResetPassword(string email);
-        bool ResetPassword(string tenant, string email);
+        IValidationContainer<User> ResetPassword(string email);
+        IValidationContainer<User> ResetPassword(string tenant, string email);
         bool ChangePasswordFromResetKey(string key, string newPassword);
         void SendUsernameReminder(string email);
         void SendUsernameReminder(string tenant, string email);

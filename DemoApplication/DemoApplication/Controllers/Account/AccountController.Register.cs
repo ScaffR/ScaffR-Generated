@@ -22,7 +22,6 @@ namespace DemoApplication.Controllers.Account
     using Extensions.TempDataHelpers;
     using Extensions.UrlHelpers;
     using Filters;
-    using Mailers;
     using Models.Account;
     using Omu.ValueInjecter;
 
@@ -71,6 +70,20 @@ namespace DemoApplication.Controllers.Account
                 }
             }
             return View(model);
+        }
+
+        [AllowAnonymous, OnlyAnonymous, ShowMainMenu(false)]
+        public ActionResult Confirm(string id)
+        {
+            var result = _userService.VerifyAccount(id);
+            return View("Confirm", result);
+        }
+
+        [AllowAnonymous, OnlyAnonymous, ShowMainMenu(false)]
+        public ActionResult Cancel(string id)
+        {
+            var result = _userService.CancelNewAccount(id);
+            return View("Cancel", result);
         }
     }
 }

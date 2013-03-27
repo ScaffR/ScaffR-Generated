@@ -1,7 +1,22 @@
-﻿
+﻿#region credits
+// ***********************************************************************
+// Assembly	: DemoApplication.Core
+// Author	: Rod Johnson
+// Created	: 03-23-2013
+// 
+// Last Modified By : Rod Johnson
+// Last Modified On : 03-26-2013
+// ***********************************************************************
+#endregion
+
 namespace DemoApplication.Core.Services
 {
+    #region
+
+    using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.Linq;
     using System.Transactions;
     using DemoApplication.Common.Tracing;
     using Extensions;
@@ -11,8 +26,8 @@ namespace DemoApplication.Core.Services
     using Interfaces.Service;
     using Interfaces.Validation;
     using Model;
-    using System;
-    using System.Linq;
+
+    #endregion
 
     public class UserAccountService : IDisposable, IUserAccountService
     {
@@ -268,6 +283,8 @@ namespace DemoApplication.Core.Services
         {
             if (passwordPolicy != null)
             {
+
+
                 if (!passwordPolicy.ValidatePassword(password))
                 {
                     Tracing.Verbose(String.Format("[ValidatePassword] Failed: {0}, {1}, {2}", tenant, username, passwordPolicy.PolicyMessage));
@@ -287,17 +304,15 @@ namespace DemoApplication.Core.Services
             Tracing.Verbose(String.Format("[UserAccountService.VerifyAccount] account located: {0}, {1}", account.Tenant, account.Username));
 
             var result = account.VerifyAccount(key);
-            using (var tx = new TransactionScope())
+
+            this.userRepository.SaveOrUpdate(account);
+
+            if (result && this.notificationService != null)
             {
-                this.userRepository.SaveOrUpdate(account);
-
-                if (result && this.notificationService != null)
-                {
-                    this.notificationService.SendAccountVerified(account);
-                }
-
-                tx.Complete();
+                this.notificationService.SendAccountVerified(account);
             }
+
+            _unitOfWork.Commit();
             return result;
         }
 
@@ -499,12 +514,12 @@ namespace DemoApplication.Core.Services
             return result;
         }
 
-        public virtual bool ResetPassword(string email)
+        public virtual IValidationContainer<User> ResetPassword(string email)
         {
             return ResetPassword(null, email);
         }
 
-        public virtual bool ResetPassword(string tenant, string email)
+        public virtual IValidationContainer<User> ResetPassword(string tenant, string email)
         {
             Tracing.Information(String.Format("[UserAccountService.ResetPassword] called: {0}, {1}", tenant, email));
 
@@ -513,11 +528,15 @@ namespace DemoApplication.Core.Services
                 tenant = _settings.DefaultTenant;
             }
 
-            if (String.IsNullOrWhiteSpace(tenant)) return false;
-            if (String.IsNullOrWhiteSpace(email)) return false;
+            if (String.IsNullOrWhiteSpace(tenant)) throw new ArgumentNullException("tenant");
+            if (String.IsNullOrWhiteSpace(email)) throw new ArgumentNullException("email");
 
             var account = this.GetByEmail(tenant, email);
-            if (account == null) return false;
+            if (account == null) throw new UserNotFoundException();
+
+            var container = account.GetValidationContainer();
+            if (!container.IsValid)
+                return container;
 
             if (!account.IsAccountVerified)
             {
@@ -528,13 +547,15 @@ namespace DemoApplication.Core.Services
                     Tracing.Verbose(String.Format("[UserAccountService.ResetPassword] account not verified, re-sending account create notification: {0}, {1}", account.Tenant, account.Username));
 
                     this.notificationService.SendAccountCreate(account);
-                    return true;
+                    return container;
                 }
 
                 // if we don't have a notification system then not much we can do
                 Tracing.Warning(String.Format("[UserAccountService.ResetPassword] account not verified, no notification to re-send invite: {0}, {1}", account.Tenant, account.Username));
 
-                return false;
+                container.ValidationErrors.Add("", new List<string>() { "Account not yet verified" });
+
+                return container;
             }
 
             var result = account.ResetPassword();
@@ -543,19 +564,17 @@ namespace DemoApplication.Core.Services
 
             if (result)
             {
-                using (var tx = new TransactionScope())
+
+                this.userRepository.SaveOrUpdate(account);
+
+                if (this.notificationService != null)
                 {
-                    this.userRepository.SaveOrUpdate(account);
-
-                    if (this.notificationService != null)
-                    {
-                        this.notificationService.SendResetPassword(account);
-                    }
-
-                    tx.Complete();
+                    this.notificationService.SendResetPassword(account);
                 }
+
+                _unitOfWork.Commit();
             }
-            return result;
+            return container;
         }
 
         public virtual bool ChangePasswordFromResetKey(string key, string newPassword)

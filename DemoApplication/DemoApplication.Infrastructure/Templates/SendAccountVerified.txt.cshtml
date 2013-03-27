@@ -1,0 +1,11 @@
+﻿@using DemoApplication.Infrastructure.Extensions
+@model DemoApplication.Core.Model.User
+
+@Model.FirstName,
+
+Your account is now verified.  You may login with the following url.
+
+@Model.LoginUrl()
+
+Thanks,
+DemoApplication
