@@ -74,7 +74,7 @@ namespace DemoApplication.Controllers.Account
         public ActionResult Confirm(string id)
         {
             var result = _userService.VerifyAccount(id);
-            return View("RegisterConfirm", result);
+            return View("RegisterConfirm", result.IsValid);
         }
 
         /// <summary>

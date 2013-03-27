@@ -37,7 +37,7 @@ namespace DemoApplication.Core.Interfaces.Service
         bool EmailExists(string tenant, string email);
         IValidationContainer<User> CreateAccount(string username, string password, string email, string firstName, string lastName, string phone, string address);
         IValidationContainer<User> CreateAccount(string tenant, string username, string password, string email, string firstName, string lastName, string phone, string address);
-        bool VerifyAccount(string key);
+        IValidationContainer<User> VerifyAccount(string key);
         bool CancelNewAccount(string key);
         bool DeleteAccount(string username);
         bool DeleteAccount(string tenant, string username);

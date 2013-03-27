@@ -293,16 +293,20 @@ namespace DemoApplication.Core.Services
             }
         }
 
-        public virtual bool VerifyAccount(string key)
+        public virtual IValidationContainer<User> VerifyAccount(string key)
         {
             Tracing.Information(String.Format("[UserAccountService.VerifyAccount] called: {0}", key));
 
             var account = this.GetByVerificationKey(key);
-            if (account == null) return false;
+            if (account == null) throw new UserNotFoundException();
+
+            var container = account.GetValidationContainer();
 
             Tracing.Verbose(String.Format("[UserAccountService.VerifyAccount] account located: {0}, {1}", account.Tenant, account.Username));
 
             var result = account.VerifyAccount(key);
+            if (result == false)
+                container.ValidationErrors.Add("", new List<string>(){"Unable to verify account"});
 
             this.userRepository.SaveOrUpdate(account);
 
@@ -310,9 +314,8 @@ namespace DemoApplication.Core.Services
             {
                 this.notificationService.SendAccountVerified(account);
             }
-
             _unitOfWork.Commit();
-            return result;
+            return container;
         }
 
         public virtual bool CancelNewAccount(string key)
