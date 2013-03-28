@@ -13,7 +13,7 @@ namespace DemoApplication.Infrastructure.Configuration
     #region
 
     using System.Configuration;
-    using Photos.Configuration;
+    using Photos;
 
     #endregion
 

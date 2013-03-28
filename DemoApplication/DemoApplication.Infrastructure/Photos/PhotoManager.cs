@@ -15,7 +15,7 @@ namespace DemoApplication.Infrastructure.Photos
     using System.Collections.Generic;
     using System.Configuration.Provider;
     using System.Web.Configuration;
-    using Configuration;
+    using Configuration.Photos;
     using Core.Common.Photos;
     using Infrastructure.Configuration;
 

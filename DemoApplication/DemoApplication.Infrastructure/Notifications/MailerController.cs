@@ -24,7 +24,7 @@ namespace DemoApplication.Infrastructure.Notifications
         {
             get
             {
-                var path = HttpContext.Current.Server.MapPath("~/bin/Templates");
+                var path = HttpContext.Current.Server.MapPath("~/Views/Templates");
                 return path;
             }
         }

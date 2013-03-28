@@ -1403,6 +1403,14 @@
     <Content Include="Views\Account\RegisterCancel.cshtml" />
     <Content Include="Views\Account\PasswordResetConfirm.cshtml" />
     <Content Include="Views\Account\ChangePasswordSuccess.cshtml" />
+    <Content Include="Views\Templates\SendAccountCreate.txt.cshtml" />
+    <Content Include="Views\Templates\SendAccountDelete.txt.cshtml" />
+    <Content Include="Views\Templates\SendAccountNameReminder.txt.cshtml" />
+    <Content Include="Views\Templates\SendAccountVerified.txt.cshtml" />
+    <Content Include="Views\Templates\SendChangeEmailRequestNotice.txt.cshtml" />
+    <Content Include="Views\Templates\SendEmailChangedNotice.txt.cshtml" />
+    <Content Include="Views\Templates\SendPasswordChangeNotice.txt.cshtml" />
+    <Content Include="Views\Templates\SendPasswordReset.txt.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

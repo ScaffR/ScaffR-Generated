@@ -158,10 +158,10 @@
     <Compile Include="Notifications\MailerController.cs" />
     <Compile Include="Notifications\MembershipNotifications.cs" />
     <Compile Include="Extensions\UserExtensions.cs" />
-    <Compile Include="Photos\Configuration\PhotoConfigurationElement.cs" />
-    <Compile Include="Photos\Configuration\PhotoProviderCollection.cs" />
-    <Compile Include="Photos\Configuration\PhotoResizeCollection.cs" />
-    <Compile Include="Photos\Configuration\PhotoResizeElement.cs" />
+    <Compile Include="Configuration\Photos\PhotoConfigurationElement.cs" />
+    <Compile Include="Configuration\Photos\PhotoProviderCollection.cs" />
+    <Compile Include="Configuration\Photos\PhotoResizeCollection.cs" />
+    <Compile Include="Configuration\Photos\PhotoResizeElement.cs" />
     <Compile Include="Photos\ImageHelper.cs" />
     <Compile Include="Photos\PhotoManager.cs" />
     <Compile Include="Photos\PhotoRequest.cs" />
@@ -179,30 +179,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="Templates\SendAccountCreate.txt.cshtml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\SendAccountDelete.txt.cshtml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\SendAccountNameReminder.txt.cshtml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\SendAccountVerified.txt.cshtml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\SendChangeEmailRequestNotice.txt.cshtml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\SendEmailChangedNotice.txt.cshtml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\SendPasswordChangeNotice.txt.cshtml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\SendPasswordReset.txt.cshtml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DemoApplication.Common\DemoApplication.Common.csproj">
