@@ -34,7 +34,7 @@ namespace DemoApplication.Application.Startup
         public static void ActionFilters()
         {
             GlobalFilters.Filters.Add(new HandleErrorAttribute());
-            GlobalFilters.Filters.Add(new AuthorizeAttribute());
+            GlobalFilters.Filters.Add(new CustomAuthorizeAttribute());
             GlobalFilters.Filters.Add(new FillDropDowns());
             GlobalFilters.Filters.Add(new ShowPageHeadingText(true));
             GlobalFilters.Filters.Add(new ShowMainMenu(true));

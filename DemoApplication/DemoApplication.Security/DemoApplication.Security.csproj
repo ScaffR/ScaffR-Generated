@@ -88,8 +88,10 @@
     <Compile Include="Authorization\ClaimsAuthorizeModule.cs" />
     <Compile Include="Encryption\MachineKeyCookieTransform.cs" />
     <Compile Include="Encryption\MachineKeySessionSecurityTokenHandler.cs" />
+    <Compile Include="Extensions\ActionDescriptorExtensions.cs" />
     <Compile Include="Extensions\ClaimsExtensions.cs" />
     <Compile Include="Extensions\ClaimsPrincipalExtensions.cs" />
+    <Compile Include="Authorization\OnlyAnonymousAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
