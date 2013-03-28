@@ -13,6 +13,7 @@ namespace DemoApplication.Security.Authentication
     #region
 
     using System;
+    using System.Collections.Generic;
     using System.IdentityModel.Services;
     using System.IdentityModel.Tokens;
     using System.Linq;
@@ -35,9 +36,9 @@ namespace DemoApplication.Security.Authentication
             if (String.IsNullOrWhiteSpace(user.Username)) throw new ArgumentException("username");
 
             // gather claims
-            var claims =
-                (from uc in user.Claims
-                 select new Claim(uc.Type, uc.Value)).ToList();
+            var claims = new List<Claim>();
+            foreach (UserClaim uc in user.Claims)
+                claims.Add(new Claim(uc.Type, uc.Value));
 
             if (!String.IsNullOrWhiteSpace(user.Email))
             {

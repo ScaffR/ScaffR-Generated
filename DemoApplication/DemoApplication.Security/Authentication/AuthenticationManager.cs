@@ -31,9 +31,6 @@ namespace DemoApplication.Security.Authentication
 
         ClaimsPrincipal Transform(ClaimsPrincipal incomingPrincipal)
         {
-            // todo... this is where we would put in any extra claim information
-            incomingPrincipal.Identities.FirstOrDefault().AddClaim(new Claim(ClaimTypes.Role, "Admin"));
-           
             return incomingPrincipal;
         }
     }

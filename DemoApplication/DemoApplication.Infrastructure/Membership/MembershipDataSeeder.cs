@@ -15,6 +15,8 @@ namespace DemoApplication.Infrastructure.Membership
     using System;
     using System.Collections.Generic;
     using System.Data.Entity.Migrations;
+    using System.Linq;
+    using System.Security.Claims;
     using Core.Model;
     using Data;
 
@@ -57,21 +59,27 @@ namespace DemoApplication.Infrastructure.Membership
                         }
                 }.ForEach(u => context.Users.AddOrUpdate(u));
 
-            /*
+
             var existsInRole = context.UserClaims.Any(ur => ur.UserId == 1 && ur.UserId == 1);
-                               
+
             if (!existsInRole)
             {
                 new List<UserClaim>()
                 {
                     new UserClaim()
                         {
-                            Type = "1",
+                            Value = "Admin",
+                            Type = ClaimTypes.Role,
                             UserId = 1
-                        }
+                        },
+                        new UserClaim()
+                            {
+                                Value="Super Admin",
+                                Type = ClaimTypes.Role,
+                                UserId = 1
+                            }
                 }.ForEach(ur => context.UserClaims.Add(ur));
             }
-            */
         }
     }
 }

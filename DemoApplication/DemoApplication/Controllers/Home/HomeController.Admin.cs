@@ -22,7 +22,7 @@ namespace DemoApplication.Controllers.Home
         /// Landing page for the administrative portion of the website
         /// </summary>
         /// <returns>ActionResult.</returns>
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Super Admin")]
         public ActionResult Manage()
         {
             return View();
