@@ -13,6 +13,7 @@ namespace DemoApplication.Controllers.Account
     #region
 
     using System.Web.Mvc;
+    using Security.Authorization;
     using Extensions.ModelStateHelpers;
     using Filters;
     using Models.Account;

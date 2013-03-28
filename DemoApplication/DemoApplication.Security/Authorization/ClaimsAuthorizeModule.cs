@@ -4,8 +4,8 @@
 // Author	: Rod Johnson
 // Created	: 03-21-2013
 // 
-// Last Modified By : Rod Johnson
-// Last Modified On : 03-26-2013
+// Last Modified By : Marko Ilievski
+// Last Modified On : 03-28-2013
 // ***********************************************************************
 #endregion
 namespace DemoApplication.Security.Authorization
@@ -20,6 +20,7 @@ namespace DemoApplication.Security.Authorization
     using System.Web.Mvc.Async;
     using System.Web.Routing;
     using Infrastructure.Sitemap.External;
+    using Security.Extensions;
     using MvcSiteMapProvider;
     using MvcSiteMapProvider.Extensibility;
     using MvcSiteMapProvider.External;
@@ -134,9 +135,12 @@ namespace DemoApplication.Security.Authorization
                 if (actionDescriptor != null)
                 {
                     // fixes #130 - Check whether we have an AllowAnonymous Attribute
-                    var ignoreAuthorization = this.HasAllowAnonymousAttribute(actionDescriptor);
+                    var ignoreAuthorization = actionDescriptor.HasAttribute<AllowAnonymousAttribute>();
                     if (ignoreAuthorization)
                         return true;
+
+                    if (actionDescriptor.HasAttribute<OnlyAnonymousAttribute>())
+                        return !requestContext.HttpContext.Request.IsAuthenticated;
 
                     IFilterProvider filterProvider = ResolveFilterProvider();
                     IEnumerable<Filter> filters;
@@ -198,13 +202,6 @@ namespace DemoApplication.Security.Authorization
                 if (factoryBuiltController)
                     ControllerBuilder.Current.GetControllerFactory().ReleaseController(controllerContext.Controller);
             }
-        }
-
-        private bool HasAllowAnonymousAttribute(ActionDescriptor actionDescriptor)
-        {
-            var allowAnonymousType = typeof(AllowAnonymousAttribute);
-            return (actionDescriptor.IsDefined(allowAnonymousType, true) ||
-                actionDescriptor.ControllerDescriptor.IsDefined(allowAnonymousType, true));
         }
 
         protected string filterProviderCacheKey = "__MVCSITEMAP_F255D59E-D3E4-4BA9-8A5F-2AF0CAB282F4";

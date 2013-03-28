@@ -212,6 +212,8 @@
     <Compile Include="Controllers\Account\AccountController.Register.cs" />
     <Compile Include="Controllers\Account\AccountController.Claims.cs" />
     <Compile Include="Controllers\Account\AccountController.Logout.cs" />
+    <Compile Include="Controllers\Home\HomeController.About.cs" />
+    <Compile Include="Filters\CustomAuthorizeAttribute.cs" />
     <Compile Include="Models\Account\ChangePasswordFromResetKeyModel.cs" />
     <Compile Include="Controllers\Components\ComponentsController.cs" />
     <Compile Include="Controllers\Components\ComponentsController.Dropdowns.cs" />
@@ -262,7 +264,6 @@
     <Compile Include="Extensions\UrlHelpers\UrlExtensions.Photos.cs" />
     <Compile Include="Extensions\UrlHelpers\UrlExtensions.ProfilePicture.cs" />
     <Compile Include="Filters\MultiResponseFormatAttribute.cs" />
-    <Compile Include="Filters\OnlyAnonymous.cs" />
     <Compile Include="Filters\ShowAlerts.cs" />
     <Compile Include="Filters\ShowBreadcrumb.cs" />
     <Compile Include="ModelBinders\DbGeographyModelBinder.cs" />
@@ -1411,6 +1412,7 @@
     <Content Include="Views\Templates\SendEmailChangedNotice.txt.cshtml" />
     <Content Include="Views\Templates\SendPasswordChangeNotice.txt.cshtml" />
     <Content Include="Views\Templates\SendPasswordReset.txt.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

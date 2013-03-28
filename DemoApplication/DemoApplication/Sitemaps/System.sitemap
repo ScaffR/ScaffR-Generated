@@ -6,6 +6,8 @@
 
   <mvcSiteMapNode title="Dashboard" controller="Home" action="Index" imageUrl="icon-home" key="root" visibility="breadcrumb">
 
+    <mvcSiteMapNode title="About" controller="Home" action="About" imageUrl="icon-home"/>
+
     <mvcSiteMapNode title="Profile" controller="Account" action="Profile" imageUrl="icon-user" >
       <mvcSiteMapNode title="Change Password" controller="Account" action="ChangePassword" imageUrl="icon-lock"/>
       <mvcSiteMapNode title="Photo" controller="Account" action="Photo" imageUrl="icon-camera"/>
@@ -22,7 +24,7 @@
       <mvcSiteMapNode title="Editor Templates" controller="Components" action="EditorTemplates"/>
       <mvcSiteMapNode title="Logging" controller="Components" action="Logging"/>
     </mvcSiteMapNode>
-    
+
     <mvcSiteMapNode title="Admin" controller="Home" action="Manage" imageUrl="icon-lock" key="Manage" visibility="breadcrumb">
       <mvcSiteMapNode title="Manage Users" controller="Users" action="Manager" imageUrl="icon-group" key="ManageUsers">
         <mvcSiteMapNode title="Details" controller="Users" action="Details" key="UserDetails" preservedRouteParameters="id"/>
