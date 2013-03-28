@@ -5,7 +5,7 @@
 // Created	: 03-16-2013
 // 
 // Last Modified By : Rod Johnson
-// Last Modified On : 03-26-2013
+// Last Modified On : 03-28-2013
 // ***********************************************************************
 #endregion
 namespace DemoApplication.Infrastructure.Photos
@@ -15,9 +15,9 @@ namespace DemoApplication.Infrastructure.Photos
     using System.Collections.Generic;
     using System.Configuration.Provider;
     using System.Web.Configuration;
+    using Configuration;
     using Configuration.Photos;
     using Core.Common.Photos;
-    using Infrastructure.Configuration;
 
     #endregion
 

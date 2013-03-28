@@ -5,7 +5,7 @@
 // Created	: 02-24-2013
 // 
 // Last Modified By : Rod Johnson
-// Last Modified On : 03-26-2013
+// Last Modified On : 03-28-2013
 // ***********************************************************************
 #endregion
 namespace DemoApplication.Controllers.Users
@@ -17,7 +17,6 @@ namespace DemoApplication.Controllers.Users
     using Extensions.TempDataHelpers;
     using Models.Users;
     using Omu.ValueInjecter;
-    using Security.Authorization;
 
     #endregion
 
@@ -29,7 +28,6 @@ namespace DemoApplication.Controllers.Users
         /// <param name="id">The id.</param>
         /// <returns>ActionResult.</returns>
         [HttpGet]
-        [ClaimsAuthorize("View", "ManageUsers")]
         public ActionResult Details(int id)
         {
             var user = UserService.GetByID(id);
@@ -48,7 +46,6 @@ namespace DemoApplication.Controllers.Users
         /// <param name="model">The model.</param>
         /// <returns>ActionResult.</returns>
         [HttpPost]
-        [ClaimsAuthorize("View", "ManageUsers")]
         public ActionResult Details(int id, UserViewModel model)
         {
             if (ModelState.IsValid)

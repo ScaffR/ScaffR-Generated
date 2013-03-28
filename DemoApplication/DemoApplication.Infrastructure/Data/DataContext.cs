@@ -5,7 +5,7 @@
 // Created	: 03-16-2013
 // 
 // Last Modified By : Rod Johnson
-// Last Modified On : 03-26-2013
+// Last Modified On : 03-28-2013
 // ***********************************************************************
 #endregion
 namespace DemoApplication.Infrastructure.Data
@@ -19,12 +19,8 @@ namespace DemoApplication.Infrastructure.Data
 
     public partial class DataContext : BaseContext<DataContext>
     {
-        public DbSet<UserClaim> UserClaims { get; set; }
-
         public DbSet<User> Users { get; set; }
 
-        public DbSet<Role> Roles { get; set; }
-
-        public DbSet<Log> Log { get; set; }
+        public DbSet<Log> Log { get; set; }        
     }    
 }

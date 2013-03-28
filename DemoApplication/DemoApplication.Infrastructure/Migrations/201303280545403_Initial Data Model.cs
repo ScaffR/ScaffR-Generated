@@ -2,10 +2,10 @@
 // ***********************************************************************
 // Assembly	: DemoApplication.Infrastructure
 // Author	: Rod Johnson
-// Created	: 03-25-2013
+// Created	: 03-27-2013
 // 
 // Last Modified By : Rod Johnson
-// Last Modified On : 03-26-2013
+// Last Modified On : 03-28-2013
 // ***********************************************************************
 #endregion
 namespace DemoApplication.Infrastructure.Migrations
@@ -16,7 +16,7 @@ namespace DemoApplication.Infrastructure.Migrations
 
     #endregion
 
-    public partial class UsersRolesandUserClaimsAdded : DbMigration
+    public partial class InitialDataModel : DbMigration
     {
         public override void Up()
         {
@@ -24,14 +24,14 @@ namespace DemoApplication.Infrastructure.Migrations
                 "dbo.UserClaims",
                 c => new
                     {
+                        Id = c.Int(nullable: false, identity: true),
                         UserId = c.Int(nullable: false),
-                        Type = c.String(nullable: false, maxLength: 150),
-                        Value = c.String(nullable: false, maxLength: 150),
+                        Type = c.String(maxLength: 150),
+                        Value = c.String(maxLength: 150),
                         Created = c.DateTime(),
-                        RowVersion = c.Binary(),
                         Updated = c.DateTime(),
                     })
-                .PrimaryKey(t => new { t.UserId, t.Type, t.Value })
+                .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Users", t => t.UserId)
                 .Index(t => t.UserId);
             
@@ -39,7 +39,7 @@ namespace DemoApplication.Infrastructure.Migrations
                 "dbo.Users",
                 c => new
                     {
-                        ID = c.Int(nullable: false, identity: true),
+                        Id = c.Int(nullable: false, identity: true),
                         PhotoId = c.String(),
                         Tenant = c.String(nullable: false, maxLength: 50),
                         Username = c.String(nullable: false, maxLength: 100),
@@ -62,23 +62,23 @@ namespace DemoApplication.Infrastructure.Migrations
                         Gender = c.Int(nullable: false),
                         Comment = c.String(),
                         Created = c.DateTime(),
-                        RowVersion = c.Binary(),
                         Updated = c.DateTime(),
                     })
-                .PrimaryKey(t => t.ID);
+                .PrimaryKey(t => t.Id);
             
             CreateTable(
-                "dbo.Roles",
+                "dbo.Logs",
                 c => new
                     {
-                        RoleId = c.Int(nullable: false, identity: true),
-                        RoleName = c.String(nullable: false),
-                        Description = c.String(),
-                        Created = c.DateTime(),
-                        RowVersion = c.Binary(),
-                        Updated = c.DateTime(),
+                        LogId = c.Int(nullable: false, identity: true),
+                        Date = c.DateTime(),
+                        Thread = c.String(maxLength: 255),
+                        Level = c.String(maxLength: 50),
+                        Logger = c.String(maxLength: 255),
+                        Message = c.String(maxLength: 4000),
+                        Exception = c.String(maxLength: 2000),
                     })
-                .PrimaryKey(t => t.RoleId);
+                .PrimaryKey(t => t.LogId);
             
         }
         
@@ -86,7 +86,7 @@ namespace DemoApplication.Infrastructure.Migrations
         {
             DropIndex("dbo.UserClaims", new[] { "UserId" });
             DropForeignKey("dbo.UserClaims", "UserId", "dbo.Users");
-            DropTable("dbo.Roles");
+            DropTable("dbo.Logs");
             DropTable("dbo.Users");
             DropTable("dbo.UserClaims");
         }

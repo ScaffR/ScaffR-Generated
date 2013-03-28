@@ -5,7 +5,7 @@
 // Created	: 02-24-2013
 // 
 // Last Modified By : Rod Johnson
-// Last Modified On : 03-26-2013
+// Last Modified On : 03-28-2013
 // ***********************************************************************
 #endregion
 namespace DemoApplication.Areas.Api.Controllers
@@ -28,7 +28,7 @@ namespace DemoApplication.Areas.Api.Controllers
     {
         protected IService<T> Service;
 
-        public virtual HttpResponseMessage Get(object id)
+        public virtual HttpResponseMessage Get(int id)
         {
             T item = Service.GetById(id);
             var response = Request.CreateResponse(HttpStatusCode.Created, item);
@@ -45,7 +45,7 @@ namespace DemoApplication.Areas.Api.Controllers
             return Service.GetAll();
         }
 
-        public virtual void Delete(object id)
+        public virtual void Delete(int id)
         {
             T entity = Service.GetById(id);
             Service.Delete(entity);

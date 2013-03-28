@@ -5,7 +5,7 @@
 // Created	: 03-09-2013
 // 
 // Last Modified By : Rod Johnson
-// Last Modified On : 03-26-2013
+// Last Modified On : 03-28-2013
 // ***********************************************************************
 #endregion
 namespace DemoApplication.Dropdowns.Attributes
@@ -28,9 +28,9 @@ namespace DemoApplication.Dropdowns.Attributes
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = true, Inherited = false)]
     public class DropdownOptionAttribute : Attribute
     {
-        private string _text;
-        private string _value;
-        private int _order;
+        private readonly string _text;
+        private readonly string _value;
+        private readonly int _order;
 
         public DropdownOptionAttribute(string text, string value, int order)
         {

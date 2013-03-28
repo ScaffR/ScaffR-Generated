@@ -116,13 +116,10 @@
     <Compile Include="Common\Paging\Page.cs" />
     <Compile Include="Common\Validation\ValidationContainer.cs" />
     <Compile Include="Extensions\DomainObjectExtensions.Validation.cs" />
-    <Compile Include="Interfaces\Data\IRoleRepository.cs" />
     <Compile Include="Interfaces\Membership\IPasswordPolicy.cs" />
     <Compile Include="Interfaces\Notifications\INotificationService.cs" />
-    <Compile Include="Interfaces\Service\IUserClaimService.cs" />
     <Compile Include="Model\User.Photo.cs" />
     <Compile Include="Model\Log.cs" />
-    <Compile Include="Model\Role.cs" />
     <Compile Include="Interfaces\Photos\IPhotoRequest.cs" />
     <Compile Include="Common\Photos\Photo.cs" />
     <Compile Include="Common\Photos\PhotoList.cs" />
@@ -134,7 +131,6 @@
     <Compile Include="Interfaces\Data\IRepository.cs" />
     <Compile Include="Interfaces\Data\IUnitOfWork.cs" />
     <Compile Include="Interfaces\Data\IUserRepository.cs" />
-    <Compile Include="Interfaces\Data\IUserClaimRepository.cs" />
     <Compile Include="Interfaces\Eventing\IHandles.cs" />
     <Compile Include="Interfaces\Eventing\IMessageBus.cs" />
     <Compile Include="Interfaces\Membership\IMembershipSettings.cs" />
@@ -145,7 +141,6 @@
     <Compile Include="Interfaces\Pipeline\ICoreProcessor.cs" />
     <Compile Include="Interfaces\Pipeline\IPipelineSettings.cs" />
     <Compile Include="Interfaces\Service\IAuthenticationService.cs" />
-    <Compile Include="Interfaces\Service\IRoleService.cs" />
     <Compile Include="Interfaces\Service\IService.cs" />
     <Compile Include="Interfaces\Site\ISiteSettings.cs" />
     <Compile Include="Interfaces\Storage\IStorageProvider.cs" />
@@ -160,8 +155,6 @@
     <Compile Include="Interfaces\Service\IUserAccountService.cs" />
     <Compile Include="Services\NopNotificationService.cs" />
     <Compile Include="Services\UserAccountService.cs" />
-    <Compile Include="Services\UserClaimService.cs" />
-    <Compile Include="Services\RoleService.cs" />
     <Compile Include="Services\UserNotFoundException.cs" />
   </ItemGroup>
   <ItemGroup>

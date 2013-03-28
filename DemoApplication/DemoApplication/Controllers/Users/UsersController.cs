@@ -5,7 +5,7 @@
 // Created	: 02-24-2013
 // 
 // Last Modified By : Rod Johnson
-// Last Modified On : 03-26-2013
+// Last Modified On : 03-28-2013
 // ***********************************************************************
 #endregion
 namespace DemoApplication.Controllers.Users
@@ -20,6 +20,7 @@ namespace DemoApplication.Controllers.Users
     /// <summary>
     /// Class UsersController
     /// </summary>
+    [Authorize(Roles = "Admin,Super Admin")]
     public partial class UsersController : Controller
     {
         protected readonly IUserAccountService UserService;

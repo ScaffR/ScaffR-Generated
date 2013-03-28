@@ -5,24 +5,33 @@
 // Created	: 03-23-2013
 // 
 // Last Modified By : Rod Johnson
-// Last Modified On : 03-26-2013
+// Last Modified On : 03-28-2013
 // ***********************************************************************
 #endregion
 #region
 
-using System;
+
 
 #endregion
 
 // ReSharper disable CheckNamespace
-public static class DisposableExtensions
-// ReSharper restore CheckNamespace
+namespace DemoApplication.Common.Extensions
 {
-    public static bool TryDispose(this IDisposable item)
+    #region
+
+    using System;
+
+    #endregion
+
+    public static class DisposableExtensions
+        // ReSharper restore CheckNamespace
     {
-        if (item == null) return false;
-        item.Dispose();
-        return true;
+        public static bool TryDispose(this IDisposable item)
+        {
+            if (item == null) return false;
+            item.Dispose();
+            return true;
+        }
     }
 }
 

@@ -5,7 +5,7 @@
 // Created	: 02-24-2013
 // 
 // Last Modified By : Rod Johnson
-// Last Modified On : 03-26-2013
+// Last Modified On : 03-28-2013
 // ***********************************************************************
 #endregion
 namespace DemoApplication.Extensions.SitemapHelpers
@@ -31,7 +31,7 @@ namespace DemoApplication.Extensions.SitemapHelpers
         /// <summary>
         /// Source metadata
         /// </summary>
-        private static Dictionary<string, object> NavSourceMetadata = new Dictionary<string, object> { { "HtmlHelper", typeof(NavExtensions).FullName } };
+        private static readonly Dictionary<string, object> NavSourceMetadata = new Dictionary<string, object> { { "HtmlHelper", typeof(NavExtensions).FullName } };
 
         /// <summary>
         /// Build a menu, based on the MvcSiteMap

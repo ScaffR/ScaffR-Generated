@@ -5,7 +5,7 @@
 // Created	: 03-19-2013
 // 
 // Last Modified By : Rod Johnson
-// Last Modified On : 03-26-2013
+// Last Modified On : 03-28-2013
 // ***********************************************************************
 #endregion
 #region
@@ -107,10 +107,6 @@ namespace DemoApplication.DependencyResolution
             // membership
             kernel.Bind<IUserAccountService>().To<UserAccountService>().InRequestScope();
             kernel.Bind<IUserRepository>().To<UserRepository>().InRequestScope();
-            kernel.Bind<IRoleService>().To<RoleService>().InRequestScope();
-            kernel.Bind<IRoleRepository>().To<RoleRepository>().InRequestScope();
-            kernel.Bind<IUserClaimService>().To<UserClaimService>().InRequestScope();
-            kernel.Bind<IUserClaimRepository>().To<UserClaimRepository>().InRequestScope();
             kernel.Bind<INotificationService>().To<MembershipNotifications>().InRequestScope();
             kernel.Bind<IPasswordPolicy>().To<NopPasswordPolicy>().InRequestScope();
 

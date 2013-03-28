@@ -5,7 +5,7 @@
 // Created	: 03-16-2013
 // 
 // Last Modified By : Rod Johnson
-// Last Modified On : 03-26-2013
+// Last Modified On : 03-28-2013
 // ***********************************************************************
 #endregion
 namespace DemoApplication.Core.Services
@@ -51,7 +51,7 @@ namespace DemoApplication.Core.Services
             return Repository.GetAllReadOnly();
         }
 
-        public virtual T GetById(object id)
+        public virtual T GetById(int id)
         {
             return Repository.GetById(id);
         }
@@ -73,7 +73,7 @@ namespace DemoApplication.Core.Services
             UnitOfWork.Commit();
         }
 
-        public void BulkDelete(List<object> keys)
+        public void BulkDelete(List<int> keys)
         {
             Repository.BulkDelete(keys);
             UnitOfWork.Commit();

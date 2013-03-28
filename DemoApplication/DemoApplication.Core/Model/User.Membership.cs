@@ -5,7 +5,7 @@
 // Created	: 03-20-2013
 // 
 // Last Modified By : Rod Johnson
-// Last Modified On : 03-26-2013
+// Last Modified On : 03-28-2013
 // ***********************************************************************
 #endregion
 namespace DemoApplication.Core.Model
@@ -34,7 +34,7 @@ namespace DemoApplication.Core.Model
         internal const string ChangeEmailVerificationPrefix = "changeEmail";
         internal const int VerificationKeyStaleDurationDays = 1;
 
-        private static IMembershipSettings settings;
+        private static readonly IMembershipSettings settings;
 
         public User()
         {
@@ -63,9 +63,6 @@ namespace DemoApplication.Core.Model
                 this.VerificationKeySent = this.UtcNow;
             }
         }
-
-        [Key]
-        public virtual int ID { get; set; }
 
         [StringLength(50)]
         [Required]
@@ -523,6 +520,5 @@ namespace DemoApplication.Core.Model
                 return DateTime.UtcNow;
             }
         }
-
     }
 }

@@ -5,7 +5,7 @@
 // Created	: 03-16-2013
 // 
 // Last Modified By : Rod Johnson
-// Last Modified On : 03-26-2013
+// Last Modified On : 03-28-2013
 // ***********************************************************************
 #endregion
 namespace DemoApplication.Infrastructure.Data
@@ -63,7 +63,7 @@ namespace DemoApplication.Infrastructure.Data
                 this._dbset.Add(entity);
         }
 
-        public virtual T GetById(object id)
+        public virtual T GetById(int id)
         {
             return this.Query.SingleOrDefault(e => e.Id == id);
         }
@@ -83,12 +83,12 @@ namespace DemoApplication.Infrastructure.Data
             this._dbset.Remove(entity);
         }
 
-        public void BulkDelete(List<object> keys)
+        public void BulkDelete(List<int> keys)
         {
             keys.ForEach(i => Delete(GetById(i)));
         }
 
-        public virtual IEnumerable<T> Find(System.Linq.Expressions.Expression<Func<T, bool>> expression, int maxHits = 100)
+        public virtual IEnumerable<T> Find(Expression<Func<T, bool>> expression, int maxHits = 100)
         {
             return this.Query.Where(expression).Take(maxHits);
         }

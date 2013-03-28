@@ -4,7 +4,7 @@
 // Author	: Rod Johnson
 // Created	: 03-21-2013
 // 
-// Last Modified By : Marko Ilievski
+// Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
 #endregion
@@ -19,8 +19,8 @@ namespace DemoApplication.Security.Authorization
     using System.Web.Mvc;
     using System.Web.Mvc.Async;
     using System.Web.Routing;
+    using Extensions;
     using Infrastructure.Sitemap.External;
-    using Security.Extensions;
     using MvcSiteMapProvider;
     using MvcSiteMapProvider.Extensibility;
     using MvcSiteMapProvider.External;

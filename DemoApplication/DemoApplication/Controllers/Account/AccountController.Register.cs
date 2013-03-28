@@ -5,7 +5,7 @@
 // Created	: 02-24-2013
 // 
 // Last Modified By : Rod Johnson
-// Last Modified On : 03-26-2013
+// Last Modified On : 03-28-2013
 // ***********************************************************************
 #endregion
 namespace DemoApplication.Controllers.Account
@@ -14,10 +14,10 @@ namespace DemoApplication.Controllers.Account
 
     using System.ComponentModel.DataAnnotations;
     using System.Web.Mvc;
-    using Security.Authorization;
     using Extensions.ModelStateHelpers;
     using Filters;
     using Models.Account;
+    using Security.Authorization;
 
     #endregion
 

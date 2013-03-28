@@ -5,7 +5,7 @@
 // Created	: 03-09-2013
 // 
 // Last Modified By : Rod Johnson
-// Last Modified On : 03-26-2013
+// Last Modified On : 03-28-2013
 // ***********************************************************************
 #endregion
 namespace DemoApplication.Metadata.Attributes
@@ -21,7 +21,7 @@ namespace DemoApplication.Metadata.Attributes
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
     public class YearTextboxAttribute : TextboxAttribute
     {
-        private static Regex _regex = new Regex(@"^[0-9]{4}$");
+        private static readonly Regex _regex = new Regex(@"^[0-9]{4}$");
 
         public string Regex
         {

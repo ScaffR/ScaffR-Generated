@@ -5,13 +5,13 @@ namespace DemoApplication.Infrastructure.Migrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    public sealed partial class LogAdded : IMigrationMetadata
+    public sealed partial class InitialDataModel : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(LogAdded));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialDataModel));
         
         string IMigrationMetadata.Id
         {
-            get { return "201303260333591_Log Added"; }
+            get { return "201303280545403_Initial Data Model"; }
         }
         
         string IMigrationMetadata.Source

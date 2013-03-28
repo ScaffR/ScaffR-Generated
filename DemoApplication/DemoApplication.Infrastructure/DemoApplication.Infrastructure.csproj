@@ -135,20 +135,14 @@
     <Compile Include="Configuration\Site\SiteElement.cs" />
     <Compile Include="Data\BaseContext.cs" />
     <Compile Include="Data\BaseRepository.cs" />
-    <Compile Include="Membership\UserClaimRepository.cs" />
-    <Compile Include="Membership\RoleRepository.cs" />
     <Compile Include="Data\DataContext.cs" />
-    <Compile Include="Migrations\201303260329162_Empty Database.cs" />
-    <Compile Include="Migrations\201303260329162_Empty Database.Designer.cs">
-      <DependentUpon>201303260329162_Empty Database.cs</DependentUpon>
+    <Compile Include="Migrations\201303280545403_Initial Data Model.cs" />
+    <Compile Include="Migrations\201303280545403_Initial Data Model.Designer.cs">
+      <DependentUpon>201303280545403_Initial Data Model.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201303260331061_Users Roles and UserClaims Added.cs" />
-    <Compile Include="Migrations\201303260331061_Users Roles and UserClaims Added.Designer.cs">
-      <DependentUpon>201303260331061_Users Roles and UserClaims Added.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201303260333591_Log Added.cs" />
-    <Compile Include="Migrations\201303260333591_Log Added.Designer.cs">
-      <DependentUpon>201303260333591_Log Added.cs</DependentUpon>
+    <Compile Include="Migrations\201303280558173_Removed userclaims from datacontext.cs" />
+    <Compile Include="Migrations\201303280558173_Removed userclaims from datacontext.Designer.cs">
+      <DependentUpon>201303280558173_Removed userclaims from datacontext.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Membership\MembershipDataSeeder.cs" />
@@ -194,14 +188,11 @@
     <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201303260329162_Empty Database.resx">
-      <DependentUpon>201303260329162_Empty Database.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201303280545403_Initial Data Model.resx">
+      <DependentUpon>201303280545403_Initial Data Model.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201303260331061_Users Roles and UserClaims Added.resx">
-      <DependentUpon>201303260331061_Users Roles and UserClaims Added.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201303260333591_Log Added.resx">
-      <DependentUpon>201303260333591_Log Added.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201303280558173_Removed userclaims from datacontext.resx">
+      <DependentUpon>201303280558173_Removed userclaims from datacontext.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

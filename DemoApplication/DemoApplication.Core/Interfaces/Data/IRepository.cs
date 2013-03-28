@@ -5,7 +5,7 @@
 // Created	: 02-24-2013
 // 
 // Last Modified By : Rod Johnson
-// Last Modified On : 03-26-2013
+// Last Modified On : 03-28-2013
 // ***********************************************************************
 #endregion
 namespace DemoApplication.Core.Interfaces.Data
@@ -32,13 +32,13 @@ namespace DemoApplication.Core.Interfaces.Data
 
         IQueryable<T> GetAllReadOnly();
 
-        T GetById(object id);
+        T GetById(int id);
 
         void SaveOrUpdate(T entity);
 
         void Delete(T entity);
 
-        void BulkDelete(List<object> keys);
+        void BulkDelete(List<int> keys);
 
         IEnumerable<T> Find(Expression<Func<T, bool>> expression, int maxHits = 100);
 

@@ -5,7 +5,7 @@
 // Created	: 02-24-2013
 // 
 // Last Modified By : Rod Johnson
-// Last Modified On : 03-26-2013
+// Last Modified On : 03-28-2013
 // ***********************************************************************
 #endregion
 namespace DemoApplication.Core.Interfaces.Service
@@ -32,8 +32,7 @@ namespace DemoApplication.Core.Interfaces.Service
         IQueryable<T> GetAllReadOnly();
 
         [OperationContract]
-        T GetById(object id);
-
+        T GetById(int id);
 
         [OperationContract]
         IValidationContainer<T> SaveOrUpdate(T entity);
@@ -42,7 +41,7 @@ namespace DemoApplication.Core.Interfaces.Service
         void Delete(T entity);
 
         [OperationContract]
-        void BulkDelete(List<object> keys);
+        void BulkDelete(List<int> keys);
 
         [OperationContract]
         IEnumerable<T> Find(Expression<Func<T, bool>> expression, int maxHits = 100);

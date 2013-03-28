@@ -1,11 +1,11 @@
 #region credits
 // ***********************************************************************
 // Assembly	: DemoApplication
-// Author	: Marko Ilievski
+// Author	: Rod Johnson
 // Created	: 03-27-2013
 // 
-// Last Modified By : Marko Ilievski
-// Last Modified On : 03-27-2013
+// Last Modified By : Rod Johnson
+// Last Modified On : 03-28-2013
 // ***********************************************************************
 #endregion
 namespace DemoApplication.Controllers.Home
@@ -13,8 +13,8 @@ namespace DemoApplication.Controllers.Home
     #region
 
     using System.Web.Mvc;
-    using Security.Authorization;
     using Filters;
+    using Security.Authorization;
 
     #endregion
 

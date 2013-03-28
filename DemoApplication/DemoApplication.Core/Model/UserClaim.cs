@@ -5,7 +5,7 @@
 // Created	: 03-15-2013
 // 
 // Last Modified By : Rod Johnson
-// Last Modified On : 03-26-2013
+// Last Modified On : 03-28-2013
 // ***********************************************************************
 #endregion
 namespace DemoApplication.Core.Model
@@ -17,7 +17,7 @@ namespace DemoApplication.Core.Model
 
     #endregion
 
-    public class UserClaim : DomainObject
+    public class UserClaim
     {
         [Key]
         [Column(Order = 1)]

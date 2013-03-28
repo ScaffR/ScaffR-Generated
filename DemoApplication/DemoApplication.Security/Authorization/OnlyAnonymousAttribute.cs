@@ -1,14 +1,13 @@
 ﻿#region credits
 // ***********************************************************************
-// Assembly	: DemoApplication.Security (moved from DemoApplication)
+// Assembly	: DemoApplication.Security
 // Author	: Rod Johnson
-// Created	: 02-24-2013
+// Created	: 03-27-2013
 // 
-// Last Modified By : Marko Ilievski
+// Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
 #endregion
-
 namespace DemoApplication.Security.Authorization
 {
     #region

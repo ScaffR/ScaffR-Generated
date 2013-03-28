@@ -1,14 +1,13 @@
 ﻿#region credits
 // ***********************************************************************
 // Assembly	: DemoApplication
-// Author	: Marko Ilievski
-// Created	: 03-28-2013
+// Author	: Rod Johnson
+// Created	: 03-27-2013
 // 
-// Last Modified By : Marko Ilievski
+// Last Modified By : Rod Johnson
 // Last Modified On : 03-28-2013
 // ***********************************************************************
 #endregion
-
 namespace DemoApplication.Filters
 {
     #region

@@ -5,10 +5,9 @@
 // Created	: 03-25-2013
 // 
 // Last Modified By : Rod Johnson
-// Last Modified On : 03-26-2013
+// Last Modified On : 03-28-2013
 // ***********************************************************************
 #endregion
-
 namespace DemoApplication.Core.Common.Membership.PasswordPolicies
 {
     #region

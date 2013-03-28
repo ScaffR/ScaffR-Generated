@@ -5,7 +5,7 @@
 // Created	: 02-24-2013
 // 
 // Last Modified By : Rod Johnson
-// Last Modified On : 03-26-2013
+// Last Modified On : 03-28-2013
 // ***********************************************************************
 #endregion
 namespace DemoApplication.Models.Users
@@ -63,10 +63,13 @@ namespace DemoApplication.Models.Users
         [CKEditor(ToolBar = CKEditorToolbar.Full)]
         public virtual string Comment { get; set; }
 
-        [Display(Name = "Approved")]
-        public virtual bool IsApproved { get; set; }
+        [Display(Name = "Is Account Verified?")]
+        public virtual bool IsAccountVerified { get; set; }
 
-        [Display(Name = "Locked Out")]
-        public virtual bool IsLockedOut { get; set; }
+        [Display(Name = "Can User Login?")]
+        public virtual bool IsLoginAllowed { get; set; }
+
+        [Display(Name = "Is Account Closed?")]
+        public virtual bool IsAccountClosed { get; set; }
     }
 }

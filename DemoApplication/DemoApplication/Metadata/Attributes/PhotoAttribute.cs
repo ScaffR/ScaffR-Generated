@@ -5,7 +5,7 @@
 // Created	: 03-09-2013
 // 
 // Last Modified By : Rod Johnson
-// Last Modified On : 03-26-2013
+// Last Modified On : 03-28-2013
 // ***********************************************************************
 #endregion
 namespace DemoApplication.Metadata.Attributes
@@ -19,7 +19,7 @@ namespace DemoApplication.Metadata.Attributes
 
     public class PhotoAttribute : UIHintAttribute, IMetadataAware
     {
-        private string _size;
+        private readonly string _size;
 
         public PhotoAttribute(string size) : base("Photo")
         {
