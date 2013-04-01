@@ -41,12 +41,6 @@
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
-    <Reference Include="Log4Mongo">
-      <HintPath>..\packages\log4mongo-net.0.8.3\lib\net40\Log4Mongo.dll</HintPath>
-    </Reference>
-    <Reference Include="log4net">
-      <HintPath>..\packages\log4net.2.0.0\lib\net40-full\log4net.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
@@ -130,19 +124,22 @@
     <Compile Include="Configuration\AppConfig.Site.cs" />
     <Compile Include="Data\DatabaseFactory.cs" />
     <Compile Include="Extensions\SessionExtensions.cs" />
+    <Compile Include="Logging\CodeFirstLogProvider.cs" />
+    <Compile Include="Logging\EmailLogProvider.cs" />
+    <Compile Include="Logging\LoggingRepository.cs" />
     <Compile Include="Membership\MembershipElement.cs" />
     <Compile Include="Configuration\Pipeline\PipelineConfigurationElement.cs" />
     <Compile Include="Configuration\Site\SiteElement.cs" />
     <Compile Include="Data\BaseContext.cs" />
     <Compile Include="Data\BaseRepository.cs" />
     <Compile Include="Data\DataContext.cs" />
-    <Compile Include="Migrations\201303280545403_Initial Data Model.cs" />
-    <Compile Include="Migrations\201303280545403_Initial Data Model.Designer.cs">
-      <DependentUpon>201303280545403_Initial Data Model.cs</DependentUpon>
+    <Compile Include="Migrations\201304011248250_Origin.cs" />
+    <Compile Include="Migrations\201304011248250_Origin.Designer.cs">
+      <DependentUpon>201304011248250_Origin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201303280558173_Removed userclaims from datacontext.cs" />
-    <Compile Include="Migrations\201303280558173_Removed userclaims from datacontext.Designer.cs">
-      <DependentUpon>201303280558173_Removed userclaims from datacontext.cs</DependentUpon>
+    <Compile Include="Migrations\201304011321411_Extended logging fields.cs" />
+    <Compile Include="Migrations\201304011321411_Extended logging fields.Designer.cs">
+      <DependentUpon>201304011321411_Extended logging fields.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Membership\MembershipDataSeeder.cs" />
@@ -188,11 +185,11 @@
     <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201303280545403_Initial Data Model.resx">
-      <DependentUpon>201303280545403_Initial Data Model.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201304011248250_Origin.resx">
+      <DependentUpon>201304011248250_Origin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201303280558173_Removed userclaims from datacontext.resx">
-      <DependentUpon>201303280558173_Removed userclaims from datacontext.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201304011321411_Extended logging fields.resx">
+      <DependentUpon>201304011321411_Extended logging fields.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

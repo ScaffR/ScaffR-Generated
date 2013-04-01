@@ -13,8 +13,10 @@ namespace DemoApplication.Models.Users
     #region
 
     using System;
+    using System.Collections.Generic;
     using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
+    using Core.Model;
     using Metadata.Attributes;
 
     #endregion
@@ -71,5 +73,15 @@ namespace DemoApplication.Models.Users
 
         [Display(Name = "Is Account Closed?")]
         public virtual bool IsAccountClosed { get; set; }
+    }
+
+    public class UserHistory : UserViewModel
+    {
+        public UserHistory()
+        {
+            Logs = new List<Log>();
+        }
+
+        public IList<Log> Logs { get; set; }
     }
 }

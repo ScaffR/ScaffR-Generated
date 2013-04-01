@@ -12,6 +12,7 @@ namespace DemoApplication.Controllers.Users
 {
     #region
 
+    using System.Linq;
     using System.Web.Mvc;
     using Models.Users;
     using Omu.ValueInjecter;
@@ -30,9 +31,11 @@ namespace DemoApplication.Controllers.Users
         {
             var user = UserService.GetByID(id);
 
-            var model = new UserViewModel();
+            var model = new UserHistory();
             model.InjectFrom<UnflatLoopValueInjection>(user);
             model.Username = user.Username;
+
+            model.Logs = _logging.Find(x => x.Username == user.Username && x.Tenant == user.Tenant).OrderByDescending(x=>x.Created).ToList();
 
             return View(model);
         }       

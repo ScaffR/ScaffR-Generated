@@ -5,13 +5,13 @@ namespace DemoApplication.Infrastructure.Migrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    public sealed partial class InitialDataModel : IMigrationMetadata
+    public sealed partial class Extendedloggingfields : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialDataModel));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Extendedloggingfields));
         
         string IMigrationMetadata.Id
         {
-            get { return "201303280545403_Initial Data Model"; }
+            get { return "201304011321411_Extended logging fields"; }
         }
         
         string IMigrationMetadata.Source

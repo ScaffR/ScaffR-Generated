@@ -71,13 +71,6 @@
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
-    <Reference Include="Log4Mongo">
-      <HintPath>..\packages\log4mongo-net.0.8.3\lib\net40\Log4Mongo.dll</HintPath>
-    </Reference>
-    <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\log4net.2.0.0\lib\net40-full\log4net.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.SqlServer.Types, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -1344,9 +1337,6 @@
     <Content Include="Content\less\global\components\login.less" />
     <Content Include="Content\less\global\components\widgets.less" />
     <Content Include="Content\less\global\error.less" />
-    <Content Include="Config\log4net\text.config" />
-    <Content Include="Config\log4net\mssql.config" />
-    <Content Include="Config\log4net\mongo.config" />
     <Content Include="Content\less\global\containers\header.less" />
     <None Include="Properties\PublishProfiles\staging.pubxml" />
     <Content Include="Views\Users\Manager.cshtml" />

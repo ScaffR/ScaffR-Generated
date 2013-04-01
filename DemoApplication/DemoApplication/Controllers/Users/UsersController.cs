@@ -14,6 +14,7 @@ namespace DemoApplication.Controllers.Users
 
     using System.Web.Mvc;
     using Core.Interfaces.Service;
+    using Core.Model;
 
     #endregion
 
@@ -24,15 +25,16 @@ namespace DemoApplication.Controllers.Users
     public partial class UsersController : Controller
     {
         protected readonly IUserAccountService UserService;
+        private readonly IService<Log> _logging;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="UsersController"/> class.
         /// </summary>
         /// <param name="userService">The user service.</param>
-        public UsersController(IUserAccountService userService)
+        public UsersController(IUserAccountService userService, IService<Log> logging)
         {
             UserService = userService;
+            _logging = logging;
         }
-
     }
 }

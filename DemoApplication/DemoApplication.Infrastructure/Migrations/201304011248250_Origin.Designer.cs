@@ -5,13 +5,13 @@ namespace DemoApplication.Infrastructure.Migrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    public sealed partial class Removeduserclaimsfromdatacontext : IMigrationMetadata
+    public sealed partial class Origin : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Removeduserclaimsfromdatacontext));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Origin));
         
         string IMigrationMetadata.Id
         {
-            get { return "201303280558173_Removed userclaims from datacontext"; }
+            get { return "201304011248250_Origin"; }
         }
         
         string IMigrationMetadata.Source

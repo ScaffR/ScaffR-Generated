@@ -50,8 +50,8 @@ namespace DemoApplication.Infrastructure.Data
         {
             foreach (var entity in entities)
             {
-                entity.Updated = DateTime.Now;
-                entity.Created = !IsPersistent(entity) ? DateTime.Now : entity.Created;
+                entity.Updated = DateTime.UtcNow;
+                entity.Created = !IsPersistent(entity) ? DateTime.UtcNow : entity.Created;
             }
         }
 

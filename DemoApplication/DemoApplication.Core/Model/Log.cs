@@ -18,26 +18,34 @@ namespace DemoApplication.Core.Model
     #endregion
 
     [DisplayColumn("Log")]
-    public class Log 
+    public class Log : DomainObject
     {
-        [Key]
-        public virtual int LogId { get; set; }
+        public string Message { get; set; }
 
-        public virtual DateTime? Date { get; set; }
+        public string MachineName { get; set; }
 
-        [StringLength(255)]
-        public virtual string Thread { get; set; }
+        public string Details { get; set; }
 
-        [StringLength(50)]
-        public virtual string Level { get; set; }
+        public string EventType { get; set; }
 
-        [StringLength(255)]
-        public virtual string Logger { get; set; }
+        public decimal EventSequence { get; set; }
 
-        [StringLength(4000)]
-        public virtual string Message { get; set; }
+        public decimal EventOccurrence { get; set; }
 
-        [StringLength(2000)]
-        public virtual string Exception { get; set; }
+        public string RequestUrl { get; set; }
+
+        public int EventCode { get; set; }
+
+        public string ExceptionType { get; set; }
+
+        public int EventDetailCode { get; set; }
+
+        public string ApplicationPath { get; set; }
+
+        public string ApplicationVirtualPath { get; set; }
+
+        public string Tenant { get; set; }
+
+        public string Username { get; set; }
     }
 }

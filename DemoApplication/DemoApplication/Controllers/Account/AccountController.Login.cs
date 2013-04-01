@@ -13,6 +13,7 @@ namespace DemoApplication.Controllers.Account
     #region
 
     using System.Web.Mvc;
+    using Core.Common.Membership;
     using Extensions.ModelStateHelpers;
     using Filters;
     using Models.Account;
@@ -58,6 +59,9 @@ namespace DemoApplication.Controllers.Account
                     {
                         return RedirectToAction("ChangePassword", "Account");
                     }
+
+                    new MembershipEvent(MembershipEventCode.UserLogin, user).Raise();
+
                     if (Url.IsLocalUrl(model.ReturnUrl))
                     {
                         return Redirect(model.ReturnUrl);

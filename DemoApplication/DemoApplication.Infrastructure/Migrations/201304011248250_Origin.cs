@@ -1,40 +1,12 @@
-#region credits
-// ***********************************************************************
-// Assembly	: DemoApplication.Infrastructure
-// Author	: Rod Johnson
-// Created	: 03-27-2013
-// 
-// Last Modified By : Rod Johnson
-// Last Modified On : 03-28-2013
-// ***********************************************************************
-#endregion
 namespace DemoApplication.Infrastructure.Migrations
 {
-    #region
-
+    using System;
     using System.Data.Entity.Migrations;
-
-    #endregion
-
-    public partial class InitialDataModel : DbMigration
+    
+    public partial class Origin : DbMigration
     {
         public override void Up()
         {
-            CreateTable(
-                "dbo.UserClaims",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        UserId = c.Int(nullable: false),
-                        Type = c.String(maxLength: 150),
-                        Value = c.String(maxLength: 150),
-                        Created = c.DateTime(),
-                        Updated = c.DateTime(),
-                    })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Users", t => t.UserId)
-                .Index(t => t.UserId);
-            
             CreateTable(
                 "dbo.Users",
                 c => new
@@ -67,18 +39,31 @@ namespace DemoApplication.Infrastructure.Migrations
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
+                "dbo.UserClaims",
+                c => new
+                    {
+                        UserId = c.Int(nullable: false),
+                        Type = c.String(nullable: false, maxLength: 150),
+                        Value = c.String(nullable: false, maxLength: 150),
+                    })
+                .PrimaryKey(t => new { t.UserId, t.Type, t.Value })
+                .ForeignKey("dbo.Users", t => t.UserId)
+                .Index(t => t.UserId);
+            
+            CreateTable(
                 "dbo.Logs",
                 c => new
                     {
-                        LogId = c.Int(nullable: false, identity: true),
-                        Date = c.DateTime(),
+                        Id = c.Int(nullable: false, identity: true),
                         Thread = c.String(maxLength: 255),
                         Level = c.String(maxLength: 50),
                         Logger = c.String(maxLength: 255),
                         Message = c.String(maxLength: 4000),
                         Exception = c.String(maxLength: 2000),
+                        Created = c.DateTime(),
+                        Updated = c.DateTime(),
                     })
-                .PrimaryKey(t => t.LogId);
+                .PrimaryKey(t => t.Id);
             
         }
         
@@ -87,8 +72,8 @@ namespace DemoApplication.Infrastructure.Migrations
             DropIndex("dbo.UserClaims", new[] { "UserId" });
             DropForeignKey("dbo.UserClaims", "UserId", "dbo.Users");
             DropTable("dbo.Logs");
-            DropTable("dbo.Users");
             DropTable("dbo.UserClaims");
+            DropTable("dbo.Users");
         }
     }
 }

@@ -32,12 +32,14 @@ namespace DemoApplication.DependencyResolution
     using Core.Interfaces.Photos;
     using Core.Interfaces.Service;
     using Core.Interfaces.Site;
+    using Core.Model;
     using Core.Services;
     using Dropdowns;
     using Dropdowns.Dropdowns;
     using Infrastructure.Configuration;
     using Infrastructure.Data;
     using Infrastructure.Eventing;
+    using Infrastructure.Logging;
     using Infrastructure.Membership;
     using Infrastructure.Notifications;
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
@@ -97,6 +99,9 @@ namespace DemoApplication.DependencyResolution
             kernel.Bind<IUnitOfWork>().To<UnitOfWork>().InRequestScope();
             kernel.Bind<IDatabaseFactory>().To<DatabaseFactory>().InRequestScope();
             kernel.Bind<IMessageBus>().ToConstant(MessageBus.Instance).InSingletonScope();
+
+            kernel.Bind<IRepository<Log>>().To<LoggingRepository>().InRequestScope();
+            kernel.Bind<IService<Log>>().To<LoggingService>().InRequestScope();
 
             // security
             kernel.Bind<IAuthenticationService>().To<ClaimsAuthenticationService>().InRequestScope();

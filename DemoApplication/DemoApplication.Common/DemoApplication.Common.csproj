@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -41,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Crypto\CryptoHelper.cs" />
     <Compile Include="Crypto\System.Web.Helpers.Crypto.cs" />
+    <Compile Include="Extensions\ConfigExtensions.cs" />
     <Compile Include="Extensions\DisposableExtensions.cs" />
     <Compile Include="Extensions\EnumExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
