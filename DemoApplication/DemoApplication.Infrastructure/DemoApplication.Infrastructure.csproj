@@ -77,6 +77,7 @@
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
@@ -122,6 +123,7 @@
     <Compile Include="Configuration\AppConfig.Membership.cs" />
     <Compile Include="Configuration\AppConfig.Photos.cs" />
     <Compile Include="Configuration\AppConfig.Site.cs" />
+    <Compile Include="Configuration\Storage\StorageElement.cs" />
     <Compile Include="Data\DatabaseFactory.cs" />
     <Compile Include="Extensions\SessionExtensions.cs" />
     <Compile Include="Logging\CodeFirstLogProvider.cs" />
@@ -166,9 +168,18 @@
     <Compile Include="Photos\Providers\FileSystemProvider.cs" />
     <Compile Include="Sitemap\External\HttpContextMethodOverrider.cs" />
     <Compile Include="Sitemap\External\HttpRequestMethodOverrider.cs" />
-    <Compile Include="Storage\Providers\SessionStorageProvider.cs" />
+    <Compile Include="Storage\AzureStorageProvider.cs" />
+    <Compile Include="Storage\FilesStatus.cs" />
+    <Compile Include="Storage\FileStorageProvider.cs" />
+    <Compile Include="Storage\IFilePreparer.cs" />
+    <Compile Include="Storage\IFileSaver.cs" />
+    <Compile Include="Storage\PngFilePreparer.cs" />
+    <Compile Include="Storage\StorageManager.cs" />
+    <Compile Include="Storage\StorageProvider.cs" />
+    <Compile Include="Storage\StorageProviderCollection.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration\AppConfig.Storage.cs" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

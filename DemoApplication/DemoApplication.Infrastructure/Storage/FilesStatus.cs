@@ -8,12 +8,15 @@
 // Last Modified On : 03-28-2013
 // ***********************************************************************
 #endregion
-namespace DemoApplication.Upload
+
+using System;
+using System.IO;
+
+namespace DemoApplication.Infrastructure.Storage
 {
     #region
 
-    using System;
-    using System.IO;
+    
 
     #endregion
 
