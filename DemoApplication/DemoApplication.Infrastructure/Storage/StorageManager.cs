@@ -100,7 +100,7 @@ namespace DemoApplication.Infrastructure.Storage
 
         public static void ListCurrentFiles(HttpContext context)
         {
-            _provider.DeliverFile(context);
+            Provider.DeliverFile(context);
         }
     }
 }

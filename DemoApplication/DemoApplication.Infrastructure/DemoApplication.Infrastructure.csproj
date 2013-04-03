@@ -177,6 +177,7 @@
     <Compile Include="Storage\StorageManager.cs" />
     <Compile Include="Storage\StorageProvider.cs" />
     <Compile Include="Storage\StorageProviderCollection.cs" />
+    <Compile Include="Storage\UploadHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration\AppConfig.Storage.cs" />
