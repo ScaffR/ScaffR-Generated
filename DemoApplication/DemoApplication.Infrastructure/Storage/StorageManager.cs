@@ -102,5 +102,10 @@ namespace DemoApplication.Infrastructure.Storage
         {
             Provider.DeliverFile(context);
         }
+
+        public static FilesStatus UploadSingleFile(HttpPostedFile file)
+        {
+            return Provider.UploadSingleFile(file);
+        }
     }
 }

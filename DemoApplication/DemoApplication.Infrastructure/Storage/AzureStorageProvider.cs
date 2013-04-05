@@ -46,5 +46,10 @@ namespace DemoApplication.Infrastructure.Storage
         {
             throw new System.NotImplementedException();
         }
+
+        public override FilesStatus UploadSingleFile(HttpPostedFile file)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

@@ -9,14 +9,12 @@
 // ***********************************************************************
 #endregion
 
-using System;
-using System.IO;
-
 namespace DemoApplication.Infrastructure.Storage
 {
     #region
 
-    
+    using System;
+    using System.IO;
 
     #endregion
 
@@ -65,7 +63,7 @@ namespace DemoApplication.Infrastructure.Storage
 
         private string EncodeFile(string fileName)
         {
-            return Convert.ToBase64String(System.IO.File.ReadAllBytes(fileName));
+            return Convert.ToBase64String(File.ReadAllBytes(fileName));
         }
 
         static double ConvertBytesToMegabytes(long bytes)

@@ -9,14 +9,12 @@
 // ***********************************************************************
 #endregion
 
-using System.Collections.Generic;
-using System.Web;
-
 namespace DemoApplication.Infrastructure.Storage
 {
     #region
 
-    
+    using System.Collections.Generic;
+    using System.Web;
 
     #endregion
 

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -46,19 +47,33 @@ namespace DemoApplication.Infrastructure.Storage
             status.Add(new FilesStatus(new FileInfo(fullName)));
         }
 
+        public override FilesStatus UploadSingleFile(HttpPostedFile file)
+        {
+            string fullName = Path.GetFileName(file.FileName);
+            if (fullName != null)
+            {
+                var path = Path.Combine(_storageRoot, fullName);
+
+                file.SaveAs(path);
+            
+                return new FilesStatus(fullName, file.ContentLength, path);
+            }
+            throw new Exception();
+        }
+
+        public void UploadWholeFileEx(HttpFileCollection files, List<FilesStatus> status)
+        {
+            for (var i = 0; i< files.Count; i++)
+            {
+                HttpPostedFile file = files[i];
+
+                status.Add(UploadSingleFile(file));
+            }
+        }
+
         public override void UploadWholeFile(HttpContext context, List<FilesStatus> statuses)
         {
-            for (int i = 0; i < context.Request.Files.Count; i++)
-            {
-                var file = context.Request.Files[i];
-
-                var fullPath = Path.Combine(_storageRoot, Path.GetFileName(file.FileName));
-
-                file.SaveAs(fullPath);
-
-                string fullName = Path.GetFileName(file.FileName);
-                statuses.Add(new FilesStatus(fullName, file.ContentLength, fullPath));
-            }
+            UploadWholeFileEx(context.Request.Files, statuses);
         }
 
         public override void UploadFile(HttpContext context)

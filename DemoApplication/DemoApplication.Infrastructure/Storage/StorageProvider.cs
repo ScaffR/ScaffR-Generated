@@ -26,5 +26,6 @@ namespace DemoApplication.Infrastructure.Storage
         public abstract void DeliverFile(HttpContext context);
         public abstract void DeleteFile(HttpContext context);
         public abstract void ListCurrentFiles(HttpContext context);
+        public abstract FilesStatus UploadSingleFile(HttpPostedFile file);
     }
 }
