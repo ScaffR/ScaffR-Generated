@@ -128,7 +128,9 @@
     <Compile Include="Extensions\SessionExtensions.cs" />
     <Compile Include="Logging\CodeFirstLogProvider.cs" />
     <Compile Include="Logging\EmailLogProvider.cs" />
+    <Compile Include="Logging\ExceptionCodes.cs" />
     <Compile Include="Logging\LoggingRepository.cs" />
+    <Compile Include="Logging\WebErrorEventEx.cs" />
     <Compile Include="Membership\MembershipElement.cs" />
     <Compile Include="Configuration\Pipeline\PipelineConfigurationElement.cs" />
     <Compile Include="Configuration\Site\SiteElement.cs" />

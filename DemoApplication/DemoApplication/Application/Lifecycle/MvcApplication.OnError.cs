@@ -8,6 +8,9 @@
 // Last Modified On : 03-28-2013
 // ***********************************************************************
 #endregion
+
+using DemoApplication.Infrastructure.Logging;
+
 namespace DemoApplication.Application
 {
     #region
@@ -20,11 +23,14 @@ namespace DemoApplication.Application
 	{
         protected void Application_Error(object sender, EventArgs e)
         {
+            var ex = Server.GetLastError();
+            new WebErrorEventEx(ex, this).Raise();                         
+
             //var httpContext = ((MvcApplication)sender).Context;
             //var currentController = " ";
             //var currentAction = " ";
             //var currentRouteData = RouteTable.Routes.GetRouteData(new HttpContextWrapper(httpContext));
-            
+
             //if (currentRouteData != null)
             //{
             //    if (currentRouteData.Values["controller"] != null && !String.IsNullOrEmpty(currentRouteData.Values["controller"].ToString()))
