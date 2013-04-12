@@ -16,6 +16,7 @@ namespace DemoApplication.Application
     #region
 
     using System;
+    using System.Web;
 
     #endregion
 
@@ -24,7 +25,9 @@ namespace DemoApplication.Application
         protected void Application_Error(object sender, EventArgs e)
         {
             var ex = Server.GetLastError();
-            new WebErrorEventEx(ex, this).Raise();                         
+            new WebErrorEventEx(ex, this).Raise();
+
+            
 
             //var httpContext = ((MvcApplication)sender).Context;
             //var currentController = " ";

@@ -1,4 +1,5 @@
-﻿@{
+﻿@model HandleErrorInfo
+@{
     ViewBag.Title = "Server Error";
     ViewBag.BodyClass = "error-page";
 }
@@ -10,7 +11,7 @@
             </div>
             <div class="offset1 span9">
                 <h1>Server Error <span>:(</span></h1>
-                <p class="text-error">Sorry, but an error occurred.</p>    
+                <p class="text-error">Sorry, but an error occurred.</p>
             </div>
         </div>
         <div class="row-fluid">
@@ -18,7 +19,7 @@
         </div>
         <div class="row-fluid">
             <div class="span12">
-               @* @if (Model.Exception != null )
+                @if (Model != null && Model.Exception != null)
                 {
                     <div class="nav-collapse collapse">
                         <ul>
@@ -27,8 +28,8 @@
                             <li>Message: @Model.Exception.Message</li>
                         </ul>
                     </div>
-                }*@
-            </div>   
+                }
+            </div>
         </div>
     </div>
 </div>

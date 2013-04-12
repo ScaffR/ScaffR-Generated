@@ -205,8 +205,14 @@
     <Compile Include="Controllers\Account\AccountController.Register.cs" />
     <Compile Include="Controllers\Account\AccountController.Claims.cs" />
     <Compile Include="Controllers\Account\AccountController.Logout.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\Home\HomeController.About.cs" />
+    <Compile Include="Extensions\ErrorHandlingHelpers\ActionInvokerWrapper.cs" />
+    <Compile Include="Extensions\ErrorHandlingHelpers\ControllerFactoryWrapper.cs" />
+    <Compile Include="Extensions\ErrorHandlingHelpers\NotFoundController.cs" />
+    <Compile Include="Extensions\ErrorHandlingHelpers\ErrorResult.cs" />
     <Compile Include="Filters\CustomAuthorizeAttribute.cs" />
+    <Compile Include="Filters\CustomHandleErrorAttribute.cs" />
     <Compile Include="Models\Account\ChangePasswordFromResetKeyModel.cs" />
     <Compile Include="Controllers\Components\ComponentsController.cs" />
     <Compile Include="Controllers\Components\ComponentsController.Dropdowns.cs" />
@@ -216,7 +222,6 @@
     <Compile Include="Controllers\Components\ComponentsController.FileUpload.cs" />
     <Compile Include="Controllers\Components\ComponentsController.Video.cs" />
     <Compile Include="Controllers\Components\ComponentsController.EditorTemplates.cs" />
-    <Compile Include="Controllers\Error\ErrorController.cs" />
     <Compile Include="Controllers\Home\HomeController.Admin.cs" />
     <Compile Include="Controllers\Components\ComponentsController.Logging.cs" />
     <Compile Include="Controllers\Logging\LoggingController.cs" />
@@ -1375,9 +1380,9 @@
     <Content Include="Views\Account\RegisterSuccess.cshtml" />
     <Content Include="Views\Account\RegisterConfirm.cshtml" />
     <Content Include="Views\Mailer\VerifyAccount.cshtml" />
-    <Content Include="Views\Error\AccessDenied.cshtml" />
-    <Content Include="Views\Error\Index.cshtml" />
-    <Content Include="Views\Error\NotFound.cshtml" />
+    <Content Include="Views\Shared\AccessDenied.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\NotFound.cshtml" />
     <Content Include="Views\Components\Logging.cshtml" />
     <Content Include="Views\Logging\Manage.cshtml" />
     <None Include="Sitemaps\MvcSiteMapSchema.xsd">

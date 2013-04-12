@@ -4,14 +4,16 @@
 // Author	: Rod Johnson
 // Created	: 03-09-2013
 // 
-// Last Modified By : Rod Johnson
-// Last Modified On : 03-28-2013
+// Last Modified By : Marko Ilievski
+// Last Modified On : 04-12-2013
 // ***********************************************************************
 #endregion
+
 namespace DemoApplication.Application.Startup
 {
     #region
 
+    using System.Web;
     using System.Web.Mvc;
     using System.Web.Routing;
 
@@ -21,6 +23,14 @@ namespace DemoApplication.Application.Startup
     {
         public static void Routes()
         {
+            // Allows to execute "/notfound" when requesting things like /bin or /App_Data.
+            RouteTable.Routes.MapRoute(
+                name: "NotFound",
+                url: "notfound",
+                defaults: new RouteValueDictionary(new { controller = "NotFound", action = "NotFound" }),
+                constraints: new RouteValueDictionary(new { incoming = new IncomingRequestRouteConstraint() })
+            );
+
             RouteTable.Routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             RouteTable.Routes.LowercaseUrls = true;
@@ -30,6 +40,20 @@ namespace DemoApplication.Application.Startup
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+            RouteTable.Routes.MapRoute(
+                "CatchAll",
+                "{*url}",
+                new { controller = "NotFound", action = "NotFound" }
+            );
+        }
+
+        class IncomingRequestRouteConstraint : IRouteConstraint
+        {
+            public bool Match(HttpContextBase httpContext, Route route, string parameterName, RouteValueDictionary values, RouteDirection routeDirection)
+            {
+                return routeDirection == RouteDirection.IncomingRequest;
+            }
         }
     }
 }

@@ -4,8 +4,8 @@
 // Author	: Rod Johnson
 // Created	: 03-09-2013
 // 
-// Last Modified By : Rod Johnson
-// Last Modified On : 03-28-2013
+// Last Modified By : Marko Ilievski
+// Last Modified On : 04-12-2013
 // ***********************************************************************
 #endregion
 #region
@@ -33,7 +33,7 @@ namespace DemoApplication.Application.Startup
         /// </summary>
         public static void ActionFilters()
         {
-            GlobalFilters.Filters.Add(new HandleErrorAttribute());
+            GlobalFilters.Filters.Add(new CustomHandleErrorAttribute());
             GlobalFilters.Filters.Add(new CustomAuthorizeAttribute());
             GlobalFilters.Filters.Add(new FillDropDowns());
             GlobalFilters.Filters.Add(new ShowPageHeadingText(true));

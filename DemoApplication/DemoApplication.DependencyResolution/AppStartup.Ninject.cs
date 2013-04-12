@@ -4,14 +4,12 @@
 // Author	: Rod Johnson
 // Created	: 03-19-2013
 // 
-// Last Modified By : Rod Johnson
-// Last Modified On : 03-28-2013
+// Last Modified By : Marko Ilievski
+// Last Modified On : 04-12-2013
 // ***********************************************************************
 #endregion
 #region
-
 using DemoApplication.DependencyResolution;
-
 #endregion
 
 [assembly: WebActivator.PreApplicationStartMethod(typeof(AppStartup), "Start")]
@@ -83,8 +81,13 @@ namespace DemoApplication.DependencyResolution
             var kernel = new StandardKernel();
             kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
             kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
-            DependencyResolver.SetResolver(new NinjectResolver(kernel));  
-            ControllerBuilder.Current.SetControllerFactory(new NinjectControllerFactory(kernel));
+
+            // This is needed due to changed dependency resolution for WebAPI
+            DependencyResolver.SetResolver(new NinjectResolver(kernel));
+
+            // We don't need this, plus it messes up when controller is not found
+            //ControllerBuilder.Current.SetControllerFactory(new NinjectControllerFactory(kernel));
+
             RegisterServices(kernel);
             return kernel;
         }

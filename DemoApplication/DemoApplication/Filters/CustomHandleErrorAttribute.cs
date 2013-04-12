@@ -2,10 +2,10 @@
 // ***********************************************************************
 // Assembly	: DemoApplication
 // Author	: Marko Ilievski
-// Created	: 04-05-2013
+// Created	: 04-12-2013
 // 
 // Last Modified By : Marko Ilievski
-// Last Modified On : 04-05-2013
+// Last Modified On : 04-12-2013
 // ***********************************************************************
 #endregion
 
@@ -13,54 +13,46 @@ namespace DemoApplication.Filters
 {
     #region
 
-    using System.Web;
-    using System.Web.Management;
+    using System;
+    using System.Net;
     using System.Web.Mvc;
+    using Extensions.ErrorHandlingHelpers;
 
     #endregion
 
-    internal sealed class CustomHandleErrorAttribute : HandleErrorAttribute
+    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, Inherited = true, AllowMultiple = true)]
+    public class CustomHandleErrorAttribute : FilterAttribute, IExceptionFilter
     {
-        public override void OnException(ExceptionContext context)
+        public virtual void OnException(ExceptionContext filterContext)
         {
-            base.OnException(context);
-
-            if (context.ExceptionHandled) // if unhandled, will be logged anyhow
-                return;
-
-            context.ExceptionHandled = true;
-
-            if (context.HttpContext.Request.IsAjaxRequest())
+            if (filterContext == null)
             {
-                context.Result = new HttpStatusCodeResult(550, "Sorry error occured.");
+                throw new ArgumentNullException("filterContext");
+            }
+
+            if (filterContext.IsChildAction)
+            {
                 return;
             }
 
-            HttpException httpException = context.Exception as HttpException;
-
-            if (httpException == null)
+            // If custom errors are disabled, we need to let the normal ASP.NET exception handler
+            // execute so that the user can see useful debugging information.
+            if (filterContext.ExceptionHandled || !filterContext.HttpContext.IsCustomErrorEnabled)
             {
-                context.Result = new ViewResult { ViewName = "ServerError" };
                 return;
             }
 
-            switch (httpException.GetHttpCode())
-            {
-                case 404:
-                    // Page not found.
-                    context.Result = new ViewResult { ViewName = "NotFound" };
-                    break;
-                case 500:
-                    // Server error.
-                    context.Result = new ViewResult { ViewName = "ServerError" };
-                    break;
-                // Here you can handle Views to other error codes.
-                // I choose a General error template  
-                default:
-                    context.Result = new ViewResult { ViewName = "ServerError" };
-                    break;
-            }
+            string controllerName = (string)filterContext.RouteData.Values["controller"];
+            string actionName = (string)filterContext.RouteData.Values["action"];
+            HandleErrorInfo model = new HandleErrorInfo(filterContext.Exception, controllerName, actionName);
 
+            filterContext.Result = new ErrorResult
+            {
+                StatusCode = HttpStatusCode.InternalServerError,
+                ViewData = new ViewDataDictionary<HandleErrorInfo>(model)
+            };
+
+            filterContext.ExceptionHandled = true;
         }
     }
 }
