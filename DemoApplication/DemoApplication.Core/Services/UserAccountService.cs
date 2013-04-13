@@ -241,7 +241,7 @@ namespace DemoApplication.Core.Services
                 throw new ValidationException(msg + " already in use.");
             }
 
-            if (EmailExists(tenant, username))
+            if (EmailExists(tenant, email))
             {
                 Tracing.Verbose(String.Format("[UserAccountService.CreateAccount] Email already exists: {0}, {1}, {2}", tenant, username, email));
 
@@ -306,7 +306,7 @@ namespace DemoApplication.Core.Services
 
             var result = account.VerifyAccount(key);
             if (result == false)
-                container.ValidationErrors.Add("", new List<string>(){"Unable to verify account"});
+                container.ValidationErrors.Add("", new List<string>() { "Unable to verify account" });
 
             this.userRepository.SaveOrUpdate(account);
 
@@ -439,7 +439,7 @@ namespace DemoApplication.Core.Services
             var result = account.Authenticate(password, failedLoginCount, lockoutDuration);
 
             if (!result)
-                container.ValidationErrors.Add("", new List<string>() {"Unable to authenticate user"});
+                container.ValidationErrors.Add("", new List<string>() { "Unable to authenticate user" });
 
             this.userRepository.SaveOrUpdate(account);
             _unitOfWork.Commit();
@@ -447,6 +447,42 @@ namespace DemoApplication.Core.Services
             Tracing.Verbose(String.Format("[UserAccountService.Authenticate] authentication outcome: {0}, {1}, {2}", account.Tenant, account.Username, result ? "Successful Login" : "Failed Login"));
 
             return container;
+        }
+
+        public virtual void SetPassword(string username, string newPassword)
+        {
+            SetPassword(null, username, newPassword);
+        }
+
+        public virtual void SetPassword(string tenant, string username, string newPassword)
+        {
+            Tracing.Information(String.Format("[UserAccountService.SetPassword] called: {0}, {1}", tenant, username));
+
+            if (!_settings.MultiTenant)
+            {
+                tenant = _settings.DefaultTenant;
+            }
+
+            if (String.IsNullOrWhiteSpace(tenant)) throw new ValidationException("Invalid tenant.");
+            if (String.IsNullOrWhiteSpace(username)) throw new ValidationException("Invalid username.");
+            if (String.IsNullOrWhiteSpace(newPassword)) throw new ValidationException("Invalid newPassword.");
+
+            ValidatePassword(tenant, username, newPassword);
+
+            var account = this.GetByUsername(tenant, username);
+            if (account == null) throw new ValidationException("Invalid tenant and/or username.");
+
+            Tracing.Information(String.Format("[UserAccountService.SetPassword] setting new password for: {0}, {1}", tenant, username));
+
+            account.SetPassword(newPassword);
+            this.userRepository.SaveOrUpdate(account);
+
+            if (this.notificationService != null)
+            {
+                this.notificationService.SendPasswordChangeNotice(account);
+            }
+
+            _unitOfWork.Commit();
         }
 
         public virtual bool ChangePassword(
