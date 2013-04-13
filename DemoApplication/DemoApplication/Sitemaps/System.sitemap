@@ -22,7 +22,7 @@
       <mvcSiteMapNode title="Videos" controller="Components" action="Video"/>
       <mvcSiteMapNode title="Dropdown" controller="Components" action="DropDown"/>
       <mvcSiteMapNode title="Editor Templates" controller="Components" action="EditorTemplates"/>
-      <mvcSiteMapNode title="Logging" controller="Components" action="Logging"/>
+      <mvcSiteMapNode title="Exceptions" controller="Components" action="Exceptions"/>
     </mvcSiteMapNode>
 
     <mvcSiteMapNode title="Admin" controller="Home" action="Manage" imageUrl="icon-lock" key="Manage" visibility="breadcrumb">

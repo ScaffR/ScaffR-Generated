@@ -1,0 +1,8 @@
+﻿@{
+    ViewBag.Title = "Exceptions";
+}
+
+@using (Html.BeginForm("Throw500", "Components", FormMethod.Post, new{@class="form-horizontal"}))
+{
+    <button type="submit" class="btn-large btn-primary">Throw 500 Error</button>
+}

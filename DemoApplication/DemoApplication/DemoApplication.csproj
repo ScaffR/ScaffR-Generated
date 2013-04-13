@@ -206,6 +206,7 @@
     <Compile Include="Controllers\Account\AccountController.Claims.cs" />
     <Compile Include="Controllers\Account\AccountController.Logout.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\Components\ComponentsController.Exceptions.cs" />
     <Compile Include="Controllers\Home\HomeController.About.cs" />
     <Compile Include="Extensions\ErrorHandlingHelpers\ActionInvokerWrapper.cs" />
     <Compile Include="Extensions\ErrorHandlingHelpers\ControllerFactoryWrapper.cs" />
@@ -223,7 +224,6 @@
     <Compile Include="Controllers\Components\ComponentsController.Video.cs" />
     <Compile Include="Controllers\Components\ComponentsController.EditorTemplates.cs" />
     <Compile Include="Controllers\Home\HomeController.Admin.cs" />
-    <Compile Include="Controllers\Components\ComponentsController.Logging.cs" />
     <Compile Include="Controllers\Logging\LoggingController.cs" />
     <Compile Include="Controllers\Users\UsersController.History.cs" />
     <Compile Include="Controllers\Users\UsersController.Security.cs" />
@@ -1383,7 +1383,6 @@
     <Content Include="Views\Shared\AccessDenied.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\NotFound.cshtml" />
-    <Content Include="Views\Components\Logging.cshtml" />
     <Content Include="Views\Logging\Manage.cshtml" />
     <None Include="Sitemaps\MvcSiteMapSchema.xsd">
       <SubType>Designer</SubType>
@@ -1404,6 +1403,7 @@
     <Content Include="Views\Templates\SendPasswordChangeNotice.txt.cshtml" />
     <Content Include="Views\Templates\SendPasswordReset.txt.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Components\Exceptions.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
