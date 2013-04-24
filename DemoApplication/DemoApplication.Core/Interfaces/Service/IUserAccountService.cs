@@ -87,5 +87,7 @@ namespace DemoApplication.Core.Interfaces.Service
 
         bool SetProfilePicture(string tenant, string username, string pictureId);
         IValidationContainer<User> SaveOrUpdate(User user);
+
+
     }
 }

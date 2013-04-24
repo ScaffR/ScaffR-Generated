@@ -238,6 +238,9 @@
     <Compile Include="Metadata\Attributes\PhoneNumberTextboxAttribute.cs" />
     <Compile Include="Metadata\Resources\ClientValidationResources.Designer.cs" />
     <Compile Include="Metadata\Resources\ValidatorResources.Designer.cs" />
+    <Compile Include="Models\Admin\AdminHomeModel.cs" />
+    <Compile Include="Models\Common\BarGraphModel.cs" />
+    <Compile Include="Models\Common\BarGraphSection.cs" />
     <Compile Include="Models\Components\SampleDropdownModel.cs" />
     <Compile Include="Controllers\Dropdowns\DropdownController.cs" />
     <Compile Include="Controllers\Home\HomeController.Index.cs" />
@@ -1404,6 +1407,7 @@
     <Content Include="Views\Templates\SendPasswordReset.txt.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Components\Exceptions.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\BarGraphModel.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
