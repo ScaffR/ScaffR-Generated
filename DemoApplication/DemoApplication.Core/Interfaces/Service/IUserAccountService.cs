@@ -31,6 +31,8 @@ namespace DemoApplication.Core.Interfaces.Service
         User GetByEmail(string tenant, string email);
         User GetByID(int id);
         User GetByVerificationKey(string key);
+        int GetCountByDateCreatedRange(DateTime datestart, DateTime dateend);
+        int GetCountByDateCreatedRange(string tenant, DateTime datestart, DateTime dateend);
         bool UsernameExists(string username);
         bool UsernameExists(string tenant, string username);
         bool EmailExists(string email);

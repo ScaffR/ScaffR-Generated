@@ -129,6 +129,22 @@ namespace DemoApplication.Core.Services
             return account;
         }
 
+        public virtual int GetCountByDateCreatedRange(DateTime datestart, DateTime dateend)
+        {
+            return GetCountByDateCreatedRange(null, datestart, dateend);
+        }
+
+        public virtual int GetCountByDateCreatedRange(string tenant, DateTime datestart, DateTime dateend)
+        {
+            if (!_settings.MultiTenant)
+                tenant = _settings.DefaultTenant;
+
+            datestart = Convert.ToDateTime(datestart.ToString("yyyy-MM-dd 00:00:00"));
+            dateend = Convert.ToDateTime(dateend.ToString("yyyy-MM-dd 23:59:59"));
+            
+            return userRepository.GetAll().Count(x => x.Tenant == tenant && x.Created >= datestart && x.Created <= dateend);;
+        }
+
         public virtual User GetByID(int id)
         {
             var account = this.userRepository.GetById(id);
