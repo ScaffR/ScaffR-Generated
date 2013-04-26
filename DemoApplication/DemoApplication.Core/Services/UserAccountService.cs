@@ -844,7 +844,22 @@ namespace DemoApplication.Core.Services
 
         public bool SetProfilePicture(string tenant, string username, string pictureId)
         {
-            throw new NotImplementedException();
+            if (!_settings.MultiTenant)
+                tenant = _settings.DefaultTenant;
+
+            if (String.IsNullOrWhiteSpace(tenant)) return false;
+            if (String.IsNullOrWhiteSpace(username)) return false;            
+
+            // GET ACCOUNT
+            var account = this.GetByUsername(tenant, username);
+            if (account == null) return false;
+
+            // ASSIGN PHOTOID AND UPDATE ACCOUNT
+            account.PhotoId = pictureId;
+            this.userRepository.SaveOrUpdate(account);
+            _unitOfWork.Commit();
+
+            return true;
         }
 
         public IValidationContainer<User> SaveOrUpdate(User user)
