@@ -1,4 +1,5 @@
-﻿<div class="navbar navbar-inverse navbar-fixed-top">
+﻿@using DemoApplication.Infrastructure.Photos
+<div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container-fluid">
 
@@ -18,14 +19,31 @@
 
             @if (Request.IsAuthenticated)
             {
-
                 <ul class="nav pull-right">
-                    <li @Html.ActiveWhen("Profile", "Account")><a href="@Url.Action("Profile", "Account")" data-toggle="tooltip" title="Profile">
-                        <i class="icon-user"></i>@UserProfile.Current.FullName</a></li>
+                    <li @Html.ActiveWhen("Profile", "Account")>
+                        <a href="@Url.Action("Profile", "Account")" data-toggle="tooltip" title="Profile">                                                         
+                            @if (!string.IsNullOrEmpty(UserProfile.Current.PhotoId))
+                            {
+                                var photo = PhotoManager.Provider.GetPhotoResize(UserProfile.Current.PhotoId, "Thumbnail");
+                                if (photo != null)
+                                {
+                                    <img class="img-thumbnail" src="@Url.Content(photo.Url)" />
+                                }
+                                else
+                                {
+                                    <i class="icon-user"></i>
+                                }
+                            }
+                            else
+                            {
+                                <i class="icon-user"></i>
+                            }                            
+                            &nbsp;@UserProfile.Current.FullName
+                        </a>
+                    </li>
                     <li @Html.ActiveWhen("Settings", "Account")><a href="@Url.Action("ChangePassword", "Account")"  data-toggle="tooltip" title="Change Password"><i class="icon-cog"></i></a></li>
                     <li><a href="@Url.Action("LogOff", "Account")" data-toggle="tooltip" title="Signout"><i class="icon-signout"></i></a></li>
                 </ul>
-
             }
             else
             {         

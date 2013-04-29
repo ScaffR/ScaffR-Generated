@@ -129,6 +129,22 @@ namespace DemoApplication.Core.Services
             return account;
         }
 
+        public virtual int GetCountByDateCreatedRange(DateTime datestart, DateTime dateend)
+        {
+            return GetCountByDateCreatedRange(null, datestart, dateend);
+        }
+
+        public virtual int GetCountByDateCreatedRange(string tenant, DateTime datestart, DateTime dateend)
+        {
+            if (!_settings.MultiTenant)
+                tenant = _settings.DefaultTenant;
+
+            datestart = Convert.ToDateTime(datestart.ToString("yyyy-MM-dd 00:00:00"));
+            dateend = Convert.ToDateTime(dateend.ToString("yyyy-MM-dd 23:59:59"));
+            
+            return userRepository.GetAll().Count(x => x.Tenant == tenant && x.Created >= datestart && x.Created <= dateend);;
+        }
+
         public virtual User GetByID(int id)
         {
             var account = this.userRepository.GetById(id);
@@ -828,7 +844,22 @@ namespace DemoApplication.Core.Services
 
         public bool SetProfilePicture(string tenant, string username, string pictureId)
         {
-            throw new NotImplementedException();
+            if (!_settings.MultiTenant)
+                tenant = _settings.DefaultTenant;
+
+            if (String.IsNullOrWhiteSpace(tenant)) return false;
+            if (String.IsNullOrWhiteSpace(username)) return false;            
+
+            // GET ACCOUNT
+            var account = this.GetByUsername(tenant, username);
+            if (account == null) return false;
+
+            // ASSIGN PHOTOID AND UPDATE ACCOUNT
+            account.PhotoId = pictureId;
+            this.userRepository.SaveOrUpdate(account);
+            _unitOfWork.Commit();
+
+            return true;
         }
 
         public IValidationContainer<User> SaveOrUpdate(User user)

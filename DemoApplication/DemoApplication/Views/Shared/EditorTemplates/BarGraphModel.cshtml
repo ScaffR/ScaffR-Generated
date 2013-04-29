@@ -1,0 +1,22 @@
+﻿@model DemoApplication.Models.Common.BarGraphModel
+
+<h3>@Model.Title</h3>
+<br />
+<table class="table table-bordered">
+
+    @foreach (var sec in Model.Sections)
+    {
+        <tr>
+            <td width="20%">@sec.Title</td>
+            <td>
+                <div class="@sec.Class">
+                    <div class="bar" style="width: @sec.Percentage%;">
+                        &nbsp;
+                    </div>
+                </div>
+            </td>
+            <td width="10%">@sec.Number</td>
+        </tr>
+    }
+
+</table>

@@ -19,8 +19,14 @@
             <input type="file" name="File">
         </span>
 
-        <button type="submit" class="btn btn-inverse btn-large">
+        <button type="submit" name="button" value="Upload" class="btn btn-inverse btn-large">
             Upload
         </button>
+        @if (UserProfile.Current.PhotoId != null)
+        {
+            <button type="submit" name="button" value="Remove" class="btn btn-inverse btn-large">
+                Remove
+            </button>
+        }
     </div>
 }

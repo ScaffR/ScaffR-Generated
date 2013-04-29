@@ -1,4 +1,6 @@
-﻿@{
+﻿@model DemoApplication.Models.Admin.AdminHomeModel
+
+@{
     ViewBag.Title = "Manage";
 }
 
@@ -18,55 +20,4 @@
     </form>
 }
 
-<h3>User Signups</h3>
-<br />
-<table class="table table-bordered">
-    <tr>
-        <td width="20%">Today</td>
-        <td>
-            <div class="progress progress-warning">
-                <div class="bar" style="width: 25%;">
-                    &nbsp;
-									
-                </div>
-            </div>
-        </td>
-        <td width="10%">15</td>
-    </tr>
-    <tr>
-        <td>This Week</td>
-        <td>
-            <div class="progress progress-danger">
-                <div class="bar" style="width: 45%;">
-                    &nbsp;
-									
-                </div>
-            </div>
-        </td>
-        <td>45</td>
-    </tr>
-    <tr>
-        <td>This Month</td>
-        <td>
-            <div class="progress">
-                <div class="bar" style="width: 65%;">
-                    &nbsp;
-									
-                </div>
-            </div>
-        </td>
-        <td>65</td>
-    </tr>
-    <tr>
-        <td>Total Signups</td>
-        <td>
-            <div class="progress progress-success">
-                <div class="bar" style="width: 95%;">
-                    &nbsp;
-									
-                </div>
-            </div>
-        </td>
-        <td>95</td>
-    </tr>
-</table>
+@Html.EditorFor(x=>x.UserSignupModel)
