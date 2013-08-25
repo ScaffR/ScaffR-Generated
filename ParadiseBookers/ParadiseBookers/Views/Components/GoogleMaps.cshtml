@@ -1,0 +1,17 @@
+﻿@model ParadiseBookers.Models.Common.AddressModel
+
+@{
+    ViewBag.Title = "GoogleMaps";
+    Bundles.Reference("googleMaps");    
+}
+
+
+                
+@using (Html.BeginForm("GoogleMaps", "Components", FormMethod.Post))
+{
+    @Html.EditorForModel()
+
+    <div class="form-actions">
+        <button type="submit" class="btn btn-large btn-inverse">Submit</button>
+    </div>
+}

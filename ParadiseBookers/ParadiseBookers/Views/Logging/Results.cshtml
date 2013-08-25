@@ -1,0 +1,10 @@
+﻿@using ParadiseBookers.Extensions.SitemapHelpers
+@{
+    ViewBag.PageTitle = "asdf";
+}
+
+
+@section AltNav
+{
+     @Html.MvcSiteMap().Pills(SiteMap.Provider.FindSiteMapNodeFromKey("ViewLogs"), true,false)
+}

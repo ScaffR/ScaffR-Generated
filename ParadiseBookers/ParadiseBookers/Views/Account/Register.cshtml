@@ -1,0 +1,99 @@
+@model ParadiseBookers.Models.Account.RegisterModel
+@{
+    ViewBag.Title = "Create a new account";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+<div class="row-fluid">
+    <br />
+</div>
+<div class="row-fluid">
+    <div class="span6">
+        <h2>Membership Options</h2>
+
+        <table class="table table-bordered table-comparison">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th style="text-align: center; width: 25%">Free</th>
+                    <th style="text-align: center; width: 25%">Platinum</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                    Item 1/td>
+                    <td style="text-align: center">
+                        <i class="icon-check-empty"></i>
+                    </td>
+                    <td style="text-align: center">
+                        <i class="icon-check"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Item 2</td>
+                    <td style="text-align: center">
+                        <i class="icon-check-empty"></i>
+                    </td>
+                    <td style="text-align: center">
+                        <i class="icon-check"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Item 3</td>
+                    <td style="text-align: center">
+                        <i class="icon-check-empty"></i>
+                    </td>
+                    <td style="text-align: center">
+                        <i class="icon-check"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Item 4</td>
+                    <td style="text-align: center">
+                        <i class="icon-check-empty"></i>
+                    </td>
+                    <td style="text-align: center">
+                        <i class="icon-check"></i>
+                    </td>
+                </tr>
+
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td>Cost
+                    </td>
+                    <td style="text-align: center; font-weight: bold">Free
+                    </td>
+                    <td style="text-align: center">$15/mo
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+        <h3>How does it work?</h3>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ornare semper sapien. Aenean aliquam nulla eget mi lacinia placerat ac non dolor. Nam ut odio magna. Etiam id leo neque. Phasellus eget ligula ante. Aliquam erat volutpat. Morbi non tortor massa, eu venenatis enim. Ut vel urna vel nunc sollicitudin venenatis vitae vitae tortor. Duis vitae est et tortor ornare congue in vel risus. Quisque tristique arcu eu est tempor eu vulputate dui lacinia. Morbi ornare varius nisl. Duis eget turpis metus. Vestibulum vestibulum, augue vel scelerisque auctor, magna dolor dictum sapien, id fringilla nulla libero quis sem. Phasellus id tempus eros. Vestibulum accumsan hendrerit elit, id sodales ante dictum a. Etiam non ipsum metus. 
+        </p>
+    </div>
+    <div class="span6">
+
+
+
+        @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal" }))
+        {               
+            <div class="well well-registration">
+                @Html.ValidationSummary(true, "Account creation was unsuccessful. Please correct the errors and try again.", new { @class = "alert alert-block alert-error" })
+
+                <h3>Create A New Account</h3>
+
+                @Html.EditorForModel()
+
+                <div class="form-actions">
+                    <input type="submit" value="Create Account" class="btn btn-danger btn-large" />
+                </div>
+            </div>                         
+        }
+
+
+    </div>
+
+</div>

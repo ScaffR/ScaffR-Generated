@@ -1,0 +1,28 @@
+@using ParadiseBookers.Extensions.SitemapHelpers
+@{
+    Layout = "~/Views/Shared/Cassette.cshtml";
+}
+
+@Html.Partial("Header")
+
+@if (ViewBag.ShowMainMenu == true)
+{
+    @Html.MvcSiteMap("System").MainMenu(true)
+}
+
+@if (ViewBag.ShowBreadcrumb == true)
+{
+    @Html.MvcSiteMap("System").Breadcrumb()
+}
+
+@if (ViewBag.ShowAlerts == true)
+{
+    @Html.Partial("_Alert")
+}
+
+<div class="container-fluid">
+
+    @RenderBody()
+
+</div>
+

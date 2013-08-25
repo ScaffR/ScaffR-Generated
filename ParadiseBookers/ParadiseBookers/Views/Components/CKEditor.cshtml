@@ -1,0 +1,9 @@
+﻿@model ParadiseBookers.Models.Components.SampleEditorModel
+@{
+    ViewBag.Title = "CKEditor";
+}
+
+@using (Html.BeginForm("CKEditor", "Components", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    @Html.EditorForModel()
+}

@@ -1,0 +1,33 @@
+﻿@using ParadiseBookers.Infrastructure.Profiles
+@model ParadiseBookers.Core.Common.Photos.Photo
+
+@{
+    ViewBag.Title = "Update Profile Photo";
+}
+
+@using (Html.BeginForm("Photo", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="row-fluid">
+
+        <img src="@Url.Content(Model.Url)" alt="" class="img-polaroid"/>
+
+    </div>
+    <div class="form-actions">
+
+        <span class="btn btn-inverse btn-large fileinput-button">
+            <i class="icon-plus icon-white"></i>
+            <span>Choose File</span>
+            <input type="file" name="File">
+        </span>
+
+        <button type="submit" name="button" value="Upload" class="btn btn-inverse btn-large">
+            Upload
+        </button>
+        @if (UserProfile.Current.PhotoId != null)
+        {
+            <button type="submit" name="button" value="Remove" class="btn btn-inverse btn-large">
+                Remove
+            </button>
+        }
+    </div>
+}

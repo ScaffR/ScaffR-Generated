@@ -1,0 +1,5 @@
+﻿@using ParadiseBookers.Extensions.HtmlHelpers
+@using ParadiseBookers.Extensions.TempDataHelpers
+@Html.GetAlerts(AlertType.Success, AlertLocation.Top)
+@Html.GetAlerts(AlertType.Error, AlertLocation.Top)
+@Html.GetAlerts(AlertType.Info, AlertLocation.Top)

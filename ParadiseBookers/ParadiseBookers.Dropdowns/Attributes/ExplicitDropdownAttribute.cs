@@ -1,0 +1,60 @@
+#region credits
+// ***********************************************************************
+// Assembly	: DemoApplication.Dropdowns
+// Author	: Rod Johnson
+// Created	: 03-09-2013
+// 
+// Last Modified By : Rod Johnson
+// Last Modified On : 03-28-2013
+// ***********************************************************************
+#endregion
+
+using System;
+
+namespace ParadiseBookers.Dropdowns.Attributes
+{
+    #region
+
+    
+
+    #endregion
+
+    [AttributeUsage(AttributeTargets.Property, AllowMultiple = true, Inherited = false)]
+    public class ExplicitDropdownAttribute : DropDownAttribute
+    {
+        public ExplicitDropdownAttribute(): base(null, null)
+        {
+            
+        }
+    }
+
+    [AttributeUsage(AttributeTargets.Property, AllowMultiple = true, Inherited = false)]
+    public class DropdownOptionAttribute : Attribute
+    {
+        private readonly string _text;
+        private readonly string _value;
+        private readonly int _order;
+
+        public DropdownOptionAttribute(string text, string value, int order)
+        {
+            _order = order;
+            _value = value;
+            _text = text;
+        }
+
+        public string Text
+        {
+            get { return _text; }
+        }
+
+        public string Value
+        {
+            get { return _value; }
+        }
+
+        public int Order
+        {
+            get { return _order; }
+        }
+    }
+}

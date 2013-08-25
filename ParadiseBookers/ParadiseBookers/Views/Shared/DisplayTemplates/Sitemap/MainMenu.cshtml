@@ -1,0 +1,61 @@
+﻿
+@using ParadiseBookers.Extensions.SitemapHelpers
+@model ParadiseBookers.Models.Sitemap.MainMenuSitemapHelperModel
+
+@{
+    var topLevel = Model.Nodes;
+    SiteMapNodeModel activeNode = topLevel.FirstOrDefault(x => x.IsActiveNode(ViewContext));                                            
+}
+<div id="primary-nav">
+    <div>
+        <div class="container-fluid">
+            <div class="tabbable">
+                <ul class="nav nav-tabs">
+                    @foreach (var node in topLevel)
+                    {
+                        bool isActive = (node).IsActiveNode(ViewContext);
+                           
+                        <li class="nav-mainMenu @(isActive ? "active" : "")">
+
+                            @if (node.IsClickable)
+                            {
+                                <a href="@node.Url">@node.Title</a>
+                            }
+                            else
+                            {
+                                if (node.Children.Any())
+                                {
+                                <a href="@node.Children[0].Url">@node.Title</a>
+                                }
+                                else
+                                {
+                                <a>@node.Title</a> 
+                                }
+                            }
+                        </li>    
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    @if (activeNode != null)
+    {
+        <div id="sub-menu">
+            <div class="container-fluid">
+                <ul class="nav nav-pills">
+
+                    @foreach (var child in activeNode.Children)
+                    {
+                        <li class="@((child.IsCurrentNode || child.IsInCurrentPath) ? "active" : "")">
+                            <a href="@child.Url">@child.Title</a>
+                        </li>
+                    }
+
+                </ul>
+            </div>
+        </div>
+    }
+
+
+</div>

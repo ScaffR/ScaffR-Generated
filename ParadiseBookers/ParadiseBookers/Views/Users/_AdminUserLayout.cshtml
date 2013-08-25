@@ -1,0 +1,25 @@
+@using ParadiseBookers.Extensions.SitemapHelpers
+@model ParadiseBookers.Models.Users.UserViewModel
+
+@{
+    Layout = "~/Views/Shared/Basic.cshtml";
+}
+
+@section AltNav{
+
+    @Html.MvcSiteMap().Pills(SiteMap.Provider.FindSiteMapNodeFromKey("ManageUsers"), true,false)
+
+    <div class="btn-group pull-right">
+
+
+    </div>
+}
+
+
+@RenderBody()
+
+
+
+
+
+

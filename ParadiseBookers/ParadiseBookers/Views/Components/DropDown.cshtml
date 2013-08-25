@@ -1,0 +1,14 @@
+﻿@model ParadiseBookers.Models.Components.SampleDropdownModel
+
+@{
+    ViewBag.Title = "DropDown";
+}
+
+@using (Html.BeginForm("DropDown", "Components", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    @Html.EditorForModel()
+
+    <div class="form-actions">
+        <button type="submit" class="btn btn-inverse btn-large">Submit</button>
+    </div>
+}

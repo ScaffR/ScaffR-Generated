@@ -1,0 +1,6 @@
+﻿@model ParadiseBookers.Models.Components.SampleWizardModel
+
+@using (Html.BeginForm("Wizard", "Components", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    @Html.EditorForModel()
+}

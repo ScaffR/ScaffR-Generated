@@ -1,0 +1,23 @@
+﻿@model ParadiseBookers.Models.Admin.AdminHomeModel
+
+@{
+    ViewBag.Title = "Manage";
+}
+
+@section LeftColumn
+{
+    <ul class="nav nav-tabs nav-stacked">
+
+        <li>
+            <a href="./account.html">User Account</a>
+        </li>
+        <li>
+            <a href="./change_password.html">Change Password</a>
+        </li>
+    </ul>
+    <form class="well form-search">
+        <input type="text" class="search-query" style="width: 200px" placeholder="type and hit the enter key">
+    </form>
+}
+
+@Html.EditorFor(x=>x.UserSignupModel)

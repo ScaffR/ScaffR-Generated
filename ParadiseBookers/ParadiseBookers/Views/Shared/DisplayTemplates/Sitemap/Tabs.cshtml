@@ -1,0 +1,7 @@
+@model ParadiseBookers.Models.Sitemap.SitemapHelperModel
+<ul class="nav nav-tabs">
+    @foreach (var node in Model)
+    {
+        <li class="@(node.IsCurrentNode || node.IsInCurrentPath && !node.IsRootNode ? "active" : "")"><a href="@node.Url">@node.Title</a></li>
+    }
+</ul>

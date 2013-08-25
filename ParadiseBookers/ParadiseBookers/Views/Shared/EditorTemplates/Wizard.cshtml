@@ -1,0 +1,49 @@
+﻿@using ParadiseBookers.Extensions.ModelMetadataHelpers
+@using ParadiseBookers.Metadata.Attributes
+@{
+    var steps = ViewData.ModelMetadata.Properties.Where(metadata => metadata.IsPropertyVisible(ViewData.TemplateInfo) && metadata.IsPropertyWizardStep()).ToList();
+}
+
+<div id="wizard" class="accordion">
+
+    @for (var i = 0; i < steps.Count(); i++)
+    {
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                <a href="#collapse@(i)" data-parent="#wizard" data-toggle="collapse" class="accordion-toggle">Step @(i + 1):  @steps[i].GetDisplayName()
+                </a>
+            </div>
+            <div class="accordion-body collapse @(i == 0 ? "in" : "")" id="collapse@(i)">
+                <div class="accordion-inner">
+                    @Html.Editor(steps[i].PropertyName)
+                </div>
+                <div class="form-actions">
+                    @if (i < steps.Count() - 1)
+                    {
+                        <a type="button" class="btn btn-large pull-right" data-parent="#wizard" href="#collapse@(i + 1)" data-toggle="collapse">Next: @steps[i + 1].GetDisplayName()
+                            <i class="icon-chevron-right"></i>
+                        </a>
+                    }
+                    else
+                    {
+                        <button id="Comment" class="btn pull-left btn-large">
+                            <i class="icon-comment"></i>
+                            Comment
+                        </button>
+                            
+                        <button type="submit" class="btn btn-danger btn-large pull-right">
+                            <i class="icon-save"></i>
+                            Save
+                        </button>
+                    }
+
+                </div>
+            </div>
+        </div>       
+    }
+</div>
+
+
+
+
+
