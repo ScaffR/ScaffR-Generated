@@ -63,7 +63,7 @@ namespace ParadiseBookers.Controllers.Account
                 {
                     ModelState.AddModelError("", ex.Message);
                 }
-                catch (UserNotFoundException ex)
+                catch (UserNotFoundException)
                 {
                     ModelState.AddModelError("", "Error resetting password. The email might be invalid.");
                 }

@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParadiseBookers.Dropdowns",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParadiseBookers", "ParadiseBookers\ParadiseBookers.csproj", "{71FA4BC7-E0E4-45E3-ACB5-9725E8043A94}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParadiseBookers.Web", "ParadiseBookers.Web\ParadiseBookers.Web.csproj", "{7173E5AB-76AA-4F1B-9B24-C60D9C4CA393}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +63,10 @@ Global
 		{71FA4BC7-E0E4-45E3-ACB5-9725E8043A94}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{71FA4BC7-E0E4-45E3-ACB5-9725E8043A94}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{71FA4BC7-E0E4-45E3-ACB5-9725E8043A94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7173E5AB-76AA-4F1B-9B24-C60D9C4CA393}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7173E5AB-76AA-4F1B-9B24-C60D9C4CA393}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7173E5AB-76AA-4F1B-9B24-C60D9C4CA393}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7173E5AB-76AA-4F1B-9B24-C60D9C4CA393}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
