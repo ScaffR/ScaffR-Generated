@@ -14,16 +14,34 @@
       <mvcSiteMapNode title="Claims" controller="Account" action="Claims" imageUrl="icon-camera"/>
     </mvcSiteMapNode>
 
-    <mvcSiteMapNode title="Components" controller="Components" action="Index" imageUrl="icon-user" >
-      <mvcSiteMapNode title="Wizard" controller="Components" action="Wizard"/>
-      <mvcSiteMapNode title="Google Maps" controller="Components" action="GoogleMaps"/>
-      <mvcSiteMapNode title="CKEditor" controller="Components" action="CKEditor"/>
-      <mvcSiteMapNode title="File Upload" controller="Components" action="FileUpload"/>
-      <mvcSiteMapNode title="Videos" controller="Components" action="Video"/>
-      <mvcSiteMapNode title="Dropdown" controller="Components" action="DropDown"/>
-      <mvcSiteMapNode title="Editor Templates" controller="Components" action="EditorTemplates"/>
-      <mvcSiteMapNode title="Exceptions" controller="Components" action="Exceptions"/>
+    <mvcSiteMapNode title="Properties" url="~/Properties/Index" imageUrl="icon-group">
+
+      <mvcSiteMapNode title="Property List" controller="Properties" action="Manager" imageUrl="icon-group" key="ManageProperties">
+        <mvcSiteMapNode title="Details" controller="Properties" action="Details"  preservedRouteParameters="id" />
+        <mvcSiteMapNode title="Photos" controller="Properties" action="Photos"  preservedRouteParameters="id"/>
+        <mvcSiteMapNode title="Websites" controller="Properties" action="Websites"  preservedRouteParameters="id"/>
+        <mvcSiteMapNode title="Rates" controller="Properties" action="Rates"  preservedRouteParameters="id"/>
+        <mvcSiteMapNode title="Promote" controller="Properties" action="Promote"  preservedRouteParameters="id"/>
+        <mvcSiteMapNode title="Create" controller="Properties" action="Create" visibility="!*"/>
+      </mvcSiteMapNode>
+
     </mvcSiteMapNode>
+
+    <mvcSiteMapNode title="Restaurants" controller="Restaurants" action="Index" />
+    <mvcSiteMapNode title="Beaches" controller="Beaches" action="Index">
+      <mvcSiteMapNode title="Beach List" controller="Beaches" action="Manager" imageUrl="icon-group" key="ManageBeaches">
+        <mvcSiteMapNode title="Details" controller="Beaches" action="Details"  preservedRouteParameters="id" />
+        <mvcSiteMapNode title="Photos" controller="Photos" action="Photos"  preservedRouteParameters="id"/>        
+      </mvcSiteMapNode>
+      <mvcSiteMapNode title="Create" controller="Properties" action="Create" visibility="!*"/>
+    </mvcSiteMapNode>
+    <mvcSiteMapNode title="Attractions" controller="Attractions" action="Index" />
+    <mvcSiteMapNode title="Marketing" controller="Marketing" action="Index">
+      <mvcSiteMapNode title="Landing Pages" controller="LandingPages" action="Manager"/>
+    </mvcSiteMapNode>
+    <mvcSiteMapNode title="Booking" controller="Booking" action="Index" />
+    <mvcSiteMapNode title="Live Help" controller="LiveHelp" action="Index" />
+
 
     <mvcSiteMapNode title="Admin" controller="Home" action="Manage" imageUrl="icon-lock" key="Manage" visibility="breadcrumb">
       <mvcSiteMapNode title="Manage Users" controller="Users" action="Manager" imageUrl="icon-group" key="ManageUsers">

@@ -1,0 +1,21 @@
+﻿@model ParadiseBookers.Models.Beaches.BeachViewModel
+
+@{
+    ViewBag.Title = Model.Name;
+    Layout = "~/Views/Shared/Basic.cshtml";
+}
+
+@section AltNav{
+    
+    <div class="pull-left">
+         @Html.MvcSiteMap().Pills(SiteMap.Provider.FindSiteMapNodeFromKey("ManageBeaches"), true,false)
+    </div>
+
+    <div class="btn-group pull-right">
+        <a class="btn btn-inverse btn-large" href="@Url.Action("Manager")">Cancel</a>
+    </div>
+}
+
+
+@RenderBody()
+

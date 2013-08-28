@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Create";
+    Bundles.Reference("googleMaps");
+    Layout = "~/Views/Shared/Basic.cshtml";   
+}
+
+@section AltNav
+{
+    <div class="pull-right">
+        <a class="btn btn-large" href="@Url.Action("Manager")">Cancel</a>
+    </div>
+}
+
+@model ParadiseBookers.Models.Properties.PropertyViewModel
+
+@using (Html.BeginForm("Create", "Properties", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    @Html.ValidationSummary(true, "Unable to save property. Please correct the errors and try again.", new { @class = "alert alert-block alert-error" })
+
+    @Html.EditorForModel()
+
+    <div class="form-actions">
+        <input type="submit" value="Save" class="btn btn-inverse btn-large" />
+    </div>
+}

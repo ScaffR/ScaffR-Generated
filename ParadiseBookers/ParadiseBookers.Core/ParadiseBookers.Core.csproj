@@ -122,9 +122,17 @@
     <Compile Include="Extensions\DomainObjectExtensions.Validation.cs" />
     <Compile Include="Interfaces\Membership\IPasswordPolicy.cs" />
     <Compile Include="Interfaces\Notifications\INotificationService.cs" />
+    <Compile Include="Interfaces\Service\IBeachService.cs" />
     <Compile Include="Interfaces\Service\IPropertyService.cs" />
+    <Compile Include="Interfaces\Service\IPropertyServices.cs" />
+    <Compile Include="Model\Attraction.cs" />
+    <Compile Include="Model\AttractionType.cs" />
+    <Compile Include="Model\Beach.cs" />
+    <Compile Include="Model\LandingPage.cs" />
     <Compile Include="Model\LandingPages.cs" />
+    <Compile Include="Model\PhotoModel.cs" />
     <Compile Include="Model\Property.cs" />
+    <Compile Include="Model\Restaurant.cs" />
     <Compile Include="Model\User.Photo.cs" />
     <Compile Include="Model\Log.cs" />
     <Compile Include="Interfaces\Photos\IPhotoRequest.cs" />

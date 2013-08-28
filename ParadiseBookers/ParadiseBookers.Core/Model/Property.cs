@@ -17,8 +17,10 @@ namespace ParadiseBookers.Core.Model
 
     public enum FurninishingType
     {
+        [Description("Not Furnished")]
         NotFurnished,
 
+        [Description("Fully Furnished")]
         FullyFurnished
     }
 
@@ -84,5 +86,9 @@ namespace ParadiseBookers.Core.Model
         public bool BeachNearby { get; set; }
 
         public int BeachDistanceMiles { get; set; }
+
+        public User Owner { get; set; }
+
+        public string Description { get; set; }        
     }
 }

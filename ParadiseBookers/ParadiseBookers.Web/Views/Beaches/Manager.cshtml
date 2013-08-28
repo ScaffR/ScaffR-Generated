@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "Manager";
+    Layout = "~/Views/Shared/Basic.cshtml";
+}
+
+@model IList<ParadiseBookers.Core.Model.Beach>
+
+@section AltNav
+{
+    <div class="pull-right">
+        <a href="@Url.Action("Create", "Beaches")" class="btn btn-large">
+            <i class="icon-plus"></i>
+            New Beach
+        </a>
+    </div>
+
+}
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Title</th>
+            <th>Owner</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var beach in Model)
+        {
+            <tr>
+                <td>
+                    <a href="@Url.Action("Details", "Beaches", new { id = beach.Id })">@beach.Id</a>
+                </td>
+                <td>
+                    @beach.Name
+                </td>
+                <td>
+                    <a href="#">sancho</a>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>

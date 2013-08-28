@@ -11,8 +11,10 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Web.Mvc;
+using ParadiseBookers.Common.Extensions;
 
 namespace ParadiseBookers.Dropdowns.Dropdowns
 {
@@ -24,23 +26,15 @@ namespace ParadiseBookers.Dropdowns.Dropdowns
 
     public partial class Dropdowns
     {
-        /// <summary>
-        /// Fors the enum.
-        /// </summary>
-        /// <typeparam name="TEnum">The type of the T enum.</typeparam>
-        /// <param name="enumType">Type of the enum.</param>
-        /// <returns>SelectList.</returns>
-        public static SelectList ForEnum<TEnum>(TEnum enumType)
+        private static string GetDescription(object value)
         {
-            IEnumerable<TEnum> values = Enum.GetValues(typeof(TEnum)).Cast<TEnum>();
+            var field = value.GetType().GetField(value.ToString());
 
-            IEnumerable<SelectListItem> items = from value in values
-                                                select new SelectListItem
-                                                {
-                                                    Text = value.ToString(),
-                                                    Value = value.ToString()
-                                                };
-            return new SelectList(items);
+            var attributes = (DescriptionAttribute[])field.GetCustomAttributes(typeof(DescriptionAttribute), false);
+
+            var tempValue = attributes.Length > 0 ? attributes[0].Description : value.ToString();
+
+            return tempValue;
         }
 
         public static IEnumerable<SelectListItem> ForEnum(Type enumType)
@@ -48,9 +42,11 @@ namespace ParadiseBookers.Dropdowns.Dropdowns
             ICollection<SelectListItem> items = new List<SelectListItem>() { new SelectListItem { Text = "", Value = "" } };
             foreach (var value in Enum.GetValues(enumType))
             {
+
+
                 items.Add(new SelectListItem
                               {
-                                  Text = value.ToString(),
+                                  Text = GetDescription(value),
                                   Value = ((int)value).ToString()
                               });
             }

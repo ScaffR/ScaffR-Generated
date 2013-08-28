@@ -28,6 +28,7 @@ using ParadiseBookers.Infrastructure.Eventing;
 using ParadiseBookers.Infrastructure.Logging;
 using ParadiseBookers.Infrastructure.Membership;
 using ParadiseBookers.Infrastructure.Notifications;
+using ParadiseBookers.Infrastructure.Services;
 using ParadiseBookers.Security.Authentication;
 using ParadiseBookers.Security.Authorization;
 using System;
@@ -128,6 +129,9 @@ namespace ParadiseBookers.DependencyResolution
             kernel.Bind<ISiteSettings>().ToConstant(AppConfig.Instance.Site).InSingletonScope();
             kernel.Bind<IPhotoSettings>().ToConstant(AppConfig.Instance.Photos).InSingletonScope();
             kernel.Bind<IMembershipSettings>().ToConstant(AppConfig.Instance.Membership).InSingletonScope();
+
+            kernel.Bind<IPropertyService>().To<PropertyService>().InRequestScope();
+            kernel.Bind<IBeachService>().To<BeachService>().InRequestScope();
         }
 
         public class NinjectControllerFactory : DefaultControllerFactory

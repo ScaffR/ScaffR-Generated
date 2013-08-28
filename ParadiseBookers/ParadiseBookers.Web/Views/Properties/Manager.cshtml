@@ -1,0 +1,42 @@
+﻿@{
+    Layout = "~/Views/Shared/Basic.cshtml";
+}
+@model IList<ParadiseBookers.Core.Model.Property>
+
+@section AltNav
+{
+    <div class="pull-right">
+        <a href="@Url.Action("Create", "Properties")" class="btn btn-large">
+            <i class="icon-plus"></i>
+            New Property
+        </a>
+    </div>
+
+}
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Title</th>
+            <th>Owner</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var property in Model)
+        {
+            <tr>
+                <td>
+                    <a href="@Url.Action("Details", "Properties", new { id = property.Id })">@property.Id</a>
+                </td>
+                <td>
+                    @property.Name
+                </td>
+                <td>
+                    <a href="#">sancho</a>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>

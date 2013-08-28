@@ -104,6 +104,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ParadiseBookers.Common\ParadiseBookers.Common.csproj">
+      <Project>{c6f67818-d5ac-4fa0-9325-186aeef0f01b}</Project>
+      <Name>ParadiseBookers.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ParadiseBookers.Core\ParadiseBookers.Core.csproj">
       <Project>{969aef37-4abc-47c9-82e6-dabad3f60bb6}</Project>
       <Name>ParadiseBookers.Core</Name>

@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Basic.cshtml";
+}
+@section LeftColumn
+{
+    <ul class="nav nav-tabs nav-stacked">
+
+        <li>
+            <a href="@Url.Action("Profile", "Account")">User Account</a>
+        </li>
+        <li>
+            <a href="@Url.Action("Settings", "Account")">Change Password</a>
+        </li>
+    </ul>
+}

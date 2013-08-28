@@ -1,0 +1,18 @@
+﻿@model ParadiseBookers.Models.Beaches.BeachViewModel
+
+@{
+    Bundles.Reference("googleMaps");
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/Basic.cshtml";
+}
+
+@using (Html.BeginForm("Create", "Beaches", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    @Html.ValidationSummary(true, "Unable to save property. Please correct the errors and try again.", new { @class = "alert alert-block alert-error" })
+
+    @Html.EditorForModel()
+
+    <div class="form-actions">
+        <input type="submit" value="Save" class="btn btn-inverse btn-large" />
+    </div>
+}

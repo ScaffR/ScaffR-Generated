@@ -24,6 +24,16 @@ namespace ParadiseBookers.Infrastructure.Data
     {
         public DbSet<User> Users { get; set; }
 
-        public DbSet<Log> Log { get; set; }        
+        public DbSet<Log> Log { get; set; }
+
+        public DbSet<Property> Properties { get; set; }
+
+        public DbSet<Beach> Beaches { get; set; }
+
+        public DbSet<Restaurant> Restaurants { get; set; }
+
+        public DbSet<Attraction> Attractions { get; set; }
+
+        public DbSet<LandingPage> LandingPages { get; set; }
     }    
 }

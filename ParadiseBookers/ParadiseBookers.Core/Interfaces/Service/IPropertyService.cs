@@ -9,6 +9,7 @@ namespace ParadiseBookers.Core.Interfaces.Service
         void SaveChanges();
         IQueryable<Property> GetAll();
         IQueryable<Property> GetAll(string tenant);
-        User GetByID(int id);
+        Property GetByID(int id);
+        Property CreateProperty(Property property);
     }
 }

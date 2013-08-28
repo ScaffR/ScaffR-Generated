@@ -145,6 +145,18 @@
     <Compile Include="Migrations\201304011321411_Extended logging fields.Designer.cs">
       <DependentUpon>201304011321411_Extended logging fields.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201308271724167_Added Properties.cs" />
+    <Compile Include="Migrations\201308271724167_Added Properties.Designer.cs">
+      <DependentUpon>201308271724167_Added Properties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201308280241044_Added fields to property.cs" />
+    <Compile Include="Migrations\201308280241044_Added fields to property.Designer.cs">
+      <DependentUpon>201308280241044_Added fields to property.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201308280321530_Added additional entities.cs" />
+    <Compile Include="Migrations\201308280321530_Added additional entities.Designer.cs">
+      <DependentUpon>201308280321530_Added additional entities.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Membership\MembershipDataSeeder.cs" />
     <Compile Include="Data\UnitOfWork.cs" />
@@ -168,6 +180,8 @@
     <Compile Include="Profiles\UserProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Photos\Providers\FileSystemProvider.cs" />
+    <Compile Include="Services\BeachService.cs" />
+    <Compile Include="Services\PropertyService.cs" />
     <Compile Include="Sitemap\External\HttpContextMethodOverrider.cs" />
     <Compile Include="Sitemap\External\HttpRequestMethodOverrider.cs" />
     <Compile Include="Storage\AzureStorageProvider.cs" />
@@ -185,15 +199,22 @@
     <Compile Include="Configuration\AppConfig.Storage.cs" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Services\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201304011248250_Origin.resx">
       <DependentUpon>201304011248250_Origin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201304011321411_Extended logging fields.resx">
       <DependentUpon>201304011321411_Extended logging fields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201308271724167_Added Properties.resx">
+      <DependentUpon>201308271724167_Added Properties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201308280241044_Added fields to property.resx">
+      <DependentUpon>201308280241044_Added fields to property.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201308280321530_Added additional entities.resx">
+      <DependentUpon>201308280321530_Added additional entities.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
