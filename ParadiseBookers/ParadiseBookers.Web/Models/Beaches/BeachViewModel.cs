@@ -8,6 +8,7 @@ namespace ParadiseBookers.Models.Beaches
     {
         public BeachViewModel()
         {
+            // some sample change
             Location = new AddressModel()
             {
                 Address = "301 15th Street, Hood River",
